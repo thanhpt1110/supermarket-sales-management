@@ -33,8 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Guna.UI2, Version=2.0.4.5, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.5\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,24 +54,137 @@
   <ItemGroup>
     <Compile Include="DAO\CustomerDAO.cs" />
     <Compile Include="DTO\CustomerDTO.cs" />
+    <Compile Include="GUI\Account\FormAccountManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Account\FormAccountManagement.Designer.cs">
+      <DependentUpon>FormAccountManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Customer\FormCustomerManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Customer\FormCustomerManagement.Designer.cs">
+      <DependentUpon>FormCustomerManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Employee\FormEmployeeManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Employee\FormEmployeeManagement.Designer.cs">
+      <DependentUpon>FormEmployeeManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormDashboard.Designer.cs">
+      <DependentUpon>FormDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Invoice\CustomerInvoice\FormCustomerInvoiceManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Invoice\CustomerInvoice\FormCustomerInvoiceManagement.Designer.cs">
+      <DependentUpon>FormCustomerInvoiceManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Invoice\SupplierInvoice\FormSupplierInvoiceManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Invoice\SupplierInvoice\FormSupplierInvoiceManagement.Designer.cs">
+      <DependentUpon>FormSupplierInvoiceManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Product\FormProductManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Product\FormProductManagement.Designer.cs">
+      <DependentUpon>FormProductManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Product\ProductInInventory\FormProductInventoryManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Product\ProductInInventory\FormProductInventoryManagement.Designer.cs">
+      <DependentUpon>FormProductInventoryManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Product\ProductOnShelf\FormProductShelfManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Product\ProductOnShelf\FormProductShelfManagement.Designer.cs">
+      <DependentUpon>FormProductShelfManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Product\ProductType\FormProductTypeManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Product\ProductType\FormProductTypeManagement.Designer.cs">
+      <DependentUpon>FormProductTypeManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Report&amp;Statistic\FormReport&amp;Statistic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Report&amp;Statistic\FormReport&amp;Statistic.Designer.cs">
+      <DependentUpon>FormReport&amp;Statistic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Shelf\FormShelfManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Shelf\FormShelfManagement.Designer.cs">
+      <DependentUpon>FormShelfManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils\DbHelper.cs" />
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Utils\DbHelper.cs" />
+    <EmbeddedResource Include="GUI\Account\FormAccountManagement.resx">
+      <DependentUpon>FormAccountManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Customer\FormCustomerManagement.resx">
+      <DependentUpon>FormCustomerManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Employee\FormEmployeeManagement.resx">
+      <DependentUpon>FormEmployeeManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormDashboard.resx">
+      <DependentUpon>FormDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Invoice\CustomerInvoice\FormCustomerInvoiceManagement.resx">
+      <DependentUpon>FormCustomerInvoiceManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Invoice\SupplierInvoice\FormSupplierInvoiceManagement.resx">
+      <DependentUpon>FormSupplierInvoiceManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Product\FormProductManagement.resx">
+      <DependentUpon>FormProductManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Product\ProductInInventory\FormProductInventoryManagement.resx">
+      <DependentUpon>FormProductInventoryManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Product\ProductOnShelf\FormProductShelfManagement.resx">
+      <DependentUpon>FormProductShelfManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Product\ProductType\FormProductTypeManagement.resx">
+      <DependentUpon>FormProductTypeManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Report&amp;Statistic\FormReport&amp;Statistic.resx">
+      <DependentUpon>FormReport&amp;Statistic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Shelf\FormShelfManagement.resx">
+      <DependentUpon>FormShelfManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -79,6 +198,62 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="resources\sign-out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\black-gauge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\black-shelf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\black-product.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\black-invoice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\black-customer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\black-employee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\black-account.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\black-stats.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\white-caret-down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\black-caret-down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\white-gauge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\white-account.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\white-customer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\white-employee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\white-invoice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\white-product.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\white-shelf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\white-stats.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
