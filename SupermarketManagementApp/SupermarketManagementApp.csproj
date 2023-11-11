@@ -39,6 +39,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Management" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -59,6 +60,12 @@
     </Compile>
     <Compile Include="GUI\Account\FormAccountManagement.Designer.cs">
       <DependentUpon>FormAccountManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Account\FormCreateAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Account\FormCreateAccount.Designer.cs">
+      <DependentUpon>FormCreateAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Customer\FormCustomerManagement.cs">
       <SubType>Form</SubType>
@@ -140,6 +147,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Utils\DbHelper.cs" />
+    <Compile Include="Utils\FormBackground.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utils\FormBackground.Designer.cs">
+      <DependentUpon>FormBackground.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="GUI\Account\FormAccountManagement.resx">
       <DependentUpon>FormAccountManagement.cs</DependentUpon>
     </EmbeddedResource>
@@ -183,6 +196,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\FormBackground.resx">
+      <DependentUpon>FormBackground.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -254,6 +270,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\white-stats.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\silver-search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="resources\black-delete.png" />
+    <Content Include="resources\black-edit.png" />
+    <None Include="resources\grid-employee.png" />
+    <None Include="resources\grid-customer.png" />
+    <None Include="resources\grid-invoice.png" />
+    <None Include="resources\grid-product.png" />
+    <None Include="resources\grid-shelf.png" />
+    <None Include="resources\grid-edit.png" />
+    <None Include="resources\grid-delete.png" />
+    <None Include="resources\grid-account.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

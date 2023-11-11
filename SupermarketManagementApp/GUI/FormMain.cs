@@ -3,11 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using SupermarketManagementApp.Properties;
 using Guna.UI2.WinForms;
 using SupermarketManagementApp.GUI.Account;
 using SupermarketManagementApp.GUI.Report_Statistic;
@@ -21,6 +17,7 @@ using SupermarketManagementApp.GUI.Product.ProductType;
 using SupermarketManagementApp.GUI.Product.ProductInInventory;
 using SupermarketManagementApp.GUI.Product.ProductOnShelf;
 using SupermarketManagementApp.GUI;
+using SupermarketManagementApp.Properties;
 
 namespace SupermarketManagementApp
 {
@@ -35,6 +32,9 @@ namespace SupermarketManagementApp
         private void SetInitialCustom()
         {
             CloseSubMenu();
+            SetColorButton(btnDashboard);
+            btnDashboard.CustomImages.Image = Resources.white_gauge;
+            OpenChildForm(new FormDashboard());
         }
 
         #region Set color for button 
@@ -272,7 +272,7 @@ namespace SupermarketManagementApp
             CloseSubMenu();
             SetColorButton((Guna2Button)sender);
             btnManageAccount.CustomImages.Image = Resources.white_account;
-            OpenChildForm(new FormAccountManagement());
+            OpenChildForm(new FormAccountManagement(this));
         }
 
         private void btnStatistic_Click(object sender, EventArgs e)

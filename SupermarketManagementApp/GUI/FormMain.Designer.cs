@@ -33,6 +33,7 @@
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.appName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panelAccount = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnSignOut = new Guna.UI2.WinForms.Guna2ImageButton();
             this.accountName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.accountRole = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.avatar = new Guna.UI2.WinForms.Guna2CirclePictureBox();
@@ -57,7 +58,6 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.labelVersion = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.labelCopyright = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.panelAccount.SuspendLayout();
@@ -77,6 +77,7 @@
             this.panelHeader.Controls.Add(this.panelAccount);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
+            this.panelHeader.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(984, 127);
             this.panelHeader.TabIndex = 0;
@@ -115,7 +116,7 @@
             // panelAccount
             // 
             this.panelAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(0)))), ((int)(((byte)(103)))));
-            this.panelAccount.Controls.Add(this.guna2ImageButton1);
+            this.panelAccount.Controls.Add(this.btnSignOut);
             this.panelAccount.Controls.Add(this.accountName);
             this.panelAccount.Controls.Add(this.accountRole);
             this.panelAccount.Controls.Add(this.avatar);
@@ -124,6 +125,21 @@
             this.panelAccount.Name = "panelAccount";
             this.panelAccount.Size = new System.Drawing.Size(299, 127);
             this.panelAccount.TabIndex = 1;
+            // 
+            // btnSignOut
+            // 
+            this.btnSignOut.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnSignOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSignOut.HoverState.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnSignOut.Image = global::SupermarketManagementApp.Properties.Resources.sign_out;
+            this.btnSignOut.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnSignOut.ImageRotate = 0F;
+            this.btnSignOut.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnSignOut.Location = new System.Drawing.Point(224, 50);
+            this.btnSignOut.Name = "btnSignOut";
+            this.btnSignOut.PressedState.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnSignOut.Size = new System.Drawing.Size(30, 30);
+            this.btnSignOut.TabIndex = 5;
             // 
             // accountName
             // 
@@ -595,7 +611,7 @@
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(0)))), ((int)(((byte)(103)))));
             this.guna2Panel1.Controls.Add(this.labelVersion);
             this.guna2Panel1.Controls.Add(this.labelCopyright);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -610,6 +626,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelVersion.BackColor = System.Drawing.Color.Transparent;
             this.labelVersion.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelVersion.ForeColor = System.Drawing.Color.White;
             this.labelVersion.Location = new System.Drawing.Point(563, 13);
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(78, 19);
@@ -622,26 +639,12 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.labelCopyright.BackColor = System.Drawing.Color.Transparent;
             this.labelCopyright.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCopyright.ForeColor = System.Drawing.Color.White;
             this.labelCopyright.Location = new System.Drawing.Point(20, 13);
             this.labelCopyright.Name = "labelCopyright";
             this.labelCopyright.Size = new System.Drawing.Size(305, 19);
             this.labelCopyright.TabIndex = 0;
             this.labelCopyright.Text = "Copyright © 2023 by TBD Team. All rights reserved.";
-            // 
-            // guna2ImageButton1
-            // 
-            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2ImageButton1.Image = global::SupermarketManagementApp.Properties.Resources.sign_out;
-            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton1.ImageRotate = 0F;
-            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2ImageButton1.Location = new System.Drawing.Point(241, 50);
-            this.guna2ImageButton1.Name = "guna2ImageButton1";
-            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2ImageButton1.Size = new System.Drawing.Size(30, 30);
-            this.guna2ImageButton1.TabIndex = 5;
             // 
             // FormMain
             // 
@@ -702,7 +705,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel labelVersion;
         private Guna.UI2.WinForms.Guna2HtmlLabel labelCopyright;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
+        private Guna.UI2.WinForms.Guna2ImageButton btnSignOut;
     }
 }
 
