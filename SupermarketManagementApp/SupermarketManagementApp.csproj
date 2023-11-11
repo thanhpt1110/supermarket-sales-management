@@ -67,6 +67,12 @@
     <Compile Include="GUI\Account\FormCreateAccount.Designer.cs">
       <DependentUpon>FormCreateAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Account\FormUpdateAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Account\FormUpdateAccount.Designer.cs">
+      <DependentUpon>FormUpdateAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Customer\FormCustomerManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +161,9 @@
     </Compile>
     <EmbeddedResource Include="GUI\Account\FormAccountManagement.resx">
       <DependentUpon>FormAccountManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Account\FormCreateAccount.resx">
+      <DependentUpon>FormCreateAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Customer\FormCustomerManagement.resx">
       <DependentUpon>FormCustomerManagement.cs</DependentUpon>
@@ -277,6 +286,7 @@
   <ItemGroup>
     <Content Include="resources\black-delete.png" />
     <Content Include="resources\black-edit.png" />
+    <None Include="resources\supermarket-logo.png" />
     <None Include="resources\grid-employee.png" />
     <None Include="resources\grid-customer.png" />
     <None Include="resources\grid-invoice.png" />

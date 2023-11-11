@@ -27,16 +27,16 @@ namespace SupermarketManagementApp.GUI.Account
 
             InitializeComponent();
             CustomStyleGridView();
-            UpdateScrollBarValues();
             LoadGridData();
+            UpdateScrollBarValues();
         }
 
         public FormAccountManagement()
         {
             InitializeComponent();
             CustomStyleGridView();
-            UpdateScrollBarValues();
             LoadGridData();
+            UpdateScrollBarValues();
         }
 
         private void LoadGridData()
@@ -126,7 +126,7 @@ namespace SupermarketManagementApp.GUI.Account
             {
                 using (FormCreateAccount formCreateAccount = new FormCreateAccount())
                 {
-                    formBackground.Owner = formMain;
+                    // formBackground.Owner = formMain;
                     formBackground.Show();
                     formCreateAccount.Owner = formBackground;
                     formCreateAccount.ShowDialog();
@@ -161,6 +161,23 @@ namespace SupermarketManagementApp.GUI.Account
                 if (e.ColumnIndex == 4)
                 {
                     // Update
+                    FormBackground formBackground = new FormBackground(formMain);
+                    try
+                    {
+                        using (FormUpdateAccount formUpdateAccount = new FormUpdateAccount())
+                        {
+                            formBackground.Owner = formMain;
+                            formBackground.Show();
+                            formUpdateAccount.Owner = formBackground;
+                            formUpdateAccount.ShowDialog();
+                            formBackground.Dispose();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        msgBoxError.Parent = formMain;
+                        msgBoxError.Show(ex.Message, "Error");
+                    }
                 }
                 else if (e.ColumnIndex == 5)
                 {

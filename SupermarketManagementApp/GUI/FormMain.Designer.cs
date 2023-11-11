@@ -28,15 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.panelHeader = new Guna.UI2.WinForms.Guna2Panel();
             this.quote = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.appName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panelAccount = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnSignOut = new Guna.UI2.WinForms.Guna2ImageButton();
             this.accountName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.accountRole = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.avatar = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.panelMenuSidebar = new Guna.UI2.WinForms.Guna2Panel();
             this.btnStatistic = new Guna.UI2.WinForms.Guna2Button();
             this.btnManageAccount = new Guna.UI2.WinForms.Guna2Button();
@@ -45,34 +43,37 @@
             this.panelSubInvoice = new Guna.UI2.WinForms.Guna2Panel();
             this.btnManageSupplierInvoice = new Guna.UI2.WinForms.Guna2Button();
             this.btnManageCustomerInvoice = new Guna.UI2.WinForms.Guna2Button();
-            this.btnInvoice = new Guna.UI2.WinForms.Guna2Button();
             this.panelSubProduct = new Guna.UI2.WinForms.Guna2Panel();
             this.btnProductInInventory = new Guna.UI2.WinForms.Guna2Button();
             this.btnProductOnShelf = new Guna.UI2.WinForms.Guna2Button();
             this.btnManageProductType = new Guna.UI2.WinForms.Guna2Button();
             this.btnManageProduct = new Guna.UI2.WinForms.Guna2Button();
-            this.btnProduct = new Guna.UI2.WinForms.Guna2Button();
             this.btnManageShelf = new Guna.UI2.WinForms.Guna2Button();
             this.btnDashboard = new Guna.UI2.WinForms.Guna2Button();
             this.panelChildForm = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.labelVersion = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.labelCopyright = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.btnInvoice = new Guna.UI2.WinForms.Guna2Button();
+            this.btnProduct = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.btnSignOut = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.avatar = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.panelHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.panelAccount.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
             this.panelMenuSidebar.SuspendLayout();
             this.panelSubInvoice.SuspendLayout();
             this.panelSubProduct.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
             this.SuspendLayout();
             // 
             // panelHeader
             // 
             this.panelHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(0)))), ((int)(((byte)(103)))));
-            this.panelHeader.Controls.Add(this.quote);
             this.panelHeader.Controls.Add(this.guna2PictureBox1);
+            this.panelHeader.Controls.Add(this.quote);
             this.panelHeader.Controls.Add(this.appName);
             this.panelHeader.Controls.Add(this.panelAccount);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
@@ -87,27 +88,18 @@
             this.quote.BackColor = System.Drawing.Color.Transparent;
             this.quote.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quote.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.quote.Location = new System.Drawing.Point(112, 67);
+            this.quote.Location = new System.Drawing.Point(125, 65);
             this.quote.Name = "quote";
             this.quote.Size = new System.Drawing.Size(203, 27);
             this.quote.TabIndex = 5;
             this.quote.Text = "Help you manage easily";
-            // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(27, 24);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(70, 70);
-            this.guna2PictureBox1.TabIndex = 6;
-            this.guna2PictureBox1.TabStop = false;
             // 
             // appName
             // 
             this.appName.BackColor = System.Drawing.Color.Transparent;
             this.appName.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.appName.ForeColor = System.Drawing.Color.DarkOrange;
-            this.appName.Location = new System.Drawing.Point(112, 14);
+            this.appName.Location = new System.Drawing.Point(125, 16);
             this.appName.Name = "appName";
             this.appName.Size = new System.Drawing.Size(173, 47);
             this.appName.TabIndex = 5;
@@ -125,21 +117,6 @@
             this.panelAccount.Name = "panelAccount";
             this.panelAccount.Size = new System.Drawing.Size(299, 127);
             this.panelAccount.TabIndex = 1;
-            // 
-            // btnSignOut
-            // 
-            this.btnSignOut.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnSignOut.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSignOut.HoverState.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnSignOut.Image = global::SupermarketManagementApp.Properties.Resources.sign_out;
-            this.btnSignOut.ImageOffset = new System.Drawing.Point(0, 0);
-            this.btnSignOut.ImageRotate = 0F;
-            this.btnSignOut.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnSignOut.Location = new System.Drawing.Point(224, 50);
-            this.btnSignOut.Name = "btnSignOut";
-            this.btnSignOut.PressedState.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnSignOut.Size = new System.Drawing.Size(30, 30);
-            this.btnSignOut.TabIndex = 5;
             // 
             // accountName
             // 
@@ -162,17 +139,6 @@
             this.accountRole.Size = new System.Drawing.Size(62, 27);
             this.accountRole.TabIndex = 3;
             this.accountRole.Text = "Admin";
-            // 
-            // avatar
-            // 
-            this.avatar.Cursor = System.Windows.Forms.Cursors.Default;
-            this.avatar.ImageRotate = 0F;
-            this.avatar.Location = new System.Drawing.Point(12, 30);
-            this.avatar.Name = "avatar";
-            this.avatar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.avatar.Size = new System.Drawing.Size(64, 64);
-            this.avatar.TabIndex = 2;
-            this.avatar.TabStop = false;
             // 
             // panelMenuSidebar
             // 
@@ -368,36 +334,6 @@
             this.btnManageCustomerInvoice.TextOffset = new System.Drawing.Point(70, -2);
             this.btnManageCustomerInvoice.Click += new System.EventHandler(this.btnManageCustomerInvoice_Click);
             // 
-            // btnInvoice
-            // 
-            this.btnInvoice.BackColor = System.Drawing.Color.Transparent;
-            this.btnInvoice.BorderRadius = 25;
-            this.btnInvoice.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnInvoice.CustomImages.Image = global::SupermarketManagementApp.Properties.Resources.black_invoice;
-            this.btnInvoice.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnInvoice.CustomImages.ImageOffset = new System.Drawing.Point(20, 0);
-            this.btnInvoice.CustomImages.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnInvoice.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnInvoice.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnInvoice.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnInvoice.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnInvoice.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnInvoice.FillColor = System.Drawing.Color.Transparent;
-            this.btnInvoice.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInvoice.ForeColor = System.Drawing.Color.Black;
-            this.btnInvoice.Image = global::SupermarketManagementApp.Properties.Resources.black_caret_down;
-            this.btnInvoice.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnInvoice.ImageOffset = new System.Drawing.Point(20, -1);
-            this.btnInvoice.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnInvoice.Location = new System.Drawing.Point(0, 462);
-            this.btnInvoice.Name = "btnInvoice";
-            this.btnInvoice.Size = new System.Drawing.Size(315, 66);
-            this.btnInvoice.TabIndex = 8;
-            this.btnInvoice.Text = "Invoice";
-            this.btnInvoice.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnInvoice.TextOffset = new System.Drawing.Point(70, -2);
-            this.btnInvoice.Click += new System.EventHandler(this.btnInvoice_Click);
-            // 
             // panelSubProduct
             // 
             this.panelSubProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
@@ -515,36 +451,6 @@
             this.btnManageProduct.TextOffset = new System.Drawing.Point(70, -2);
             this.btnManageProduct.Click += new System.EventHandler(this.btnManageProduct_Click);
             // 
-            // btnProduct
-            // 
-            this.btnProduct.BackColor = System.Drawing.Color.Transparent;
-            this.btnProduct.BorderRadius = 25;
-            this.btnProduct.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProduct.CustomImages.Image = global::SupermarketManagementApp.Properties.Resources.black_product;
-            this.btnProduct.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnProduct.CustomImages.ImageOffset = new System.Drawing.Point(20, 0);
-            this.btnProduct.CustomImages.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnProduct.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnProduct.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnProduct.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnProduct.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnProduct.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnProduct.FillColor = System.Drawing.Color.Transparent;
-            this.btnProduct.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProduct.ForeColor = System.Drawing.Color.Black;
-            this.btnProduct.Image = global::SupermarketManagementApp.Properties.Resources.black_caret_down;
-            this.btnProduct.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnProduct.ImageOffset = new System.Drawing.Point(20, -1);
-            this.btnProduct.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnProduct.Location = new System.Drawing.Point(0, 132);
-            this.btnProduct.Name = "btnProduct";
-            this.btnProduct.Size = new System.Drawing.Size(315, 66);
-            this.btnProduct.TabIndex = 3;
-            this.btnProduct.Text = "Product";
-            this.btnProduct.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnProduct.TextOffset = new System.Drawing.Point(70, -2);
-            this.btnProduct.Click += new System.EventHandler(this.btnProduct_Click);
-            // 
             // btnManageShelf
             // 
             this.btnManageShelf.BackColor = System.Drawing.Color.Transparent;
@@ -646,6 +552,103 @@
             this.labelCopyright.TabIndex = 0;
             this.labelCopyright.Text = "Copyright © 2023 by TBD Team. All rights reserved.";
             // 
+            // btnInvoice
+            // 
+            this.btnInvoice.BackColor = System.Drawing.Color.Transparent;
+            this.btnInvoice.BorderRadius = 25;
+            this.btnInvoice.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInvoice.CustomImages.Image = global::SupermarketManagementApp.Properties.Resources.black_invoice;
+            this.btnInvoice.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnInvoice.CustomImages.ImageOffset = new System.Drawing.Point(20, 0);
+            this.btnInvoice.CustomImages.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnInvoice.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnInvoice.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnInvoice.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnInvoice.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnInvoice.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnInvoice.FillColor = System.Drawing.Color.Transparent;
+            this.btnInvoice.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInvoice.ForeColor = System.Drawing.Color.Black;
+            this.btnInvoice.Image = global::SupermarketManagementApp.Properties.Resources.black_caret_down;
+            this.btnInvoice.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnInvoice.ImageOffset = new System.Drawing.Point(20, -1);
+            this.btnInvoice.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnInvoice.Location = new System.Drawing.Point(0, 462);
+            this.btnInvoice.Name = "btnInvoice";
+            this.btnInvoice.Size = new System.Drawing.Size(315, 66);
+            this.btnInvoice.TabIndex = 8;
+            this.btnInvoice.Text = "Invoice";
+            this.btnInvoice.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnInvoice.TextOffset = new System.Drawing.Point(70, -2);
+            this.btnInvoice.Click += new System.EventHandler(this.btnInvoice_Click);
+            // 
+            // btnProduct
+            // 
+            this.btnProduct.BackColor = System.Drawing.Color.Transparent;
+            this.btnProduct.BorderRadius = 25;
+            this.btnProduct.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProduct.CustomImages.Image = global::SupermarketManagementApp.Properties.Resources.black_product;
+            this.btnProduct.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnProduct.CustomImages.ImageOffset = new System.Drawing.Point(20, 0);
+            this.btnProduct.CustomImages.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnProduct.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnProduct.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnProduct.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnProduct.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnProduct.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProduct.FillColor = System.Drawing.Color.Transparent;
+            this.btnProduct.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProduct.ForeColor = System.Drawing.Color.Black;
+            this.btnProduct.Image = global::SupermarketManagementApp.Properties.Resources.black_caret_down;
+            this.btnProduct.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnProduct.ImageOffset = new System.Drawing.Point(20, -1);
+            this.btnProduct.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnProduct.Location = new System.Drawing.Point(0, 132);
+            this.btnProduct.Name = "btnProduct";
+            this.btnProduct.Size = new System.Drawing.Size(315, 66);
+            this.btnProduct.TabIndex = 3;
+            this.btnProduct.Text = "Product";
+            this.btnProduct.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnProduct.TextOffset = new System.Drawing.Point(70, -2);
+            this.btnProduct.Click += new System.EventHandler(this.btnProduct_Click);
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = global::SupermarketManagementApp.Properties.Resources.supermarket_logo;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(19, 5);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(100, 100);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox1.TabIndex = 6;
+            this.guna2PictureBox1.TabStop = false;
+            // 
+            // btnSignOut
+            // 
+            this.btnSignOut.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnSignOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSignOut.HoverState.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnSignOut.Image = global::SupermarketManagementApp.Properties.Resources.sign_out;
+            this.btnSignOut.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnSignOut.ImageRotate = 0F;
+            this.btnSignOut.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnSignOut.Location = new System.Drawing.Point(224, 50);
+            this.btnSignOut.Name = "btnSignOut";
+            this.btnSignOut.PressedState.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnSignOut.Size = new System.Drawing.Size(30, 30);
+            this.btnSignOut.TabIndex = 5;
+            // 
+            // avatar
+            // 
+            this.avatar.Cursor = System.Windows.Forms.Cursors.Default;
+            this.avatar.ImageRotate = 0F;
+            this.avatar.Location = new System.Drawing.Point(12, 30);
+            this.avatar.Name = "avatar";
+            this.avatar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.avatar.Size = new System.Drawing.Size(64, 64);
+            this.avatar.TabIndex = 2;
+            this.avatar.TabStop = false;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -655,21 +658,22 @@
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelMenuSidebar);
             this.Controls.Add(this.panelHeader);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormMain";
+            this.Text = "Pro Market";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.panelAccount.ResumeLayout(false);
             this.panelAccount.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.avatar)).EndInit();
             this.panelMenuSidebar.ResumeLayout(false);
             this.panelSubInvoice.ResumeLayout(false);
             this.panelSubProduct.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avatar)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -118,20 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="sign-out" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\sign-out.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="white-shelf" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\white-shelf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="grid-invoice" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\grid-invoice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="white-gauge" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\white-gauge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="black-invoice" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\black-invoice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="grid-delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\grid-delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="white-shelf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\white-shelf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="white-account" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\white-account.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,44 +133,50 @@
   <data name="grid-edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\grid-edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="black-caret-down" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\black-caret-down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="black-account" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\black-account.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="black-gauge" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\black-gauge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="black-invoice" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\black-invoice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="black-shelf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\black-shelf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="white-stats" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\white-stats.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="black-customer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\black-customer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="white-employee" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\white-employee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="white-invoice" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\white-invoice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="black-stats" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\black-stats.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sign-out1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\sign-out.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="silver-search" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\silver-search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="white-caret-down" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\white-caret-down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="black-product" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\black-product.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="white-product" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\white-product.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="black-customer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\black-customer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="grid-product" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\grid-product.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="black-employee" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\black-employee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="white-employee" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\white-employee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sign-out1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sign-out.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="grid-customer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\grid-customer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="black-account" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\black-account.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="black-caret-down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\black-caret-down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="grid-shelf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\grid-shelf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="white-stats" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\white-stats.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="white-invoice" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\white-invoice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="grid-account" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\grid-account.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,25 +184,28 @@
   <data name="white-customer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\white-customer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="silver-search" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\silver-search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="white-product" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\white-product.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="grid-shelf" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\grid-shelf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="grid-product" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\grid-product.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="grid-invoice" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\grid-invoice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="grid-customer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\grid-customer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="black-product" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\black-product.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="grid-employee" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\grid-employee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sign-out" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sign-out.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="grid-delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\grid-delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="black-gauge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\black-gauge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="black-employee" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\black-employee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="black-stats" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\black-stats.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="supermarket-logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\supermarket-logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
