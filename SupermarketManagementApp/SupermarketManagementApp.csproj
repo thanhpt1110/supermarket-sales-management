@@ -91,11 +91,23 @@
     <Compile Include="GUI\Customer\FormUpdateCustomer.Designer.cs">
       <DependentUpon>FormUpdateCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Employee\FormCreateEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Employee\FormCreateEmployee.Designer.cs">
+      <DependentUpon>FormCreateEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Employee\FormEmployeeManagement.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Employee\FormEmployeeManagement.Designer.cs">
       <DependentUpon>FormEmployeeManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Employee\FormUpdateEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Employee\FormUpdateEmployee.Designer.cs">
+      <DependentUpon>FormUpdateEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FormDashboard.cs">
       <SubType>Form</SubType>
