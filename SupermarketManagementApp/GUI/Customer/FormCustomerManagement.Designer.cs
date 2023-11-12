@@ -33,7 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.msgBoxInfo = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.msgBoxDelete = new Guna.UI2.WinForms.Guna2MessageDialog();
-            this.txtBoxSearchAccount = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtBoxSearchCustomer = new Guna.UI2.WinForms.Guna2TextBox();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -45,9 +45,9 @@
             this.btnCreateCustomer = new Guna.UI2.WinForms.Guna2Button();
             this.icon = new System.Windows.Forms.DataGridViewImageColumn();
             this.AccountName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewMain)).BeginInit();
@@ -72,33 +72,34 @@
             this.msgBoxDelete.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
             this.msgBoxDelete.Text = "Are you sure you want to delete this file?";
             // 
-            // txtBoxSearchAccount
+            // txtBoxSearchCustomer
             // 
-            this.txtBoxSearchAccount.BackColor = System.Drawing.Color.Transparent;
-            this.txtBoxSearchAccount.BorderColor = System.Drawing.Color.Black;
-            this.txtBoxSearchAccount.BorderRadius = 5;
-            this.txtBoxSearchAccount.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBoxSearchAccount.DefaultText = "";
-            this.txtBoxSearchAccount.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtBoxSearchAccount.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtBoxSearchAccount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBoxSearchAccount.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBoxSearchAccount.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBoxSearchAccount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxSearchAccount.ForeColor = System.Drawing.Color.Black;
-            this.txtBoxSearchAccount.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBoxSearchAccount.IconRight = global::SupermarketManagementApp.Properties.Resources.silver_search;
-            this.txtBoxSearchAccount.IconRightOffset = new System.Drawing.Point(15, -1);
-            this.txtBoxSearchAccount.IconRightSize = new System.Drawing.Size(25, 25);
-            this.txtBoxSearchAccount.Location = new System.Drawing.Point(45, 35);
-            this.txtBoxSearchAccount.Name = "txtBoxSearchAccount";
-            this.txtBoxSearchAccount.PasswordChar = '\0';
-            this.txtBoxSearchAccount.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txtBoxSearchAccount.PlaceholderText = "Enter customer name ";
-            this.txtBoxSearchAccount.SelectedText = "";
-            this.txtBoxSearchAccount.Size = new System.Drawing.Size(285, 45);
-            this.txtBoxSearchAccount.TabIndex = 5;
-            this.txtBoxSearchAccount.TextOffset = new System.Drawing.Point(5, 0);
+            this.txtBoxSearchCustomer.BackColor = System.Drawing.Color.Transparent;
+            this.txtBoxSearchCustomer.BorderColor = System.Drawing.Color.Black;
+            this.txtBoxSearchCustomer.BorderRadius = 5;
+            this.txtBoxSearchCustomer.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBoxSearchCustomer.DefaultText = "";
+            this.txtBoxSearchCustomer.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtBoxSearchCustomer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtBoxSearchCustomer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBoxSearchCustomer.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBoxSearchCustomer.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBoxSearchCustomer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxSearchCustomer.ForeColor = System.Drawing.Color.Black;
+            this.txtBoxSearchCustomer.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBoxSearchCustomer.IconRight = global::SupermarketManagementApp.Properties.Resources.silver_search;
+            this.txtBoxSearchCustomer.IconRightOffset = new System.Drawing.Point(15, -1);
+            this.txtBoxSearchCustomer.IconRightSize = new System.Drawing.Size(25, 25);
+            this.txtBoxSearchCustomer.Location = new System.Drawing.Point(45, 35);
+            this.txtBoxSearchCustomer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBoxSearchCustomer.Name = "txtBoxSearchCustomer";
+            this.txtBoxSearchCustomer.PasswordChar = '\0';
+            this.txtBoxSearchCustomer.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txtBoxSearchCustomer.PlaceholderText = "Enter customer name ";
+            this.txtBoxSearchCustomer.SelectedText = "";
+            this.txtBoxSearchCustomer.Size = new System.Drawing.Size(285, 45);
+            this.txtBoxSearchCustomer.TabIndex = 5;
+            this.txtBoxSearchCustomer.TextOffset = new System.Drawing.Point(5, 0);
             // 
             // dataGridViewImageColumn3
             // 
@@ -137,7 +138,7 @@
             this.scrollBar.InUpdate = false;
             this.scrollBar.LargeChange = 10;
             this.scrollBar.Location = new System.Drawing.Point(863, 53);
-            this.scrollBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.scrollBar.Margin = new System.Windows.Forms.Padding(2);
             this.scrollBar.Minimum = 1;
             this.scrollBar.MouseWheelBarPartitions = 15;
             this.scrollBar.Name = "scrollBar";
@@ -172,9 +173,9 @@
             this.gridViewMain.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.icon,
             this.AccountName,
-            this.Username,
             this.Role,
             this.PhoneNumber,
+            this.Username,
             this.Edit,
             this.Delete});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -187,7 +188,7 @@
             this.gridViewMain.DefaultCellStyle = dataGridViewCellStyle3;
             this.gridViewMain.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gridViewMain.Location = new System.Drawing.Point(28, 3);
-            this.gridViewMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gridViewMain.Margin = new System.Windows.Forms.Padding(2);
             this.gridViewMain.Name = "gridViewMain";
             this.gridViewMain.ReadOnly = true;
             this.gridViewMain.RowHeadersVisible = false;
@@ -234,7 +235,7 @@
             this.guna2ShadowPanel1.Controls.Add(this.gridViewMain);
             this.guna2ShadowPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.guna2ShadowPanel1.Location = new System.Drawing.Point(45, 130);
-            this.guna2ShadowPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2ShadowPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ShadowPanel1.Name = "guna2ShadowPanel1";
             this.guna2ShadowPanel1.Radius = 20;
             this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
@@ -256,7 +257,7 @@
             this.btnExportExcel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExportExcel.ForeColor = System.Drawing.Color.Black;
             this.btnExportExcel.Location = new System.Drawing.Point(570, 35);
-            this.btnExportExcel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExportExcel.Margin = new System.Windows.Forms.Padding(2);
             this.btnExportExcel.Name = "btnExportExcel";
             this.btnExportExcel.Size = new System.Drawing.Size(169, 45);
             this.btnExportExcel.TabIndex = 7;
@@ -285,7 +286,7 @@
             this.btnCreateCustomer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateCustomer.ForeColor = System.Drawing.Color.White;
             this.btnCreateCustomer.Location = new System.Drawing.Point(760, 35);
-            this.btnCreateCustomer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCreateCustomer.Margin = new System.Windows.Forms.Padding(2);
             this.btnCreateCustomer.Name = "btnCreateCustomer";
             this.btnCreateCustomer.Size = new System.Drawing.Size(180, 45);
             this.btnCreateCustomer.TabIndex = 6;
@@ -310,14 +311,6 @@
             this.AccountName.Name = "AccountName";
             this.AccountName.ReadOnly = true;
             // 
-            // Username
-            // 
-            this.Username.FillWeight = 140F;
-            this.Username.HeaderText = "ID number";
-            this.Username.MinimumWidth = 6;
-            this.Username.Name = "Username";
-            this.Username.ReadOnly = true;
-            // 
             // Role
             // 
             this.Role.FillWeight = 120F;
@@ -333,6 +326,14 @@
             this.PhoneNumber.MinimumWidth = 6;
             this.PhoneNumber.Name = "PhoneNumber";
             this.PhoneNumber.ReadOnly = true;
+            // 
+            // Username
+            // 
+            this.Username.FillWeight = 140F;
+            this.Username.HeaderText = "ID number";
+            this.Username.MinimumWidth = 6;
+            this.Username.Name = "Username";
+            this.Username.ReadOnly = true;
             // 
             // Edit
             // 
@@ -357,7 +358,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(984, 761);
-            this.Controls.Add(this.txtBoxSearchAccount);
+            this.Controls.Add(this.txtBoxSearchCustomer);
             this.Controls.Add(this.guna2ShadowPanel1);
             this.Controls.Add(this.btnExportExcel);
             this.Controls.Add(this.btnCreateCustomer);
@@ -374,7 +375,7 @@
 
         private Guna.UI2.WinForms.Guna2MessageDialog msgBoxInfo;
         private Guna.UI2.WinForms.Guna2MessageDialog msgBoxDelete;
-        private Guna.UI2.WinForms.Guna2TextBox txtBoxSearchAccount;
+        private Guna.UI2.WinForms.Guna2TextBox txtBoxSearchCustomer;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
@@ -386,9 +387,9 @@
         private Guna.UI2.WinForms.Guna2Button btnCreateCustomer;
         private System.Windows.Forms.DataGridViewImageColumn icon;
         private System.Windows.Forms.DataGridViewTextBoxColumn AccountName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Username;
         private System.Windows.Forms.DataGridViewTextBoxColumn Role;
         private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Username;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
     }

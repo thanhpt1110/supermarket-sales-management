@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.msgBoxInfo = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.msgBoxDelete = new Guna.UI2.WinForms.Guna2MessageDialog();
-            this.txtBoxSearchAccount = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtBoxSearchEmployee = new Guna.UI2.WinForms.Guna2TextBox();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -72,34 +72,34 @@
             this.msgBoxDelete.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
             this.msgBoxDelete.Text = "Are you sure you want to delete this file?";
             // 
-            // txtBoxSearchAccount
+            // txtBoxSearchEmployee
             // 
-            this.txtBoxSearchAccount.BackColor = System.Drawing.Color.Transparent;
-            this.txtBoxSearchAccount.BorderColor = System.Drawing.Color.Black;
-            this.txtBoxSearchAccount.BorderRadius = 5;
-            this.txtBoxSearchAccount.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBoxSearchAccount.DefaultText = "";
-            this.txtBoxSearchAccount.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtBoxSearchAccount.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtBoxSearchAccount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBoxSearchAccount.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBoxSearchAccount.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBoxSearchAccount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxSearchAccount.ForeColor = System.Drawing.Color.Black;
-            this.txtBoxSearchAccount.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBoxSearchAccount.IconRight = global::SupermarketManagementApp.Properties.Resources.silver_search;
-            this.txtBoxSearchAccount.IconRightOffset = new System.Drawing.Point(15, -1);
-            this.txtBoxSearchAccount.IconRightSize = new System.Drawing.Size(25, 25);
-            this.txtBoxSearchAccount.Location = new System.Drawing.Point(45, 35);
-            this.txtBoxSearchAccount.Margin = new System.Windows.Forms.Padding(4);
-            this.txtBoxSearchAccount.Name = "txtBoxSearchAccount";
-            this.txtBoxSearchAccount.PasswordChar = '\0';
-            this.txtBoxSearchAccount.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txtBoxSearchAccount.PlaceholderText = "Enter username";
-            this.txtBoxSearchAccount.SelectedText = "";
-            this.txtBoxSearchAccount.Size = new System.Drawing.Size(285, 44);
-            this.txtBoxSearchAccount.TabIndex = 5;
-            this.txtBoxSearchAccount.TextOffset = new System.Drawing.Point(5, 0);
+            this.txtBoxSearchEmployee.BackColor = System.Drawing.Color.Transparent;
+            this.txtBoxSearchEmployee.BorderColor = System.Drawing.Color.Black;
+            this.txtBoxSearchEmployee.BorderRadius = 5;
+            this.txtBoxSearchEmployee.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBoxSearchEmployee.DefaultText = "";
+            this.txtBoxSearchEmployee.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtBoxSearchEmployee.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtBoxSearchEmployee.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBoxSearchEmployee.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBoxSearchEmployee.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBoxSearchEmployee.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxSearchEmployee.ForeColor = System.Drawing.Color.Black;
+            this.txtBoxSearchEmployee.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBoxSearchEmployee.IconRight = global::SupermarketManagementApp.Properties.Resources.silver_search;
+            this.txtBoxSearchEmployee.IconRightOffset = new System.Drawing.Point(15, -1);
+            this.txtBoxSearchEmployee.IconRightSize = new System.Drawing.Size(25, 25);
+            this.txtBoxSearchEmployee.Location = new System.Drawing.Point(45, 35);
+            this.txtBoxSearchEmployee.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBoxSearchEmployee.Name = "txtBoxSearchEmployee";
+            this.txtBoxSearchEmployee.PasswordChar = '\0';
+            this.txtBoxSearchEmployee.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txtBoxSearchEmployee.PlaceholderText = "Enter employee name";
+            this.txtBoxSearchEmployee.SelectedText = "";
+            this.txtBoxSearchEmployee.Size = new System.Drawing.Size(285, 44);
+            this.txtBoxSearchEmployee.TabIndex = 5;
+            this.txtBoxSearchEmployee.TextOffset = new System.Drawing.Point(5, 0);
             // 
             // dataGridViewImageColumn3
             // 
@@ -137,12 +137,12 @@
             this.scrollBar.FillColor = System.Drawing.Color.White;
             this.scrollBar.InUpdate = false;
             this.scrollBar.LargeChange = 10;
-            this.scrollBar.Location = new System.Drawing.Point(863, 50);
+            this.scrollBar.Location = new System.Drawing.Point(863, 53);
             this.scrollBar.Minimum = 1;
             this.scrollBar.MouseWheelBarPartitions = 15;
             this.scrollBar.Name = "scrollBar";
-            this.scrollBar.ScrollbarSize = 15;
-            this.scrollBar.Size = new System.Drawing.Size(15, 450);
+            this.scrollBar.ScrollbarSize = 17;
+            this.scrollBar.Size = new System.Drawing.Size(17, 447);
             this.scrollBar.SmallChange = 2;
             this.scrollBar.TabIndex = 1;
             this.scrollBar.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -154,19 +154,19 @@
             this.gridViewMain.AllowUserToDeleteRows = false;
             this.gridViewMain.AllowUserToResizeColumns = false;
             this.gridViewMain.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.gridViewMain.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            this.gridViewMain.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.gridViewMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridViewMain.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewMain.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.gridViewMain.ColumnHeadersHeight = 50;
             this.gridViewMain.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.icon,
@@ -176,14 +176,14 @@
             this.IDCard,
             this.Edit,
             this.Delete});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridViewMain.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridViewMain.DefaultCellStyle = dataGridViewCellStyle15;
             this.gridViewMain.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gridViewMain.Location = new System.Drawing.Point(28, 3);
             this.gridViewMain.Name = "gridViewMain";
@@ -252,7 +252,7 @@
             this.btnExportExcel.FillColor = System.Drawing.Color.Orange;
             this.btnExportExcel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExportExcel.ForeColor = System.Drawing.Color.Black;
-            this.btnExportExcel.Location = new System.Drawing.Point(564, 34);
+            this.btnExportExcel.Location = new System.Drawing.Point(554, 34);
             this.btnExportExcel.Name = "btnExportExcel";
             this.btnExportExcel.Size = new System.Drawing.Size(169, 45);
             this.btnExportExcel.TabIndex = 7;
@@ -299,7 +299,7 @@
             // 
             // AccountName
             // 
-            this.AccountName.FillWeight = 140F;
+            this.AccountName.FillWeight = 170F;
             this.AccountName.HeaderText = "Name";
             this.AccountName.MinimumWidth = 6;
             this.AccountName.Name = "AccountName";
@@ -307,6 +307,7 @@
             // 
             // Birthday
             // 
+            this.Birthday.FillWeight = 120F;
             this.Birthday.HeaderText = "Birthday";
             this.Birthday.MinimumWidth = 6;
             this.Birthday.Name = "Birthday";
@@ -314,14 +315,16 @@
             // 
             // Phone
             // 
-            this.Phone.HeaderText = "Phone";
+            this.Phone.FillWeight = 130F;
+            this.Phone.HeaderText = "Phone number";
             this.Phone.MinimumWidth = 6;
             this.Phone.Name = "Phone";
             this.Phone.ReadOnly = true;
             // 
             // IDCard
             // 
-            this.IDCard.HeaderText = "ID Card";
+            this.IDCard.FillWeight = 140F;
+            this.IDCard.HeaderText = "ID number";
             this.IDCard.MinimumWidth = 6;
             this.IDCard.Name = "IDCard";
             this.IDCard.ReadOnly = true;
@@ -346,11 +349,11 @@
             // 
             // FormEmployeeManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(982, 753);
-            this.Controls.Add(this.txtBoxSearchAccount);
+            this.Controls.Add(this.txtBoxSearchEmployee);
             this.Controls.Add(this.guna2ShadowPanel1);
             this.Controls.Add(this.btnExportExcel);
             this.Controls.Add(this.btnCreateAccount);
@@ -368,7 +371,7 @@
 
         private Guna.UI2.WinForms.Guna2MessageDialog msgBoxInfo;
         private Guna.UI2.WinForms.Guna2MessageDialog msgBoxDelete;
-        private Guna.UI2.WinForms.Guna2TextBox txtBoxSearchAccount;
+        private Guna.UI2.WinForms.Guna2TextBox txtBoxSearchEmployee;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
