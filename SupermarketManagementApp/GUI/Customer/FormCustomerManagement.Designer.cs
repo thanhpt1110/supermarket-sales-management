@@ -39,6 +39,10 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.scrollBar = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.gridViewMain = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
+            this.msgBoxError = new Guna.UI2.WinForms.Guna2MessageDialog();
+            this.btnCreateCustomer = new Guna.UI2.WinForms.Guna2Button();
             this.icon = new System.Windows.Forms.DataGridViewImageColumn();
             this.AccountName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,10 +50,6 @@
             this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
-            this.msgBoxError = new Guna.UI2.WinForms.Guna2MessageDialog();
-            this.btnCreateCustomer = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewMain)).BeginInit();
             this.guna2ShadowPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -90,14 +90,13 @@
             this.txtBoxSearchAccount.IconRight = global::SupermarketManagementApp.Properties.Resources.silver_search;
             this.txtBoxSearchAccount.IconRightOffset = new System.Drawing.Point(15, -1);
             this.txtBoxSearchAccount.IconRightSize = new System.Drawing.Size(25, 25);
-            this.txtBoxSearchAccount.Location = new System.Drawing.Point(41, 65);
-            this.txtBoxSearchAccount.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBoxSearchAccount.Location = new System.Drawing.Point(45, 35);
             this.txtBoxSearchAccount.Name = "txtBoxSearchAccount";
             this.txtBoxSearchAccount.PasswordChar = '\0';
             this.txtBoxSearchAccount.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.txtBoxSearchAccount.PlaceholderText = "Enter customer name ";
             this.txtBoxSearchAccount.SelectedText = "";
-            this.txtBoxSearchAccount.Size = new System.Drawing.Size(285, 44);
+            this.txtBoxSearchAccount.Size = new System.Drawing.Size(285, 45);
             this.txtBoxSearchAccount.TabIndex = 5;
             this.txtBoxSearchAccount.TextOffset = new System.Drawing.Point(5, 0);
             // 
@@ -137,12 +136,13 @@
             this.scrollBar.FillColor = System.Drawing.Color.White;
             this.scrollBar.InUpdate = false;
             this.scrollBar.LargeChange = 10;
-            this.scrollBar.Location = new System.Drawing.Point(940, 49);
+            this.scrollBar.Location = new System.Drawing.Point(863, 53);
+            this.scrollBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.scrollBar.Minimum = 1;
             this.scrollBar.MouseWheelBarPartitions = 15;
             this.scrollBar.Name = "scrollBar";
-            this.scrollBar.ScrollbarSize = 15;
-            this.scrollBar.Size = new System.Drawing.Size(15, 472);
+            this.scrollBar.ScrollbarSize = 17;
+            this.scrollBar.Size = new System.Drawing.Size(17, 447);
             this.scrollBar.SmallChange = 2;
             this.scrollBar.TabIndex = 1;
             this.scrollBar.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -187,6 +187,7 @@
             this.gridViewMain.DefaultCellStyle = dataGridViewCellStyle3;
             this.gridViewMain.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gridViewMain.Location = new System.Drawing.Point(28, 3);
+            this.gridViewMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gridViewMain.Name = "gridViewMain";
             this.gridViewMain.ReadOnly = true;
             this.gridViewMain.RowHeadersVisible = false;
@@ -196,7 +197,7 @@
             this.gridViewMain.RowTemplate.ReadOnly = true;
             this.gridViewMain.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.gridViewMain.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.gridViewMain.Size = new System.Drawing.Size(889, 518);
+            this.gridViewMain.Size = new System.Drawing.Size(821, 496);
             this.gridViewMain.TabIndex = 0;
             this.gridViewMain.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.gridViewMain.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -223,64 +224,6 @@
             this.gridViewMain.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewMain_CellMouseLeave);
             this.gridViewMain.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridViewMain_CellMouseMove);
             // 
-            // icon
-            // 
-            this.icon.FillWeight = 50F;
-            this.icon.HeaderText = "";
-            this.icon.Image = global::SupermarketManagementApp.Properties.Resources.grid_account;
-            this.icon.MinimumWidth = 6;
-            this.icon.Name = "icon";
-            this.icon.ReadOnly = true;
-            this.icon.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // AccountName
-            // 
-            this.AccountName.FillWeight = 140F;
-            this.AccountName.HeaderText = "Name";
-            this.AccountName.MinimumWidth = 6;
-            this.AccountName.Name = "AccountName";
-            this.AccountName.ReadOnly = true;
-            // 
-            // Username
-            // 
-            this.Username.HeaderText = "ID number";
-            this.Username.MinimumWidth = 6;
-            this.Username.Name = "Username";
-            this.Username.ReadOnly = true;
-            // 
-            // Role
-            // 
-            this.Role.HeaderText = "Birthday";
-            this.Role.MinimumWidth = 6;
-            this.Role.Name = "Role";
-            this.Role.ReadOnly = true;
-            // 
-            // PhoneNumber
-            // 
-            this.PhoneNumber.FillWeight = 150F;
-            this.PhoneNumber.HeaderText = "Phone number";
-            this.PhoneNumber.MinimumWidth = 6;
-            this.PhoneNumber.Name = "PhoneNumber";
-            this.PhoneNumber.ReadOnly = true;
-            // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "";
-            this.Edit.Image = global::SupermarketManagementApp.Properties.Resources.grid_edit;
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.ReadOnly = true;
-            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "";
-            this.Delete.Image = global::SupermarketManagementApp.Properties.Resources.grid_delete;
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
             // guna2ShadowPanel1
             // 
             this.guna2ShadowPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -290,13 +233,14 @@
             this.guna2ShadowPanel1.Controls.Add(this.scrollBar);
             this.guna2ShadowPanel1.Controls.Add(this.gridViewMain);
             this.guna2ShadowPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.guna2ShadowPanel1.Location = new System.Drawing.Point(41, 160);
+            this.guna2ShadowPanel1.Location = new System.Drawing.Point(45, 130);
+            this.guna2ShadowPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2ShadowPanel1.Name = "guna2ShadowPanel1";
             this.guna2ShadowPanel1.Radius = 20;
             this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
             this.guna2ShadowPanel1.ShadowDepth = 255;
             this.guna2ShadowPanel1.ShadowStyle = Guna.UI2.WinForms.Guna2ShadowPanel.ShadowMode.ForwardDiagonal;
-            this.guna2ShadowPanel1.Size = new System.Drawing.Size(971, 557);
+            this.guna2ShadowPanel1.Size = new System.Drawing.Size(903, 535);
             this.guna2ShadowPanel1.TabIndex = 8;
             // 
             // btnExportExcel
@@ -311,7 +255,8 @@
             this.btnExportExcel.FillColor = System.Drawing.Color.Orange;
             this.btnExportExcel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExportExcel.ForeColor = System.Drawing.Color.Black;
-            this.btnExportExcel.Location = new System.Drawing.Point(605, 64);
+            this.btnExportExcel.Location = new System.Drawing.Point(570, 35);
+            this.btnExportExcel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnExportExcel.Name = "btnExportExcel";
             this.btnExportExcel.Size = new System.Drawing.Size(169, 45);
             this.btnExportExcel.TabIndex = 7;
@@ -339,23 +284,84 @@
             this.btnCreateCustomer.FillColor = System.Drawing.Color.ForestGreen;
             this.btnCreateCustomer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateCustomer.ForeColor = System.Drawing.Color.White;
-            this.btnCreateCustomer.Location = new System.Drawing.Point(799, 64);
+            this.btnCreateCustomer.Location = new System.Drawing.Point(760, 35);
+            this.btnCreateCustomer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCreateCustomer.Name = "btnCreateCustomer";
-            this.btnCreateCustomer.Size = new System.Drawing.Size(231, 45);
+            this.btnCreateCustomer.Size = new System.Drawing.Size(180, 45);
             this.btnCreateCustomer.TabIndex = 6;
             this.btnCreateCustomer.Text = "Create Customer";
             this.btnCreateCustomer.Click += new System.EventHandler(this.btnCreateCustomer_Click);
             // 
+            // icon
+            // 
+            this.icon.FillWeight = 50F;
+            this.icon.HeaderText = "";
+            this.icon.Image = global::SupermarketManagementApp.Properties.Resources.grid_customer;
+            this.icon.MinimumWidth = 6;
+            this.icon.Name = "icon";
+            this.icon.ReadOnly = true;
+            this.icon.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // AccountName
+            // 
+            this.AccountName.FillWeight = 170F;
+            this.AccountName.HeaderText = "Name";
+            this.AccountName.MinimumWidth = 6;
+            this.AccountName.Name = "AccountName";
+            this.AccountName.ReadOnly = true;
+            // 
+            // Username
+            // 
+            this.Username.FillWeight = 140F;
+            this.Username.HeaderText = "ID number";
+            this.Username.MinimumWidth = 6;
+            this.Username.Name = "Username";
+            this.Username.ReadOnly = true;
+            // 
+            // Role
+            // 
+            this.Role.FillWeight = 120F;
+            this.Role.HeaderText = "Birthday";
+            this.Role.MinimumWidth = 6;
+            this.Role.Name = "Role";
+            this.Role.ReadOnly = true;
+            // 
+            // PhoneNumber
+            // 
+            this.PhoneNumber.FillWeight = 130F;
+            this.PhoneNumber.HeaderText = "Phone number";
+            this.PhoneNumber.MinimumWidth = 6;
+            this.PhoneNumber.Name = "PhoneNumber";
+            this.PhoneNumber.ReadOnly = true;
+            // 
+            // Edit
+            // 
+            this.Edit.HeaderText = "";
+            this.Edit.Image = global::SupermarketManagementApp.Properties.Resources.grid_edit;
+            this.Edit.MinimumWidth = 6;
+            this.Edit.Name = "Edit";
+            this.Edit.ReadOnly = true;
+            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "";
+            this.Delete.Image = global::SupermarketManagementApp.Properties.Resources.grid_delete;
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
             // FormCustomerManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1052, 783);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
+            this.ClientSize = new System.Drawing.Size(984, 761);
             this.Controls.Add(this.txtBoxSearchAccount);
             this.Controls.Add(this.guna2ShadowPanel1);
             this.Controls.Add(this.btnExportExcel);
             this.Controls.Add(this.btnCreateCustomer);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FormCustomerManagement";
             this.Text = "FormCustomerManagement";
             ((System.ComponentModel.ISupportInitialize)(this.gridViewMain)).EndInit();
