@@ -80,6 +80,15 @@ namespace SupermarketManagementApp.GUI.Account
                 scrollBar.Visible = true;
             }
             scrollBar.Value = gridView.FirstDisplayedScrollingRowIndex;
+            gridView.MouseWheel += GridView_MouseWheel;
+        }
+
+        private void GridView_MouseWheel(object sender, MouseEventArgs e)
+        {
+            int delta = e.Delta; // Số "bước" mà chuột đã cuộn, có thể là dương hoặc âm
+            // Cập nhật giá trị của ScrollBar tùy chỉnh khi DataGridView được cuộn
+            int newScrollBarValue = scrollBar.Value - delta / 100;
+            scrollBar.Value = Math.Max(scrollBar.Minimum, Math.Min(scrollBar.Maximum, newScrollBarValue));
         }
 
         private void scrollBar_Scroll(object sender, ScrollEventArgs e)

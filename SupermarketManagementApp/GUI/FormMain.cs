@@ -254,7 +254,7 @@ namespace SupermarketManagementApp
             CloseSubMenu();
             SetColorButton((Guna2Button)sender);
             btnManageCustomer.CustomImages.Image = Resources.white_customer;
-            OpenChildForm(new FormCustomerManagement());
+            OpenChildForm(new FormCustomerManagement(this));
         }
 
         private void btnManageEmployee_Click(object sender, EventArgs e)

@@ -73,11 +73,23 @@
     <Compile Include="GUI\Account\FormUpdateAccount.Designer.cs">
       <DependentUpon>FormUpdateAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Customer\FormCreateCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Customer\FormCreateCustomer.Designer.cs">
+      <DependentUpon>FormCreateCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Customer\FormCustomerManagement.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Customer\FormCustomerManagement.Designer.cs">
       <DependentUpon>FormCustomerManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Customer\FormUpdateCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Customer\FormUpdateCustomer.Designer.cs">
+      <DependentUpon>FormUpdateCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Employee\FormEmployeeManagement.cs">
       <SubType>Form</SubType>
