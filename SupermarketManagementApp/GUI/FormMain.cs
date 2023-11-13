@@ -283,6 +283,32 @@ namespace SupermarketManagementApp
             btnStatistic.CustomImages.Image = Resources.white_stats;
             OpenChildForm(new FormReport_Statistic());
         }
+
+        private void btnSignOut_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = msgBoxConfirm.Show();
+            switch (dr)
+            {
+                case DialogResult.Yes:
+                    try
+                    {
+                        using (FormLogin formLogin = new FormLogin())
+                        {
+                            this.Hide();
+                            formLogin.ShowDialog();
+                            this.Close();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        msgBoxConfirm.Parent = this;
+                        msgBoxConfirm.Show(ex.Message, "Error");
+                    }
+                    break;
+                case DialogResult.No:
+                    break;
+            }
+        }
         #endregion
     }
 }
