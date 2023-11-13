@@ -42,10 +42,10 @@
             this.txtBoxUsername = new Guna.UI2.WinForms.Guna2TextBox();
             this.labelForm = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.txtBoxPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.borderLessForm = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-            this.txtBoxPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -241,6 +241,34 @@
             this.guna2Panel1.Size = new System.Drawing.Size(500, 400);
             this.guna2Panel1.TabIndex = 7;
             // 
+            // txtBoxPassword
+            // 
+            this.txtBoxPassword.BorderColor = System.Drawing.Color.Black;
+            this.txtBoxPassword.BorderRadius = 5;
+            this.txtBoxPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBoxPassword.DefaultText = "";
+            this.txtBoxPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtBoxPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtBoxPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBoxPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBoxPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBoxPassword.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtBoxPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtBoxPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBoxPassword.IconRight = global::SupermarketManagementApp.Properties.Resources.hide_password;
+            this.txtBoxPassword.IconRightCursor = System.Windows.Forms.Cursors.Hand;
+            this.txtBoxPassword.IconRightOffset = new System.Drawing.Point(10, 0);
+            this.txtBoxPassword.Location = new System.Drawing.Point(50, 328);
+            this.txtBoxPassword.Margin = new System.Windows.Forms.Padding(5);
+            this.txtBoxPassword.Name = "txtBoxPassword";
+            this.txtBoxPassword.PasswordChar = '●';
+            this.txtBoxPassword.PlaceholderText = "";
+            this.txtBoxPassword.SelectedText = "";
+            this.txtBoxPassword.Size = new System.Drawing.Size(400, 36);
+            this.txtBoxPassword.TabIndex = 4;
+            this.txtBoxPassword.TextOffset = new System.Drawing.Point(5, 0);
+            this.txtBoxPassword.UseSystemPasswordChar = true;
+            // 
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -286,34 +314,6 @@
             this.borderLessForm.ResizeForm = false;
             this.borderLessForm.TransparentWhileDrag = true;
             // 
-            // txtBoxPassword
-            // 
-            this.txtBoxPassword.BorderColor = System.Drawing.Color.Black;
-            this.txtBoxPassword.BorderRadius = 5;
-            this.txtBoxPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBoxPassword.DefaultText = "";
-            this.txtBoxPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtBoxPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtBoxPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBoxPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBoxPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBoxPassword.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtBoxPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtBoxPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBoxPassword.IconRight = global::SupermarketManagementApp.Properties.Resources.hide_password;
-            this.txtBoxPassword.IconRightCursor = System.Windows.Forms.Cursors.Hand;
-            this.txtBoxPassword.IconRightOffset = new System.Drawing.Point(10, 0);
-            this.txtBoxPassword.Location = new System.Drawing.Point(50, 328);
-            this.txtBoxPassword.Margin = new System.Windows.Forms.Padding(5);
-            this.txtBoxPassword.Name = "txtBoxPassword";
-            this.txtBoxPassword.PasswordChar = '●';
-            this.txtBoxPassword.PlaceholderText = "";
-            this.txtBoxPassword.SelectedText = "";
-            this.txtBoxPassword.Size = new System.Drawing.Size(400, 36);
-            this.txtBoxPassword.TabIndex = 4;
-            this.txtBoxPassword.TextOffset = new System.Drawing.Point(5, 0);
-            this.txtBoxPassword.UseSystemPasswordChar = true;
-            // 
             // FormUpdateAccount
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -325,6 +325,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormUpdateAccount";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormUpdateAccount";
             this.guna2Panel1.ResumeLayout(false);

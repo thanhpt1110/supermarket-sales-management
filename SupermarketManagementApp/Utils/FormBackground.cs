@@ -28,7 +28,6 @@ namespace SupermarketManagementApp.Utils
         {
             this.Size = formMain.Size;
             this.Location = formMain.Location;
-            this.Owner = formMain;
         }
     }
 }

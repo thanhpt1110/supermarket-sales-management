@@ -135,7 +135,7 @@ namespace SupermarketManagementApp.GUI.Account
             {
                 using (FormCreateAccount formCreateAccount = new FormCreateAccount())
                 {
-                    // formBackground.Owner = formMain;
+                    formBackground.Owner = formMain;
                     formBackground.Show();
                     formCreateAccount.Owner = formBackground;
                     formCreateAccount.ShowDialog();

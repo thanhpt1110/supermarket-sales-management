@@ -135,7 +135,7 @@ namespace SupermarketManagementApp.GUI.Employee
             {
                 using (FormCreateEmployee formCreateEmployee = new FormCreateEmployee())
                 {
-                    // formBackground.Owner = formMain;
+                    formBackground.Owner = formMain;
                     formBackground.Show();
                     formCreateEmployee.Owner = formBackground;
                     formCreateEmployee.ShowDialog();

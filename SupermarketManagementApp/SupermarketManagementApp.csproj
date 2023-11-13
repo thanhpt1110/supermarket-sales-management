@@ -192,11 +192,23 @@
     <EmbeddedResource Include="GUI\Account\FormUpdateAccount.resx">
       <DependentUpon>FormUpdateAccount.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Customer\FormCreateCustomer.resx">
+      <DependentUpon>FormCreateCustomer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Customer\FormCustomerManagement.resx">
       <DependentUpon>FormCustomerManagement.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Customer\FormUpdateCustomer.resx">
+      <DependentUpon>FormUpdateCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Employee\FormCreateEmployee.resx">
+      <DependentUpon>FormCreateEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Employee\FormEmployeeManagement.resx">
       <DependentUpon>FormEmployeeManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Employee\FormUpdateEmployee.resx">
+      <DependentUpon>FormUpdateEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormDashboard.resx">
       <DependentUpon>FormDashboard.cs</DependentUpon>

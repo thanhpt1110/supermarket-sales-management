@@ -34,18 +34,18 @@
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.labelForm = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.txtBoxUsername = new Guna.UI2.WinForms.Guna2TextBox();
-            this.labelRequired1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.labelUsername = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.labelPassword = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.labelEmployeeID = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.cbBoxEmployeeID = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbBoxRole = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.labelRole = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.cbBoxEmployeeID = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.labelRequired1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtBoxPassword = new Guna.UI2.WinForms.Guna2TextBox();
+            this.labelUsername = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.labelEmployeeID = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.labelPassword = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.txtBoxUsername = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -129,117 +129,6 @@
             this.guna2Panel1.Size = new System.Drawing.Size(500, 400);
             this.guna2Panel1.TabIndex = 4;
             // 
-            // txtBoxUsername
-            // 
-            this.txtBoxUsername.BorderColor = System.Drawing.Color.Black;
-            this.txtBoxUsername.BorderRadius = 5;
-            this.txtBoxUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBoxUsername.DefaultText = "";
-            this.txtBoxUsername.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtBoxUsername.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtBoxUsername.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBoxUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBoxUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBoxUsername.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtBoxUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBoxUsername.Location = new System.Drawing.Point(50, 230);
-            this.txtBoxUsername.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.txtBoxUsername.Name = "txtBoxUsername";
-            this.txtBoxUsername.PasswordChar = '\0';
-            this.txtBoxUsername.PlaceholderText = "";
-            this.txtBoxUsername.SelectedText = "";
-            this.txtBoxUsername.Size = new System.Drawing.Size(400, 36);
-            this.txtBoxUsername.TabIndex = 2;
-            this.txtBoxUsername.TextOffset = new System.Drawing.Point(5, 0);
-            // 
-            // labelRequired1
-            // 
-            this.labelRequired1.BackColor = System.Drawing.Color.Transparent;
-            this.labelRequired1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRequired1.ForeColor = System.Drawing.Color.Red;
-            this.labelRequired1.Location = new System.Drawing.Point(124, 199);
-            this.labelRequired1.Name = "labelRequired1";
-            this.labelRequired1.Size = new System.Drawing.Size(10, 23);
-            this.labelRequired1.TabIndex = 1;
-            this.labelRequired1.Text = "*";
-            // 
-            // labelUsername
-            // 
-            this.labelUsername.BackColor = System.Drawing.Color.Transparent;
-            this.labelUsername.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUsername.Location = new System.Drawing.Point(50, 199);
-            this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(74, 23);
-            this.labelUsername.TabIndex = 0;
-            this.labelUsername.Text = "Username";
-            // 
-            // guna2HtmlLabel1
-            // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Red;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(122, 297);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(10, 23);
-            this.guna2HtmlLabel1.TabIndex = 4;
-            this.guna2HtmlLabel1.Text = "*";
-            // 
-            // labelPassword
-            // 
-            this.labelPassword.BackColor = System.Drawing.Color.Transparent;
-            this.labelPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPassword.Location = new System.Drawing.Point(50, 297);
-            this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(70, 23);
-            this.labelPassword.TabIndex = 3;
-            this.labelPassword.Text = "Password";
-            // 
-            // guna2HtmlLabel3
-            // 
-            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.Red;
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(140, 21);
-            this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(10, 23);
-            this.guna2HtmlLabel3.TabIndex = 7;
-            this.guna2HtmlLabel3.Text = "*";
-            // 
-            // labelEmployeeID
-            // 
-            this.labelEmployeeID.BackColor = System.Drawing.Color.Transparent;
-            this.labelEmployeeID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEmployeeID.Location = new System.Drawing.Point(50, 21);
-            this.labelEmployeeID.Name = "labelEmployeeID";
-            this.labelEmployeeID.Size = new System.Drawing.Size(90, 23);
-            this.labelEmployeeID.TabIndex = 10;
-            this.labelEmployeeID.Text = "Employee ID";
-            // 
-            // cbBoxEmployeeID
-            // 
-            this.cbBoxEmployeeID.BackColor = System.Drawing.Color.Transparent;
-            this.cbBoxEmployeeID.BorderColor = System.Drawing.Color.Black;
-            this.cbBoxEmployeeID.BorderRadius = 5;
-            this.cbBoxEmployeeID.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbBoxEmployeeID.DropDownHeight = 100;
-            this.cbBoxEmployeeID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbBoxEmployeeID.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbBoxEmployeeID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbBoxEmployeeID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbBoxEmployeeID.ForeColor = System.Drawing.Color.Black;
-            this.cbBoxEmployeeID.IntegralHeight = false;
-            this.cbBoxEmployeeID.ItemHeight = 30;
-            this.cbBoxEmployeeID.Items.AddRange(new object[] {
-            "NV001",
-            "NV001",
-            "NV001"});
-            this.cbBoxEmployeeID.Location = new System.Drawing.Point(50, 50);
-            this.cbBoxEmployeeID.Name = "cbBoxEmployeeID";
-            this.cbBoxEmployeeID.Size = new System.Drawing.Size(400, 36);
-            this.cbBoxEmployeeID.TabIndex = 1;
-            this.cbBoxEmployeeID.TextOffset = new System.Drawing.Point(5, 0);
-            // 
             // cbBoxRole
             // 
             this.cbBoxRole.BackColor = System.Drawing.Color.Transparent;
@@ -286,6 +175,41 @@
             this.labelRole.TabIndex = 9;
             this.labelRole.Text = "Role";
             // 
+            // cbBoxEmployeeID
+            // 
+            this.cbBoxEmployeeID.BackColor = System.Drawing.Color.Transparent;
+            this.cbBoxEmployeeID.BorderColor = System.Drawing.Color.Black;
+            this.cbBoxEmployeeID.BorderRadius = 5;
+            this.cbBoxEmployeeID.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbBoxEmployeeID.DropDownHeight = 100;
+            this.cbBoxEmployeeID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBoxEmployeeID.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbBoxEmployeeID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbBoxEmployeeID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbBoxEmployeeID.ForeColor = System.Drawing.Color.Black;
+            this.cbBoxEmployeeID.IntegralHeight = false;
+            this.cbBoxEmployeeID.ItemHeight = 30;
+            this.cbBoxEmployeeID.Items.AddRange(new object[] {
+            "NV001",
+            "NV001",
+            "NV001"});
+            this.cbBoxEmployeeID.Location = new System.Drawing.Point(50, 50);
+            this.cbBoxEmployeeID.Name = "cbBoxEmployeeID";
+            this.cbBoxEmployeeID.Size = new System.Drawing.Size(400, 36);
+            this.cbBoxEmployeeID.TabIndex = 1;
+            this.cbBoxEmployeeID.TextOffset = new System.Drawing.Point(5, 0);
+            // 
+            // labelRequired1
+            // 
+            this.labelRequired1.BackColor = System.Drawing.Color.Transparent;
+            this.labelRequired1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRequired1.ForeColor = System.Drawing.Color.Red;
+            this.labelRequired1.Location = new System.Drawing.Point(124, 199);
+            this.labelRequired1.Name = "labelRequired1";
+            this.labelRequired1.Size = new System.Drawing.Size(10, 23);
+            this.labelRequired1.TabIndex = 1;
+            this.labelRequired1.Text = "*";
+            // 
             // txtBoxPassword
             // 
             this.txtBoxPassword.BorderColor = System.Drawing.Color.Black;
@@ -314,6 +238,82 @@
             this.txtBoxPassword.TextOffset = new System.Drawing.Point(5, 0);
             this.txtBoxPassword.UseSystemPasswordChar = true;
             // 
+            // labelUsername
+            // 
+            this.labelUsername.BackColor = System.Drawing.Color.Transparent;
+            this.labelUsername.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUsername.Location = new System.Drawing.Point(50, 199);
+            this.labelUsername.Name = "labelUsername";
+            this.labelUsername.Size = new System.Drawing.Size(74, 23);
+            this.labelUsername.TabIndex = 0;
+            this.labelUsername.Text = "Username";
+            // 
+            // guna2HtmlLabel3
+            // 
+            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.Red;
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(140, 21);
+            this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(10, 23);
+            this.guna2HtmlLabel3.TabIndex = 7;
+            this.guna2HtmlLabel3.Text = "*";
+            // 
+            // labelEmployeeID
+            // 
+            this.labelEmployeeID.BackColor = System.Drawing.Color.Transparent;
+            this.labelEmployeeID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEmployeeID.Location = new System.Drawing.Point(50, 21);
+            this.labelEmployeeID.Name = "labelEmployeeID";
+            this.labelEmployeeID.Size = new System.Drawing.Size(90, 23);
+            this.labelEmployeeID.TabIndex = 10;
+            this.labelEmployeeID.Text = "Employee ID";
+            // 
+            // guna2HtmlLabel1
+            // 
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Red;
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(122, 297);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(10, 23);
+            this.guna2HtmlLabel1.TabIndex = 4;
+            this.guna2HtmlLabel1.Text = "*";
+            // 
+            // labelPassword
+            // 
+            this.labelPassword.BackColor = System.Drawing.Color.Transparent;
+            this.labelPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPassword.Location = new System.Drawing.Point(50, 297);
+            this.labelPassword.Name = "labelPassword";
+            this.labelPassword.Size = new System.Drawing.Size(70, 23);
+            this.labelPassword.TabIndex = 3;
+            this.labelPassword.Text = "Password";
+            // 
+            // txtBoxUsername
+            // 
+            this.txtBoxUsername.BorderColor = System.Drawing.Color.Black;
+            this.txtBoxUsername.BorderRadius = 5;
+            this.txtBoxUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBoxUsername.DefaultText = "";
+            this.txtBoxUsername.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtBoxUsername.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtBoxUsername.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBoxUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBoxUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBoxUsername.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtBoxUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBoxUsername.Location = new System.Drawing.Point(50, 230);
+            this.txtBoxUsername.Margin = new System.Windows.Forms.Padding(5);
+            this.txtBoxUsername.Name = "txtBoxUsername";
+            this.txtBoxUsername.PasswordChar = '\0';
+            this.txtBoxUsername.PlaceholderText = "";
+            this.txtBoxUsername.SelectedText = "";
+            this.txtBoxUsername.Size = new System.Drawing.Size(400, 36);
+            this.txtBoxUsername.TabIndex = 2;
+            this.txtBoxUsername.TextOffset = new System.Drawing.Point(5, 0);
+            // 
             // FormCreateAccount
             // 
             this.AcceptButton = this.btnSave;
@@ -326,6 +326,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCreateAccount";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Pro Market";
             this.guna2Panel1.ResumeLayout(false);
