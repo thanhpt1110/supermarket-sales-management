@@ -189,6 +189,9 @@
     <EmbeddedResource Include="GUI\Account\FormCreateAccount.resx">
       <DependentUpon>FormCreateAccount.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Account\FormUpdateAccount.resx">
+      <DependentUpon>FormUpdateAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Customer\FormCustomerManagement.resx">
       <DependentUpon>FormCustomerManagement.cs</DependentUpon>
     </EmbeddedResource>
@@ -310,6 +313,8 @@
   <ItemGroup>
     <Content Include="resources\black-delete.png" />
     <Content Include="resources\black-edit.png" />
+    <None Include="resources\show-password.png" />
+    <None Include="resources\hide-password.png" />
     <None Include="resources\supermarket-logo.png" />
     <None Include="resources\grid-employee.png" />
     <None Include="resources\grid-customer.png" />

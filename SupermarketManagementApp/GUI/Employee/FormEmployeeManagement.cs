@@ -51,6 +51,8 @@ namespace SupermarketManagementApp.GUI.Employee
             gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "29/01/2003", "0914777666","051203001122" });
             gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "29/01/2003", "0914777666","051203001122" });
             gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "29/01/2003", "0914777666","051203001122" });
+            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "29/01/2003", "0914777666","051203001122" });
+            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "29/01/2003", "0914777666","051203001122" });
            
         }
 

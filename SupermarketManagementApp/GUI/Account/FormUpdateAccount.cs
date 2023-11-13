@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SupermarketManagementApp.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,33 @@ namespace SupermarketManagementApp.GUI.Account
         public FormUpdateAccount()
         {
             InitializeComponent();
+            txtBoxPassword.IconRightClick += txtBoxPassword_IconRightClick;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtBoxPassword_IconRightClick(object sender, EventArgs e)
+        {
+            if (txtBoxPassword.UseSystemPasswordChar)
+            {
+                txtBoxPassword.UseSystemPasswordChar = false;
+                txtBoxPassword.PasswordChar = '\0'; // '\0' là ký tự không hiển thị
+                txtBoxPassword.IconRight = Resources.show_password;
+            }
+            else
+            {
+                txtBoxPassword.UseSystemPasswordChar = true;
+                txtBoxPassword.PasswordChar = '●'; // Hoặc bạn có thể sử dụng một ký tự khác để thay thế
+                txtBoxPassword.IconRight = Resources.hide_password;
+            }
         }
     }
 }
