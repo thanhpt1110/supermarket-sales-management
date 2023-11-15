@@ -139,11 +139,23 @@
     <Compile Include="GUI\Invoice\SupplierInvoice\FormSupplierInvoiceManagement.Designer.cs">
       <DependentUpon>FormSupplierInvoiceManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Product\FormCreateProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Product\FormCreateProduct.Designer.cs">
+      <DependentUpon>FormCreateProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Product\FormProductManagement.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Product\FormProductManagement.Designer.cs">
       <DependentUpon>FormProductManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Product\FormUpdateProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Product\FormUpdateProduct.Designer.cs">
+      <DependentUpon>FormUpdateProduct.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Product\ProductInInventory\FormProductInventoryManagement.cs">
       <SubType>Form</SubType>
@@ -230,6 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Invoice\SupplierInvoice\FormSupplierInvoiceManagement.resx">
       <DependentUpon>FormSupplierInvoiceManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Product\FormCreateProduct.resx">
+      <DependentUpon>FormCreateProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Product\FormProductManagement.resx">
       <DependentUpon>FormProductManagement.cs</DependentUpon>
