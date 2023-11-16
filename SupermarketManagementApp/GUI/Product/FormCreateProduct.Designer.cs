@@ -42,10 +42,10 @@
             this.txtBoxUsername = new Guna.UI2.WinForms.Guna2TextBox();
             this.labelForm = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.txtBoxPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.borderLessForm = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-            this.txtBoxPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,9 +79,9 @@
             this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel4.ForeColor = System.Drawing.Color.Red;
-            this.guna2HtmlLabel4.Location = new System.Drawing.Point(98, 109);
+            this.guna2HtmlLabel4.Location = new System.Drawing.Point(85, 109);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(12, 30);
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(10, 23);
             this.guna2HtmlLabel4.TabIndex = 10;
             this.guna2HtmlLabel4.Text = "*";
             // 
@@ -91,7 +91,7 @@
             this.labelRole.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRole.Location = new System.Drawing.Point(50, 109);
             this.labelRole.Name = "labelRole";
-            this.labelRole.Size = new System.Drawing.Size(42, 30);
+            this.labelRole.Size = new System.Drawing.Size(34, 23);
             this.labelRole.TabIndex = 9;
             this.labelRole.Text = "Role";
             // 
@@ -124,9 +124,9 @@
             this.labelRequired1.BackColor = System.Drawing.Color.Transparent;
             this.labelRequired1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRequired1.ForeColor = System.Drawing.Color.Red;
-            this.labelRequired1.Location = new System.Drawing.Point(146, 199);
+            this.labelRequired1.Location = new System.Drawing.Point(126, 199);
             this.labelRequired1.Name = "labelRequired1";
-            this.labelRequired1.Size = new System.Drawing.Size(12, 30);
+            this.labelRequired1.Size = new System.Drawing.Size(10, 23);
             this.labelRequired1.TabIndex = 1;
             this.labelRequired1.Text = "*";
             // 
@@ -136,7 +136,7 @@
             this.labelUsername.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUsername.Location = new System.Drawing.Point(50, 199);
             this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(90, 30);
+            this.labelUsername.Size = new System.Drawing.Size(74, 23);
             this.labelUsername.TabIndex = 0;
             this.labelUsername.Text = "Username";
             // 
@@ -145,9 +145,9 @@
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.Red;
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(169, 21);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(139, 21);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(12, 30);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(10, 23);
             this.guna2HtmlLabel3.TabIndex = 7;
             this.guna2HtmlLabel3.Text = "*";
             // 
@@ -157,7 +157,7 @@
             this.labelEmployeeID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEmployeeID.Location = new System.Drawing.Point(50, 21);
             this.labelEmployeeID.Name = "labelEmployeeID";
-            this.labelEmployeeID.Size = new System.Drawing.Size(113, 30);
+            this.labelEmployeeID.Size = new System.Drawing.Size(90, 23);
             this.labelEmployeeID.TabIndex = 10;
             this.labelEmployeeID.Text = "Employee ID";
             // 
@@ -166,9 +166,9 @@
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Red;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(141, 297);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(122, 297);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(12, 30);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(10, 23);
             this.guna2HtmlLabel1.TabIndex = 4;
             this.guna2HtmlLabel1.Text = "*";
             // 
@@ -178,7 +178,7 @@
             this.labelPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPassword.Location = new System.Drawing.Point(50, 297);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(85, 30);
+            this.labelPassword.Size = new System.Drawing.Size(70, 23);
             this.labelPassword.TabIndex = 3;
             this.labelPassword.Text = "Password";
             // 
@@ -214,7 +214,7 @@
             this.labelForm.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelForm.Location = new System.Drawing.Point(200, 30);
             this.labelForm.Name = "labelForm";
-            this.labelForm.Size = new System.Drawing.Size(241, 48);
+            this.labelForm.Size = new System.Drawing.Size(196, 39);
             this.labelForm.TabIndex = 8;
             this.labelForm.Text = "Create Product";
             // 
@@ -240,49 +240,6 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(500, 547);
             this.guna2Panel1.TabIndex = 7;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.BorderRadius = 15;
-            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSave.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSave.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSave.FillColor = System.Drawing.Color.ForestGreen;
-            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(410, 677);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(140, 40);
-            this.btnSave.TabIndex = 9;
-            this.btnSave.Text = "Save";
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.BorderRadius = 15;
-            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnCancel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnCancel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnCancel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnCancel.FillColor = System.Drawing.Color.Silver;
-            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(250, 677);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(140, 40);
-            this.btnCancel.TabIndex = 10;
-            this.btnCancel.Text = "Cancel";
-            // 
-            // borderLessForm
-            // 
-            this.borderLessForm.ContainerControl = this;
-            this.borderLessForm.DockIndicatorTransparencyValue = 0.6D;
-            this.borderLessForm.ResizeForm = false;
-            this.borderLessForm.TransparentWhileDrag = true;
             // 
             // txtBoxPassword
             // 
@@ -312,6 +269,51 @@
             this.txtBoxPassword.TextOffset = new System.Drawing.Point(5, 0);
             this.txtBoxPassword.UseSystemPasswordChar = true;
             // 
+            // btnSave
+            // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.BorderRadius = 15;
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSave.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSave.FillColor = System.Drawing.Color.ForestGreen;
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(410, 677);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(140, 40);
+            this.btnSave.TabIndex = 9;
+            this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.BorderRadius = 15;
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCancel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCancel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCancel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCancel.FillColor = System.Drawing.Color.Silver;
+            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Location = new System.Drawing.Point(250, 677);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(140, 40);
+            this.btnCancel.TabIndex = 10;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // borderLessForm
+            // 
+            this.borderLessForm.ContainerControl = this;
+            this.borderLessForm.DockIndicatorTransparencyValue = 0.6D;
+            this.borderLessForm.ResizeForm = false;
+            this.borderLessForm.TransparentWhileDrag = true;
+            // 
             // FormCreateProduct
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -324,6 +326,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormCreateProduct";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormCreateProduct";
             this.guna2Panel1.ResumeLayout(false);
