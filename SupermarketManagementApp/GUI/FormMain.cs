@@ -238,7 +238,7 @@ namespace SupermarketManagementApp
         {
             SetDefaultColor();
             SetColorButton((Guna2Button)sender);
-            OpenChildForm(new FormCustomerInvoiceManagement());
+            OpenChildForm(new FormCustomerInvoiceManagement(this));
         }
 
         private void btnManageSupplierInvoice_Click(object sender, EventArgs e)

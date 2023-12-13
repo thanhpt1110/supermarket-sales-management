@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.msgBoxInfo = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.msgBoxDelete = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -39,7 +39,6 @@
             this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
             this.btnCreateProduct = new Guna.UI2.WinForms.Guna2Button();
             this.msgBoxError = new Guna.UI2.WinForms.Guna2MessageDialog();
-            this.txtBoxSearchProduct = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.scrollBar = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.gridViewMain = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -51,6 +50,7 @@
             this.UnitConversion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.txtBoxSearchProduct = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewMain)).BeginInit();
             this.SuspendLayout();
@@ -149,35 +149,6 @@
             this.msgBoxError.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
             this.msgBoxError.Text = "There were some errors, please try again later!";
             // 
-            // txtBoxSearchProduct
-            // 
-            this.txtBoxSearchProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
-            this.txtBoxSearchProduct.BorderColor = System.Drawing.Color.Black;
-            this.txtBoxSearchProduct.BorderRadius = 5;
-            this.txtBoxSearchProduct.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBoxSearchProduct.DefaultText = "";
-            this.txtBoxSearchProduct.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtBoxSearchProduct.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtBoxSearchProduct.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBoxSearchProduct.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBoxSearchProduct.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBoxSearchProduct.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxSearchProduct.ForeColor = System.Drawing.Color.Black;
-            this.txtBoxSearchProduct.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBoxSearchProduct.IconRight = global::SupermarketManagementApp.Properties.Resources.silver_search;
-            this.txtBoxSearchProduct.IconRightOffset = new System.Drawing.Point(15, -1);
-            this.txtBoxSearchProduct.IconRightSize = new System.Drawing.Size(25, 25);
-            this.txtBoxSearchProduct.Location = new System.Drawing.Point(45, 35);
-            this.txtBoxSearchProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtBoxSearchProduct.Name = "txtBoxSearchProduct";
-            this.txtBoxSearchProduct.PasswordChar = '\0';
-            this.txtBoxSearchProduct.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txtBoxSearchProduct.PlaceholderText = "Enter product";
-            this.txtBoxSearchProduct.SelectedText = "";
-            this.txtBoxSearchProduct.Size = new System.Drawing.Size(285, 45);
-            this.txtBoxSearchProduct.TabIndex = 5;
-            this.txtBoxSearchProduct.TextOffset = new System.Drawing.Point(5, 0);
-            // 
             // guna2ShadowPanel1
             // 
             this.guna2ShadowPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -221,19 +192,19 @@
             this.gridViewMain.AllowUserToDeleteRows = false;
             this.gridViewMain.AllowUserToResizeColumns = false;
             this.gridViewMain.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.gridViewMain.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.gridViewMain.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.gridViewMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridViewMain.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewMain.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.gridViewMain.ColumnHeadersHeight = 50;
             this.gridViewMain.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.icon,
@@ -244,14 +215,14 @@
             this.UnitConversion,
             this.Edit,
             this.Delete});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridViewMain.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridViewMain.DefaultCellStyle = dataGridViewCellStyle6;
             this.gridViewMain.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gridViewMain.Location = new System.Drawing.Point(28, 3);
             this.gridViewMain.Name = "gridViewMain";
@@ -356,16 +327,45 @@
             this.Delete.ReadOnly = true;
             this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
+            // txtBoxSearchProduct
+            // 
+            this.txtBoxSearchProduct.BackColor = System.Drawing.Color.Transparent;
+            this.txtBoxSearchProduct.BorderColor = System.Drawing.Color.DarkGray;
+            this.txtBoxSearchProduct.BorderRadius = 5;
+            this.txtBoxSearchProduct.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBoxSearchProduct.DefaultText = "";
+            this.txtBoxSearchProduct.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtBoxSearchProduct.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtBoxSearchProduct.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBoxSearchProduct.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBoxSearchProduct.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.txtBoxSearchProduct.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxSearchProduct.ForeColor = System.Drawing.Color.Black;
+            this.txtBoxSearchProduct.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.txtBoxSearchProduct.IconRight = global::SupermarketManagementApp.Properties.Resources.silver_search;
+            this.txtBoxSearchProduct.IconRightOffset = new System.Drawing.Point(15, -1);
+            this.txtBoxSearchProduct.IconRightSize = new System.Drawing.Size(25, 25);
+            this.txtBoxSearchProduct.Location = new System.Drawing.Point(45, 35);
+            this.txtBoxSearchProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBoxSearchProduct.Name = "txtBoxSearchProduct";
+            this.txtBoxSearchProduct.PasswordChar = '\0';
+            this.txtBoxSearchProduct.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txtBoxSearchProduct.PlaceholderText = "Enter product";
+            this.txtBoxSearchProduct.SelectedText = "";
+            this.txtBoxSearchProduct.Size = new System.Drawing.Size(285, 45);
+            this.txtBoxSearchProduct.TabIndex = 7;
+            this.txtBoxSearchProduct.TextOffset = new System.Drawing.Point(5, 0);
+            // 
             // FormProductManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(984, 761);
+            this.Controls.Add(this.txtBoxSearchProduct);
             this.Controls.Add(this.guna2ShadowPanel1);
             this.Controls.Add(this.btnExportExcel);
             this.Controls.Add(this.btnCreateProduct);
-            this.Controls.Add(this.txtBoxSearchProduct);
             this.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.Name = "FormProductManagement";
@@ -385,7 +385,6 @@
         private Guna.UI2.WinForms.Guna2Button btnExportExcel;
         private Guna.UI2.WinForms.Guna2Button btnCreateProduct;
         private Guna.UI2.WinForms.Guna2MessageDialog msgBoxError;
-        private Guna.UI2.WinForms.Guna2TextBox txtBoxSearchProduct;
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel1;
         private Guna.UI2.WinForms.Guna2VScrollBar scrollBar;
         private Guna.UI2.WinForms.Guna2DataGridView gridViewMain;
@@ -397,5 +396,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitConversion;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
+        private Guna.UI2.WinForms.Guna2TextBox txtBoxSearchProduct;
     }
 }

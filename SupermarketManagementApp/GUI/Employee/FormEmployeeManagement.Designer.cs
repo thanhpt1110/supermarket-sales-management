@@ -33,7 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.msgBoxInfo = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.msgBoxDelete = new Guna.UI2.WinForms.Guna2MessageDialog();
-            this.txtBoxSearchEmployee = new Guna.UI2.WinForms.Guna2TextBox();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -50,6 +49,7 @@
             this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
             this.msgBoxError = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.btnCreateAccount = new Guna.UI2.WinForms.Guna2Button();
+            this.txtBoxSearchEmployee = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewMain)).BeginInit();
             this.guna2ShadowPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -71,35 +71,6 @@
             this.msgBoxDelete.Parent = null;
             this.msgBoxDelete.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
             this.msgBoxDelete.Text = "Are you sure you want to delete this file?";
-            // 
-            // txtBoxSearchEmployee
-            // 
-            this.txtBoxSearchEmployee.BackColor = System.Drawing.Color.Transparent;
-            this.txtBoxSearchEmployee.BorderColor = System.Drawing.Color.Black;
-            this.txtBoxSearchEmployee.BorderRadius = 5;
-            this.txtBoxSearchEmployee.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBoxSearchEmployee.DefaultText = "";
-            this.txtBoxSearchEmployee.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtBoxSearchEmployee.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtBoxSearchEmployee.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBoxSearchEmployee.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBoxSearchEmployee.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBoxSearchEmployee.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxSearchEmployee.ForeColor = System.Drawing.Color.Black;
-            this.txtBoxSearchEmployee.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBoxSearchEmployee.IconRight = global::SupermarketManagementApp.Properties.Resources.silver_search;
-            this.txtBoxSearchEmployee.IconRightOffset = new System.Drawing.Point(15, -1);
-            this.txtBoxSearchEmployee.IconRightSize = new System.Drawing.Size(25, 25);
-            this.txtBoxSearchEmployee.Location = new System.Drawing.Point(45, 35);
-            this.txtBoxSearchEmployee.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtBoxSearchEmployee.Name = "txtBoxSearchEmployee";
-            this.txtBoxSearchEmployee.PasswordChar = '\0';
-            this.txtBoxSearchEmployee.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txtBoxSearchEmployee.PlaceholderText = "Enter employee name";
-            this.txtBoxSearchEmployee.SelectedText = "";
-            this.txtBoxSearchEmployee.Size = new System.Drawing.Size(285, 44);
-            this.txtBoxSearchEmployee.TabIndex = 5;
-            this.txtBoxSearchEmployee.TextOffset = new System.Drawing.Point(5, 0);
             // 
             // dataGridViewImageColumn3
             // 
@@ -348,6 +319,35 @@
             this.btnCreateAccount.Text = "Create Employee";
             this.btnCreateAccount.Click += new System.EventHandler(this.btnCreateEmployee_Click);
             // 
+            // txtBoxSearchEmployee
+            // 
+            this.txtBoxSearchEmployee.BackColor = System.Drawing.Color.Transparent;
+            this.txtBoxSearchEmployee.BorderColor = System.Drawing.Color.DarkGray;
+            this.txtBoxSearchEmployee.BorderRadius = 5;
+            this.txtBoxSearchEmployee.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBoxSearchEmployee.DefaultText = "";
+            this.txtBoxSearchEmployee.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtBoxSearchEmployee.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtBoxSearchEmployee.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBoxSearchEmployee.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBoxSearchEmployee.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.txtBoxSearchEmployee.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxSearchEmployee.ForeColor = System.Drawing.Color.Black;
+            this.txtBoxSearchEmployee.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.txtBoxSearchEmployee.IconRight = global::SupermarketManagementApp.Properties.Resources.silver_search;
+            this.txtBoxSearchEmployee.IconRightOffset = new System.Drawing.Point(15, -1);
+            this.txtBoxSearchEmployee.IconRightSize = new System.Drawing.Size(25, 25);
+            this.txtBoxSearchEmployee.Location = new System.Drawing.Point(45, 35);
+            this.txtBoxSearchEmployee.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBoxSearchEmployee.Name = "txtBoxSearchEmployee";
+            this.txtBoxSearchEmployee.PasswordChar = '\0';
+            this.txtBoxSearchEmployee.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txtBoxSearchEmployee.PlaceholderText = "Enter employee name";
+            this.txtBoxSearchEmployee.SelectedText = "";
+            this.txtBoxSearchEmployee.Size = new System.Drawing.Size(285, 45);
+            this.txtBoxSearchEmployee.TabIndex = 7;
+            this.txtBoxSearchEmployee.TextOffset = new System.Drawing.Point(5, 0);
+            // 
             // FormEmployeeManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -372,7 +372,6 @@
 
         private Guna.UI2.WinForms.Guna2MessageDialog msgBoxInfo;
         private Guna.UI2.WinForms.Guna2MessageDialog msgBoxDelete;
-        private Guna.UI2.WinForms.Guna2TextBox txtBoxSearchEmployee;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
@@ -389,5 +388,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn IDCard;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
+        private Guna.UI2.WinForms.Guna2TextBox txtBoxSearchEmployee;
     }
 }

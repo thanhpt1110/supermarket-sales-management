@@ -33,16 +33,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.msgBoxInfo = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.msgBoxDelete = new Guna.UI2.WinForms.Guna2MessageDialog();
-            this.txtBoxSearchCustomer = new Guna.UI2.WinForms.Guna2TextBox();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.scrollBar = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.gridViewMain = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
-            this.msgBoxError = new Guna.UI2.WinForms.Guna2MessageDialog();
-            this.btnCreateCustomer = new Guna.UI2.WinForms.Guna2Button();
             this.icon = new System.Windows.Forms.DataGridViewImageColumn();
             this.AccountName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +45,11 @@
             this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
+            this.msgBoxError = new Guna.UI2.WinForms.Guna2MessageDialog();
+            this.btnCreateCustomer = new Guna.UI2.WinForms.Guna2Button();
+            this.txtBoxSearchCustomer = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewMain)).BeginInit();
             this.guna2ShadowPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -71,35 +71,6 @@
             this.msgBoxDelete.Parent = null;
             this.msgBoxDelete.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
             this.msgBoxDelete.Text = "Are you sure you want to delete this file?";
-            // 
-            // txtBoxSearchCustomer
-            // 
-            this.txtBoxSearchCustomer.BackColor = System.Drawing.Color.Transparent;
-            this.txtBoxSearchCustomer.BorderColor = System.Drawing.Color.Black;
-            this.txtBoxSearchCustomer.BorderRadius = 5;
-            this.txtBoxSearchCustomer.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBoxSearchCustomer.DefaultText = "";
-            this.txtBoxSearchCustomer.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtBoxSearchCustomer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtBoxSearchCustomer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBoxSearchCustomer.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBoxSearchCustomer.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBoxSearchCustomer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxSearchCustomer.ForeColor = System.Drawing.Color.Black;
-            this.txtBoxSearchCustomer.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBoxSearchCustomer.IconRight = global::SupermarketManagementApp.Properties.Resources.silver_search;
-            this.txtBoxSearchCustomer.IconRightOffset = new System.Drawing.Point(15, -1);
-            this.txtBoxSearchCustomer.IconRightSize = new System.Drawing.Size(25, 25);
-            this.txtBoxSearchCustomer.Location = new System.Drawing.Point(45, 35);
-            this.txtBoxSearchCustomer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtBoxSearchCustomer.Name = "txtBoxSearchCustomer";
-            this.txtBoxSearchCustomer.PasswordChar = '\0';
-            this.txtBoxSearchCustomer.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txtBoxSearchCustomer.PlaceholderText = "Enter customer name ";
-            this.txtBoxSearchCustomer.SelectedText = "";
-            this.txtBoxSearchCustomer.Size = new System.Drawing.Size(285, 45);
-            this.txtBoxSearchCustomer.TabIndex = 5;
-            this.txtBoxSearchCustomer.TextOffset = new System.Drawing.Point(5, 0);
             // 
             // dataGridViewImageColumn3
             // 
@@ -225,6 +196,66 @@
             this.gridViewMain.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewMain_CellMouseLeave);
             this.gridViewMain.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridViewMain_CellMouseMove);
             // 
+            // icon
+            // 
+            this.icon.FillWeight = 50F;
+            this.icon.HeaderText = "";
+            this.icon.Image = global::SupermarketManagementApp.Properties.Resources.grid_customer;
+            this.icon.MinimumWidth = 6;
+            this.icon.Name = "icon";
+            this.icon.ReadOnly = true;
+            this.icon.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // AccountName
+            // 
+            this.AccountName.FillWeight = 170F;
+            this.AccountName.HeaderText = "Name";
+            this.AccountName.MinimumWidth = 6;
+            this.AccountName.Name = "AccountName";
+            this.AccountName.ReadOnly = true;
+            // 
+            // Role
+            // 
+            this.Role.FillWeight = 120F;
+            this.Role.HeaderText = "Birthday";
+            this.Role.MinimumWidth = 6;
+            this.Role.Name = "Role";
+            this.Role.ReadOnly = true;
+            // 
+            // PhoneNumber
+            // 
+            this.PhoneNumber.FillWeight = 130F;
+            this.PhoneNumber.HeaderText = "Phone number";
+            this.PhoneNumber.MinimumWidth = 6;
+            this.PhoneNumber.Name = "PhoneNumber";
+            this.PhoneNumber.ReadOnly = true;
+            // 
+            // Username
+            // 
+            this.Username.FillWeight = 140F;
+            this.Username.HeaderText = "ID number";
+            this.Username.MinimumWidth = 6;
+            this.Username.Name = "Username";
+            this.Username.ReadOnly = true;
+            // 
+            // Edit
+            // 
+            this.Edit.HeaderText = "";
+            this.Edit.Image = global::SupermarketManagementApp.Properties.Resources.grid_edit;
+            this.Edit.MinimumWidth = 6;
+            this.Edit.Name = "Edit";
+            this.Edit.ReadOnly = true;
+            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "";
+            this.Delete.Image = global::SupermarketManagementApp.Properties.Resources.grid_delete;
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
             // guna2ShadowPanel1
             // 
             this.guna2ShadowPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -293,65 +324,34 @@
             this.btnCreateCustomer.Text = "Create Customer";
             this.btnCreateCustomer.Click += new System.EventHandler(this.btnCreateCustomer_Click);
             // 
-            // icon
+            // txtBoxSearchCustomer
             // 
-            this.icon.FillWeight = 50F;
-            this.icon.HeaderText = "";
-            this.icon.Image = global::SupermarketManagementApp.Properties.Resources.grid_customer;
-            this.icon.MinimumWidth = 6;
-            this.icon.Name = "icon";
-            this.icon.ReadOnly = true;
-            this.icon.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // AccountName
-            // 
-            this.AccountName.FillWeight = 170F;
-            this.AccountName.HeaderText = "Name";
-            this.AccountName.MinimumWidth = 6;
-            this.AccountName.Name = "AccountName";
-            this.AccountName.ReadOnly = true;
-            // 
-            // Role
-            // 
-            this.Role.FillWeight = 120F;
-            this.Role.HeaderText = "Birthday";
-            this.Role.MinimumWidth = 6;
-            this.Role.Name = "Role";
-            this.Role.ReadOnly = true;
-            // 
-            // PhoneNumber
-            // 
-            this.PhoneNumber.FillWeight = 130F;
-            this.PhoneNumber.HeaderText = "Phone number";
-            this.PhoneNumber.MinimumWidth = 6;
-            this.PhoneNumber.Name = "PhoneNumber";
-            this.PhoneNumber.ReadOnly = true;
-            // 
-            // Username
-            // 
-            this.Username.FillWeight = 140F;
-            this.Username.HeaderText = "ID number";
-            this.Username.MinimumWidth = 6;
-            this.Username.Name = "Username";
-            this.Username.ReadOnly = true;
-            // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "";
-            this.Edit.Image = global::SupermarketManagementApp.Properties.Resources.grid_edit;
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.ReadOnly = true;
-            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "";
-            this.Delete.Image = global::SupermarketManagementApp.Properties.Resources.grid_delete;
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.txtBoxSearchCustomer.BackColor = System.Drawing.Color.Transparent;
+            this.txtBoxSearchCustomer.BorderColor = System.Drawing.Color.DarkGray;
+            this.txtBoxSearchCustomer.BorderRadius = 5;
+            this.txtBoxSearchCustomer.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBoxSearchCustomer.DefaultText = "";
+            this.txtBoxSearchCustomer.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtBoxSearchCustomer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtBoxSearchCustomer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBoxSearchCustomer.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBoxSearchCustomer.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.txtBoxSearchCustomer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxSearchCustomer.ForeColor = System.Drawing.Color.Black;
+            this.txtBoxSearchCustomer.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.txtBoxSearchCustomer.IconRight = global::SupermarketManagementApp.Properties.Resources.silver_search;
+            this.txtBoxSearchCustomer.IconRightOffset = new System.Drawing.Point(15, -1);
+            this.txtBoxSearchCustomer.IconRightSize = new System.Drawing.Size(25, 25);
+            this.txtBoxSearchCustomer.Location = new System.Drawing.Point(45, 35);
+            this.txtBoxSearchCustomer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBoxSearchCustomer.Name = "txtBoxSearchCustomer";
+            this.txtBoxSearchCustomer.PasswordChar = '\0';
+            this.txtBoxSearchCustomer.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txtBoxSearchCustomer.PlaceholderText = "Enter customer name";
+            this.txtBoxSearchCustomer.SelectedText = "";
+            this.txtBoxSearchCustomer.Size = new System.Drawing.Size(285, 45);
+            this.txtBoxSearchCustomer.TabIndex = 9;
+            this.txtBoxSearchCustomer.TextOffset = new System.Drawing.Point(5, 0);
             // 
             // FormCustomerManagement
             // 
@@ -375,7 +375,6 @@
 
         private Guna.UI2.WinForms.Guna2MessageDialog msgBoxInfo;
         private Guna.UI2.WinForms.Guna2MessageDialog msgBoxDelete;
-        private Guna.UI2.WinForms.Guna2TextBox txtBoxSearchCustomer;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
@@ -392,5 +391,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Username;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
+        private Guna.UI2.WinForms.Guna2TextBox txtBoxSearchCustomer;
     }
 }
