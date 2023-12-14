@@ -291,6 +291,7 @@
             this.txtBoxSearchInvoice.BackColor = System.Drawing.Color.Transparent;
             this.txtBoxSearchInvoice.BorderColor = System.Drawing.Color.DarkGray;
             this.txtBoxSearchInvoice.BorderRadius = 5;
+            this.txtBoxSearchInvoice.BorderThickness = 2;
             this.txtBoxSearchInvoice.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtBoxSearchInvoice.DefaultText = "";
             this.txtBoxSearchInvoice.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));

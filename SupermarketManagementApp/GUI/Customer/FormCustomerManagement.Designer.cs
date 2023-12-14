@@ -329,6 +329,7 @@
             this.txtBoxSearchCustomer.BackColor = System.Drawing.Color.Transparent;
             this.txtBoxSearchCustomer.BorderColor = System.Drawing.Color.DarkGray;
             this.txtBoxSearchCustomer.BorderRadius = 5;
+            this.txtBoxSearchCustomer.BorderThickness = 2;
             this.txtBoxSearchCustomer.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtBoxSearchCustomer.DefaultText = "";
             this.txtBoxSearchCustomer.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));

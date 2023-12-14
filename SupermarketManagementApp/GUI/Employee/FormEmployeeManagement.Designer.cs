@@ -324,6 +324,7 @@
             this.txtBoxSearchEmployee.BackColor = System.Drawing.Color.Transparent;
             this.txtBoxSearchEmployee.BorderColor = System.Drawing.Color.DarkGray;
             this.txtBoxSearchEmployee.BorderRadius = 5;
+            this.txtBoxSearchEmployee.BorderThickness = 2;
             this.txtBoxSearchEmployee.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtBoxSearchEmployee.DefaultText = "";
             this.txtBoxSearchEmployee.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));

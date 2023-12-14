@@ -43,18 +43,19 @@
             // 
             this.txtBoxUsername.Animated = true;
             this.txtBoxUsername.BackColor = System.Drawing.Color.Transparent;
-            this.txtBoxUsername.BorderColor = System.Drawing.Color.Black;
+            this.txtBoxUsername.BorderColor = System.Drawing.Color.Silver;
             this.txtBoxUsername.BorderRadius = 5;
+            this.txtBoxUsername.BorderThickness = 2;
             this.txtBoxUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtBoxUsername.DefaultText = "";
             this.txtBoxUsername.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtBoxUsername.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtBoxUsername.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtBoxUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBoxUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBoxUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.txtBoxUsername.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtBoxUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtBoxUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBoxUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.txtBoxUsername.Location = new System.Drawing.Point(200, 270);
             this.txtBoxUsername.Margin = new System.Windows.Forms.Padding(5);
             this.txtBoxUsername.Name = "txtBoxUsername";
@@ -78,18 +79,19 @@
             // 
             // txtBoxPassword
             // 
-            this.txtBoxPassword.BorderColor = System.Drawing.Color.Black;
+            this.txtBoxPassword.BorderColor = System.Drawing.Color.Silver;
             this.txtBoxPassword.BorderRadius = 5;
+            this.txtBoxPassword.BorderThickness = 2;
             this.txtBoxPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtBoxPassword.DefaultText = "";
             this.txtBoxPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtBoxPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtBoxPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtBoxPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBoxPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBoxPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.txtBoxPassword.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtBoxPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtBoxPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBoxPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.txtBoxPassword.IconRight = global::SupermarketManagementApp.Properties.Resources.hide_password;
             this.txtBoxPassword.IconRightCursor = System.Windows.Forms.Cursors.Hand;
             this.txtBoxPassword.IconRightOffset = new System.Drawing.Point(10, 0);
@@ -132,6 +134,7 @@
             this.btnSignIn.Size = new System.Drawing.Size(140, 40);
             this.btnSignIn.TabIndex = 9;
             this.btnSignIn.Text = "Sign In";
+            this.btnSignIn.TextOffset = new System.Drawing.Point(0, -2);
             this.btnSignIn.Click += new System.EventHandler(this.btnSignIn_Click);
             // 
             // labelForgotPassword
