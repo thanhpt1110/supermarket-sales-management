@@ -88,6 +88,7 @@
             this.scrollBar.TabIndex = 1;
             this.scrollBar.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.scrollBar.Value = 1;
+            this.scrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.scrollBar_Scroll);
             // 
             // gridViewMain
             // 

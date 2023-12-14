@@ -145,6 +145,18 @@
     <Compile Include="GUI\Invoice\CustomerInvoice\FormDetailCustomerInvoice.Designer.cs">
       <DependentUpon>FormDetailCustomerInvoice.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Invoice\SupplierInvoice\FormCreateSupplierInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Invoice\SupplierInvoice\FormCreateSupplierInvoice.Designer.cs">
+      <DependentUpon>FormCreateSupplierInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Invoice\SupplierInvoice\FormDetailSupplierInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Invoice\SupplierInvoice\FormDetailSupplierInvoice.Designer.cs">
+      <DependentUpon>FormDetailSupplierInvoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Invoice\SupplierInvoice\FormSupplierInvoiceManagement.cs">
       <SubType>Form</SubType>
     </Compile>
