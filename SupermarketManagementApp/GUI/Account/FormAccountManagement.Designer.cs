@@ -70,6 +70,7 @@
             this.btnCreateAccount.Size = new System.Drawing.Size(180, 45);
             this.btnCreateAccount.TabIndex = 1;
             this.btnCreateAccount.Text = "Create Account";
+            this.btnCreateAccount.TextOffset = new System.Drawing.Point(0, -1);
             this.btnCreateAccount.Click += new System.EventHandler(this.btnCreateAccount_Click);
             // 
             // btnExportExcel
@@ -89,6 +90,7 @@
             this.btnExportExcel.Size = new System.Drawing.Size(169, 45);
             this.btnExportExcel.TabIndex = 3;
             this.btnExportExcel.Text = "Export Excel";
+            this.btnExportExcel.TextOffset = new System.Drawing.Point(0, -1);
             this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
             // 
             // guna2ShadowPanel1

@@ -197,7 +197,7 @@ namespace SupermarketManagementApp
         {
             SetDefaultColor();
             SetColorButton((Guna2Button)sender);
-            OpenChildForm(new FormProductTypeManagement());
+            OpenChildForm(new FormProductTypeManagement(this));
         }
 
         private void btnProductOnShelf_Click(object sender, EventArgs e)

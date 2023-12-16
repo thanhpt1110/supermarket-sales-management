@@ -193,11 +193,23 @@
     <Compile Include="GUI\Product\ProductOnShelf\FormProductShelfManagement.Designer.cs">
       <DependentUpon>FormProductShelfManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Product\ProductType\FormCreateProductType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Product\ProductType\FormCreateProductType.Designer.cs">
+      <DependentUpon>FormCreateProductType.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Product\ProductType\FormProductTypeManagement.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Product\ProductType\FormProductTypeManagement.Designer.cs">
       <DependentUpon>FormProductTypeManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Product\ProductType\FormUpdateProductType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Product\ProductType\FormUpdateProductType.Designer.cs">
+      <DependentUpon>FormUpdateProductType.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Report&amp;Statistic\FormReport&amp;Statistic.cs">
       <SubType>Form</SubType>

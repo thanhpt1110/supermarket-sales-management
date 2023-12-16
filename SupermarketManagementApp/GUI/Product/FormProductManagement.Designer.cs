@@ -119,6 +119,7 @@
             this.btnExportExcel.Size = new System.Drawing.Size(169, 45);
             this.btnExportExcel.TabIndex = 7;
             this.btnExportExcel.Text = "Export Excel";
+            this.btnExportExcel.TextOffset = new System.Drawing.Point(0, -1);
             this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
             // 
             // btnCreateProduct
@@ -138,6 +139,7 @@
             this.btnCreateProduct.Size = new System.Drawing.Size(180, 45);
             this.btnCreateProduct.TabIndex = 6;
             this.btnCreateProduct.Text = "Create Product";
+            this.btnCreateProduct.TextOffset = new System.Drawing.Point(0, -1);
             this.btnCreateProduct.Click += new System.EventHandler(this.btnCreateProduct_Click);
             // 
             // msgBoxError

@@ -293,6 +293,7 @@
             this.btnExportExcel.Size = new System.Drawing.Size(169, 45);
             this.btnExportExcel.TabIndex = 7;
             this.btnExportExcel.Text = "Export Excel";
+            this.btnExportExcel.TextOffset = new System.Drawing.Point(0, -1);
             this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
             // 
             // msgBoxError
@@ -322,6 +323,7 @@
             this.btnCreateCustomer.Size = new System.Drawing.Size(180, 45);
             this.btnCreateCustomer.TabIndex = 6;
             this.btnCreateCustomer.Text = "Create Customer";
+            this.btnCreateCustomer.TextOffset = new System.Drawing.Point(0, -1);
             this.btnCreateCustomer.Click += new System.EventHandler(this.btnCreateCustomer_Click);
             // 
             // txtBoxSearchCustomer

@@ -239,6 +239,7 @@
             this.btnExportExcel.Size = new System.Drawing.Size(169, 45);
             this.btnExportExcel.TabIndex = 7;
             this.btnExportExcel.Text = "Export Excel";
+            this.btnExportExcel.TextOffset = new System.Drawing.Point(0, -1);
             this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
             // 
             // msgBoxError
@@ -267,6 +268,7 @@
             this.btnCreateInvoice.Size = new System.Drawing.Size(180, 45);
             this.btnCreateInvoice.TabIndex = 6;
             this.btnCreateInvoice.Text = "Create Invoice";
+            this.btnCreateInvoice.TextOffset = new System.Drawing.Point(0, -1);
             this.btnCreateInvoice.Click += new System.EventHandler(this.btnCreateInvoice_Click);
             // 
             // dataGridViewImageColumn1
