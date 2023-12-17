@@ -42,6 +42,7 @@
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.scrollBar = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.gridViewMain = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.txtBoxSearchProduct = new Guna.UI2.WinForms.Guna2TextBox();
             this.icon = new System.Windows.Forms.DataGridViewImageColumn();
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,7 +51,6 @@
             this.UnitConversion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.txtBoxSearchProduct = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewMain)).BeginInit();
             this.SuspendLayout();
@@ -263,11 +263,41 @@
             this.gridViewMain.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewMain_CellMouseLeave);
             this.gridViewMain.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridViewMain_CellMouseMove);
             // 
+            // txtBoxSearchProduct
+            // 
+            this.txtBoxSearchProduct.BackColor = System.Drawing.Color.Transparent;
+            this.txtBoxSearchProduct.BorderColor = System.Drawing.Color.DarkGray;
+            this.txtBoxSearchProduct.BorderRadius = 5;
+            this.txtBoxSearchProduct.BorderThickness = 2;
+            this.txtBoxSearchProduct.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBoxSearchProduct.DefaultText = "";
+            this.txtBoxSearchProduct.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtBoxSearchProduct.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtBoxSearchProduct.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBoxSearchProduct.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBoxSearchProduct.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.txtBoxSearchProduct.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxSearchProduct.ForeColor = System.Drawing.Color.Black;
+            this.txtBoxSearchProduct.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.txtBoxSearchProduct.IconRight = global::SupermarketManagementApp.Properties.Resources.silver_search;
+            this.txtBoxSearchProduct.IconRightOffset = new System.Drawing.Point(15, -1);
+            this.txtBoxSearchProduct.IconRightSize = new System.Drawing.Size(25, 25);
+            this.txtBoxSearchProduct.Location = new System.Drawing.Point(45, 35);
+            this.txtBoxSearchProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBoxSearchProduct.Name = "txtBoxSearchProduct";
+            this.txtBoxSearchProduct.PasswordChar = '\0';
+            this.txtBoxSearchProduct.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txtBoxSearchProduct.PlaceholderText = "Enter product";
+            this.txtBoxSearchProduct.SelectedText = "";
+            this.txtBoxSearchProduct.Size = new System.Drawing.Size(285, 45);
+            this.txtBoxSearchProduct.TabIndex = 7;
+            this.txtBoxSearchProduct.TextOffset = new System.Drawing.Point(5, 0);
+            // 
             // icon
             // 
             this.icon.FillWeight = 50F;
             this.icon.HeaderText = "";
-            this.icon.Image = global::SupermarketManagementApp.Properties.Resources.grid_account;
+            this.icon.Image = global::SupermarketManagementApp.Properties.Resources.grid_product;
             this.icon.MinimumWidth = 6;
             this.icon.Name = "icon";
             this.icon.ReadOnly = true;
@@ -329,36 +359,6 @@
             this.Delete.ReadOnly = true;
             this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // txtBoxSearchProduct
-            // 
-            this.txtBoxSearchProduct.BackColor = System.Drawing.Color.Transparent;
-            this.txtBoxSearchProduct.BorderColor = System.Drawing.Color.DarkGray;
-            this.txtBoxSearchProduct.BorderRadius = 5;
-            this.txtBoxSearchProduct.BorderThickness = 2;
-            this.txtBoxSearchProduct.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBoxSearchProduct.DefaultText = "";
-            this.txtBoxSearchProduct.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtBoxSearchProduct.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtBoxSearchProduct.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBoxSearchProduct.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBoxSearchProduct.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.txtBoxSearchProduct.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxSearchProduct.ForeColor = System.Drawing.Color.Black;
-            this.txtBoxSearchProduct.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.txtBoxSearchProduct.IconRight = global::SupermarketManagementApp.Properties.Resources.silver_search;
-            this.txtBoxSearchProduct.IconRightOffset = new System.Drawing.Point(15, -1);
-            this.txtBoxSearchProduct.IconRightSize = new System.Drawing.Size(25, 25);
-            this.txtBoxSearchProduct.Location = new System.Drawing.Point(45, 35);
-            this.txtBoxSearchProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtBoxSearchProduct.Name = "txtBoxSearchProduct";
-            this.txtBoxSearchProduct.PasswordChar = '\0';
-            this.txtBoxSearchProduct.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txtBoxSearchProduct.PlaceholderText = "Enter product";
-            this.txtBoxSearchProduct.SelectedText = "";
-            this.txtBoxSearchProduct.Size = new System.Drawing.Size(285, 45);
-            this.txtBoxSearchProduct.TabIndex = 7;
-            this.txtBoxSearchProduct.TextOffset = new System.Drawing.Point(5, 0);
-            // 
             // FormProductManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -391,6 +391,7 @@
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel1;
         private Guna.UI2.WinForms.Guna2VScrollBar scrollBar;
         private Guna.UI2.WinForms.Guna2DataGridView gridViewMain;
+        private Guna.UI2.WinForms.Guna2TextBox txtBoxSearchProduct;
         private System.Windows.Forms.DataGridViewImageColumn icon;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;
@@ -399,6 +400,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitConversion;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
-        private Guna.UI2.WinForms.Guna2TextBox txtBoxSearchProduct;
     }
 }

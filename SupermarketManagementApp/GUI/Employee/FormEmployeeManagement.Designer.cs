@@ -38,6 +38,11 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.scrollBar = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.gridViewMain = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
+            this.msgBoxError = new Guna.UI2.WinForms.Guna2MessageDialog();
+            this.btnCreateAccount = new Guna.UI2.WinForms.Guna2Button();
+            this.txtBoxSearchEmployee = new Guna.UI2.WinForms.Guna2TextBox();
             this.icon = new System.Windows.Forms.DataGridViewImageColumn();
             this.AccountName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Birthday = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,11 +50,6 @@
             this.IDCard = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
-            this.msgBoxError = new Guna.UI2.WinForms.Guna2MessageDialog();
-            this.btnCreateAccount = new Guna.UI2.WinForms.Guna2Button();
-            this.txtBoxSearchEmployee = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewMain)).BeginInit();
             this.guna2ShadowPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -194,66 +194,6 @@
             this.gridViewMain.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridViewMain_CellMouseMove);
             this.gridViewMain.Scroll += new System.Windows.Forms.ScrollEventHandler(this.scrollBar_Scroll);
             // 
-            // icon
-            // 
-            this.icon.FillWeight = 50F;
-            this.icon.HeaderText = "";
-            this.icon.Image = global::SupermarketManagementApp.Properties.Resources.grid_account;
-            this.icon.MinimumWidth = 6;
-            this.icon.Name = "icon";
-            this.icon.ReadOnly = true;
-            this.icon.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // AccountName
-            // 
-            this.AccountName.FillWeight = 170F;
-            this.AccountName.HeaderText = "Name";
-            this.AccountName.MinimumWidth = 6;
-            this.AccountName.Name = "AccountName";
-            this.AccountName.ReadOnly = true;
-            // 
-            // Birthday
-            // 
-            this.Birthday.FillWeight = 120F;
-            this.Birthday.HeaderText = "Birthday";
-            this.Birthday.MinimumWidth = 6;
-            this.Birthday.Name = "Birthday";
-            this.Birthday.ReadOnly = true;
-            // 
-            // Phone
-            // 
-            this.Phone.FillWeight = 130F;
-            this.Phone.HeaderText = "Phone number";
-            this.Phone.MinimumWidth = 6;
-            this.Phone.Name = "Phone";
-            this.Phone.ReadOnly = true;
-            // 
-            // IDCard
-            // 
-            this.IDCard.FillWeight = 140F;
-            this.IDCard.HeaderText = "ID number";
-            this.IDCard.MinimumWidth = 6;
-            this.IDCard.Name = "IDCard";
-            this.IDCard.ReadOnly = true;
-            // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "";
-            this.Edit.Image = global::SupermarketManagementApp.Properties.Resources.grid_edit;
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.ReadOnly = true;
-            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "";
-            this.Delete.Image = global::SupermarketManagementApp.Properties.Resources.grid_delete;
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
             // guna2ShadowPanel1
             // 
             this.guna2ShadowPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -351,6 +291,66 @@
             this.txtBoxSearchEmployee.TabIndex = 7;
             this.txtBoxSearchEmployee.TextOffset = new System.Drawing.Point(5, 0);
             // 
+            // icon
+            // 
+            this.icon.FillWeight = 50F;
+            this.icon.HeaderText = "";
+            this.icon.Image = global::SupermarketManagementApp.Properties.Resources.grid_employee;
+            this.icon.MinimumWidth = 6;
+            this.icon.Name = "icon";
+            this.icon.ReadOnly = true;
+            this.icon.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // AccountName
+            // 
+            this.AccountName.FillWeight = 170F;
+            this.AccountName.HeaderText = "Name";
+            this.AccountName.MinimumWidth = 6;
+            this.AccountName.Name = "AccountName";
+            this.AccountName.ReadOnly = true;
+            // 
+            // Birthday
+            // 
+            this.Birthday.FillWeight = 120F;
+            this.Birthday.HeaderText = "Birthday";
+            this.Birthday.MinimumWidth = 6;
+            this.Birthday.Name = "Birthday";
+            this.Birthday.ReadOnly = true;
+            // 
+            // Phone
+            // 
+            this.Phone.FillWeight = 130F;
+            this.Phone.HeaderText = "Phone number";
+            this.Phone.MinimumWidth = 6;
+            this.Phone.Name = "Phone";
+            this.Phone.ReadOnly = true;
+            // 
+            // IDCard
+            // 
+            this.IDCard.FillWeight = 140F;
+            this.IDCard.HeaderText = "ID number";
+            this.IDCard.MinimumWidth = 6;
+            this.IDCard.Name = "IDCard";
+            this.IDCard.ReadOnly = true;
+            // 
+            // Edit
+            // 
+            this.Edit.HeaderText = "";
+            this.Edit.Image = global::SupermarketManagementApp.Properties.Resources.grid_edit;
+            this.Edit.MinimumWidth = 6;
+            this.Edit.Name = "Edit";
+            this.Edit.ReadOnly = true;
+            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "";
+            this.Delete.Image = global::SupermarketManagementApp.Properties.Resources.grid_delete;
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
             // FormEmployeeManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -384,6 +384,7 @@
         private Guna.UI2.WinForms.Guna2Button btnExportExcel;
         private Guna.UI2.WinForms.Guna2MessageDialog msgBoxError;
         private Guna.UI2.WinForms.Guna2Button btnCreateAccount;
+        private Guna.UI2.WinForms.Guna2TextBox txtBoxSearchEmployee;
         private System.Windows.Forms.DataGridViewImageColumn icon;
         private System.Windows.Forms.DataGridViewTextBoxColumn AccountName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Birthday;
@@ -391,6 +392,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn IDCard;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
-        private Guna.UI2.WinForms.Guna2TextBox txtBoxSearchEmployee;
     }
 }
