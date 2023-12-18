@@ -163,7 +163,7 @@ namespace SupermarketManagementApp
             CloseSubMenu();
             SetColorButton((Guna2Button)sender);
             btnManageShelf.CustomImages.Image = Resources.white_shelf;
-            OpenChildForm(new FormShelfManagement());   
+            OpenChildForm(new FormShelfManagement(this));   
         }
 
         private void btnProduct_Click(object sender, EventArgs e)

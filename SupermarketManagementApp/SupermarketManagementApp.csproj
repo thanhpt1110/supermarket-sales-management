@@ -217,11 +217,23 @@
     <Compile Include="GUI\Report&amp;Statistic\FormReport&amp;Statistic.Designer.cs">
       <DependentUpon>FormReport&amp;Statistic.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Shelf\FormCreateShelf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Shelf\FormCreateShelf.Designer.cs">
+      <DependentUpon>FormCreateShelf.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Shelf\FormShelfManagement.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Shelf\FormShelfManagement.Designer.cs">
       <DependentUpon>FormShelfManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Shelf\FormUpdateShelf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Shelf\FormUpdateShelf.Designer.cs">
+      <DependentUpon>FormUpdateShelf.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
