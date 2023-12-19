@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\CustomerBUS.cs" />
     <Compile Include="DAO\CustomerDAO.cs" />
     <Compile Include="DTO\CustomerDTO.cs" />
     <Compile Include="GUI\Account\FormAccountManagement.cs">
