@@ -304,8 +304,14 @@
     <EmbeddedResource Include="GUI\Product\ProductOnShelf\FormProductShelfManagement.resx">
       <DependentUpon>FormProductShelfManagement.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Product\ProductType\FormCreateProductType.resx">
+      <DependentUpon>FormCreateProductType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Product\ProductType\FormProductTypeManagement.resx">
       <DependentUpon>FormProductTypeManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Product\ProductType\FormUpdateProductType.resx">
+      <DependentUpon>FormUpdateProductType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Report&amp;Statistic\FormReport&amp;Statistic.resx">
       <DependentUpon>FormReport&amp;Statistic.cs</DependentUpon>
