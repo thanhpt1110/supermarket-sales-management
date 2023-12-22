@@ -156,7 +156,7 @@
             this.cbBoxRole.MaxDropDownItems = 5;
             this.cbBoxRole.Name = "cbBoxRole";
             this.cbBoxRole.Size = new System.Drawing.Size(400, 36);
-            this.cbBoxRole.TabIndex = 4;
+            this.cbBoxRole.TabIndex = 2;
             this.cbBoxRole.TextOffset = new System.Drawing.Point(5, 0);
             // 
             // guna2HtmlLabel4
@@ -239,7 +239,7 @@
             this.txtBoxPassword.PlaceholderText = "";
             this.txtBoxPassword.SelectedText = "";
             this.txtBoxPassword.Size = new System.Drawing.Size(400, 36);
-            this.txtBoxPassword.TabIndex = 3;
+            this.txtBoxPassword.TabIndex = 4;
             this.txtBoxPassword.TextOffset = new System.Drawing.Point(5, 0);
             this.txtBoxPassword.UseSystemPasswordChar = true;
             // 
@@ -316,7 +316,7 @@
             this.txtBoxUsername.PlaceholderText = "";
             this.txtBoxUsername.SelectedText = "";
             this.txtBoxUsername.Size = new System.Drawing.Size(400, 36);
-            this.txtBoxUsername.TabIndex = 2;
+            this.txtBoxUsername.TabIndex = 3;
             this.txtBoxUsername.TextOffset = new System.Drawing.Point(5, 0);
             // 
             // FormCreateAccount

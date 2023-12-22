@@ -286,8 +286,20 @@
     <EmbeddedResource Include="GUI\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Invoice\CustomerInvoice\FormCreateCustomerInvoice.resx">
+      <DependentUpon>FormCreateCustomerInvoice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Invoice\CustomerInvoice\FormCustomerInvoiceManagement.resx">
       <DependentUpon>FormCustomerInvoiceManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Invoice\CustomerInvoice\FormDetailCustomerInvoice.resx">
+      <DependentUpon>FormDetailCustomerInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Invoice\SupplierInvoice\FormCreateSupplierInvoice.resx">
+      <DependentUpon>FormCreateSupplierInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Invoice\SupplierInvoice\FormDetailSupplierInvoice.resx">
+      <DependentUpon>FormDetailSupplierInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Invoice\SupplierInvoice\FormSupplierInvoiceManagement.resx">
       <DependentUpon>FormSupplierInvoiceManagement.cs</DependentUpon>
@@ -297,6 +309,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Product\FormProductManagement.resx">
       <DependentUpon>FormProductManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Product\FormUpdateProduct.resx">
+      <DependentUpon>FormUpdateProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Product\ProductInInventory\FormProductInventoryManagement.resx">
       <DependentUpon>FormProductInventoryManagement.cs</DependentUpon>
@@ -316,8 +331,14 @@
     <EmbeddedResource Include="GUI\Report&amp;Statistic\FormReport&amp;Statistic.resx">
       <DependentUpon>FormReport&amp;Statistic.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Shelf\FormCreateShelf.resx">
+      <DependentUpon>FormCreateShelf.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Shelf\FormShelfManagement.resx">
       <DependentUpon>FormShelfManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Shelf\FormUpdateShelf.resx">
+      <DependentUpon>FormUpdateShelf.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
