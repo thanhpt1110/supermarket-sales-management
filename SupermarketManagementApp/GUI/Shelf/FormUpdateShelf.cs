@@ -16,5 +16,20 @@ namespace SupermarketManagementApp.GUI.Shelf
         {
             InitializeComponent();
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtBoxLayerCapacity_TextChanged(object sender, EventArgs e)
+        {
+            txtBoxTotalCapacity.Text = txtBoxLayerCapacity.Text.Trim();
+        }
     }
 }
