@@ -40,12 +40,12 @@
             this.txtBoxPhoneNumber = new Guna.UI2.WinForms.Guna2TextBox();
             this.labelForm = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.birthDayPicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.cbBoxGender = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.txtBoxCustomerName = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.borderLessForm = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-            this.txtBoxCustomerName = new Guna.UI2.WinForms.Guna2TextBox();
-            this.cbBoxGender = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.birthDayPicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -192,6 +192,74 @@
             this.guna2Panel1.Size = new System.Drawing.Size(500, 400);
             this.guna2Panel1.TabIndex = 7;
             // 
+            // birthDayPicker
+            // 
+            this.birthDayPicker.Animated = true;
+            this.birthDayPicker.BackColor = System.Drawing.Color.Transparent;
+            this.birthDayPicker.BorderRadius = 5;
+            this.birthDayPicker.BorderThickness = 1;
+            this.birthDayPicker.Checked = true;
+            this.birthDayPicker.CheckedState.FillColor = System.Drawing.Color.White;
+            this.birthDayPicker.FillColor = System.Drawing.Color.White;
+            this.birthDayPicker.FocusedColor = System.Drawing.Color.White;
+            this.birthDayPicker.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.birthDayPicker.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.birthDayPicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.birthDayPicker.Location = new System.Drawing.Point(50, 230);
+            this.birthDayPicker.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.birthDayPicker.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.birthDayPicker.Name = "birthDayPicker";
+            this.birthDayPicker.Size = new System.Drawing.Size(400, 40);
+            this.birthDayPicker.TabIndex = 3;
+            this.birthDayPicker.Value = new System.DateTime(2023, 12, 21, 16, 47, 45, 231);
+            // 
+            // cbBoxGender
+            // 
+            this.cbBoxGender.BackColor = System.Drawing.Color.Transparent;
+            this.cbBoxGender.BorderColor = System.Drawing.Color.Black;
+            this.cbBoxGender.BorderRadius = 5;
+            this.cbBoxGender.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbBoxGender.DropDownHeight = 100;
+            this.cbBoxGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBoxGender.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbBoxGender.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbBoxGender.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.cbBoxGender.ForeColor = System.Drawing.Color.Black;
+            this.cbBoxGender.IntegralHeight = false;
+            this.cbBoxGender.ItemHeight = 30;
+            this.cbBoxGender.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.cbBoxGender.Location = new System.Drawing.Point(50, 328);
+            this.cbBoxGender.Name = "cbBoxGender";
+            this.cbBoxGender.Size = new System.Drawing.Size(400, 36);
+            this.cbBoxGender.TabIndex = 4;
+            this.cbBoxGender.TextOffset = new System.Drawing.Point(5, 0);
+            // 
+            // txtBoxCustomerName
+            // 
+            this.txtBoxCustomerName.BorderColor = System.Drawing.Color.Black;
+            this.txtBoxCustomerName.BorderRadius = 5;
+            this.txtBoxCustomerName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBoxCustomerName.DefaultText = "";
+            this.txtBoxCustomerName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtBoxCustomerName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtBoxCustomerName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBoxCustomerName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBoxCustomerName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBoxCustomerName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxCustomerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtBoxCustomerName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBoxCustomerName.Location = new System.Drawing.Point(50, 50);
+            this.txtBoxCustomerName.Margin = new System.Windows.Forms.Padding(5);
+            this.txtBoxCustomerName.Name = "txtBoxCustomerName";
+            this.txtBoxCustomerName.PasswordChar = '\0';
+            this.txtBoxCustomerName.PlaceholderText = "";
+            this.txtBoxCustomerName.SelectedText = "";
+            this.txtBoxCustomerName.Size = new System.Drawing.Size(400, 36);
+            this.txtBoxCustomerName.TabIndex = 1;
+            this.txtBoxCustomerName.TextOffset = new System.Drawing.Point(5, 0);
+            // 
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -242,76 +310,9 @@
             this.borderLessForm.ResizeForm = false;
             this.borderLessForm.TransparentWhileDrag = true;
             // 
-            // txtBoxCustomerName
-            // 
-            this.txtBoxCustomerName.BorderColor = System.Drawing.Color.Black;
-            this.txtBoxCustomerName.BorderRadius = 5;
-            this.txtBoxCustomerName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBoxCustomerName.DefaultText = "";
-            this.txtBoxCustomerName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtBoxCustomerName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtBoxCustomerName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBoxCustomerName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBoxCustomerName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBoxCustomerName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxCustomerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtBoxCustomerName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBoxCustomerName.Location = new System.Drawing.Point(50, 50);
-            this.txtBoxCustomerName.Margin = new System.Windows.Forms.Padding(5);
-            this.txtBoxCustomerName.Name = "txtBoxCustomerName";
-            this.txtBoxCustomerName.PasswordChar = '\0';
-            this.txtBoxCustomerName.PlaceholderText = "";
-            this.txtBoxCustomerName.SelectedText = "";
-            this.txtBoxCustomerName.Size = new System.Drawing.Size(400, 36);
-            this.txtBoxCustomerName.TabIndex = 1;
-            this.txtBoxCustomerName.TextOffset = new System.Drawing.Point(5, 0);
-            // 
-            // cbBoxGender
-            // 
-            this.cbBoxGender.BackColor = System.Drawing.Color.Transparent;
-            this.cbBoxGender.BorderColor = System.Drawing.Color.Black;
-            this.cbBoxGender.BorderRadius = 5;
-            this.cbBoxGender.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbBoxGender.DropDownHeight = 100;
-            this.cbBoxGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbBoxGender.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbBoxGender.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbBoxGender.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.cbBoxGender.ForeColor = System.Drawing.Color.Black;
-            this.cbBoxGender.IntegralHeight = false;
-            this.cbBoxGender.ItemHeight = 30;
-            this.cbBoxGender.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.cbBoxGender.Location = new System.Drawing.Point(50, 328);
-            this.cbBoxGender.Name = "cbBoxGender";
-            this.cbBoxGender.Size = new System.Drawing.Size(400, 36);
-            this.cbBoxGender.TabIndex = 4;
-            this.cbBoxGender.TextOffset = new System.Drawing.Point(5, 0);
-            // 
-            // birthDayPicker
-            // 
-            this.birthDayPicker.Animated = true;
-            this.birthDayPicker.BackColor = System.Drawing.Color.Transparent;
-            this.birthDayPicker.BorderRadius = 5;
-            this.birthDayPicker.BorderThickness = 1;
-            this.birthDayPicker.Checked = true;
-            this.birthDayPicker.CheckedState.FillColor = System.Drawing.Color.White;
-            this.birthDayPicker.FillColor = System.Drawing.Color.White;
-            this.birthDayPicker.FocusedColor = System.Drawing.Color.White;
-            this.birthDayPicker.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.birthDayPicker.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.birthDayPicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.birthDayPicker.Location = new System.Drawing.Point(50, 230);
-            this.birthDayPicker.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.birthDayPicker.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.birthDayPicker.Name = "birthDayPicker";
-            this.birthDayPicker.Size = new System.Drawing.Size(400, 40);
-            this.birthDayPicker.TabIndex = 3;
-            this.birthDayPicker.Value = new System.DateTime(2023, 12, 21, 16, 47, 45, 231);
-            // 
             // FormCreateCustomer
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(600, 600);
             this.Controls.Add(this.labelForm);

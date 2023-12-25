@@ -475,6 +475,7 @@
             // 
             // FormUpdateShelf
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(600, 700);
             this.Controls.Add(this.btnCancel);
