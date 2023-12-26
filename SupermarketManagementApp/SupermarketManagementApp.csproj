@@ -436,5 +436,8 @@
     <None Include="resources\grid-delete.png" />
     <None Include="resources\grid-account.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\add-product.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

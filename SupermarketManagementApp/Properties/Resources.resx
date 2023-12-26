@@ -121,6 +121,9 @@
   <data name="grid-invoice" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\grid-invoice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="grid-info" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\grid-info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="white-gauge" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\white-gauge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -132,6 +135,9 @@
   </data>
   <data name="grid-edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\grid-edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="black-invoice" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\black-invoice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="black-shelf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\black-shelf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,9 +187,6 @@
   <data name="grid-shelf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\grid-shelf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="black-invoice" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\black-invoice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="white-stats" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\white-stats.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -217,7 +220,7 @@
   <data name="black-stats" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\black-stats.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="grid-info" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\grid-info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="add-product" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\add-product.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
