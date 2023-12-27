@@ -239,7 +239,8 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
                 else
                 {
                     // Xử lý trường hợp không thể chuyển đổi giá trị
-                    MessageBox.Show("Vui lòng nhập số hợp lệ cho giá và số lượng.");
+                    msgBoxError.Parent = this;
+                    msgBoxError.Show("Please enter number only!");
                 }
             };
 
@@ -435,11 +436,6 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
             };
 
             return buttonRemove;
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

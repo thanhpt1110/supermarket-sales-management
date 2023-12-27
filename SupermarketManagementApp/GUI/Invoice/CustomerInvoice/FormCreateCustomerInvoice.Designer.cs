@@ -65,6 +65,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCheckOut = new Guna.UI2.WinForms.Guna2Button();
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
+            this.msgBoxError = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.panelCustomerInformation.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -103,7 +104,7 @@
             this.panelCustomerInformation.Controls.Add(this.txtBoxPhoneNumber);
             this.panelCustomerInformation.Location = new System.Drawing.Point(50, 100);
             this.panelCustomerInformation.Name = "panelCustomerInformation";
-            this.panelCustomerInformation.Size = new System.Drawing.Size(1000, 113);
+            this.panelCustomerInformation.Size = new System.Drawing.Size(1000, 115);
             this.panelCustomerInformation.TabIndex = 7;
             // 
             // birthDayPicker
@@ -356,7 +357,7 @@
             this.labelTotalAmount.ForeColor = System.Drawing.Color.Red;
             this.labelTotalAmount.Location = new System.Drawing.Point(144, 3);
             this.labelTotalAmount.Name = "labelTotalAmount";
-            this.labelTotalAmount.Size = new System.Drawing.Size(73, 33);
+            this.labelTotalAmount.Size = new System.Drawing.Size(73, 34);
             this.labelTotalAmount.TabIndex = 26;
             this.labelTotalAmount.Text = "0 VNĐ";
             this.labelTotalAmount.TextAlignment = System.Drawing.ContentAlignment.TopRight;
@@ -527,7 +528,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(220, 39);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(220, 40);
             this.tableLayoutPanel1.TabIndex = 30;
             // 
             // btnCheckOut
@@ -572,6 +573,15 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.TextOffset = new System.Drawing.Point(0, -1);
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // msgBoxError
+            // 
+            this.msgBoxError.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            this.msgBoxError.Caption = "Error";
+            this.msgBoxError.Icon = Guna.UI2.WinForms.MessageDialogIcon.Error;
+            this.msgBoxError.Parent = null;
+            this.msgBoxError.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
+            this.msgBoxError.Text = "There were some errors, please try again later!";
             // 
             // FormCreateCustomerInvoice
             // 
@@ -640,5 +650,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private Guna.UI2.WinForms.Guna2Button btnCheckOut;
         private Guna.UI2.WinForms.Guna2Button btnCancel;
+        private Guna.UI2.WinForms.Guna2MessageDialog msgBoxError;
     }
 }
