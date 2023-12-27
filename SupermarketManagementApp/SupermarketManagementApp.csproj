@@ -439,5 +439,11 @@
   <ItemGroup>
     <None Include="resources\add-product.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\add-product-invoice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\remove-product.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
