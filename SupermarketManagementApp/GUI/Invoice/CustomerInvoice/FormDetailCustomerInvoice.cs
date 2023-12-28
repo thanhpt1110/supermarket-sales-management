@@ -45,11 +45,13 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
         private void HideButton()
         {
             btnPrint.Visible = false;
+            btnClose.Visible = false;   
         }
 
         private void ShowButton()
         {
             btnPrint.Visible = true;
+            btnClose.Visible = true;    
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
@@ -63,8 +65,6 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
                 CaptureScreen();
                 printDocument.DefaultPageSettings.PaperSize = new PaperSize("Print invoice", s.Width + 23, s.Height + 17);
                 printDocument.Print();
-
-                ShowButton();
             }
             catch (Exception ex)
             {
