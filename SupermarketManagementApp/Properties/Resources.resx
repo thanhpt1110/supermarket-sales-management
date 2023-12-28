@@ -148,6 +148,9 @@
   <data name="silver-search" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\silver-search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="add-product-invoice" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\add-product-invoice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="white-caret-down" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\white-caret-down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -199,6 +202,9 @@
   <data name="grid-account" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\grid-account.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="remove-product" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\remove-product.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="white-customer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\white-customer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -223,10 +229,7 @@
   <data name="black-stats" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\black-stats.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="add-product-invoice" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\add-product-invoice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="remove-product" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\remove-product.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="printing" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\printing.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
