@@ -293,6 +293,16 @@ namespace SupermarketManagementApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Sales_Icon {
+            get {
+                object obj = ResourceManager.GetObject("Sales Icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap show_password {
             get {
                 object obj = ResourceManager.GetObject("show-password", resourceCulture);
@@ -346,6 +356,16 @@ namespace SupermarketManagementApp.Properties {
         internal static System.Drawing.Bitmap supermarket_logo1 {
             get {
                 object obj = ResourceManager.GetObject("supermarket-logo1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Union {
+            get {
+                object obj = ResourceManager.GetObject("Union", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
