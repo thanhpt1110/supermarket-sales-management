@@ -305,7 +305,7 @@
             // 
             // ProductName
             // 
-            this.ProductName.FillWeight = 140F;
+            this.ProductName.FillWeight = 180F;
             this.ProductName.HeaderText = "Product Name";
             this.ProductName.MinimumWidth = 6;
             this.ProductName.Name = "ProductName";
@@ -320,7 +320,7 @@
             // 
             // WholeSaleUnit
             // 
-            this.WholeSaleUnit.FillWeight = 140F;
+            this.WholeSaleUnit.FillWeight = 120F;
             this.WholeSaleUnit.HeaderText = "Whole Sale Unit ";
             this.WholeSaleUnit.MinimumWidth = 6;
             this.WholeSaleUnit.Name = "WholeSaleUnit";
@@ -335,7 +335,6 @@
             // 
             // UnitConversion
             // 
-            this.UnitConversion.FillWeight = 140F;
             this.UnitConversion.HeaderText = "Unit Conversion";
             this.UnitConversion.MinimumWidth = 6;
             this.UnitConversion.Name = "UnitConversion";

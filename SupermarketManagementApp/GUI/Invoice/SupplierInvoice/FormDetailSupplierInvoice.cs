@@ -82,9 +82,13 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             // Giả sử bạn có một danh sách các đối tượng InvoiceDetail
             List<InvoiceDetail> listInvoices = new List<InvoiceDetail>
             {
-                new InvoiceDetail("Product 1", 10, 1000.0, 10000.0),
-                new InvoiceDetail("Product 2", 5, 2000.0, 10000.0),
-                new InvoiceDetail("Product 3", 2, 5000.0, 10000.0)
+                new InvoiceDetail("Laptop", 5, 500.0, 2500.0),
+                new InvoiceDetail("Smartphone", 8, 1200.0, 9600.0),
+                new InvoiceDetail("Headphones", 3, 800.0, 2400.0),
+                new InvoiceDetail("Camera", 12, 150.0, 1800.0),
+                new InvoiceDetail("Desk Chair", 7, 300.0, 2100.0),
+                new InvoiceDetail("Backpack", 15, 50.0, 750.0),
+                new InvoiceDetail("Desk Lamp", 2, 2000.0, 4000.0)
             };
 
             double TotalAmount = 0;

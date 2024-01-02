@@ -46,6 +46,8 @@
             this.icon = new System.Windows.Forms.DataGridViewImageColumn();
             this.ProductTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MinTemperature = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaxTemperature = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewMain)).BeginInit();
@@ -125,6 +127,8 @@
             this.icon,
             this.ProductTypeName,
             this.Description,
+            this.MinTemperature,
+            this.MaxTemperature,
             this.Edit,
             this.Delete});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -311,6 +315,20 @@
             this.Description.Name = "Description";
             this.Description.ReadOnly = true;
             // 
+            // MinTemperature
+            // 
+            this.MinTemperature.FillWeight = 80F;
+            this.MinTemperature.HeaderText = "Min Temp (Celsius)";
+            this.MinTemperature.Name = "MinTemperature";
+            this.MinTemperature.ReadOnly = true;
+            // 
+            // MaxTemperature
+            // 
+            this.MaxTemperature.FillWeight = 80F;
+            this.MaxTemperature.HeaderText = "Max Temp (Celsius)";
+            this.MaxTemperature.Name = "MaxTemperature";
+            this.MaxTemperature.ReadOnly = true;
+            // 
             // Edit
             // 
             this.Edit.FillWeight = 50F;
@@ -366,6 +384,8 @@
         private System.Windows.Forms.DataGridViewImageColumn icon;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductTypeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MinTemperature;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaxTemperature;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
     }

@@ -39,22 +39,20 @@ namespace SupermarketManagementApp.GUI.Shelf
 
         private void LoadGridData()
         {
-            gridView.Rows.Add(new object[] { null, "Shelf 101", "Beverage", "6", "90/100", "Available" });
-            gridView.Rows.Add(new object[] { null, "Shelf 101", "Beverage", "6", "90/100", "Available" });
-            gridView.Rows.Add(new object[] { null, "Shelf 101", "Beverage", "6", "90/100", "Available" });
-            gridView.Rows.Add(new object[] { null, "Shelf 101", "Beverage", "6", "90/100", "Available" });
-            gridView.Rows.Add(new object[] { null, "Shelf 101", "Beverage", "6", "90/100", "Available" });
-            gridView.Rows.Add(new object[] { null, "Shelf 101", "Beverage", "6", "90/100", "Available" });
-            gridView.Rows.Add(new object[] { null, "Shelf 101", "Beverage", "6", "90/100", "Available" });
-            gridView.Rows.Add(new object[] { null, "Shelf 101", "Beverage", "6", "90/100", "Available" });
-            gridView.Rows.Add(new object[] { null, "Shelf 101", "Beverage", "6", "90/100", "Available" });
-            gridView.Rows.Add(new object[] { null, "Shelf 101", "Beverage", "6", "90/100", "Available" });
-            gridView.Rows.Add(new object[] { null, "Shelf 101", "Beverage", "6", "90/100", "Available" });
-            gridView.Rows.Add(new object[] { null, "Shelf 101", "Beverage", "6", "90/100", "Available" });
-            gridView.Rows.Add(new object[] { null, "Shelf 101", "Beverage", "6", "90/100", "Available" });
-            gridView.Rows.Add(new object[] { null, "Shelf 101", "Beverage", "6", "90/100", "Available" });
+            gridView.Rows.Add(new object[] { null, "Shelf 102", "Snack", 5, "80/100", "Available" });
+            gridView.Rows.Add(new object[] { null, "Shelf 103", "Frozen Food", 4, "60/100", "Not Available" });
+            gridView.Rows.Add(new object[] { null, "Shelf 104", "Condiments", 7, "75/100", "Available" });
+            gridView.Rows.Add(new object[] { null, "Shelf 105", "Canned Goods", 8, "50/100", "Not Available" });
+            gridView.Rows.Add(new object[] { null, "Shelf 106", "Dairy", 3, "70/100", "Available" });
+            gridView.Rows.Add(new object[] { null, "Shelf 107", "Produce", 6, "85/100", "Available" });
+            gridView.Rows.Add(new object[] { null, "Shelf 108", "Bakery", 5, "40/100", "Not Available" });
+            gridView.Rows.Add(new object[] { null, "Shelf 109", "Meat", 4, "65/100", "Available" });
+            gridView.Rows.Add(new object[] { null, "Shelf 110", "Personal Care", 7, "55/100", "Not Available" });
+            gridView.Rows.Add(new object[] { null, "Shelf 111", "Household", 6, "72/100", "Available" });
+            gridView.Rows.Add(new object[] { null, "Shelf 112", "Electronics", 3, "88/100", "Available" });
+            gridView.Rows.Add(new object[] { null, "Shelf 113", "Clothing", 5, "45/100", "Not Available" });
         }
-        
+
         #region Customize data grid
         private void CustomStyleGridView()
         {

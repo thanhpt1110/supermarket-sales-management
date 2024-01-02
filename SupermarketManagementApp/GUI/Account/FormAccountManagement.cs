@@ -41,19 +41,18 @@ namespace SupermarketManagementApp.GUI.Account
 
         private void LoadGridData()
         {
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "xyzacbc", "Manager" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "xyzacbc", "Manager" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin" });
+            gridView.Rows.Add(new object[] { null, "John Doe", "john.doe123", "Admin" });
+            gridView.Rows.Add(new object[] { null, "Alice Johnson", "alice.j", "Employee" });
+            gridView.Rows.Add(new object[] { null, "Bob Smith", "bob.smith87", "Admin" });
+            gridView.Rows.Add(new object[] { null, "Eva Martinez", "eva.m", "Admin" });
+            gridView.Rows.Add(new object[] { null, "David Brown", "david.b", "Employee" });
+            gridView.Rows.Add(new object[] { null, "Sophie Lee", "sophie.l", "Admin" });
+            gridView.Rows.Add(new object[] { null, "Chris Anderson", "chris.a", "Employee" });
+            gridView.Rows.Add(new object[] { null, "Emily White", "emily.w", "Manager" });
+            gridView.Rows.Add(new object[] { null, "Michael Taylor", "michael.t", "Admin" });
+            gridView.Rows.Add(new object[] { null, "Olivia Johnson", "olivia.j", "User" });
+            gridView.Rows.Add(new object[] { null, "Daniel Miller", "daniel.m", "Employee" });
+            gridView.Rows.Add(new object[] { null, "Sophia Davis", "sophia.d", "Admin" });
         }
 
         #region Customize data grid

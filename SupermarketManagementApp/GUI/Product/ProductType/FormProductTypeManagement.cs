@@ -39,21 +39,18 @@ namespace SupermarketManagementApp.GUI.Product.ProductType
 
         private void LoadGridData()
         {
-            gridView.Rows.Add(new object[] { null, "Dried goods", "Includes bread, powdered milk, canned goods, beverages, household items, groceries, snacks, toiletries cosmetic." });
-            gridView.Rows.Add(new object[] { null, "Frozen foods", "Includes dairy products, meat, fish, chicken, fruit." });
-            gridView.Rows.Add(new object[] { null, "Deli counter", "Place selling pre-cooked food." });
-            gridView.Rows.Add(new object[] { null, "Electronics", "Includes electronic devices." });
-            gridView.Rows.Add(new object[] { null, "Sporting goods", "Includes sports-related items." });
-            gridView.Rows.Add(new object[] { null, "Pet supplies", "Includes items for pets." });
-            gridView.Rows.Add(new object[] { null, "Fresh flowers", "Includes fresh flowers." });
-            gridView.Rows.Add(new object[] { null, "Vegetables and Fruit", "Includes various vegetables and fruits." });
-            gridView.Rows.Add(new object[] { null, "Beverages", "Includes various drinks." });
-            gridView.Rows.Add(new object[] { null, "Snacks", "Includes various snacks." });
-            gridView.Rows.Add(new object[] { null, "Dairy products", "Includes dairy products like yogurts, cheese." });
-            gridView.Rows.Add(new object[] { null, "Household items", "Includes household items." });
-            gridView.Rows.Add(new object[] { null, "Groceries", "Includes grocery items." });
-            gridView.Rows.Add(new object[] { null, "Toiletries cosmetic", "Includes toiletries cosmetic items." });
-            gridView.Rows.Add(new object[] { null, "Powdered milk", "Includes various powdered milk." });
+            gridView.Rows.Add(new object[] { null, "Bakery", "Place selling fresh baked goods.", "20", "180" });
+            gridView.Rows.Add(new object[] { null, "Produce", "Section with fresh fruits and vegetables.", "8", "25" });
+            gridView.Rows.Add(new object[] { null, "Dairy", "Area selling milk, cheese, and other dairy products.", "2", "8" });
+            gridView.Rows.Add(new object[] { null, "Frozen Foods", "Freezer section with frozen food items.", "-18", "-5" });
+            gridView.Rows.Add(new object[] { null, "Meat", "Section for fresh meat products.", "0", "4" });
+            gridView.Rows.Add(new object[] { null, "Beverages", "Shelf with various drinks.", "5", "25" });
+            gridView.Rows.Add(new object[] { null, "Snacks", "Area for snacks and packaged goods.", "15", "28" });
+            gridView.Rows.Add(new object[] { null, "Canned Goods", "Shelves with canned and preserved foods.", "10", "30" });
+            gridView.Rows.Add(new object[] { null, "Household", "Section for household and cleaning products.", "5", "25" });
+            gridView.Rows.Add(new object[] { null, "Personal Care", "Aisle with personal care and hygiene items.", "15", "25" });
+            gridView.Rows.Add(new object[] { null, "Electronics", "Section for electronic gadgets and accessories.", "10", "35" });
+            gridView.Rows.Add(new object[] { null, "Clothing", "Department with clothing and apparel.", "18", "25" });
         }
 
         #region Customize data grid
@@ -107,7 +104,7 @@ namespace SupermarketManagementApp.GUI.Product.ProductType
             if (e.RowIndex == -1)
             {
                 // Kiểm tra xem có phải là header của cột 2, 3, 4 hoặc header của cột 4, 5
-                if (e.ColumnIndex >= 1 && e.ColumnIndex <= 2)
+                if (e.ColumnIndex >= 1 && e.ColumnIndex <= 4)
                 {
                     gridView.Cursor = Cursors.Hand;
                     return;
@@ -115,7 +112,7 @@ namespace SupermarketManagementApp.GUI.Product.ProductType
             }
 
             // Nếu không phải là header của cột và nằm trong khoảng cột 4, 5, đặt kiểu cursor thành Hand
-            if (e.RowIndex >= 0 && (e.ColumnIndex == 3 || e.ColumnIndex == 4))
+            if (e.RowIndex >= 0 && (e.ColumnIndex == 5 || e.ColumnIndex == 6))
             {
                 gridView.Cursor = Cursors.Hand;
                 return;
@@ -166,7 +163,7 @@ namespace SupermarketManagementApp.GUI.Product.ProductType
         {
             if (e.RowIndex >= 0)
             {
-                if (e.ColumnIndex == 3)
+                if (e.ColumnIndex == 5)
                 {
                     // Update
                     FormBackground formBackground = new FormBackground(formMain);
@@ -187,7 +184,7 @@ namespace SupermarketManagementApp.GUI.Product.ProductType
                         msgBoxError.Show(ex.Message, "Error");
                     }
                 }
-                else if (e.ColumnIndex == 4)
+                else if (e.ColumnIndex == 6)
                 {
                     // Delete
                     msgBoxDelete.Parent = formMain;

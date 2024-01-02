@@ -46,6 +46,9 @@
             this.txtBoxPhoneNumber = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.borderLessForm = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
+            this.cbBoxGender = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.labelGender = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,10 +91,10 @@
             this.btnCancel.FillColor = System.Drawing.Color.Transparent;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnCancel.Location = new System.Drawing.Point(250, 530);
+            this.btnCancel.Location = new System.Drawing.Point(250, 630);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(140, 40);
-            this.btnCancel.TabIndex = 6;
+            this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.TextOffset = new System.Drawing.Point(0, -1);
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -185,10 +188,10 @@
             this.btnSave.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnSave.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(410, 530);
+            this.btnSave.Location = new System.Drawing.Point(410, 630);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(140, 40);
-            this.btnSave.TabIndex = 5;
+            this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Save";
             this.btnSave.TextOffset = new System.Drawing.Point(0, -1);
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -287,6 +290,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.guna2Panel1.Controls.Add(this.cbBoxGender);
+            this.guna2Panel1.Controls.Add(this.guna2HtmlLabel2);
+            this.guna2Panel1.Controls.Add(this.labelGender);
             this.guna2Panel1.Controls.Add(this.txtBoxIdCardNumber);
             this.guna2Panel1.Controls.Add(this.birthDayPicker);
             this.guna2Panel1.Controls.Add(this.txtBoxCustomerName);
@@ -301,7 +307,7 @@
             this.guna2Panel1.Controls.Add(this.txtBoxPhoneNumber);
             this.guna2Panel1.Location = new System.Drawing.Point(50, 100);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(500, 400);
+            this.guna2Panel1.Size = new System.Drawing.Size(500, 500);
             this.guna2Panel1.TabIndex = 15;
             // 
             // borderLessForm
@@ -311,11 +317,55 @@
             this.borderLessForm.ResizeForm = false;
             this.borderLessForm.TransparentWhileDrag = true;
             // 
+            // cbBoxGender
+            // 
+            this.cbBoxGender.BackColor = System.Drawing.Color.Transparent;
+            this.cbBoxGender.BorderColor = System.Drawing.Color.Black;
+            this.cbBoxGender.BorderRadius = 5;
+            this.cbBoxGender.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbBoxGender.DropDownHeight = 100;
+            this.cbBoxGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBoxGender.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbBoxGender.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbBoxGender.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.cbBoxGender.ForeColor = System.Drawing.Color.Black;
+            this.cbBoxGender.IntegralHeight = false;
+            this.cbBoxGender.ItemHeight = 30;
+            this.cbBoxGender.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.cbBoxGender.Location = new System.Drawing.Point(50, 416);
+            this.cbBoxGender.Name = "cbBoxGender";
+            this.cbBoxGender.Size = new System.Drawing.Size(400, 36);
+            this.cbBoxGender.TabIndex = 5;
+            this.cbBoxGender.TextOffset = new System.Drawing.Point(5, 0);
+            // 
+            // guna2HtmlLabel2
+            // 
+            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.Red;
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(105, 387);
+            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(10, 23);
+            this.guna2HtmlLabel2.TabIndex = 15;
+            this.guna2HtmlLabel2.Text = "*";
+            // 
+            // labelGender
+            // 
+            this.labelGender.BackColor = System.Drawing.Color.Transparent;
+            this.labelGender.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGender.Location = new System.Drawing.Point(50, 387);
+            this.labelGender.Name = "labelGender";
+            this.labelGender.Size = new System.Drawing.Size(54, 23);
+            this.labelGender.TabIndex = 14;
+            this.labelGender.Text = "Gender";
+            // 
             // FormUpdateEmployee
             // 
             this.AcceptButton = this.btnSave;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(600, 600);
+            this.ClientSize = new System.Drawing.Size(600, 700);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.labelForm);
@@ -352,5 +402,8 @@
         private Guna.UI2.WinForms.Guna2TextBox txtBoxPhoneNumber;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2BorderlessForm borderLessForm;
+        private Guna.UI2.WinForms.Guna2ComboBox cbBoxGender;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2HtmlLabel labelGender;
     }
 }
