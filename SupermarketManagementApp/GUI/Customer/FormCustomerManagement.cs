@@ -40,29 +40,18 @@ namespace SupermarketManagementApp.GUI.Customer
 
         private void LoadGridData()
         {
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin","09031" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin","09032" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin", "09033" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin", "09034" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin", "09035" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin", "09036" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin", "09037" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin", "09038" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin", "09039" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin", "090310" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin", "090311" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin", "090312" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin", "090313" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin", "090314" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin", "090315" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin", "090315" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin", "090317" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin", "090318" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin", "090320" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin", "0903122" });
-            gridView.Rows.Add(new object[] { null, "Phan Tuấn Thành", "admin2", "Admin", "090321" });
-
-
+            gridView.Rows.Add(new object[] { null, "Sophia Johnson", "0987654321", "15/04/1992", "Female" });
+            gridView.Rows.Add(new object[] { null, "Liam Wilson", "0901122334", "21/08/1988", "Male" });
+            gridView.Rows.Add(new object[] { null, "Ava Smith", "0977123456", "08/06/1997", "Female" });
+            gridView.Rows.Add(new object[] { null, "Noah Davis", "0938111222", "14/03/1985", "Male" });
+            gridView.Rows.Add(new object[] { null, "Emma Miller", "0914555666", "02/12/1990", "Female" });
+            gridView.Rows.Add(new object[] { null, "Lucas White", "0966888999", "25/10/1993", "Male" });
+            gridView.Rows.Add(new object[] { null, "Olivia Taylor", "0944777666", "18/07/1981", "Female" });
+            gridView.Rows.Add(new object[] { null, "Ethan Brown", "0988333222", "03/09/1999", "Male" });
+            gridView.Rows.Add(new object[] { null, "Isabella Jackson", "0914222111", "30/04/1987", "Female" });
+            gridView.Rows.Add(new object[] { null, "Mason Harris", "0977999888", "09/01/1996", "Male" });
+            gridView.Rows.Add(new object[] { null, "Amelia Moore", "0936555444", "12/11/1983", "Female" });
+            gridView.Rows.Add(new object[] { null, "Oliver Harris", "0922333444", "01/07/1998", "Male" });
         }
         #region Customize data grid
         private void CustomStyleGridView()

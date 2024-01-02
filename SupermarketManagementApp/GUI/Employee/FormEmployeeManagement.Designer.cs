@@ -44,10 +44,11 @@
             this.btnCreateAccount = new Guna.UI2.WinForms.Guna2Button();
             this.txtBoxSearchEmployee = new Guna.UI2.WinForms.Guna2TextBox();
             this.icon = new System.Windows.Forms.DataGridViewImageColumn();
-            this.AccountName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Birthday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDCard = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewMain)).BeginInit();
@@ -141,10 +142,11 @@
             this.gridViewMain.ColumnHeadersHeight = 50;
             this.gridViewMain.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.icon,
-            this.AccountName,
+            this.EmployeeName,
+            this.PhoneNumber,
+            this.Gender,
             this.Birthday,
-            this.Phone,
-            this.IDCard,
+            this.IDNumber,
             this.Edit,
             this.Delete});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -301,13 +303,28 @@
             this.icon.ReadOnly = true;
             this.icon.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // AccountName
+            // EmployeeName
             // 
-            this.AccountName.FillWeight = 170F;
-            this.AccountName.HeaderText = "Name";
-            this.AccountName.MinimumWidth = 6;
-            this.AccountName.Name = "AccountName";
-            this.AccountName.ReadOnly = true;
+            this.EmployeeName.FillWeight = 170F;
+            this.EmployeeName.HeaderText = "Name";
+            this.EmployeeName.MinimumWidth = 6;
+            this.EmployeeName.Name = "EmployeeName";
+            this.EmployeeName.ReadOnly = true;
+            // 
+            // PhoneNumber
+            // 
+            this.PhoneNumber.FillWeight = 130F;
+            this.PhoneNumber.HeaderText = "Phone number";
+            this.PhoneNumber.MinimumWidth = 6;
+            this.PhoneNumber.Name = "PhoneNumber";
+            this.PhoneNumber.ReadOnly = true;
+            // 
+            // Gender
+            // 
+            this.Gender.FillWeight = 80F;
+            this.Gender.HeaderText = "Gender";
+            this.Gender.Name = "Gender";
+            this.Gender.ReadOnly = true;
             // 
             // Birthday
             // 
@@ -317,21 +334,13 @@
             this.Birthday.Name = "Birthday";
             this.Birthday.ReadOnly = true;
             // 
-            // Phone
+            // IDNumber
             // 
-            this.Phone.FillWeight = 130F;
-            this.Phone.HeaderText = "Phone number";
-            this.Phone.MinimumWidth = 6;
-            this.Phone.Name = "Phone";
-            this.Phone.ReadOnly = true;
-            // 
-            // IDCard
-            // 
-            this.IDCard.FillWeight = 140F;
-            this.IDCard.HeaderText = "ID number";
-            this.IDCard.MinimumWidth = 6;
-            this.IDCard.Name = "IDCard";
-            this.IDCard.ReadOnly = true;
+            this.IDNumber.FillWeight = 140F;
+            this.IDNumber.HeaderText = "ID number";
+            this.IDNumber.MinimumWidth = 6;
+            this.IDNumber.Name = "IDNumber";
+            this.IDNumber.ReadOnly = true;
             // 
             // Edit
             // 
@@ -386,10 +395,11 @@
         private Guna.UI2.WinForms.Guna2Button btnCreateAccount;
         private Guna.UI2.WinForms.Guna2TextBox txtBoxSearchEmployee;
         private System.Windows.Forms.DataGridViewImageColumn icon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AccountName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Gender;
         private System.Windows.Forms.DataGridViewTextBoxColumn Birthday;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Phone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDCard;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDNumber;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
     }

@@ -42,18 +42,18 @@ namespace SupermarketManagementApp.GUI.Product
 
         private void LoadGridData()
         {
-            gridView.Rows.Add(new object[] { null, "Vinamilk", "280000", "Thùng", "Thùng", "1" });
-            gridView.Rows.Add(new object[] { null, "Vinamilk", "280000", "Thùng", "Thùng", "1" });
-            gridView.Rows.Add(new object[] { null, "Vinamilk", "280000", "Thùng", "Thùng", "1" });
-            gridView.Rows.Add(new object[] { null, "Ensure", "280000", "Thùng", "Thùng", "3" });
-            gridView.Rows.Add(new object[] { null, "Ensure", "280000", "Thùng", "Thùng", "3" });
-            gridView.Rows.Add(new object[] { null, "Ensure", "280000", "Thùng", "Thùng", "3" });
-            gridView.Rows.Add(new object[] { null, "Ensure", "280000", "Thùng", "Thùng", "3" });
-            gridView.Rows.Add(new object[] { null, "Ensure", "280000", "Thùng", "Thùng", "3" });
-            gridView.Rows.Add(new object[] { null, "Ensure", "280000", "Thùng", "Thùng", "3" });
-            gridView.Rows.Add(new object[] { null, "Ensure", "280000", "Thùng", "Thùng", "3" });
-            gridView.Rows.Add(new object[] { null, "Ensure", "280000", "Thùng", "Thùng", "3" });
-            gridView.Rows.Add(new object[] { null, "Ensure", "280000", "Thùng", "Thùng", "3" });
+            gridView.Rows.Add(new object[] { null, "Milk", 25000, "Carton", "Bottle", 12 });
+            gridView.Rows.Add(new object[] { null, "Bread", 18000, "Loaf", "Piece", 1 });
+            gridView.Rows.Add(new object[] { null, "Rice", 30000, "Bag", "Kilogram", 2 });
+            gridView.Rows.Add(new object[] { null, "Chocolate", 35000, "Packet", "Bar", 5 });
+            gridView.Rows.Add(new object[] { null, "Coffee", 40000, "Can", "Gram", 250 });
+            gridView.Rows.Add(new object[] { null, "Eggs", 5000, "Dozen", "Unit", 12 });
+            gridView.Rows.Add(new object[] { null, "Toothpaste", 15000, "Tube", "Piece", 1 });
+            gridView.Rows.Add(new object[] { null, "Apples", 12000, "Basket", "Kilogram", 5 });
+            gridView.Rows.Add(new object[] { null, "Chicken Breast", 70000, "Pack", "Kilogram", 1 });
+            gridView.Rows.Add(new object[] { null, "Orange Juice", 25000, "Bottle", "Liter", 1 });
+            gridView.Rows.Add(new object[] { null, "Potato Chips", 18000, "Pack", "Gram", 150 });
+            gridView.Rows.Add(new object[] { null, "T-shirt", 80000, "Piece", "Piece", 1 });
         }
 
         #region Customize data grid
