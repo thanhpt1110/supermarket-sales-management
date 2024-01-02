@@ -28,6 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -39,12 +45,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cartesianChart1 = new LiveCharts.WinForms.CartesianChart();
+            this.revenueChart = new LiveCharts.WinForms.CartesianChart();
+            this.dtgvTopSellProducts = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.dtgvLowStockProducts = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2Panel1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvTopSellProducts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvLowStockProducts)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -63,6 +75,7 @@
             // groupBox4
             // 
             this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Controls.Add(this.dtgvLowStockProducts);
             this.groupBox4.Location = new System.Drawing.Point(603, 458);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(954, 375);
@@ -98,7 +111,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(61, 214);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 21);
+            this.label3.Size = new System.Drawing.Size(85, 28);
             this.label3.TabIndex = 1;
             this.label3.Text = "Total Bill";
             // 
@@ -109,7 +122,7 @@
             this.label4.Font = new System.Drawing.Font("Segoe UI", 49.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(38, 63);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(110, 89);
+            this.label4.Size = new System.Drawing.Size(137, 110);
             this.label4.TabIndex = 0;
             this.label4.Text = "30";
             // 
@@ -128,7 +141,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(56, 214);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 21);
+            this.label2.Size = new System.Drawing.Size(103, 28);
             this.label2.TabIndex = 1;
             this.label2.Text = "Total Sales";
             // 
@@ -138,7 +151,7 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 49.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(15, 63);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 89);
+            this.label1.Size = new System.Drawing.Size(182, 110);
             this.label1.TabIndex = 0;
             this.label1.Text = "$30";
             // 
@@ -146,6 +159,7 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.AutoSize = true;
+            this.groupBox2.Controls.Add(this.dtgvTopSellProducts);
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(923, 61);
@@ -162,7 +176,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.AutoSize = true;
-            this.groupBox1.Controls.Add(this.cartesianChart1);
+            this.groupBox1.Controls.Add(this.revenueChart);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(62, 61);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -173,15 +187,119 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Month Revenue";
             // 
-            // cartesianChart1
+            // revenueChart
             // 
-            this.cartesianChart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cartesianChart1.Location = new System.Drawing.Point(4, 27);
-            this.cartesianChart1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cartesianChart1.Name = "cartesianChart1";
-            this.cartesianChart1.Size = new System.Drawing.Size(816, 343);
-            this.cartesianChart1.TabIndex = 0;
-            this.cartesianChart1.Text = "cartesianChart1";
+            this.revenueChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.revenueChart.Location = new System.Drawing.Point(4, 32);
+            this.revenueChart.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.revenueChart.Name = "revenueChart";
+            this.revenueChart.Size = new System.Drawing.Size(816, 338);
+            this.revenueChart.TabIndex = 0;
+            this.revenueChart.Text = "cartesianChart1";
+            // 
+            // dtgvTopSellProducts
+            // 
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dtgvTopSellProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvTopSellProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dtgvTopSellProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvTopSellProducts.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dtgvTopSellProducts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgvTopSellProducts.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dtgvTopSellProducts.Location = new System.Drawing.Point(4, 28);
+            this.dtgvTopSellProducts.Name = "dtgvTopSellProducts";
+            this.dtgvTopSellProducts.RowHeadersVisible = false;
+            this.dtgvTopSellProducts.RowHeadersWidth = 51;
+            this.dtgvTopSellProducts.RowTemplate.Height = 24;
+            this.dtgvTopSellProducts.Size = new System.Drawing.Size(626, 342);
+            this.dtgvTopSellProducts.TabIndex = 0;
+            this.dtgvTopSellProducts.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dtgvTopSellProducts.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dtgvTopSellProducts.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dtgvTopSellProducts.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dtgvTopSellProducts.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dtgvTopSellProducts.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dtgvTopSellProducts.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dtgvTopSellProducts.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dtgvTopSellProducts.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dtgvTopSellProducts.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtgvTopSellProducts.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dtgvTopSellProducts.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvTopSellProducts.ThemeStyle.HeaderStyle.Height = 27;
+            this.dtgvTopSellProducts.ThemeStyle.ReadOnly = false;
+            this.dtgvTopSellProducts.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dtgvTopSellProducts.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dtgvTopSellProducts.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtgvTopSellProducts.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dtgvTopSellProducts.ThemeStyle.RowsStyle.Height = 24;
+            this.dtgvTopSellProducts.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dtgvTopSellProducts.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
+            // dtgvLowStockProducts
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dtgvLowStockProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvLowStockProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dtgvLowStockProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvLowStockProducts.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dtgvLowStockProducts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgvLowStockProducts.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dtgvLowStockProducts.Location = new System.Drawing.Point(3, 30);
+            this.dtgvLowStockProducts.Name = "dtgvLowStockProducts";
+            this.dtgvLowStockProducts.RowHeadersVisible = false;
+            this.dtgvLowStockProducts.RowHeadersWidth = 51;
+            this.dtgvLowStockProducts.RowTemplate.Height = 24;
+            this.dtgvLowStockProducts.Size = new System.Drawing.Size(948, 342);
+            this.dtgvLowStockProducts.TabIndex = 0;
+            this.dtgvLowStockProducts.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dtgvLowStockProducts.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dtgvLowStockProducts.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dtgvLowStockProducts.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dtgvLowStockProducts.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dtgvLowStockProducts.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dtgvLowStockProducts.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dtgvLowStockProducts.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dtgvLowStockProducts.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dtgvLowStockProducts.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtgvLowStockProducts.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dtgvLowStockProducts.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvLowStockProducts.ThemeStyle.HeaderStyle.Height = 4;
+            this.dtgvLowStockProducts.ThemeStyle.ReadOnly = false;
+            this.dtgvLowStockProducts.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dtgvLowStockProducts.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dtgvLowStockProducts.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtgvLowStockProducts.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dtgvLowStockProducts.ThemeStyle.RowsStyle.Height = 24;
+            this.dtgvLowStockProducts.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dtgvLowStockProducts.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
             // FormDashboard
             // 
@@ -194,12 +312,16 @@
             this.Text = "FormDashboard";
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvTopSellProducts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvLowStockProducts)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -208,7 +330,7 @@
 
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private LiveCharts.WinForms.CartesianChart cartesianChart1;
+        private LiveCharts.WinForms.CartesianChart revenueChart;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
@@ -218,5 +340,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2DataGridView dtgvTopSellProducts;
+        private Guna.UI2.WinForms.Guna2DataGridView dtgvLowStockProducts;
     }
 }
