@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SupermarketManagementApp.DAO
+namespace SupermarketManagementApp.BUS
 {
-    internal class CustomerDAO
+    public class ProductBUS
     {
     }
 }

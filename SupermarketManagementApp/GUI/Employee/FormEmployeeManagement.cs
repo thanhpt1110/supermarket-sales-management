@@ -28,6 +28,7 @@ namespace SupermarketManagementApp.GUI.Employee
             CustomStyleGridView();
             LoadGridData();
             UpdateScrollBarValues();
+
         }
 
         public FormEmployeeManagement()
@@ -36,6 +37,7 @@ namespace SupermarketManagementApp.GUI.Employee
             CustomStyleGridView();
             LoadGridData();
             UpdateScrollBarValues();
+
         }
 
         private void LoadGridData()

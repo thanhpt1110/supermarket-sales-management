@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
-
+using SupermarketManagementApp.DAO;
 namespace SupermarketManagementApp.GUI.Customer
 {
     public partial class FormCustomerManagement : Form
