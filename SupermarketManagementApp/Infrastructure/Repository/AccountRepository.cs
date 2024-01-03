@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,7 +19,7 @@ namespace SupermarketManagementApp.Infrastructure.Repository
         public AccountRepository():base()
         {
         }
-        public override async Task<Account> FindByID(int id)
+        public override async Task<Account> FindByID(long id)
         {
             try
             {
@@ -74,19 +75,31 @@ namespace SupermarketManagementApp.Infrastructure.Repository
                 throw;
             }
         }
-        public override async Task<Boolean> RemoveByID(int AccountID)
+        public override async Task<Boolean> RemoveByID(long AccountID)
         {
             try
             {
                 var account = await context.Accounts.SingleOrDefaultAsync<Account>(p => p.AccountID == AccountID);
                 if (account == null)
-                    return false;
+                {
+                    throw (new NotExistedObjectException("Account already existed"));
+                }
                 return await base.RemoveByID(AccountID);
             }
             catch {
                 throw;
             }
         }
-        
+        public override Task<IEnumerable<Account>> Find(Expression<Func<Account, bool>> predicate)
+        {
+            try
+            {
+                return base.Find(predicate);
+            }
+            catch
+            {
+                throw;
+            }
+        }
     }
 }

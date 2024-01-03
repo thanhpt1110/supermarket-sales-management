@@ -1,4 +1,5 @@
 ﻿using SupermarketManagementApp.DAO;
+using SupermarketManagementApp.ErrorHandle;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -32,7 +33,7 @@ namespace SupermarketManagementApp.Infrastructure.Repository
             }
             catch (Exception ex)
             {
-                return null;
+                throw;
             }
         }
 
@@ -44,7 +45,7 @@ namespace SupermarketManagementApp.Infrastructure.Repository
             }
             catch(Exception ex)
             {
-                return null;
+                throw;
             }
         }
 
@@ -56,7 +57,7 @@ namespace SupermarketManagementApp.Infrastructure.Repository
             }
             catch(Exception ex)
             {
-                return null;
+                throw;
             }
         }
         public virtual async Task<T> Update(T entity)
@@ -69,7 +70,7 @@ namespace SupermarketManagementApp.Infrastructure.Repository
             }
             catch (Exception ex)
             {
-                return null;
+                throw;
             }
         }
         public virtual async Task UpdateManyAsync(IEnumerable<T> entities)
@@ -84,10 +85,10 @@ namespace SupermarketManagementApp.Infrastructure.Repository
             }
             catch (Exception ex)
             {
-                return;
+                throw;
             }
         }
-        public virtual async Task<T> FindByID(int id)
+        public virtual async Task<T> FindByID(long id)
         {
             try
             {
@@ -95,21 +96,25 @@ namespace SupermarketManagementApp.Infrastructure.Repository
             }
             catch (Exception ex)
             {
-                return null;
+                throw;
             }
         }
-        public virtual async Task<Boolean> RemoveByID(int id)
+        public virtual async Task<Boolean> RemoveByID(long id)
         {
-            var entityToRemove = await context.Set<T>().FindAsync(id);
+            try
+            {
+                var entityToRemove = await context.Set<T>().FindAsync(id);
 
-            if (entityToRemove == null)
-                return false; // Không tìm thấy đối tượng để xóa
+                if (entityToRemove == null)
+                    throw new NotExistedObjectException("Not existed object"); // Không tìm thấy đối tượng để xóa
 
-            context.Set<T>().Remove(entityToRemove);
-            await context.SaveChangesAsync();
-            return true;
+                context.Set<T>().Remove(entityToRemove);
+                await context.SaveChangesAsync();
+                return true;
+            }
+            catch { throw; }
         }
-        public async Task<T> AddOrUpdate(T entity)
+        public virtual async Task<T> AddOrUpdate(T entity)
         {
             context.Set<T>().AddOrUpdate(entity);
             await context.SaveChangesAsync();

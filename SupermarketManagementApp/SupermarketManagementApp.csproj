@@ -100,6 +100,7 @@
     <Compile Include="DAO\SupplierInvoiceDetail.cs" />
     <Compile Include="ErrorHandle\ExistedObjectException.cs" />
     <Compile Include="ErrorHandle\NotExistedObjectException.cs" />
+    <Compile Include="ErrorHandle\ObjectDependException.cs" />
     <Compile Include="GUI\Account\FormAccountManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -286,6 +287,7 @@
     <Compile Include="Infrastructure\Repository\CustomerInvoiceRepository.cs" />
     <Compile Include="Infrastructure\Repository\ProductRepository.cs" />
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
+    <Compile Include="Infrastructure\Repository\ShelfDetailRepository.cs" />
     <Compile Include="Infrastructure\Repository\ShelfRepository.cs" />
     <Compile Include="Infrastructure\Repository\SupplierInvoiceRepository.cs" />
     <Compile Include="Utils\Result.cs" />

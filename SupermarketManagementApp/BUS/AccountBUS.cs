@@ -7,6 +7,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 
 namespace SupermarketManagementApp.BUS
 {
@@ -173,5 +174,36 @@ namespace SupermarketManagementApp.BUS
             }
             return result;
         }
+        public async Task<Result<Boolean>> deleteAccount(int accountId)
+        {
+            Result<Boolean> result = new Result<Boolean>();
+            try
+            {
+                result.Data = await unitOfWork.AccountRepository.RemoveByID(accountId);
+                result.IsSuccess = true;
+                result.ErrorMessage = null;
+            }
+            catch(ObjectDependException e)
+            {
+                result.ErrorMessage = e.Message;
+                result.IsSuccess = false;
+                result.Data = false;
+            }
+            catch (NotExistedObjectException e)
+            {
+                result.ErrorMessage = e.Message;
+                result.IsSuccess = false;
+                result.Data = false;
+            }
+            catch (Exception e)
+            {
+                // Xử lý các exception khác nếu cần
+                result.ErrorMessage = e.Message;
+                result.IsSuccess = false;
+                result.Data = false;
+            }
+            return result;
+        }
     }
+
 }

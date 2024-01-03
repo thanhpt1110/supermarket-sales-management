@@ -10,8 +10,8 @@ namespace SupermarketManagementApp.DAO
     public partial class InventoryDetail
     {
         [Key]
-        [Column("InventoryDetail")]
-        public long InventoryDetail1 { get; set; }
+        [Column("InventoryDetailID")]
+        public long InventoryDetailID { get; set; }
 
         public long? ProductID { get; set; }
 

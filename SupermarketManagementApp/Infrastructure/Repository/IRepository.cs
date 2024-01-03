@@ -12,10 +12,10 @@ namespace SupermarketManagementApp.Infrastructure.Repository
         Task<T> Add(T entity);
         Task<T> Update(T entity);
         Task<T> AddOrUpdate(T entity);  
-        Task<T> FindByID(int id);
+        Task<T> FindByID(long id);
         Task<IEnumerable<T>> GetAll();
         Task<IEnumerable<T>> Find(Expression<Func<T, bool>> predicate);
-        Task<Boolean> RemoveByID(int id);
+        Task<Boolean> RemoveByID(long id);
         void SaveChanges();
     }
 }
