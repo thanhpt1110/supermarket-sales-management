@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SupermarketManagementApp.BUS
 {
-    public class CustomerBUS
+    public class ProductTypeBUS
     {
     }
 }

@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Guna.UI2, Version=2.0.4.5, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.5\lib\net472\Guna.UI2.dll</HintPath>
     </Reference>
@@ -48,10 +54,13 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
@@ -68,9 +77,30 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\AccountBUS.cs" />
     <Compile Include="BUS\CustomerBUS.cs" />
-    <Compile Include="DAO\CustomerDAO.cs" />
-    <Compile Include="DTO\CustomerDTO.cs" />
+    <Compile Include="BUS\CustomerInvoiceBUS.cs" />
+    <Compile Include="BUS\EmployeeBUS.cs" />
+    <Compile Include="BUS\InvetoryDetailBUS.cs" />
+    <Compile Include="BUS\ProductBUS.cs" />
+    <Compile Include="BUS\ProductTypeBUS.cs" />
+    <Compile Include="BUS\ShelfBUS.cs" />
+    <Compile Include="DAO\Account.cs" />
+    <Compile Include="DAO\Customer.cs" />
+    <Compile Include="DAO\CustomerInvoice.cs" />
+    <Compile Include="DAO\CustomerInvoiceDetail.cs" />
+    <Compile Include="DAO\Employee.cs" />
+    <Compile Include="DAO\InventoryDetail.cs" />
+    <Compile Include="DAO\Product.cs" />
+    <Compile Include="DAO\ProductType.cs" />
+    <Compile Include="DAO\Shelf.cs" />
+    <Compile Include="DAO\ShelfDetail.cs" />
+    <Compile Include="DAO\SupermarketContext.cs" />
+    <Compile Include="DAO\SupplierInvoice.cs" />
+    <Compile Include="DAO\SupplierInvoiceDetail.cs" />
+    <Compile Include="ErrorHandle\ExistedObjectException.cs" />
+    <Compile Include="ErrorHandle\NotExistedObjectException.cs" />
+    <Compile Include="ErrorHandle\ObjectDependException.cs" />
     <Compile Include="GUI\Account\FormAccountManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -251,6 +281,17 @@
     <Compile Include="GUI\Shelf\FormUpdateShelf.Designer.cs">
       <DependentUpon>FormUpdateShelf.cs</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Repository\CustomerRepository.cs" />
+    <Compile Include="Infrastructure\Repository\InventoryDetailRepository.cs" />
+    <Compile Include="Infrastructure\Repository\ProductTypeRepository.cs" />
+    <Compile Include="Infrastructure\Repository\CustomerInvoiceRepository.cs" />
+    <Compile Include="Infrastructure\Repository\ProductRepository.cs" />
+    <Compile Include="Infrastructure\IUnitOfWork.cs" />
+    <Compile Include="Infrastructure\Repository\ShelfDetailRepository.cs" />
+    <Compile Include="Infrastructure\Repository\ShelfRepository.cs" />
+    <Compile Include="Infrastructure\Repository\SupplierInvoiceRepository.cs" />
+    <Compile Include="Utils\Result.cs" />
+    <Compile Include="Infrastructure\UnitOfWork.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -258,6 +299,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Repository\AccountRepository.cs" />
+    <Compile Include="Infrastructure\Repository\EmployeeRepository.cs" />
+    <Compile Include="Infrastructure\Repository\GenericRepository.cs" />
+    <Compile Include="Infrastructure\Repository\IRepository.cs" />
     <Compile Include="Utils\DbHelper.cs" />
     <Compile Include="Utils\FormBackground.cs">
       <SubType>Form</SubType>
@@ -470,5 +515,8 @@
   <ItemGroup>
     <None Include="resources\icon-avatar.png" />
   </ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

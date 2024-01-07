@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SupermarketManagementApp.DTO
+namespace SupermarketManagementApp.BUS
 {
-    internal class CustomerDTO
+    public class CustomerInvoiceBUS
     {
     }
 }

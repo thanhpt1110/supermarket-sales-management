@@ -18,9 +18,8 @@ namespace SupermarketManagementApp.GUI.Account
     {
         #region Declare variable
         private Guna2DataGridView gridView = null;
-        private FormMain formMain = null;   
+        private FormMain formMain = null;
         #endregion
-
         public FormAccountManagement(FormMain formMain)
         {
             this.formMain = formMain;
@@ -30,7 +29,6 @@ namespace SupermarketManagementApp.GUI.Account
             LoadGridData();
             UpdateScrollBarValues();
         }
-
         public FormAccountManagement()
         {
             InitializeComponent();

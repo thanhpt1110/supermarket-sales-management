@@ -9,25 +9,42 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SupermarketManagementApp.Properties;
+using SupermarketManagementApp.BUS;
+using SupermarketManagementApp.Utils;
 
 namespace SupermarketManagementApp.GUI.Account
 {
     public partial class FormCreateAccount : Form
     {
+        private AccountBUS accountBUS = null;
         public FormCreateAccount()
         {
             InitializeComponent();
             txtBoxPassword.IconRightClick += txtBoxPassword_IconRightClick;
+            accountBUS = new AccountBUS();
         }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
-
             this.Close();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private async void btnSave_Click(object sender, EventArgs e)
         {
+            DAO.Account account = new DAO.Account();
+            account.Username = txtBoxUsername.Text;
+            account.Password = txtBoxPassword.Text;
+            account.Role = this.cbBoxRole.SelectedText;
+            account.EmployeeID = 1; // Để tạm
+            Result<DAO.Account> result = await accountBUS.createNewAccount(account);
+            if (result.IsSuccess)
+            {
+                MessageBox.Show("Create account success");
+            }
+            else
+            {
+                MessageBox.Show(result.ErrorMessage);
+                return;
+            }
             this.Close();
         }
 
