@@ -38,11 +38,6 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.scrollBar = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.gridViewMain = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
-            this.msgBoxError = new Guna.UI2.WinForms.Guna2MessageDialog();
-            this.btnCreateAccount = new Guna.UI2.WinForms.Guna2Button();
-            this.txtBoxSearchEmployee = new Guna.UI2.WinForms.Guna2TextBox();
             this.icon = new System.Windows.Forms.DataGridViewImageColumn();
             this.EmployeeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +46,11 @@
             this.IDNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
+            this.msgBoxError = new Guna.UI2.WinForms.Guna2MessageDialog();
+            this.btnCreateAccount = new Guna.UI2.WinForms.Guna2Button();
+            this.txtBoxSearchEmployee = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewMain)).BeginInit();
             this.guna2ShadowPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -119,6 +119,7 @@
             this.scrollBar.TabIndex = 1;
             this.scrollBar.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.scrollBar.Value = 1;
+            this.scrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.scrollBar_Scroll);
             // 
             // gridViewMain
             // 
@@ -195,6 +196,73 @@
             this.gridViewMain.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewMain_CellMouseLeave);
             this.gridViewMain.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridViewMain_CellMouseMove);
             this.gridViewMain.Scroll += new System.Windows.Forms.ScrollEventHandler(this.scrollBar_Scroll);
+            // 
+            // icon
+            // 
+            this.icon.FillWeight = 50F;
+            this.icon.HeaderText = "";
+            this.icon.Image = global::SupermarketManagementApp.Properties.Resources.grid_employee;
+            this.icon.MinimumWidth = 6;
+            this.icon.Name = "icon";
+            this.icon.ReadOnly = true;
+            this.icon.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // EmployeeName
+            // 
+            this.EmployeeName.FillWeight = 170F;
+            this.EmployeeName.HeaderText = "Name";
+            this.EmployeeName.MinimumWidth = 6;
+            this.EmployeeName.Name = "EmployeeName";
+            this.EmployeeName.ReadOnly = true;
+            // 
+            // PhoneNumber
+            // 
+            this.PhoneNumber.FillWeight = 130F;
+            this.PhoneNumber.HeaderText = "Phone number";
+            this.PhoneNumber.MinimumWidth = 6;
+            this.PhoneNumber.Name = "PhoneNumber";
+            this.PhoneNumber.ReadOnly = true;
+            // 
+            // Gender
+            // 
+            this.Gender.FillWeight = 80F;
+            this.Gender.HeaderText = "Gender";
+            this.Gender.Name = "Gender";
+            this.Gender.ReadOnly = true;
+            // 
+            // Birthday
+            // 
+            this.Birthday.FillWeight = 120F;
+            this.Birthday.HeaderText = "Birthday";
+            this.Birthday.MinimumWidth = 6;
+            this.Birthday.Name = "Birthday";
+            this.Birthday.ReadOnly = true;
+            // 
+            // IDNumber
+            // 
+            this.IDNumber.FillWeight = 140F;
+            this.IDNumber.HeaderText = "ID number";
+            this.IDNumber.MinimumWidth = 6;
+            this.IDNumber.Name = "IDNumber";
+            this.IDNumber.ReadOnly = true;
+            // 
+            // Edit
+            // 
+            this.Edit.HeaderText = "";
+            this.Edit.Image = global::SupermarketManagementApp.Properties.Resources.grid_edit;
+            this.Edit.MinimumWidth = 6;
+            this.Edit.Name = "Edit";
+            this.Edit.ReadOnly = true;
+            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "";
+            this.Delete.Image = global::SupermarketManagementApp.Properties.Resources.grid_delete;
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // guna2ShadowPanel1
             // 
@@ -292,73 +360,6 @@
             this.txtBoxSearchEmployee.Size = new System.Drawing.Size(285, 45);
             this.txtBoxSearchEmployee.TabIndex = 7;
             this.txtBoxSearchEmployee.TextOffset = new System.Drawing.Point(5, 0);
-            // 
-            // icon
-            // 
-            this.icon.FillWeight = 50F;
-            this.icon.HeaderText = "";
-            this.icon.Image = global::SupermarketManagementApp.Properties.Resources.grid_employee;
-            this.icon.MinimumWidth = 6;
-            this.icon.Name = "icon";
-            this.icon.ReadOnly = true;
-            this.icon.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // EmployeeName
-            // 
-            this.EmployeeName.FillWeight = 170F;
-            this.EmployeeName.HeaderText = "Name";
-            this.EmployeeName.MinimumWidth = 6;
-            this.EmployeeName.Name = "EmployeeName";
-            this.EmployeeName.ReadOnly = true;
-            // 
-            // PhoneNumber
-            // 
-            this.PhoneNumber.FillWeight = 130F;
-            this.PhoneNumber.HeaderText = "Phone number";
-            this.PhoneNumber.MinimumWidth = 6;
-            this.PhoneNumber.Name = "PhoneNumber";
-            this.PhoneNumber.ReadOnly = true;
-            // 
-            // Gender
-            // 
-            this.Gender.FillWeight = 80F;
-            this.Gender.HeaderText = "Gender";
-            this.Gender.Name = "Gender";
-            this.Gender.ReadOnly = true;
-            // 
-            // Birthday
-            // 
-            this.Birthday.FillWeight = 120F;
-            this.Birthday.HeaderText = "Birthday";
-            this.Birthday.MinimumWidth = 6;
-            this.Birthday.Name = "Birthday";
-            this.Birthday.ReadOnly = true;
-            // 
-            // IDNumber
-            // 
-            this.IDNumber.FillWeight = 140F;
-            this.IDNumber.HeaderText = "ID number";
-            this.IDNumber.MinimumWidth = 6;
-            this.IDNumber.Name = "IDNumber";
-            this.IDNumber.ReadOnly = true;
-            // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "";
-            this.Edit.Image = global::SupermarketManagementApp.Properties.Resources.grid_edit;
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.ReadOnly = true;
-            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "";
-            this.Delete.Image = global::SupermarketManagementApp.Properties.Resources.grid_delete;
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // FormEmployeeManagement
             // 

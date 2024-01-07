@@ -148,9 +148,6 @@
   <data name="silver-search" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\silver-search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="add-product-invoice" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\add-product-invoice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="white-caret-down" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\white-caret-down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -187,8 +184,11 @@
   <data name="white-shelf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\white-shelf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="add-product" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\add-product.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="add-product-invoice" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\add-product-invoice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sales Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\Sales Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="grid-shelf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\grid-shelf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -196,8 +196,17 @@
   <data name="white-stats" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\white-stats.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="add-product" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\add-product.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Union" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\Union.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="white-invoice" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\white-invoice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="printing" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\printing.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="grid-account" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\grid-account.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -229,13 +238,7 @@
   <data name="black-stats" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\black-stats.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="printing" type="System.Resources.ResXFileRef, System.Windows.Forms">
-	<value>..\resources\printing.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Sales Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\Sales Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Union" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\Union.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon-avatar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icon-avatar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

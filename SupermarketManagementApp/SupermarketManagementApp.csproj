@@ -467,5 +467,8 @@
   <ItemGroup>
     <None Include="resources\Union.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon-avatar.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
