@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SupermarketManagementApp.ErrorHandle;
 using System.Linq.Expressions;
+using System.Data.Entity.Infrastructure;
 
 namespace SupermarketManagementApp.Infrastructure.Repository
 {
@@ -96,6 +97,19 @@ namespace SupermarketManagementApp.Infrastructure.Repository
                     throw new NotExistedObjectException("Customer is not existed");
                 }
                 return await base.Update(entity);
+            }
+            catch (DbUpdateException ex)
+            {
+                // Check if the exception is due to a unique constraint violation
+                if (ExistedObjectException.IsUniqueConstraintViolation(ex))
+                {
+                    // Handle the unique constraint violation
+                    throw new ExistedObjectException("This phone number is already existed");
+                }
+                else
+                {
+                    throw;
+                }
             }
             catch { throw; }
         }

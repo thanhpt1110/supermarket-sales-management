@@ -21,12 +21,14 @@ namespace SupermarketManagementApp.DAO
 
         public string EmployeeName { get; set; }
 
-        public DateTime? Birthday { get; set; }
+        public DateTime Birthday { get; set; }
 
         [StringLength(20)]
+        [Index(IsUnique = true)]
         public string PhoneNumber { get; set; }
 
         [StringLength(20)]
+        [Index(IsUnique = true)]
         public string IdCardNumber { get; set; }
 
         [StringLength(10)]

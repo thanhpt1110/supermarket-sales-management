@@ -22,6 +22,7 @@ namespace SupermarketManagementApp.DAO
         public DateTime? Birthday { get; set; }
 
         [StringLength(20)]
+        [Index(IsUnique = true)]
         public string PhoneNumber { get; set; }
 
         [StringLength(10)]

@@ -1,4 +1,5 @@
 ﻿using Guna.UI2.WinForms;
+using SupermarketManagementApp.BUS;
 using SupermarketManagementApp.GUI.Account;
 using SupermarketManagementApp.Utils;
 using System;
@@ -18,43 +19,53 @@ namespace SupermarketManagementApp.GUI.Employee
         #region Declare variable
         private Guna2DataGridView gridView = null;
         private FormMain formMain = null;
+        private Timer searchTimer = null;
         #endregion
 
+        #region Declare specific Variable type
+        private List<SupermarketManagementApp.DAO.Employee> employees = null;
+        private EmployeeBUS employeeBUS = null;
+        #endregion
         public FormEmployeeManagement(FormMain formMain)
         {
             this.formMain = formMain;
-
+            employeeBUS = EmployeeBUS.GetInstance();
             InitializeComponent();
             CustomStyleGridView();
-            LoadGridData();
             UpdateScrollBarValues();
-
+            InitAllEmployee();
+            InitTimer();
         }
 
         public FormEmployeeManagement()
         {
+            employeeBUS = EmployeeBUS.GetInstance();
             InitializeComponent();
             CustomStyleGridView();
             LoadGridData();
             UpdateScrollBarValues();
-
+            InitAllEmployee();
+            InitTimer();
         }
-
+        #region Load grid event
+        public async void InitAllEmployee()
+        {
+           Result<IEnumerable<DAO.Employee>> employeeResult = await employeeBUS.GetAllEmployee();
+           if(employeeResult.IsSuccess)
+           {
+               this.employees = employeeResult.Data.ToList();
+           }
+            LoadGridData();
+        }
         private void LoadGridData()
         {
-            gridView.Rows.Add(new object[] { null, "Emma Williams", "0987654321", "Female", "12/05/1990", "051203001122" });
-            gridView.Rows.Add(new object[] { null, "Liam Johnson", "0901122334", "Male", "18/09/1985", "051203004433" });
-            gridView.Rows.Add(new object[] { null, "Olivia Smith", "0977123456", "Female", "25/07/1995", "051203005566" });
-            gridView.Rows.Add(new object[] { null, "Noah Davis", "0938111222", "Male", "03/02/1988", "051203008899" });
-            gridView.Rows.Add(new object[] { null, "Ava Wilson", "0914555666", "Female", "10/11/1983", "051203009911" });
-            gridView.Rows.Add(new object[] { null, "Lucas Miller", "0966888999", "Male", "15/06/1992", "051203012244" });
-            gridView.Rows.Add(new object[] { null, "Sophia Taylor", "0944777666", "Female", "20/03/1980", "051203013377" });
-            gridView.Rows.Add(new object[] { null, "Ethan Brown", "0988333222", "Male", "08/09/1998", "051203016610" });
-            gridView.Rows.Add(new object[] { null, "Isabella Anderson", "0914222111", "Female", "05/04/1987", "051203017733" });
-            gridView.Rows.Add(new object[] { null, "Mason Moore", "0977999888", "Male", "28/12/1993", "051203020066" });
-            gridView.Rows.Add(new object[] { null, "Amelia Jackson", "0936555444", "Female", "22/10/1981", "051203021199" });
-            gridView.Rows.Add(new object[] { null, "Oliver Harris", "0922333444", "Male", "14/07/1996", "051203024432" });
+            gridView.Rows.Clear();
+            foreach (var employee in employees)
+            {
+                gridView.Rows.Add(new object[] { null, employee.EmployeeID, employee.EmployeeName, employee.PhoneNumber,employee.Gender,employee.Birthday.ToString("dd/MM/yyyy"), employee.IdCardNumber});
+            }
         }
+        #endregion
 
         #region Customize data grid
         private void CustomStyleGridView()
@@ -108,7 +119,7 @@ namespace SupermarketManagementApp.GUI.Employee
             if (e.RowIndex == -1)
             {
                 // Kiểm tra xem có phải là header của cột 2, 3, 4 hoặc header của cột 4, 5
-                if (e.ColumnIndex >= 1 && e.ColumnIndex <= 5)
+                if (e.ColumnIndex >= 2 && e.ColumnIndex <= 6)
                 {
                     gridView.Cursor = Cursors.Hand;
                     return;
@@ -116,7 +127,7 @@ namespace SupermarketManagementApp.GUI.Employee
             }
 
             // Nếu không phải là header của cột và nằm trong khoảng cột 4, 5, đặt kiểu cursor thành Hand
-            if (e.RowIndex >= 0 && (e.ColumnIndex == 6 || e.ColumnIndex == 7))
+            if (e.RowIndex >= 0 && (e.ColumnIndex == 7 || e.ColumnIndex == 8))
             {
                 gridView.Cursor = Cursors.Hand;
                 return;
@@ -133,7 +144,7 @@ namespace SupermarketManagementApp.GUI.Employee
             FormBackground formBackground = new FormBackground(formMain);
             try
             {
-                using (FormCreateEmployee formCreateEmployee = new FormCreateEmployee())
+                using (FormCreateEmployee formCreateEmployee = new FormCreateEmployee(this))
                 {
                     formBackground.Owner = formMain;
                     formBackground.Show();
@@ -163,17 +174,18 @@ namespace SupermarketManagementApp.GUI.Employee
             }
         }
 
-        private void gridViewMain_CellClick(object sender, DataGridViewCellEventArgs e)
+        private async void gridViewMain_CellClickAsync(object sender, DataGridViewCellEventArgs e)
         {
+            int x = e.ColumnIndex, y = e.RowIndex;
             if (e.RowIndex >= 0)
             {
-                if (e.ColumnIndex == 6)
+                if (e.ColumnIndex == 7)
                 {
                     // Update
                     FormBackground formBackground = new FormBackground(formMain);
                     try
                     {
-                        using (FormUpdateEmployee formUpdateEmployee = new FormUpdateEmployee())
+                        using (FormUpdateEmployee formUpdateEmployee = new FormUpdateEmployee(this, int.Parse(gridView.Rows[y].Cells[1].Value.ToString())))
                         {
                             formBackground.Owner = formMain;
                             formBackground.Show();
@@ -188,7 +200,7 @@ namespace SupermarketManagementApp.GUI.Employee
                         msgBoxError.Show(ex.Message, "Error");
                     }
                 }
-                else if (e.ColumnIndex == 7)
+                else if (e.ColumnIndex == 8)
                 {
                     // Delete
                     msgBoxDelete.Parent = formMain;
@@ -198,7 +210,17 @@ namespace SupermarketManagementApp.GUI.Employee
                         case DialogResult.Yes:
                             try
                             {
+                                Result<bool> result =  await employeeBUS.removeEmployeeByID(int.Parse(gridView.Rows[y].Cells[1].Value.ToString()));
+                                if(result.IsSuccess)
+                                {
+                                    MessageBox.Show("Remove success","Success", MessageBoxButtons.OK);
+                                    InitAllEmployee();
+                                }
+                                else
+                                {
+                                    msgBoxError.Show(result.ErrorMessage, "Error");
 
+                                }
                             }
                             catch (Exception ex)
                             {
@@ -213,6 +235,27 @@ namespace SupermarketManagementApp.GUI.Employee
             }
         }
         #endregion
-        
+        #region Text changed event
+        private void txtBoxSearchEmployee_TextChanged(object sender, EventArgs e)
+        {
+            this.searchTimer.Stop();
+            this.searchTimer.Start();
+        }
+        #endregion
+        #region Init timer event
+        private void InitTimer()
+        {
+            searchTimer = new Timer();
+            searchTimer.Interval = 300;
+            searchTimer.Tick += SearchTimer_Tick;
+        }
+        private async void SearchTimer_Tick(object sender, EventArgs e)
+        {
+            this.searchTimer.Stop();
+            Result<IEnumerable<DAO.Employee>> result = await employeeBUS.searchEmployeeByName(txtBoxSearchEmployee.Text);
+            this.employees = result.Data.ToList();
+            LoadGridData();
+        }
+        #endregion
     }
 }

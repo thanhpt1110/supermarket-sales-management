@@ -19,8 +19,8 @@ namespace SupermarketManagementApp.Infrastructure
         private IRepository<ProductType> productTypeRepository;
         private IRepository<Shelf> shelfRepository;
         private IRepository<SupplierInvoice> supplierInvoiceRepository;
-
-        public UnitOfWork(SupermarketContext context)
+        
+        private UnitOfWork(SupermarketContext context)
         {
             this.context = context;
         }
@@ -136,9 +136,9 @@ namespace SupermarketManagementApp.Infrastructure
             }
         }
 
-        public void SaveChanges()
+        public async Task SaveChanges()
         {
-            context.SaveChanges();
+           await context.SaveChangesAsync();
         }
     }
 }

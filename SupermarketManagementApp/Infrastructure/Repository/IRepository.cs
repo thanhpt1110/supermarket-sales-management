@@ -16,6 +16,7 @@ namespace SupermarketManagementApp.Infrastructure.Repository
         Task<IEnumerable<T>> GetAll();
         Task<IEnumerable<T>> Find(Expression<Func<T, bool>> predicate);
         Task<Boolean> RemoveByID(long id);
+        Task UpdateManyAsync(IEnumerable<T> entities);
         void SaveChanges();
     }
 }

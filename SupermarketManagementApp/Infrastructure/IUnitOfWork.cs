@@ -20,6 +20,6 @@ namespace SupermarketManagementApp.Infrastructure
         IRepository<Shelf> ShelfRepository { get; }
         IRepository<SupplierInvoice> SupplierInvoiceRepository { get; }
 
-        void SaveChanges();
+        Task SaveChanges();
     }
 }

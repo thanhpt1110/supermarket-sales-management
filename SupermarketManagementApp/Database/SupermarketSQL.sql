@@ -7,8 +7,8 @@ CREATE TABLE Employee (
     EmployeeID INT PRIMARY KEY IDENTITY ,
     EmployeeName NVARCHAR(max),
     Birthday DATETIME,
-    PhoneNumber VARCHAR(20),
-    IdCardNumber VARCHAR(20),
+    PhoneNumber VARCHAR(20) UNIQUE,
+    IdCardNumber VARCHAR(20) UNIQUE,
 	Gender NVARCHAR(10)
 );
 
@@ -72,7 +72,7 @@ CREATE TABLE Customer (
     CustomerID INT PRIMARY KEY IDENTITY ,
     CustomerName NVARCHAR(max),
     Birthday DATETIME,
-    PhoneNumber VARCHAR(20),
+    PhoneNumber VARCHAR(20) UNIQUE,
     Gender NVARCHAR(10)
 );
 

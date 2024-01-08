@@ -21,7 +21,7 @@ namespace SupermarketManagementApp.GUI.Account
         {
             InitializeComponent();
             txtBoxPassword.IconRightClick += txtBoxPassword_IconRightClick;
-            accountBUS = new AccountBUS();
+            accountBUS = AccountBUS.GetInstance();
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {

@@ -3,6 +3,7 @@ using SupermarketManagementApp.ErrorHandle;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -49,19 +50,25 @@ namespace SupermarketManagementApp.Infrastructure.Repository
         {
             try
             {
-                var employee = await context.Employees.FindAsync(entity.EmployeeID);
-                if (employee == null)
-                {
-                    throw new NotExistedObjectException("Employee is not existed");
+                if(await context.Employees.FindAsync(entity.EmployeeID)!=null) {
+                    throw new NotExistedObjectException("Employee is not existeđ");
                 }
-                employee.EmployeeName = (entity.EmployeeName != null || entity.EmployeeName != "") ? entity.EmployeeName : employee.EmployeeName;
-                employee.Gender = (entity.Gender != null || entity.Gender != "") ? entity.Gender : employee.Gender;
-                employee.Birthday = (entity.Birthday != null) ? entity.Birthday : employee.Birthday;
-                employee.IdCardNumber = (entity.IdCardNumber != null || entity.IdCardNumber != "") ? entity.IdCardNumber : employee.IdCardNumber;
-                employee.PhoneNumber = (entity.PhoneNumber != null || entity.PhoneNumber != "") ? entity.PhoneNumber : employee.PhoneNumber;
-                return await base.Update(employee);
+                return await base.Update(entity);
             }
-            catch(Exception ex)
+            catch (DbUpdateException ex)
+            {
+                // Check if the exception is due to a unique constraint violation
+                if (ExistedObjectException.IsUniqueConstraintViolation(ex))
+                {
+                    // Handle the unique constraint violation
+                    throw new ExistedObjectException("This phone number or ID card is already existed");
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            catch (Exception ex)
             {
                 throw;
             }
@@ -79,7 +86,7 @@ namespace SupermarketManagementApp.Infrastructure.Repository
                 }
                 if (employeeIDCard != null)
                 {
-                    throw new ExistedObjectException("Employee with that phone ID number already existed");
+                    throw new ExistedObjectException("Employee with that ID card number already existed");
                 }
                 return await base.Add(entity);
             }
@@ -116,5 +123,6 @@ namespace SupermarketManagementApp.Infrastructure.Repository
                 throw;
             }
         }
+
     }
 }

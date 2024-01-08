@@ -13,9 +13,21 @@ namespace SupermarketManagementApp.BUS
 {
     public class AccountBUS
     {
-        private IUnitOfWork unitOfWork;
-        public AccountBUS() {
+        private static AccountBUS instance;
+        private readonly UnitOfWork unitOfWork;
+
+        private AccountBUS()
+        {
             unitOfWork = new UnitOfWork();
+        }
+
+        public static AccountBUS GetInstance()
+        {
+            if (instance == null)
+            {
+                instance = new AccountBUS();
+            }
+            return instance;
         }
         public async Task<Result<DAO.Account>> getAccountByID(int id)
         {
@@ -26,14 +38,9 @@ namespace SupermarketManagementApp.BUS
                 result.IsSuccess = true;
                 result.ErrorMessage = null;
             }
-            catch(NotExistedObjectException e)
-            {
-                result.Data = null;
-                result.IsSuccess = false;
-                result.ErrorMessage = e.Message;
-            }
             catch (Exception ex)
             {
+                result.Data = null;
                 result.ErrorMessage = ex.Message;
                 result.IsSuccess = false;
             }
@@ -47,13 +54,6 @@ namespace SupermarketManagementApp.BUS
                 result.Data = await unitOfWork.AccountRepository.Find(account => account.Username.Contains(userName));
                 result.IsSuccess = true;
                 result.ErrorMessage = null;
-            }
-            catch (DbUpdateException e)
-            {
-                // Xử lý exception cụ thể, ví dụ: tài khoản đã tồn tại, ràng buộc duy nhất bị vi phạm, v.v.
-                result.ErrorMessage = "Error while updating the database.";
-                result.IsSuccess = false;
-                result.Data = null;
             }
             catch (Exception ex)
             {
@@ -71,13 +71,6 @@ namespace SupermarketManagementApp.BUS
                 result.Data = await unitOfWork.AccountRepository.GetAll();
                 result.IsSuccess = true;
                 result.ErrorMessage = null;
-            }
-            catch (DbUpdateException e)
-            {
-                // Xử lý exception cụ thể, ví dụ: tài khoản đã tồn tại, ràng buộc duy nhất bị vi phạm, v.v.
-                result.ErrorMessage = "Error while updating the database.";
-                result.IsSuccess = false;
-                result.Data = null;
             }
             catch (Exception ex)
             {
@@ -102,24 +95,10 @@ namespace SupermarketManagementApp.BUS
                 try
                 {
                     result.Data = await unitOfWork.AccountRepository.Add(account);
-                    if(result.Data == null)
-                    {
-                        result.ErrorMessage = "Account already existed";
-                        result.IsSuccess = false;
-                        return result;
-                    }
-                    else
-                    {
-                        result.IsSuccess = true;
-                        result.ErrorMessage = null;
-                        return result;
-                    }
-                }
-                catch (ExistedObjectException e)
-                {
-                    result.ErrorMessage = e.Message;
-                    result.IsSuccess = false;
-                    result.Data = null;
+                    result.IsSuccess = true;
+                    result.ErrorMessage = null;
+                    await unitOfWork.SaveChanges();
+                    return result;
                 }
                 catch (Exception e)
                 {
@@ -145,24 +124,11 @@ namespace SupermarketManagementApp.BUS
                 try
                 {
                     result.Data = await unitOfWork.AccountRepository.Update(account);
-                    if (result.Data == null)
-                    {
-                        result.ErrorMessage = "Account not existed";
-                        result.IsSuccess = false;
-                        return result;
-                    }
-                    else
-                    {
-                        result.IsSuccess = true;
-                        result.ErrorMessage = null;
-                        return result;
-                    }
-                }
-                catch (NotExistedObjectException e)
-                {
-                    result.ErrorMessage = e.Message;
-                    result.IsSuccess = false;
-                    result.Data = null;
+                    result.IsSuccess = true;
+                    result.ErrorMessage = null;
+                    await unitOfWork.SaveChanges();
+                    return result;
+                    
                 }
                 catch (Exception e)
                 {
@@ -182,18 +148,7 @@ namespace SupermarketManagementApp.BUS
                 result.Data = await unitOfWork.AccountRepository.RemoveByID(accountId);
                 result.IsSuccess = true;
                 result.ErrorMessage = null;
-            }
-            catch(ObjectDependException e)
-            {
-                result.ErrorMessage = e.Message;
-                result.IsSuccess = false;
-                result.Data = false;
-            }
-            catch (NotExistedObjectException e)
-            {
-                result.ErrorMessage = e.Message;
-                result.IsSuccess = false;
-                result.Data = false;
+                await unitOfWork.SaveChanges();
             }
             catch (Exception e)
             {

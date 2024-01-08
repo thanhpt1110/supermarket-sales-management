@@ -32,7 +32,7 @@
             this.txtBoxIdCardNumber = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.birthDayPicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.txtBoxCustomerName = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtBoxEmployeeName = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.labelPhoneNumber = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.labelRequired1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -40,7 +40,7 @@
             this.labelForm = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.labelDoB = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.labelCustomerName = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.labelEmployeeName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.labelIdCardNumber = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtBoxPhoneNumber = new Guna.UI2.WinForms.Guna2TextBox();
@@ -120,29 +120,29 @@
             this.birthDayPicker.TabIndex = 4;
             this.birthDayPicker.Value = new System.DateTime(2023, 12, 21, 16, 47, 45, 231);
             // 
-            // txtBoxCustomerName
+            // txtBoxEmployeeName
             // 
-            this.txtBoxCustomerName.BorderColor = System.Drawing.Color.Black;
-            this.txtBoxCustomerName.BorderRadius = 5;
-            this.txtBoxCustomerName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBoxCustomerName.DefaultText = "";
-            this.txtBoxCustomerName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtBoxCustomerName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtBoxCustomerName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBoxCustomerName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBoxCustomerName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBoxCustomerName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxCustomerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtBoxCustomerName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBoxCustomerName.Location = new System.Drawing.Point(50, 50);
-            this.txtBoxCustomerName.Margin = new System.Windows.Forms.Padding(5);
-            this.txtBoxCustomerName.Name = "txtBoxCustomerName";
-            this.txtBoxCustomerName.PasswordChar = '\0';
-            this.txtBoxCustomerName.PlaceholderText = "";
-            this.txtBoxCustomerName.SelectedText = "";
-            this.txtBoxCustomerName.Size = new System.Drawing.Size(400, 36);
-            this.txtBoxCustomerName.TabIndex = 1;
-            this.txtBoxCustomerName.TextOffset = new System.Drawing.Point(5, 0);
+            this.txtBoxEmployeeName.BorderColor = System.Drawing.Color.Black;
+            this.txtBoxEmployeeName.BorderRadius = 5;
+            this.txtBoxEmployeeName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBoxEmployeeName.DefaultText = "";
+            this.txtBoxEmployeeName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtBoxEmployeeName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtBoxEmployeeName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBoxEmployeeName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBoxEmployeeName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBoxEmployeeName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxEmployeeName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtBoxEmployeeName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBoxEmployeeName.Location = new System.Drawing.Point(50, 50);
+            this.txtBoxEmployeeName.Margin = new System.Windows.Forms.Padding(5);
+            this.txtBoxEmployeeName.Name = "txtBoxEmployeeName";
+            this.txtBoxEmployeeName.PasswordChar = '\0';
+            this.txtBoxEmployeeName.PlaceholderText = "";
+            this.txtBoxEmployeeName.SelectedText = "";
+            this.txtBoxEmployeeName.Size = new System.Drawing.Size(400, 36);
+            this.txtBoxEmployeeName.TabIndex = 1;
+            this.txtBoxEmployeeName.TextOffset = new System.Drawing.Point(5, 0);
             // 
             // guna2HtmlLabel4
             // 
@@ -194,7 +194,7 @@
             this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Save";
             this.btnSave.TextOffset = new System.Drawing.Point(0, -1);
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.Click += new System.EventHandler(this.btnSave_ClickAsync);
             // 
             // labelForm
             // 
@@ -229,15 +229,15 @@
             this.guna2HtmlLabel3.TabIndex = 7;
             this.guna2HtmlLabel3.Text = "*";
             // 
-            // labelCustomerName
+            // labelEmployeeName
             // 
-            this.labelCustomerName.BackColor = System.Drawing.Color.Transparent;
-            this.labelCustomerName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCustomerName.Location = new System.Drawing.Point(50, 21);
-            this.labelCustomerName.Name = "labelCustomerName";
-            this.labelCustomerName.Size = new System.Drawing.Size(45, 23);
-            this.labelCustomerName.TabIndex = 10;
-            this.labelCustomerName.Text = "Name";
+            this.labelEmployeeName.BackColor = System.Drawing.Color.Transparent;
+            this.labelEmployeeName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEmployeeName.Location = new System.Drawing.Point(50, 21);
+            this.labelEmployeeName.Name = "labelEmployeeName";
+            this.labelEmployeeName.Size = new System.Drawing.Size(45, 23);
+            this.labelEmployeeName.TabIndex = 10;
+            this.labelEmployeeName.Text = "Name";
             // 
             // guna2HtmlLabel1
             // 
@@ -295,13 +295,13 @@
             this.guna2Panel1.Controls.Add(this.labelGender);
             this.guna2Panel1.Controls.Add(this.txtBoxIdCardNumber);
             this.guna2Panel1.Controls.Add(this.birthDayPicker);
-            this.guna2Panel1.Controls.Add(this.txtBoxCustomerName);
+            this.guna2Panel1.Controls.Add(this.txtBoxEmployeeName);
             this.guna2Panel1.Controls.Add(this.guna2HtmlLabel4);
             this.guna2Panel1.Controls.Add(this.labelPhoneNumber);
             this.guna2Panel1.Controls.Add(this.labelRequired1);
             this.guna2Panel1.Controls.Add(this.labelDoB);
             this.guna2Panel1.Controls.Add(this.guna2HtmlLabel3);
-            this.guna2Panel1.Controls.Add(this.labelCustomerName);
+            this.guna2Panel1.Controls.Add(this.labelEmployeeName);
             this.guna2Panel1.Controls.Add(this.guna2HtmlLabel1);
             this.guna2Panel1.Controls.Add(this.labelIdCardNumber);
             this.guna2Panel1.Controls.Add(this.txtBoxPhoneNumber);
@@ -388,7 +388,7 @@
         private Guna.UI2.WinForms.Guna2TextBox txtBoxIdCardNumber;
         private Guna.UI2.WinForms.Guna2Button btnCancel;
         private Guna.UI2.WinForms.Guna2DateTimePicker birthDayPicker;
-        private Guna.UI2.WinForms.Guna2TextBox txtBoxCustomerName;
+        private Guna.UI2.WinForms.Guna2TextBox txtBoxEmployeeName;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2HtmlLabel labelPhoneNumber;
         private Guna.UI2.WinForms.Guna2HtmlLabel labelRequired1;
@@ -396,7 +396,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel labelForm;
         private Guna.UI2.WinForms.Guna2HtmlLabel labelDoB;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
-        private Guna.UI2.WinForms.Guna2HtmlLabel labelCustomerName;
+        private Guna.UI2.WinForms.Guna2HtmlLabel labelEmployeeName;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel labelIdCardNumber;
         private Guna.UI2.WinForms.Guna2TextBox txtBoxPhoneNumber;

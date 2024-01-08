@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SupermarketManagementApp.BUS;
+using SupermarketManagementApp.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,18 @@ namespace SupermarketManagementApp.GUI.Employee
 {
     public partial class FormCreateEmployee : Form
     {
+        private EmployeeBUS employeeBUS;
+        private FormEmployeeManagement formEmployeeManagement;
+        public FormCreateEmployee(FormEmployeeManagement formEmployeeManagement)
+        {
+            InitializeComponent();
+            employeeBUS = EmployeeBUS.GetInstance();
+            this.formEmployeeManagement = formEmployeeManagement;
+        }
         public FormCreateEmployee()
         {
             InitializeComponent();
+            employeeBUS = EmployeeBUS.GetInstance();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -22,9 +33,34 @@ namespace SupermarketManagementApp.GUI.Employee
             this.Close();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private async void btnSave_Click(object sender, EventArgs e)
         {
-            this.Close();
+            SupermarketManagementApp.DAO.Employee employee = new SupermarketManagementApp.DAO.Employee();
+            employee.EmployeeName = this.txtBoxCustomerName.Text;
+            employee.Gender = this.cbBoxGender.Text;
+            employee.Birthday = this.birthDayPicker.Value;
+            employee.PhoneNumber = this.txtBoxPhoneNumber.Text; 
+            employee.IdCardNumber = this.txtBoxIdCardNumber.Text;
+            try
+            {
+                var employeeResult = await employeeBUS.AddEmployee(employee);
+                if(employeeResult.IsSuccess )
+                {
+                    MessageBox.Show("Added new employee Success");
+                    formEmployeeManagement.InitAllEmployee();
+                    this.Close();
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show(employeeResult.ErrorMessage);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
