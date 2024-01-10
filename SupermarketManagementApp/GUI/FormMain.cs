@@ -204,14 +204,14 @@ namespace SupermarketManagementApp
         {
             SetDefaultColor();
             SetColorButton((Guna2Button)sender);
-            OpenChildForm(new FormProductShelfManagement());
+            OpenChildForm(new FormProductShelfManagement(this));
         }
 
         private void btnProductInInventory_Click(object sender, EventArgs e)
         {
             SetDefaultColor();
             SetColorButton((Guna2Button)sender);
-            OpenChildForm(new FormProductInventoryManagement());
+            OpenChildForm(new FormProductInventoryManagement(this));
         }
 
         private void btnInvoice_Click(object sender, EventArgs e)

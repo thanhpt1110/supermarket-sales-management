@@ -34,6 +34,13 @@
             this.txtBoxSearchProductType = new Guna.UI2.WinForms.Guna2TextBox();
             this.scrollBar = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.gridViewMain = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.icon = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ProductTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MinTemperature = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaxTemperature = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.msgBoxError = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
             this.btnCreateProduct = new Guna.UI2.WinForms.Guna2Button();
@@ -43,13 +50,6 @@
             this.msgBoxDelete = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.msgBoxInfo = new Guna.UI2.WinForms.Guna2MessageDialog();
-            this.icon = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ProductTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MinTemperature = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaxTemperature = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewMain)).BeginInit();
             this.guna2ShadowPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -177,6 +177,65 @@
             this.gridViewMain.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewMain_CellMouseLeave);
             this.gridViewMain.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridViewMain_CellMouseMove);
             // 
+            // icon
+            // 
+            this.icon.FillWeight = 50F;
+            this.icon.HeaderText = "";
+            this.icon.Image = global::SupermarketManagementApp.Properties.Resources.grid_product;
+            this.icon.MinimumWidth = 6;
+            this.icon.Name = "icon";
+            this.icon.ReadOnly = true;
+            this.icon.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // ProductTypeName
+            // 
+            this.ProductTypeName.HeaderText = "Product Type";
+            this.ProductTypeName.MinimumWidth = 6;
+            this.ProductTypeName.Name = "ProductTypeName";
+            this.ProductTypeName.ReadOnly = true;
+            // 
+            // Description
+            // 
+            this.Description.FillWeight = 200F;
+            this.Description.HeaderText = "Description";
+            this.Description.MinimumWidth = 6;
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            // 
+            // MinTemperature
+            // 
+            this.MinTemperature.FillWeight = 80F;
+            this.MinTemperature.HeaderText = "Min Temp (Celsius)";
+            this.MinTemperature.Name = "MinTemperature";
+            this.MinTemperature.ReadOnly = true;
+            // 
+            // MaxTemperature
+            // 
+            this.MaxTemperature.FillWeight = 80F;
+            this.MaxTemperature.HeaderText = "Max Temp (Celsius)";
+            this.MaxTemperature.Name = "MaxTemperature";
+            this.MaxTemperature.ReadOnly = true;
+            // 
+            // Edit
+            // 
+            this.Edit.FillWeight = 50F;
+            this.Edit.HeaderText = "";
+            this.Edit.Image = global::SupermarketManagementApp.Properties.Resources.grid_edit;
+            this.Edit.MinimumWidth = 6;
+            this.Edit.Name = "Edit";
+            this.Edit.ReadOnly = true;
+            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // Delete
+            // 
+            this.Delete.FillWeight = 50F;
+            this.Delete.HeaderText = "";
+            this.Delete.Image = global::SupermarketManagementApp.Properties.Resources.grid_delete;
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
             // msgBoxError
             // 
             this.msgBoxError.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
@@ -289,65 +348,6 @@
             this.msgBoxInfo.Parent = null;
             this.msgBoxInfo.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
             this.msgBoxInfo.Text = "Create Product successfully!";
-            // 
-            // icon
-            // 
-            this.icon.FillWeight = 50F;
-            this.icon.HeaderText = "";
-            this.icon.Image = global::SupermarketManagementApp.Properties.Resources.grid_product;
-            this.icon.MinimumWidth = 6;
-            this.icon.Name = "icon";
-            this.icon.ReadOnly = true;
-            this.icon.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // ProductTypeName
-            // 
-            this.ProductTypeName.HeaderText = "Product Type";
-            this.ProductTypeName.MinimumWidth = 6;
-            this.ProductTypeName.Name = "ProductTypeName";
-            this.ProductTypeName.ReadOnly = true;
-            // 
-            // Description
-            // 
-            this.Description.FillWeight = 200F;
-            this.Description.HeaderText = "Description";
-            this.Description.MinimumWidth = 6;
-            this.Description.Name = "Description";
-            this.Description.ReadOnly = true;
-            // 
-            // MinTemperature
-            // 
-            this.MinTemperature.FillWeight = 80F;
-            this.MinTemperature.HeaderText = "Min Temp (Celsius)";
-            this.MinTemperature.Name = "MinTemperature";
-            this.MinTemperature.ReadOnly = true;
-            // 
-            // MaxTemperature
-            // 
-            this.MaxTemperature.FillWeight = 80F;
-            this.MaxTemperature.HeaderText = "Max Temp (Celsius)";
-            this.MaxTemperature.Name = "MaxTemperature";
-            this.MaxTemperature.ReadOnly = true;
-            // 
-            // Edit
-            // 
-            this.Edit.FillWeight = 50F;
-            this.Edit.HeaderText = "";
-            this.Edit.Image = global::SupermarketManagementApp.Properties.Resources.grid_edit;
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.ReadOnly = true;
-            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // Delete
-            // 
-            this.Delete.FillWeight = 50F;
-            this.Delete.HeaderText = "";
-            this.Delete.Image = global::SupermarketManagementApp.Properties.Resources.grid_delete;
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // FormProductTypeManagement
             // 

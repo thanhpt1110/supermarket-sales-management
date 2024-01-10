@@ -12,9 +12,17 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
 {
     public partial class FormProductShelfManagement : Form
     {
+        private FormMain formMain;
         public FormProductShelfManagement()
         {
             InitializeComponent();
         }
+
+        public FormProductShelfManagement(FormMain formMain)
+        {
+            InitializeComponent();
+            this.formMain = formMain;   
+        }
+
     }
 }
