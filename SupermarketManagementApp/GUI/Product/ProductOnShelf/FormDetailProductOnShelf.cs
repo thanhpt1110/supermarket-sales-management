@@ -10,19 +10,11 @@ using System.Windows.Forms;
 
 namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
 {
-    public partial class FormProductShelfManagement : Form
+    public partial class FormDetailProductOnShelf : Form
     {
-        private FormMain formMain;
-        public FormProductShelfManagement()
+        public FormDetailProductOnShelf()
         {
             InitializeComponent();
         }
-
-        public FormProductShelfManagement(FormMain formMain)
-        {
-            InitializeComponent();
-            this.formMain = formMain;   
-        }
-
     }
 }

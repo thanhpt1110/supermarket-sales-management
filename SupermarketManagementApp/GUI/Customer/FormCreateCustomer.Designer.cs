@@ -149,6 +149,7 @@
             this.txtBoxPhoneNumber.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtBoxPhoneNumber.Location = new System.Drawing.Point(50, 138);
             this.txtBoxPhoneNumber.Margin = new System.Windows.Forms.Padding(5);
+            this.txtBoxPhoneNumber.MaxLength = 10;
             this.txtBoxPhoneNumber.Name = "txtBoxPhoneNumber";
             this.txtBoxPhoneNumber.PasswordChar = '\0';
             this.txtBoxPhoneNumber.PlaceholderText = "";
