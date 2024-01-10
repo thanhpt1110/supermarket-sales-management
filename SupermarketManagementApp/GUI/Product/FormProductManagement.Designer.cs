@@ -33,22 +33,24 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.msgBoxInfo = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.msgBoxDelete = new Guna.UI2.WinForms.Guna2MessageDialog();
-            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
             this.btnCreateProduct = new Guna.UI2.WinForms.Guna2Button();
             this.msgBoxError = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.scrollBar = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.gridViewMain = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.txtBoxSearchProduct = new Guna.UI2.WinForms.Guna2TextBox();
             this.icon = new System.Windows.Forms.DataGridViewImageColumn();
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WholeSaleUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RetailUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UnitConversion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Info = new System.Windows.Forms.DataGridViewImageColumn();
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.guna2ShadowPanel1.SuspendLayout();
@@ -72,35 +74,6 @@
             this.msgBoxDelete.Parent = null;
             this.msgBoxDelete.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
             this.msgBoxDelete.Text = "Are you sure you want to delete this file?";
-            // 
-            // dataGridViewImageColumn3
-            // 
-            this.dataGridViewImageColumn3.HeaderText = "";
-            this.dataGridViewImageColumn3.Image = global::SupermarketManagementApp.Properties.Resources.grid_delete;
-            this.dataGridViewImageColumn3.MinimumWidth = 6;
-            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
-            this.dataGridViewImageColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn3.Width = 139;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.HeaderText = "";
-            this.dataGridViewImageColumn2.Image = global::SupermarketManagementApp.Properties.Resources.grid_edit;
-            this.dataGridViewImageColumn2.MinimumWidth = 6;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn2.Width = 139;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.FillWeight = 50F;
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Image = global::SupermarketManagementApp.Properties.Resources.grid_account;
-            this.dataGridViewImageColumn1.MinimumWidth = 6;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewImageColumn1.Width = 71;
             // 
             // btnExportExcel
             // 
@@ -211,10 +184,12 @@
             this.gridViewMain.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.icon,
             this.ProductName,
+            this.ProductType,
             this.UnitPrice,
             this.WholeSaleUnit,
             this.RetailUnit,
             this.UnitConversion,
+            this.Info,
             this.Edit,
             this.Delete});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -263,6 +238,35 @@
             this.gridViewMain.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewMain_CellMouseLeave);
             this.gridViewMain.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridViewMain_CellMouseMove);
             // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.FillWeight = 50F;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = global::SupermarketManagementApp.Properties.Resources.grid_account;
+            this.dataGridViewImageColumn1.MinimumWidth = 6;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewImageColumn1.Width = 71;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.HeaderText = "";
+            this.dataGridViewImageColumn2.Image = global::SupermarketManagementApp.Properties.Resources.grid_edit;
+            this.dataGridViewImageColumn2.MinimumWidth = 6;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn2.Width = 139;
+            // 
+            // dataGridViewImageColumn3
+            // 
+            this.dataGridViewImageColumn3.HeaderText = "";
+            this.dataGridViewImageColumn3.Image = global::SupermarketManagementApp.Properties.Resources.grid_delete;
+            this.dataGridViewImageColumn3.MinimumWidth = 6;
+            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
+            this.dataGridViewImageColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn3.Width = 139;
+            // 
             // txtBoxSearchProduct
             // 
             this.txtBoxSearchProduct.BackColor = System.Drawing.Color.Transparent;
@@ -305,11 +309,18 @@
             // 
             // ProductName
             // 
-            this.ProductName.FillWeight = 180F;
-            this.ProductName.HeaderText = "Product Name";
+            this.ProductName.FillWeight = 150F;
+            this.ProductName.HeaderText = "Name";
             this.ProductName.MinimumWidth = 6;
             this.ProductName.Name = "ProductName";
             this.ProductName.ReadOnly = true;
+            // 
+            // ProductType
+            // 
+            this.ProductType.FillWeight = 110F;
+            this.ProductType.HeaderText = "Type";
+            this.ProductType.Name = "ProductType";
+            this.ProductType.ReadOnly = true;
             // 
             // UnitPrice
             // 
@@ -321,7 +332,7 @@
             // WholeSaleUnit
             // 
             this.WholeSaleUnit.FillWeight = 120F;
-            this.WholeSaleUnit.HeaderText = "Whole Sale Unit ";
+            this.WholeSaleUnit.HeaderText = "Wholesale Unit";
             this.WholeSaleUnit.MinimumWidth = 6;
             this.WholeSaleUnit.Name = "WholeSaleUnit";
             this.WholeSaleUnit.ReadOnly = true;
@@ -335,13 +346,22 @@
             // 
             // UnitConversion
             // 
-            this.UnitConversion.HeaderText = "Unit Conversion";
+            this.UnitConversion.HeaderText = "Conversion";
             this.UnitConversion.MinimumWidth = 6;
             this.UnitConversion.Name = "UnitConversion";
             this.UnitConversion.ReadOnly = true;
             // 
+            // Info
+            // 
+            this.Info.FillWeight = 70F;
+            this.Info.HeaderText = "";
+            this.Info.Image = global::SupermarketManagementApp.Properties.Resources.grid_info;
+            this.Info.Name = "Info";
+            this.Info.ReadOnly = true;
+            // 
             // Edit
             // 
+            this.Edit.FillWeight = 50F;
             this.Edit.HeaderText = "";
             this.Edit.Image = global::SupermarketManagementApp.Properties.Resources.grid_edit;
             this.Edit.MinimumWidth = 6;
@@ -351,6 +371,7 @@
             // 
             // Delete
             // 
+            this.Delete.FillWeight = 50F;
             this.Delete.HeaderText = "";
             this.Delete.Image = global::SupermarketManagementApp.Properties.Resources.grid_delete;
             this.Delete.MinimumWidth = 6;
@@ -393,10 +414,12 @@
         private Guna.UI2.WinForms.Guna2TextBox txtBoxSearchProduct;
         private System.Windows.Forms.DataGridViewImageColumn icon;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductType;
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn WholeSaleUnit;
         private System.Windows.Forms.DataGridViewTextBoxColumn RetailUnit;
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitConversion;
+        private System.Windows.Forms.DataGridViewImageColumn Info;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
     }

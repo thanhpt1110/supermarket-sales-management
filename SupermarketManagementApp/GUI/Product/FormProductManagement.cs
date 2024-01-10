@@ -42,18 +42,18 @@ namespace SupermarketManagementApp.GUI.Product
 
         private void LoadGridData()
         {
-            gridView.Rows.Add(new object[] { null, "Milk", 25000, "Carton", "Bottle", 12 });
-            gridView.Rows.Add(new object[] { null, "Bread", 18000, "Loaf", "Piece", 1 });
-            gridView.Rows.Add(new object[] { null, "Rice", 30000, "Bag", "Kilogram", 2 });
-            gridView.Rows.Add(new object[] { null, "Chocolate", 35000, "Packet", "Bar", 5 });
-            gridView.Rows.Add(new object[] { null, "Coffee", 40000, "Can", "Gram", 250 });
-            gridView.Rows.Add(new object[] { null, "Eggs", 5000, "Dozen", "Unit", 12 });
-            gridView.Rows.Add(new object[] { null, "Toothpaste", 15000, "Tube", "Piece", 1 });
-            gridView.Rows.Add(new object[] { null, "Apples", 12000, "Basket", "Kilogram", 5 });
-            gridView.Rows.Add(new object[] { null, "Chicken Breast", 70000, "Pack", "Kilogram", 1 });
-            gridView.Rows.Add(new object[] { null, "Orange Juice", 25000, "Bottle", "Liter", 1 });
-            gridView.Rows.Add(new object[] { null, "Potato Chips", 18000, "Pack", "Gram", 150 });
-            gridView.Rows.Add(new object[] { null, "T-shirt", 80000, "Piece", "Piece", 1 });
+            gridView.Rows.Add(new object[] { null, "Milk", "Dairy", 25000, "Carton", "Bottle", 12 });
+            gridView.Rows.Add(new object[] { null, "Bread", "Bakery", 18000, "Loaf", "Piece", 1 });
+            gridView.Rows.Add(new object[] { null, "Rice", "Grains", 30000, "Bag", "Kilogram", 2 });
+            gridView.Rows.Add(new object[] { null, "Chocolate", "Sweets", 35000, "Packet", "Bar", 5 });
+            gridView.Rows.Add(new object[] { null, "Coffee", "Beverages", 40000, "Can", "Gram", 250 });
+            gridView.Rows.Add(new object[] { null, "Eggs", "Dairy", 5000, "Dozen", "Unit", 12 });
+            gridView.Rows.Add(new object[] { null, "Toothpaste", "Toiletries", 15000, "Tube", "Piece", 1 });
+            gridView.Rows.Add(new object[] { null, "Apples", "Fruits", 12000, "Basket", "Kilogram", 5 });
+            gridView.Rows.Add(new object[] { null, "Chicken Breast", "Meat", 70000, "Pack", "Kilogram", 1 });
+            gridView.Rows.Add(new object[] { null, "Orange Juice", "Beverages", 25000, "Bottle", "Liter", 1 });
+            gridView.Rows.Add(new object[] { null, "Potato Chips", "Snacks", 18000, "Pack", "Gram", 150 });
+            gridView.Rows.Add(new object[] { null, "T-shirt", "Clothing", 80000, "Piece", "Piece", 1 });
         }
 
         #region Customize data grid
@@ -107,7 +107,7 @@ namespace SupermarketManagementApp.GUI.Product
             if (e.RowIndex == -1)
             {
                 // Kiểm tra xem có phải là header của cột 2, 3, 4 hoặc header của cột 4, 5
-                if (e.ColumnIndex >= 1 && e.ColumnIndex <= 5)
+                if (e.ColumnIndex >= 1 && e.ColumnIndex <= 6)
                 {
                     gridView.Cursor = Cursors.Hand;
                     return;
@@ -115,7 +115,7 @@ namespace SupermarketManagementApp.GUI.Product
             }
 
             // Nếu không phải là header của cột và nằm trong khoảng cột 4, 5, đặt kiểu cursor thành Hand
-            if (e.RowIndex >= 0 && (e.ColumnIndex == 6 || e.ColumnIndex == 7))
+            if (e.RowIndex >= 0 && (e.ColumnIndex == 7 || e.ColumnIndex == 8 || e.ColumnIndex == 9))
             {
                 gridView.Cursor = Cursors.Hand;
                 return;
@@ -166,7 +166,28 @@ namespace SupermarketManagementApp.GUI.Product
         {
             if (e.RowIndex >= 0)
             {
-                if (e.ColumnIndex == 6)
+                if (e.ColumnIndex == 7)
+                {
+                    // Update
+                    FormBackground formBackground = new FormBackground(formMain);
+                    try
+                    {
+                        using (FormInforProduct formInforProduct = new FormInforProduct())
+                        {
+                            formBackground.Owner = formMain;
+                            formBackground.Show();
+                            formInforProduct.Owner = formBackground;
+                            formInforProduct.ShowDialog();
+                            formBackground.Dispose();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        msgBoxError.Parent = formMain;
+                        msgBoxError.Show(ex.Message, "Error");
+                    }
+                }
+                else if (e.ColumnIndex == 8)
                 {
                     // Update
                     FormBackground formBackground = new FormBackground(formMain);
@@ -187,7 +208,7 @@ namespace SupermarketManagementApp.GUI.Product
                         msgBoxError.Show(ex.Message, "Error");
                     }
                 }
-                else if (e.ColumnIndex == 7)
+                else if (e.ColumnIndex == 9)
                 {
                     // Delete
                     msgBoxDelete.Parent = formMain;

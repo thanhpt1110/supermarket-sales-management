@@ -215,6 +215,12 @@
     <Compile Include="GUI\Product\FormCreateProduct.Designer.cs">
       <DependentUpon>FormCreateProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Product\FormInforProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Product\FormInforProduct.Designer.cs">
+      <DependentUpon>FormInforProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Product\FormProductManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -366,6 +372,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Product\FormCreateProduct.resx">
       <DependentUpon>FormCreateProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Product\FormInforProduct.resx">
+      <DependentUpon>FormInforProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Product\FormProductManagement.resx">
       <DependentUpon>FormProductManagement.cs</DependentUpon>
