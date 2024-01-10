@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 
-namespace SupermarketManagementApp.DAO
+namespace SupermarketManagementApp.DTO
 {
     public partial class SupermarketContext : DbContext
     {

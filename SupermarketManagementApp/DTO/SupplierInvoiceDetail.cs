@@ -1,4 +1,4 @@
-namespace SupermarketManagementApp.DAO
+namespace SupermarketManagementApp.DTO
 {
     using System;
     using System.Collections.Generic;
@@ -6,19 +6,20 @@ namespace SupermarketManagementApp.DAO
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("CustomerInvoiceDetail")]
-    public partial class CustomerInvoiceDetail
+    [Table("SupplierInvoiceDetail")]
+    public partial class SupplierInvoiceDetail
     {
-        public long CustomerInvoiceDetailID { get; set; }
+        [Key]
+        public long SuppliernvoiceDetailID { get; set; }
 
-        public long? CustomerInvoiceID { get; set; }
+        public long? SupllierInvoiceID { get; set; }
 
         public long? ProductID { get; set; }
 
         public int? ProductQuantity { get; set; }
 
-        public virtual CustomerInvoice CustomerInvoice { get; set; }
-
         public virtual Product Product { get; set; }
+
+        public virtual SupplierInvoice SupplierInvoice { get; set; }
     }
 }

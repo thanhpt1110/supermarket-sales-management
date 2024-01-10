@@ -1,4 +1,4 @@
-namespace SupermarketManagementApp.DAO
+namespace SupermarketManagementApp.DTO
 {
     using System;
     using System.Collections.Generic;
@@ -21,9 +21,7 @@ namespace SupermarketManagementApp.DAO
         public long ProductID { get; set; }
 
         public int? ProductTypeID { get; set; }
-
         public string ProductName { get; set; }
-
         public double? UnitPrice { get; set; }
 
         public string WholeSaleUnit { get; set; }

@@ -35,7 +35,7 @@ namespace SupermarketManagementApp.GUI.Employee
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
-            SupermarketManagementApp.DAO.Employee employee = new SupermarketManagementApp.DAO.Employee();
+            DTO.Employee employee = new DTO.Employee();
             employee.EmployeeName = this.txtBoxCustomerName.Text;
             employee.Gender = this.cbBoxGender.Text;
             employee.Birthday = this.birthDayPicker.Value;

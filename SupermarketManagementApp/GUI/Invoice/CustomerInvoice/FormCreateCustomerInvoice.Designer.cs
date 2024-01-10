@@ -79,7 +79,7 @@
             this.labelForm.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelForm.Location = new System.Drawing.Point(391, 30);
             this.labelForm.Name = "labelForm";
-            this.labelForm.Size = new System.Drawing.Size(318, 39);
+            this.labelForm.Size = new System.Drawing.Size(392, 48);
             this.labelForm.TabIndex = 6;
             this.labelForm.Text = "Create Customer Invoice";
             // 
@@ -135,7 +135,7 @@
             this.labelRequired1.ForeColor = System.Drawing.Color.Red;
             this.labelRequired1.Location = new System.Drawing.Point(879, 20);
             this.labelRequired1.Name = "labelRequired1";
-            this.labelRequired1.Size = new System.Drawing.Size(10, 23);
+            this.labelRequired1.Size = new System.Drawing.Size(12, 30);
             this.labelRequired1.TabIndex = 18;
             this.labelRequired1.Text = "*";
             // 
@@ -145,7 +145,7 @@
             this.labelDoB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDoB.Location = new System.Drawing.Point(787, 20);
             this.labelDoB.Name = "labelDoB";
-            this.labelDoB.Size = new System.Drawing.Size(90, 23);
+            this.labelDoB.Size = new System.Drawing.Size(113, 30);
             this.labelDoB.TabIndex = 17;
             this.labelDoB.Text = "Date of Birth";
             // 
@@ -179,7 +179,7 @@
             this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.Red;
             this.guna2HtmlLabel2.Location = new System.Drawing.Point(639, 24);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(10, 23);
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(12, 30);
             this.guna2HtmlLabel2.TabIndex = 15;
             this.guna2HtmlLabel2.Text = "*";
             // 
@@ -189,7 +189,7 @@
             this.labelGender.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelGender.Location = new System.Drawing.Point(583, 24);
             this.labelGender.Name = "labelGender";
-            this.labelGender.Size = new System.Drawing.Size(54, 23);
+            this.labelGender.Size = new System.Drawing.Size(67, 30);
             this.labelGender.TabIndex = 14;
             this.labelGender.Text = "Gender";
             // 
@@ -200,7 +200,7 @@
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Red;
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(289, 24);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(10, 23);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(12, 30);
             this.guna2HtmlLabel1.TabIndex = 12;
             this.guna2HtmlLabel1.Text = "*";
             // 
@@ -210,7 +210,7 @@
             this.labelCustomerName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCustomerName.Location = new System.Drawing.Point(244, 24);
             this.labelCustomerName.Name = "labelCustomerName";
-            this.labelCustomerName.Size = new System.Drawing.Size(45, 23);
+            this.labelCustomerName.Size = new System.Drawing.Size(55, 30);
             this.labelCustomerName.TabIndex = 13;
             this.labelCustomerName.Text = "Name";
             // 
@@ -246,7 +246,7 @@
             this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.Red;
             this.guna2HtmlLabel3.Location = new System.Drawing.Point(137, 24);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(10, 23);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(12, 30);
             this.guna2HtmlLabel3.TabIndex = 7;
             this.guna2HtmlLabel3.Text = "*";
             // 
@@ -256,7 +256,7 @@
             this.labelPhoneNumber.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPhoneNumber.Location = new System.Drawing.Point(30, 24);
             this.labelPhoneNumber.Name = "labelPhoneNumber";
-            this.labelPhoneNumber.Size = new System.Drawing.Size(106, 23);
+            this.labelPhoneNumber.Size = new System.Drawing.Size(131, 30);
             this.labelPhoneNumber.TabIndex = 10;
             this.labelPhoneNumber.Text = "Phone number";
             // 
@@ -286,6 +286,7 @@
             this.txtBoxPhoneNumber.Size = new System.Drawing.Size(155, 36);
             this.txtBoxPhoneNumber.TabIndex = 1;
             this.txtBoxPhoneNumber.TextOffset = new System.Drawing.Point(5, 0);
+            this.txtBoxPhoneNumber.TextChanged += new System.EventHandler(this.txtBoxPhoneNumber_TextChanged);
             // 
             // panelOrderInformation
             // 
@@ -310,7 +311,7 @@
             this.guna2HtmlLabel13.Location = new System.Drawing.Point(112, 3);
             this.guna2HtmlLabel13.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.guna2HtmlLabel13.Name = "guna2HtmlLabel13";
-            this.guna2HtmlLabel13.Size = new System.Drawing.Size(10, 23);
+            this.guna2HtmlLabel13.Size = new System.Drawing.Size(12, 30);
             this.guna2HtmlLabel13.TabIndex = 13;
             this.guna2HtmlLabel13.Text = "*";
             // 
@@ -323,7 +324,7 @@
             this.labelCustomerInfor.ForeColor = System.Drawing.Color.DarkOrange;
             this.labelCustomerInfor.Location = new System.Drawing.Point(78, 80);
             this.labelCustomerInfor.Name = "labelCustomerInfor";
-            this.labelCustomerInfor.Size = new System.Drawing.Size(216, 32);
+            this.labelCustomerInfor.Size = new System.Drawing.Size(266, 38);
             this.labelCustomerInfor.TabIndex = 8;
             this.labelCustomerInfor.Text = "Customer Information";
             // 
@@ -335,7 +336,7 @@
             this.guna2HtmlLabel10.Location = new System.Drawing.Point(112, 3);
             this.guna2HtmlLabel10.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.guna2HtmlLabel10.Name = "guna2HtmlLabel10";
-            this.guna2HtmlLabel10.Size = new System.Drawing.Size(10, 23);
+            this.guna2HtmlLabel10.Size = new System.Drawing.Size(12, 30);
             this.guna2HtmlLabel10.TabIndex = 13;
             this.guna2HtmlLabel10.Text = "*";
             // 
@@ -345,7 +346,7 @@
             this.label.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label.Location = new System.Drawing.Point(3, 3);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(135, 32);
+            this.label.Size = new System.Drawing.Size(166, 38);
             this.label.TabIndex = 25;
             this.label.Text = "Total Amount:";
             this.label.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
@@ -355,9 +356,9 @@
             this.labelTotalAmount.BackColor = System.Drawing.Color.Transparent;
             this.labelTotalAmount.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTotalAmount.ForeColor = System.Drawing.Color.Red;
-            this.labelTotalAmount.Location = new System.Drawing.Point(144, 3);
+            this.labelTotalAmount.Location = new System.Drawing.Point(175, 3);
             this.labelTotalAmount.Name = "labelTotalAmount";
-            this.labelTotalAmount.Size = new System.Drawing.Size(73, 34);
+            this.labelTotalAmount.Size = new System.Drawing.Size(92, 43);
             this.labelTotalAmount.TabIndex = 26;
             this.labelTotalAmount.Text = "0 VNĐ";
             this.labelTotalAmount.TextAlignment = System.Drawing.ContentAlignment.TopRight;
@@ -370,7 +371,7 @@
             this.guna2HtmlLabel11.Location = new System.Drawing.Point(112, 3);
             this.guna2HtmlLabel11.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.guna2HtmlLabel11.Name = "guna2HtmlLabel11";
-            this.guna2HtmlLabel11.Size = new System.Drawing.Size(10, 23);
+            this.guna2HtmlLabel11.Size = new System.Drawing.Size(12, 30);
             this.guna2HtmlLabel11.TabIndex = 14;
             this.guna2HtmlLabel11.Text = "*";
             // 
@@ -380,7 +381,7 @@
             this.guna2HtmlLabel5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel5.Location = new System.Drawing.Point(3, 3);
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Size = new System.Drawing.Size(106, 23);
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(131, 30);
             this.guna2HtmlLabel5.TabIndex = 12;
             this.guna2HtmlLabel5.Text = "Phone number";
             // 
@@ -393,7 +394,7 @@
             this.labelOrderInformation.ForeColor = System.Drawing.Color.DarkOrange;
             this.labelOrderInformation.Location = new System.Drawing.Point(78, 253);
             this.labelOrderInformation.Name = "labelOrderInformation";
-            this.labelOrderInformation.Size = new System.Drawing.Size(179, 32);
+            this.labelOrderInformation.Size = new System.Drawing.Size(222, 38);
             this.labelOrderInformation.TabIndex = 23;
             this.labelOrderInformation.Text = "Order Information";
             // 
@@ -405,7 +406,7 @@
             this.guna2HtmlLabel8.Location = new System.Drawing.Point(112, 3);
             this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
-            this.guna2HtmlLabel8.Size = new System.Drawing.Size(10, 23);
+            this.guna2HtmlLabel8.Size = new System.Drawing.Size(12, 30);
             this.guna2HtmlLabel8.TabIndex = 13;
             this.guna2HtmlLabel8.Text = "*";
             // 
@@ -415,7 +416,7 @@
             this.guna2HtmlLabel12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel12.Location = new System.Drawing.Point(3, 3);
             this.guna2HtmlLabel12.Name = "guna2HtmlLabel12";
-            this.guna2HtmlLabel12.Size = new System.Drawing.Size(106, 23);
+            this.guna2HtmlLabel12.Size = new System.Drawing.Size(131, 30);
             this.guna2HtmlLabel12.TabIndex = 11;
             this.guna2HtmlLabel12.Text = "Phone number";
             // 
@@ -425,7 +426,7 @@
             this.guna2HtmlLabel7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel7.Location = new System.Drawing.Point(3, 3);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            this.guna2HtmlLabel7.Size = new System.Drawing.Size(106, 23);
+            this.guna2HtmlLabel7.Size = new System.Drawing.Size(131, 30);
             this.guna2HtmlLabel7.TabIndex = 11;
             this.guna2HtmlLabel7.Text = "Phone number";
             // 
@@ -437,7 +438,7 @@
             this.guna2HtmlLabel17.Location = new System.Drawing.Point(112, 3);
             this.guna2HtmlLabel17.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.guna2HtmlLabel17.Name = "guna2HtmlLabel17";
-            this.guna2HtmlLabel17.Size = new System.Drawing.Size(10, 23);
+            this.guna2HtmlLabel17.Size = new System.Drawing.Size(12, 30);
             this.guna2HtmlLabel17.TabIndex = 14;
             this.guna2HtmlLabel17.Text = "*";
             // 
@@ -447,7 +448,7 @@
             this.guna2HtmlLabel16.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel16.Location = new System.Drawing.Point(3, 3);
             this.guna2HtmlLabel16.Name = "guna2HtmlLabel16";
-            this.guna2HtmlLabel16.Size = new System.Drawing.Size(106, 23);
+            this.guna2HtmlLabel16.Size = new System.Drawing.Size(131, 30);
             this.guna2HtmlLabel16.TabIndex = 12;
             this.guna2HtmlLabel16.Text = "Phone number";
             // 
@@ -459,7 +460,7 @@
             this.guna2HtmlLabel15.Location = new System.Drawing.Point(112, 3);
             this.guna2HtmlLabel15.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.guna2HtmlLabel15.Name = "guna2HtmlLabel15";
-            this.guna2HtmlLabel15.Size = new System.Drawing.Size(10, 23);
+            this.guna2HtmlLabel15.Size = new System.Drawing.Size(12, 30);
             this.guna2HtmlLabel15.TabIndex = 14;
             this.guna2HtmlLabel15.Text = "*";
             // 
@@ -469,7 +470,7 @@
             this.guna2HtmlLabel14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel14.Location = new System.Drawing.Point(3, 3);
             this.guna2HtmlLabel14.Name = "guna2HtmlLabel14";
-            this.guna2HtmlLabel14.Size = new System.Drawing.Size(106, 23);
+            this.guna2HtmlLabel14.Size = new System.Drawing.Size(131, 30);
             this.guna2HtmlLabel14.TabIndex = 12;
             this.guna2HtmlLabel14.Text = "Phone number";
             // 
@@ -479,7 +480,7 @@
             this.guna2HtmlLabel9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel9.Location = new System.Drawing.Point(3, 3);
             this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
-            this.guna2HtmlLabel9.Size = new System.Drawing.Size(106, 23);
+            this.guna2HtmlLabel9.Size = new System.Drawing.Size(131, 30);
             this.guna2HtmlLabel9.TabIndex = 11;
             this.guna2HtmlLabel9.Text = "Phone number";
             // 
@@ -528,7 +529,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(220, 40);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(270, 49);
             this.tableLayoutPanel1.TabIndex = 30;
             // 
             // btnCheckOut

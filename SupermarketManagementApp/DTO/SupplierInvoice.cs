@@ -1,4 +1,4 @@
-namespace SupermarketManagementApp.DAO
+namespace SupermarketManagementApp.DTO
 {
     using System;
     using System.Collections.Generic;
@@ -6,30 +6,29 @@ namespace SupermarketManagementApp.DAO
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("CustomerInvoice")]
-    public partial class CustomerInvoice
+    [Table("SupplierInvoice")]
+    public partial class SupplierInvoice
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CustomerInvoice()
+        public SupplierInvoice()
         {
-            CustomerInvoiceDetails = new HashSet<CustomerInvoiceDetail>();
+            SupplierInvoiceDetails = new HashSet<SupplierInvoiceDetail>();
         }
 
-        public long CustomerInvoiceID { get; set; }
-
-        public int? CustomerID { get; set; }
+        [Key]
+        public long SuppliernvoiceID { get; set; }
 
         public int? EmployeeID { get; set; }
 
         public DateTime? DatePayment { get; set; }
 
+        public string SupplierName { get; set; }
+
         public double? TotalAmount { get; set; }
 
-        public virtual Customer Customer { get; set; }
+        public virtual Employee Employee { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CustomerInvoiceDetail> CustomerInvoiceDetails { get; set; }
-
-        public virtual Employee Employee { get; set; }
+        public virtual ICollection<SupplierInvoiceDetail> SupplierInvoiceDetails { get; set; }
     }
 }

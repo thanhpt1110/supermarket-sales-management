@@ -1,5 +1,5 @@
 ﻿using SupermarketManagementApp.DAO;
-using SupermarketManagementApp.Infrastructure.Repository;
+using SupermarketManagementApp.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,15 +10,15 @@ namespace SupermarketManagementApp.Infrastructure
 {
     public interface IUnitOfWork
     {
-        IRepository<Account> AccountRepository { get; }
-        IRepository<Customer> CustomerRepository { get; }
-        IRepository<CustomerInvoice> CustomerInvoiceRepository { get; }
-        IRepository<Employee> EmployeeRepository { get; }
-        IRepository<InventoryDetail> InventoryDetailRepository { get; }
-        IRepository<Product> ProductRepository { get; }
-        IRepository<ProductType> ProductTypeRepository { get; }
-        IRepository<Shelf> ShelfRepository { get; }
-        IRepository<SupplierInvoice> SupplierInvoiceRepository { get; }
+        IRepositoryDAO<Account> AccountRepositoryDAO { get; }
+        IRepositoryDAO<Customer> CustomerRepositoryDAO { get; }
+        IRepositoryDAO<CustomerInvoice> CustomerInvoiceRepositoryDAO { get; }
+        IRepositoryDAO<Employee> EmployeeRepositoryDAO { get; }
+        IRepositoryDAO<InventoryDetail> InventoryDetailRepositoryDAO { get; }
+        IRepositoryDAO<Product> ProductRepositoryDAO { get; }
+        IRepositoryDAO<ProductType> ProductTypeRepositoryDAO { get; }
+        IRepositoryDAO<Shelf> ShelfRepositoryDAO { get; }
+        IRepositoryDAO<SupplierInvoice> SupplierInvoiceRepositoryDAO { get; }
 
         Task SaveChanges();
     }

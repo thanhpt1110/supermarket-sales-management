@@ -1,4 +1,4 @@
-namespace SupermarketManagementApp.DAO
+namespace SupermarketManagementApp.DTO
 {
     using System;
     using System.Collections.Generic;
@@ -19,7 +19,7 @@ namespace SupermarketManagementApp.DAO
 
         public string CustomerName { get; set; }
 
-        public DateTime? Birthday { get; set; }
+        public DateTime Birthday { get; set; }
 
         [StringLength(20)]
         [Index(IsUnique = true)]

@@ -5,9 +5,9 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SupermarketManagementApp.Infrastructure.Repository
+namespace SupermarketManagementApp.DAO
 {
-    public interface IRepository<T>
+    public interface IRepositoryDAO<T>
     {
         Task<T> Add(T entity);
         Task<T> Update(T entity);

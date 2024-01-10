@@ -1,4 +1,7 @@
 ﻿using Guna.UI2.WinForms;
+using SupermarketManagementApp.BUS;
+using SupermarketManagementApp.DTO;
+using SupermarketManagementApp.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,19 +16,82 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
 {
     public partial class FormCreateCustomerInvoice : Form
     {
-        List<string> productNames = new List<string>()
-        {
-            "abc xyz",
-            "abc ",
-            "dsa",
-            // Thêm tên sản phẩm khác vào đây
-        };
+        private DTO.CustomerInvoice customerInvoice;
+        private DTO.Customer customer;
+        private CustomerBUS customerBUS;
+        private Timer searchTimer;
+        List<DTO.Product> products = new List<DTO.Product>
+            {
+                new DTO.Product
+                {
+                    ProductID = 1,
+                    ProductTypeID = 1,
+                    ProductName = "Product1",
+                    UnitPrice = 10.5,
+                    WholeSaleUnit = "Box",
+                    RetailUnit = "Piece",
+                    UnitConversion = 12,
+                    PreservationType = "Cool",
+                    ProductCapacity = 100
+                },
+                new DTO.Product
+                {
+                    ProductID = 2,
+                    ProductTypeID = 2,
+                    ProductName = "Product2",
+                    UnitPrice = 15.75,
+                    WholeSaleUnit = "Carton",
+                    RetailUnit = "Unit",
+                    UnitConversion = 10,
+                    PreservationType = "Dry",
+                    ProductCapacity = 50
+                },
+                // Add more products as needed
+            };
 
         public FormCreateCustomerInvoice()
         {
             InitializeComponent();
+            customerInvoice = new DTO.CustomerInvoice();
+            customerBUS = CustomerBUS.GetInstance();
+            InitTimer();
         }
-
+        private async Task LoadCustomerByPhoneNumber()
+        {
+            Result<DTO.Customer> result = await customerBUS.getCustomerByPhoneNumber(txtBoxPhoneNumber.Text);
+            if(!result.IsSuccess)
+            {
+                MessageBox.Show(result.ErrorMessage);
+                return;
+            }    
+            if(result.IsSuccess && result.Data !=null)
+            {
+                this.customer = result.Data;
+            }    
+        }
+        #region Init timer event
+        private void InitTimer()
+        {
+            searchTimer = new Timer();
+            searchTimer.Interval = 300;
+            searchTimer.Tick += SearchTimer_Tick;
+        }
+        private async void SearchTimer_Tick(object sender, EventArgs e)
+        {
+            this.searchTimer.Stop();
+            await LoadCustomerByPhoneNumber();
+            LoadCustomer();
+        }
+        #endregion
+        private void LoadCustomer()
+        {
+            if (customer != null)
+            {
+                this.txtBoxCustomerName.Text = customer.CustomerName;
+                this.cbBoxGender.Text = customer.Gender;
+                this.birthDayPicker.Value = customer.Birthday;
+            }    
+        }    
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -104,13 +170,17 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
             textBox.Size = new System.Drawing.Size(220, 36);
             textBox.TabIndex = 12;
             textBox.TextOffset = new System.Drawing.Point(5, 0);
-
-            textBox.AutoCompleteCustomSource.AddRange(productNames.ToArray());
+            AutoCompleteStringCollection autoCompleteCollection = new AutoCompleteStringCollection();
+            foreach (DTO.Product product in products)
+            {
+                autoCompleteCollection.Add(product.ProductName);
+            }
+            textBox.AutoCompleteCustomSource = autoCompleteCollection;
             textBox.AutoCompleteMode = AutoCompleteMode.Suggest;
             textBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
             textBox.TextChanged += (sender, e) =>
             {
+
                 foreach (Control control in currentLine.Controls)
                 {
                     if (control.Name == "panelUnitPrice")
@@ -436,6 +506,12 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
             };
 
             return buttonRemove;
+        }
+
+        private void txtBoxPhoneNumber_TextChanged(object sender, EventArgs e)
+        {
+            searchTimer.Stop();
+            searchTimer.Start();
         }
     }
 }

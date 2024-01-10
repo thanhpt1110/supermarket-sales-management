@@ -23,7 +23,7 @@ namespace SupermarketManagementApp.GUI.Employee
         #endregion
 
         #region Declare specific Variable type
-        private List<SupermarketManagementApp.DAO.Employee> employees = null;
+        private List<SupermarketManagementApp.DTO.Employee> employees = null;
         private EmployeeBUS employeeBUS = null;
         #endregion
         public FormEmployeeManagement(FormMain formMain)
@@ -50,7 +50,7 @@ namespace SupermarketManagementApp.GUI.Employee
         #region Load grid event
         public async void InitAllEmployee()
         {
-           Result<IEnumerable<DAO.Employee>> employeeResult = await employeeBUS.GetAllEmployee();
+           Result<IEnumerable<DTO.Employee>> employeeResult = await employeeBUS.GetAllEmployee();
            if(employeeResult.IsSuccess)
            {
                this.employees = employeeResult.Data.ToList();
@@ -252,7 +252,7 @@ namespace SupermarketManagementApp.GUI.Employee
         private async void SearchTimer_Tick(object sender, EventArgs e)
         {
             this.searchTimer.Stop();
-            Result<IEnumerable<DAO.Employee>> result = await employeeBUS.searchEmployeeByName(txtBoxSearchEmployee.Text);
+            Result<IEnumerable<DTO.Employee>> result = await employeeBUS.searchEmployeeByName(txtBoxSearchEmployee.Text);
             this.employees = result.Data.ToList();
             LoadGridData();
         }

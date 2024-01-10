@@ -1,5 +1,5 @@
 ﻿using SupermarketManagementApp.DAO;
-using SupermarketManagementApp.Infrastructure.Repository;
+using SupermarketManagementApp.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,14 +11,14 @@ namespace SupermarketManagementApp.Infrastructure
     public class UnitOfWork:IUnitOfWork
     {
         private SupermarketContext context;
-        private IRepository<Customer> customerRepository;
-        private IRepository<CustomerInvoice> customerInvoiceRepository;
-        private IRepository<Employee> employeeRepository;
-        private IRepository<InventoryDetail> inventoryDetailRepository;
-        private IRepository<Product> productRepository;
-        private IRepository<ProductType> productTypeRepository;
-        private IRepository<Shelf> shelfRepository;
-        private IRepository<SupplierInvoice> supplierInvoiceRepository;
+        private IRepositoryDAO<Customer> customerRepositoryDAO;
+        private IRepositoryDAO<CustomerInvoice> customerInvoiceRepositoryDAO;
+        private IRepositoryDAO<Employee> employeeRepositoryDAO;
+        private IRepositoryDAO<InventoryDetail> inventoryDetailRepositoryDAO;
+        private IRepositoryDAO<Product> productRepositoryDAO;
+        private IRepositoryDAO<ProductType> productTypeRepositoryDAO;
+        private IRepositoryDAO<Shelf> shelfRepositoryDAO;
+        private IRepositoryDAO<SupplierInvoice> supplierInvoiceRepositoryDAO;
         
         private UnitOfWork(SupermarketContext context)
         {
@@ -27,112 +27,112 @@ namespace SupermarketManagementApp.Infrastructure
         public UnitOfWork() {
             this.context = new SupermarketContext();
         }
-        private IRepository<Account> accountRepository;
-        public IRepository<Account> AccountRepository
+        private IRepositoryDAO<Account> accountRepositoryDAO;
+        public IRepositoryDAO<Account> AccountRepositoryDAO
         {
             get
             {
-                if (accountRepository == null)
+                if (accountRepositoryDAO == null)
                 {
-                    accountRepository = new AccountRepository(context);
+                    accountRepositoryDAO = new AccountRepositoryDAO(context);
                 }
-                return accountRepository;
+                return accountRepositoryDAO;
             }
         }
 
-        public IRepository<Customer> CustomerRepository
+        public IRepositoryDAO<Customer> CustomerRepositoryDAO
         {
             get
             {
-                if (customerRepository == null)
+                if (customerRepositoryDAO == null)
                 {
-                    customerRepository = new CustomerRepository(context);
+                    customerRepositoryDAO = new CustomerRepositoryDAO(context);
                 }
-                return customerRepository;
+                return customerRepositoryDAO;
             }
         }
 
-        public IRepository<CustomerInvoice> CustomerInvoiceRepository
+        public IRepositoryDAO<CustomerInvoice> CustomerInvoiceRepositoryDAO
         {
             get
             {
-                if (customerInvoiceRepository == null)
+                if (customerInvoiceRepositoryDAO == null)
                 {
-                    customerInvoiceRepository = new CustomerInvoiceRepository(context);
+                    customerInvoiceRepositoryDAO = new CustomerInvoiceRepositoryDAO(context);
                 }
-                return customerInvoiceRepository;
+                return customerInvoiceRepositoryDAO;
             }
         }
 
-        public IRepository<Employee> EmployeeRepository
+        public IRepositoryDAO<Employee> EmployeeRepositoryDAO
         {
             get
             {
-                if (employeeRepository == null)
+                if (employeeRepositoryDAO == null)
                 {
-                    employeeRepository = new EmployeeRepository(context);
+                    employeeRepositoryDAO = new EmployeeRepositoryDAO(context);
                 }
-                return employeeRepository;
+                return employeeRepositoryDAO;
             }
         }
 
-        public IRepository<InventoryDetail> InventoryDetailRepository
+        public IRepositoryDAO<InventoryDetail> InventoryDetailRepositoryDAO
         {
             get
             {
-                if (inventoryDetailRepository == null)
+                if (inventoryDetailRepositoryDAO == null)
                 {
-                    inventoryDetailRepository = new InventoryDetailRepository(context);
+                    inventoryDetailRepositoryDAO = new InventoryDetailRepositoryDAO(context);
                 }
-                return inventoryDetailRepository;
+                return inventoryDetailRepositoryDAO;
             }
         }
 
-        public IRepository<Product> ProductRepository
+        public IRepositoryDAO<Product> ProductRepositoryDAO
         {
             get
             {
-                if (productRepository == null)
+                if (productRepositoryDAO == null)
                 {
-                    productRepository = new ProductRepository(context);
+                    productRepositoryDAO = new ProductRepositoryDAO(context);
                 }
-                return productRepository;
+                return productRepositoryDAO;
             }
         }
 
-        public IRepository<ProductType> ProductTypeRepository
+        public IRepositoryDAO<ProductType> ProductTypeRepositoryDAO
         {
             get
             {
-                if (productTypeRepository == null)
+                if (productTypeRepositoryDAO == null)
                 {
-                    productTypeRepository = new ProductTypeRepository(context);
+                    productTypeRepositoryDAO = new ProductTypeRepositoryDAO(context);
                 }
-                return productTypeRepository;
+                return productTypeRepositoryDAO;
             }
         }
 
-        public IRepository<Shelf> ShelfRepository
+        public IRepositoryDAO<Shelf> ShelfRepositoryDAO
         {
             get
             {
-                if (shelfRepository == null)
+                if (shelfRepositoryDAO == null)
                 {
-                    shelfRepository = new ShelfRepository(context);
+                    shelfRepositoryDAO = new ShelfRepositoryDAO(context);
                 }
-                return shelfRepository;
+                return shelfRepositoryDAO;
             }
         }
 
-        public IRepository<SupplierInvoice> SupplierInvoiceRepository
+        public IRepositoryDAO<SupplierInvoice> SupplierInvoiceRepositoryDAO
         {
             get
             {
-                if (supplierInvoiceRepository == null)
+                if (supplierInvoiceRepositoryDAO == null)
                 {
-                    supplierInvoiceRepository = new SupplierInvoiceRepository(context);
+                    supplierInvoiceRepositoryDAO = new SupplierInvoiceRepositoryDAO(context);
                 }
-                return supplierInvoiceRepository;
+                return supplierInvoiceRepositoryDAO;
             }
         }
 

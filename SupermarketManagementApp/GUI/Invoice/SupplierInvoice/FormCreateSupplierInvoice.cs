@@ -1,4 +1,5 @@
 ﻿using Guna.UI2.WinForms;
+using SupermarketManagementApp.BUS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,8 +17,9 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
         public FormCreateSupplierInvoice()
         {
             InitializeComponent();
-        }
 
+        }
+ 
         List<string> productNames = new List<string>()
         {
             "abc xyz",
