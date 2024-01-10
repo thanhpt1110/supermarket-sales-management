@@ -51,8 +51,13 @@ namespace SupermarketManagementApp.GUI.Product
             if (productResult.IsSuccess)
             {
                 this.products = productResult.Data.ToList();
+                LoadGridData();
             }
-            LoadGridData();
+            else
+            {
+                MessageBox.Show(productResult.ErrorMessage);
+                this.Close();
+            }
         }
 
         private void LoadGridData()

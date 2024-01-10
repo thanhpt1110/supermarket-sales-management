@@ -12,7 +12,7 @@ namespace SupermarketManagementApp.DTO
         [Key]
         public long SuppliernvoiceDetailID { get; set; }
 
-        public long SupllierInvoiceID { get; set; }
+        public long? SupllierInvoiceID { get; set; }
 
         public long ProductID { get; set; }
 

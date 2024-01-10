@@ -23,7 +23,7 @@ namespace SupermarketManagementApp.DAO
 
                 foreach (SupplierInvoiceDetail customerInvoiceDetail in entity.SupplierInvoiceDetails)
                 {
-                    customerInvoiceDetail.SupllierInvoiceID = customerInvoice.SuppliernvoiceID;
+                    customerInvoiceDetail.SupllierInvoiceID = customerInvoice.SupplierInvoiceID;
                     context.SupplierInvoiceDetails.Add(customerInvoiceDetail);
                     entity.TotalAmount += customerInvoiceDetail.Product.UnitPrice * customerInvoiceDetail.ProductQuantity;
                 }

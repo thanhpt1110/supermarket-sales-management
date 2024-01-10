@@ -16,9 +16,9 @@ namespace SupermarketManagementApp.DTO
         }
 
         [Key]
-        public long SuppliernvoiceID { get; set; }
+        public long? SupplierInvoiceID { get; set; }
 
-        public int EmployeeID { get; set; }
+        public int? EmployeeID { get; set; }
 
         public DateTime DatePayment { get; set; }
 

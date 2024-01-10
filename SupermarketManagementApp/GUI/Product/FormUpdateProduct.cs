@@ -78,7 +78,6 @@ namespace SupermarketManagementApp.GUI.Product
             product.UnitPrice = double.Parse(txtUnitPrice.Text);
             product.ProductCapacity = int.Parse(txtBoxProductCapacity.Text);
             product.WholeSaleUnit = txtBoxWholesaleUnit.Text;
-            product.ProductCapacity = int.Parse(txtBoxRetailUnit.Text);
             product.RetailUnit = txtBoxRetailUnit.Text;
             product.UnitConversion = int.Parse(txtUnitConversion.Text);
             Result<DTO.Product> result = await productBUS.updateProduct(product);
