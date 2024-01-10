@@ -88,7 +88,7 @@ namespace SupermarketManagementApp.BUS
             {
                 result.Data = null;
                 result.IsSuccess = false;
-                result.ErrorMessage = "Please enter all information";
+                result.ErrorMessage = "Please provide all required information!";
             }
             else
             {
@@ -140,9 +140,9 @@ namespace SupermarketManagementApp.BUS
             }
             return result;
         }
-        public async Task<Result<Boolean>> deleteAccount(int accountId)
+        public async Task<Result<bool>> deleteAccount(int accountId)
         {
-            Result<Boolean> result = new Result<Boolean>();
+            Result<bool> result = new Result<bool>();
             try
             {
                 result.Data = await unitOfWork.AccountRepositoryDAO.RemoveByID(accountId);

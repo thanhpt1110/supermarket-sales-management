@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
+using SupermarketManagementApp.BUS;
 using SupermarketManagementApp.Properties;
 using SupermarketManagementApp.Utils;
 
@@ -19,38 +20,47 @@ namespace SupermarketManagementApp.GUI.Account
         #region Declare variable
         private Guna2DataGridView gridView = null;
         private FormMain formMain = null;
+        private Timer searchTimer = null;
+        private AccountBUS accountBUS = null;
         #endregion
+
+        private List<SupermarketManagementApp.DTO.Account> accounts = null;
         public FormAccountManagement(FormMain formMain)
         {
             this.formMain = formMain;
-
+            accountBUS = AccountBUS.GetInstance();
             InitializeComponent();
             CustomStyleGridView();
-            LoadGridData();
             UpdateScrollBarValues();
+            InitAllAccount();
+            InitTimer();
         }
         public FormAccountManagement()
         {
+            accountBUS = AccountBUS.GetInstance();
             InitializeComponent();
             CustomStyleGridView();
-            LoadGridData();
             UpdateScrollBarValues();
+            InitAllAccount();
+            InitTimer();
         }
 
+        public async void InitAllAccount()
+        {
+            Result<IEnumerable<DTO.Account>> accountResult = await accountBUS.getAllAccount();
+            if (accountResult.IsSuccess)
+            {
+                this.accounts = accountResult.Data.ToList();
+            }
+            LoadGridData();
+        }
         private void LoadGridData()
         {
-            gridView.Rows.Add(new object[] { null, "John Doe", "john.doe123", "Admin" });
-            gridView.Rows.Add(new object[] { null, "Alice Johnson", "alice.j", "Employee" });
-            gridView.Rows.Add(new object[] { null, "Bob Smith", "bob.smith87", "Admin" });
-            gridView.Rows.Add(new object[] { null, "Eva Martinez", "eva.m", "Admin" });
-            gridView.Rows.Add(new object[] { null, "David Brown", "david.b", "Employee" });
-            gridView.Rows.Add(new object[] { null, "Sophie Lee", "sophie.l", "Admin" });
-            gridView.Rows.Add(new object[] { null, "Chris Anderson", "chris.a", "Employee" });
-            gridView.Rows.Add(new object[] { null, "Emily White", "emily.w", "Manager" });
-            gridView.Rows.Add(new object[] { null, "Michael Taylor", "michael.t", "Admin" });
-            gridView.Rows.Add(new object[] { null, "Olivia Johnson", "olivia.j", "User" });
-            gridView.Rows.Add(new object[] { null, "Daniel Miller", "daniel.m", "Employee" });
-            gridView.Rows.Add(new object[] { null, "Sophia Davis", "sophia.d", "Admin" });
+            gridView.Rows.Clear();
+            foreach (var account in accounts)
+            {
+                gridView.Rows.Add(new object[] { null, account.AccountID, account.Employee.EmployeeName, account.Username, account.Role });
+            }
         }
 
         #region Customize data grid
@@ -105,7 +115,7 @@ namespace SupermarketManagementApp.GUI.Account
             if (e.RowIndex == -1)
             {
                 // Kiểm tra xem có phải là header của cột 2, 3, 4 hoặc header của cột 4, 5
-                if (e.ColumnIndex >= 1 && e.ColumnIndex <= 3)
+                if (e.ColumnIndex >= 2 && e.ColumnIndex <= 4)
                 {
                     gridView.Cursor = Cursors.Hand;
                     return;
@@ -113,7 +123,7 @@ namespace SupermarketManagementApp.GUI.Account
             }
 
             // Nếu không phải là header của cột và nằm trong khoảng cột 4, 5, đặt kiểu cursor thành Hand
-            if (e.RowIndex >= 0 && (e.ColumnIndex == 4 || e.ColumnIndex == 5))
+            if (e.RowIndex >= 0 && (e.ColumnIndex == 5 || e.ColumnIndex == 6))
             {
                 gridView.Cursor = Cursors.Hand;
                 return;
@@ -130,7 +140,7 @@ namespace SupermarketManagementApp.GUI.Account
             FormBackground formBackground = new FormBackground(formMain);
             try
             {
-                using (FormCreateAccount formCreateAccount = new FormCreateAccount())
+                using (FormCreateAccount formCreateAccount = new FormCreateAccount(this))
                 {
                     formBackground.Owner = formMain;
                     formBackground.Show();
@@ -160,17 +170,18 @@ namespace SupermarketManagementApp.GUI.Account
             }
         }
 
-        private void gridViewMain_CellClick(object sender, DataGridViewCellEventArgs e)
+        private async void gridViewMain_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            int x = e.ColumnIndex, y = e.RowIndex;
             if (e.RowIndex >= 0)
             {
-                if (e.ColumnIndex == 4)
+                if (e.ColumnIndex == 5)
                 {
                     // Update
                     FormBackground formBackground = new FormBackground(formMain);
                     try
                     {
-                        using (FormUpdateAccount formUpdateAccount = new FormUpdateAccount())
+                        using (FormUpdateAccount formUpdateAccount = new FormUpdateAccount(this, int.Parse(gridView.Rows[y].Cells[1].Value.ToString())))
                         {
                             formBackground.Owner = formMain;
                             formBackground.Show();
@@ -185,7 +196,7 @@ namespace SupermarketManagementApp.GUI.Account
                         msgBoxError.Show(ex.Message, "Error");
                     }
                 }
-                else if (e.ColumnIndex == 5)
+                else if (e.ColumnIndex == 6)
                 {
                     // Delete
                     msgBoxDelete.Parent = formMain;
@@ -195,7 +206,17 @@ namespace SupermarketManagementApp.GUI.Account
                         case DialogResult.Yes:
                             try
                             {
+                                Result<bool> result = await accountBUS.deleteAccount(int.Parse(gridView.Rows[y].Cells[1].Value.ToString()));
+                                if (result.IsSuccess)
+                                {
+                                    MessageBox.Show("Remove account successfully!", "Success", MessageBoxButtons.OK);
+                                    InitAllAccount();
+                                }
+                                else
+                                {
+                                    msgBoxError.Show(result.ErrorMessage, "Error");
 
+                                }
                             }
                             catch (Exception ex)
                             {
@@ -208,6 +229,30 @@ namespace SupermarketManagementApp.GUI.Account
                     }
                 }
             }
+        }
+        #endregion           
+
+        #region Init timer event
+        private void InitTimer()
+        {
+            searchTimer = new Timer();
+            searchTimer.Interval = 300;
+            searchTimer.Tick += SearchTimer_Tick;
+        }
+        private async void SearchTimer_Tick(object sender, EventArgs e)
+        {
+            this.searchTimer.Stop();
+            Result<IEnumerable<DTO.Account>> result = await accountBUS.findAccountByUsername(txtBoxSearchAccount.Text);
+            this.accounts = result.Data.ToList();
+            LoadGridData();
+        }
+        #endregion
+
+        #region Text changed event
+        private void txtBoxSearchAccount_TextChanged(object sender, EventArgs e)
+        {
+            this.searchTimer.Stop();
+            this.searchTimer.Start();
         }
         #endregion
     }

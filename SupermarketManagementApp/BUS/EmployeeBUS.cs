@@ -55,7 +55,7 @@ namespace SupermarketManagementApp.BUS
                                    || string.IsNullOrWhiteSpace(employee.EmployeeName)
                                    || employee.Birthday == null)
             {
-                result.ErrorMessage = "Please provide all required information";
+                result.ErrorMessage = "Please provide all required information!";
                 result.IsSuccess = false;
             }
             else
