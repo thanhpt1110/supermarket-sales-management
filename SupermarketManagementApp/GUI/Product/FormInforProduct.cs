@@ -10,21 +10,18 @@ using System.Windows.Forms;
 
 namespace SupermarketManagementApp.GUI.Product
 {
-    public partial class FormUpdateProduct : Form
+    public partial class FormInforProduct : Form
     {
-        public FormUpdateProduct()
+        public FormInforProduct()
         {
             InitializeComponent();
+            this.txtProductName.Text = "Test UI";
+            this.txtBoxDescription.Text = "Description";    
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void btnOk_Click(object sender, EventArgs e)
         {
             this.Close();
-        }   
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            this.Close(); 
         }
     }
 }
