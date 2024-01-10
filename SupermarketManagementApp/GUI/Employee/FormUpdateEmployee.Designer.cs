@@ -45,10 +45,10 @@
             this.labelIdCardNumber = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtBoxPhoneNumber = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.borderLessForm = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.cbBoxGender = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.labelGender = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.borderLessForm = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,6 +68,7 @@
             this.txtBoxIdCardNumber.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtBoxIdCardNumber.Location = new System.Drawing.Point(50, 230);
             this.txtBoxIdCardNumber.Margin = new System.Windows.Forms.Padding(5);
+            this.txtBoxIdCardNumber.MaxLength = 12;
             this.txtBoxIdCardNumber.Name = "txtBoxIdCardNumber";
             this.txtBoxIdCardNumber.PasswordChar = '\0';
             this.txtBoxIdCardNumber.PlaceholderText = "";
@@ -276,6 +277,7 @@
             this.txtBoxPhoneNumber.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtBoxPhoneNumber.Location = new System.Drawing.Point(50, 138);
             this.txtBoxPhoneNumber.Margin = new System.Windows.Forms.Padding(5);
+            this.txtBoxPhoneNumber.MaxLength = 10;
             this.txtBoxPhoneNumber.Name = "txtBoxPhoneNumber";
             this.txtBoxPhoneNumber.PasswordChar = '\0';
             this.txtBoxPhoneNumber.PlaceholderText = "";
@@ -309,13 +311,6 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(500, 500);
             this.guna2Panel1.TabIndex = 15;
-            // 
-            // borderLessForm
-            // 
-            this.borderLessForm.ContainerControl = this;
-            this.borderLessForm.DockIndicatorTransparencyValue = 0.6D;
-            this.borderLessForm.ResizeForm = false;
-            this.borderLessForm.TransparentWhileDrag = true;
             // 
             // cbBoxGender
             // 
@@ -360,6 +355,13 @@
             this.labelGender.Size = new System.Drawing.Size(54, 23);
             this.labelGender.TabIndex = 14;
             this.labelGender.Text = "Gender";
+            // 
+            // borderLessForm
+            // 
+            this.borderLessForm.ContainerControl = this;
+            this.borderLessForm.DockIndicatorTransparencyValue = 0.6D;
+            this.borderLessForm.ResizeForm = false;
+            this.borderLessForm.TransparentWhileDrag = true;
             // 
             // FormUpdateEmployee
             // 

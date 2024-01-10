@@ -30,14 +30,8 @@ namespace SupermarketManagementApp.GUI
         #region RevenueChart
         private void LoadChart()
         {
-            revenueChart.AxisY.Add(new LiveCharts.Wpf.Axis
-            {
-                Title = "Revenue"
-            });
-
             revenueChart.AxisX.Add(new LiveCharts.Wpf.Axis
             {
-                Title = "Months",
                 Labels = GetMonthLabels(), // Implement this method to get month labels
                 Separator = new Separator { Step = 1 }
             });
@@ -53,7 +47,7 @@ namespace SupermarketManagementApp.GUI
         private void PopulateChartData()
         {
             // Sample data for illustration purposes
-            List<double> dataPoints = new List<double> { 1200, 1500, 2000, 1800, 2500, 3000, 2800, 3200, 3500, 4000 };
+            List<double> dataPoints = new List<double> { 1200, 1500, 2000, 1800, 2500, 3000, 2800, 3200, 3500, 4000, 2000, 1500 };
 
             revenueChart.Series.Add(new LineSeries { Title = "Monthly Revenue", Values = new ChartValues<double>(dataPoints) });
         }
