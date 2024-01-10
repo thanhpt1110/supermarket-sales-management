@@ -205,7 +205,7 @@
             this.guna2HtmlLabel5.ForeColor = System.Drawing.Color.ForestGreen;
             this.guna2HtmlLabel5.Location = new System.Drawing.Point(99, 82);
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Size = new System.Drawing.Size(48, 38);
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(39, 32);
             this.guna2HtmlLabel5.TabIndex = 11;
             this.guna2HtmlLabel5.Text = "120";
             this.guna2HtmlLabel5.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -302,6 +302,7 @@
             this.revenueChart.Location = new System.Drawing.Point(51, 68);
             this.revenueChart.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.revenueChart.Name = "revenueChart";
+            this.revenueChart.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.revenueChart.Size = new System.Drawing.Size(1444, 332);
             this.revenueChart.TabIndex = 1;
             this.revenueChart.Text = "cartesianChart1";

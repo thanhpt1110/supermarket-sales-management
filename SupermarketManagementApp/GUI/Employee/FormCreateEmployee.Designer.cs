@@ -35,6 +35,9 @@
             this.txtBoxCustomerName = new Guna.UI2.WinForms.Guna2TextBox();
             this.labelForm = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.cbBoxGender = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.labelGender = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtBoxIdCardNumber = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.labelPhoneNumber = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -46,9 +49,6 @@
             this.labelIdCardNumber = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtBoxPhoneNumber = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
-            this.labelGender = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.cbBoxGender = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -162,6 +162,50 @@
             this.guna2Panel1.Size = new System.Drawing.Size(500, 500);
             this.guna2Panel1.TabIndex = 11;
             // 
+            // cbBoxGender
+            // 
+            this.cbBoxGender.BackColor = System.Drawing.Color.Transparent;
+            this.cbBoxGender.BorderColor = System.Drawing.Color.Black;
+            this.cbBoxGender.BorderRadius = 5;
+            this.cbBoxGender.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbBoxGender.DropDownHeight = 100;
+            this.cbBoxGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBoxGender.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbBoxGender.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbBoxGender.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.cbBoxGender.ForeColor = System.Drawing.Color.Black;
+            this.cbBoxGender.IntegralHeight = false;
+            this.cbBoxGender.ItemHeight = 30;
+            this.cbBoxGender.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.cbBoxGender.Location = new System.Drawing.Point(50, 416);
+            this.cbBoxGender.Name = "cbBoxGender";
+            this.cbBoxGender.Size = new System.Drawing.Size(400, 36);
+            this.cbBoxGender.TabIndex = 5;
+            this.cbBoxGender.TextOffset = new System.Drawing.Point(5, 0);
+            // 
+            // guna2HtmlLabel2
+            // 
+            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.Red;
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(105, 387);
+            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(10, 23);
+            this.guna2HtmlLabel2.TabIndex = 12;
+            this.guna2HtmlLabel2.Text = "*";
+            // 
+            // labelGender
+            // 
+            this.labelGender.BackColor = System.Drawing.Color.Transparent;
+            this.labelGender.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGender.Location = new System.Drawing.Point(50, 387);
+            this.labelGender.Name = "labelGender";
+            this.labelGender.Size = new System.Drawing.Size(54, 23);
+            this.labelGender.TabIndex = 11;
+            this.labelGender.Text = "Gender";
+            // 
             // txtBoxIdCardNumber
             // 
             this.txtBoxIdCardNumber.BorderColor = System.Drawing.Color.Black;
@@ -178,6 +222,7 @@
             this.txtBoxIdCardNumber.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtBoxIdCardNumber.Location = new System.Drawing.Point(50, 230);
             this.txtBoxIdCardNumber.Margin = new System.Windows.Forms.Padding(5);
+            this.txtBoxIdCardNumber.MaxLength = 12;
             this.txtBoxIdCardNumber.Name = "txtBoxIdCardNumber";
             this.txtBoxIdCardNumber.PasswordChar = '\0';
             this.txtBoxIdCardNumber.PlaceholderText = "";
@@ -286,6 +331,7 @@
             this.txtBoxPhoneNumber.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtBoxPhoneNumber.Location = new System.Drawing.Point(50, 138);
             this.txtBoxPhoneNumber.Margin = new System.Windows.Forms.Padding(5);
+            this.txtBoxPhoneNumber.MaxLength = 10;
             this.txtBoxPhoneNumber.Name = "txtBoxPhoneNumber";
             this.txtBoxPhoneNumber.PasswordChar = '\0';
             this.txtBoxPhoneNumber.PlaceholderText = "";
@@ -316,50 +362,6 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.TextOffset = new System.Drawing.Point(0, -1);
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // labelGender
-            // 
-            this.labelGender.BackColor = System.Drawing.Color.Transparent;
-            this.labelGender.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGender.Location = new System.Drawing.Point(50, 387);
-            this.labelGender.Name = "labelGender";
-            this.labelGender.Size = new System.Drawing.Size(54, 23);
-            this.labelGender.TabIndex = 11;
-            this.labelGender.Text = "Gender";
-            // 
-            // guna2HtmlLabel2
-            // 
-            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.Red;
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(105, 387);
-            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(10, 23);
-            this.guna2HtmlLabel2.TabIndex = 12;
-            this.guna2HtmlLabel2.Text = "*";
-            // 
-            // cbBoxGender
-            // 
-            this.cbBoxGender.BackColor = System.Drawing.Color.Transparent;
-            this.cbBoxGender.BorderColor = System.Drawing.Color.Black;
-            this.cbBoxGender.BorderRadius = 5;
-            this.cbBoxGender.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbBoxGender.DropDownHeight = 100;
-            this.cbBoxGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbBoxGender.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbBoxGender.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbBoxGender.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.cbBoxGender.ForeColor = System.Drawing.Color.Black;
-            this.cbBoxGender.IntegralHeight = false;
-            this.cbBoxGender.ItemHeight = 30;
-            this.cbBoxGender.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.cbBoxGender.Location = new System.Drawing.Point(50, 416);
-            this.cbBoxGender.Name = "cbBoxGender";
-            this.cbBoxGender.Size = new System.Drawing.Size(400, 36);
-            this.cbBoxGender.TabIndex = 5;
-            this.cbBoxGender.TextOffset = new System.Drawing.Point(5, 0);
             // 
             // FormCreateEmployee
             // 
