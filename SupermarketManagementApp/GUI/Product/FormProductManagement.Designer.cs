@@ -44,6 +44,7 @@
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.txtBoxSearchProduct = new Guna.UI2.WinForms.Guna2TextBox();
             this.icon = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -183,6 +184,7 @@
             this.gridViewMain.ColumnHeadersHeight = 50;
             this.gridViewMain.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.icon,
+            this.ProductID,
             this.ProductName,
             this.ProductType,
             this.UnitPrice,
@@ -287,7 +289,7 @@
             this.txtBoxSearchProduct.IconRightOffset = new System.Drawing.Point(15, -1);
             this.txtBoxSearchProduct.IconRightSize = new System.Drawing.Size(25, 25);
             this.txtBoxSearchProduct.Location = new System.Drawing.Point(45, 35);
-            this.txtBoxSearchProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBoxSearchProduct.Margin = new System.Windows.Forms.Padding(4);
             this.txtBoxSearchProduct.Name = "txtBoxSearchProduct";
             this.txtBoxSearchProduct.PasswordChar = '\0';
             this.txtBoxSearchProduct.PlaceholderForeColor = System.Drawing.Color.Silver;
@@ -307,6 +309,14 @@
             this.icon.ReadOnly = true;
             this.icon.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
+            // ProductID
+            // 
+            this.ProductID.HeaderText = "ProductID";
+            this.ProductID.MinimumWidth = 6;
+            this.ProductID.Name = "ProductID";
+            this.ProductID.ReadOnly = true;
+            this.ProductID.Visible = false;
+            // 
             // ProductName
             // 
             this.ProductName.FillWeight = 150F;
@@ -319,6 +329,7 @@
             // 
             this.ProductType.FillWeight = 110F;
             this.ProductType.HeaderText = "Type";
+            this.ProductType.MinimumWidth = 6;
             this.ProductType.Name = "ProductType";
             this.ProductType.ReadOnly = true;
             // 
@@ -356,6 +367,7 @@
             this.Info.FillWeight = 70F;
             this.Info.HeaderText = "";
             this.Info.Image = global::SupermarketManagementApp.Properties.Resources.grid_info;
+            this.Info.MinimumWidth = 6;
             this.Info.Name = "Info";
             this.Info.ReadOnly = true;
             // 
@@ -381,7 +393,7 @@
             // 
             // FormProductManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(984, 761);
@@ -413,6 +425,7 @@
         private Guna.UI2.WinForms.Guna2DataGridView gridViewMain;
         private Guna.UI2.WinForms.Guna2TextBox txtBoxSearchProduct;
         private System.Windows.Forms.DataGridViewImageColumn icon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductType;
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;
