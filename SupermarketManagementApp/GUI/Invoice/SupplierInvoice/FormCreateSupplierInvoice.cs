@@ -608,8 +608,6 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
                     }
                 }
 
-                // Cập nhật lại Total Capacity ở đây
-
                 // Đặt văn hóa phù hợp
                 System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("vi-VN");
 

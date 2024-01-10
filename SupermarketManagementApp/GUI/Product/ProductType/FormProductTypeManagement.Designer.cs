@@ -35,10 +35,7 @@
             this.scrollBar = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.gridViewMain = new Guna.UI2.WinForms.Guna2DataGridView();
             this.icon = new System.Windows.Forms.DataGridViewImageColumn();
-<<<<<<< HEAD
-=======
             this.ProductTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
->>>>>>> 793aad33e89359ff94cbb9ab5fd6d562e8042eb4
             this.ProductTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MinTemperature = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -193,8 +190,6 @@
             this.icon.ReadOnly = true;
             this.icon.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-<<<<<<< HEAD
-=======
             // ProductTypeID
             // 
             this.ProductTypeID.HeaderText = "ProductTypeID";
@@ -203,7 +198,6 @@
             this.ProductTypeID.ReadOnly = true;
             this.ProductTypeID.Visible = false;
             // 
->>>>>>> 793aad33e89359ff94cbb9ab5fd6d562e8042eb4
             // ProductTypeName
             // 
             this.ProductTypeName.HeaderText = "Product Type";
@@ -223,10 +217,7 @@
             // 
             this.MinTemperature.FillWeight = 80F;
             this.MinTemperature.HeaderText = "Min Temp (Celsius)";
-<<<<<<< HEAD
-=======
             this.MinTemperature.MinimumWidth = 6;
->>>>>>> 793aad33e89359ff94cbb9ab5fd6d562e8042eb4
             this.MinTemperature.Name = "MinTemperature";
             this.MinTemperature.ReadOnly = true;
             // 
@@ -234,10 +225,7 @@
             // 
             this.MaxTemperature.FillWeight = 80F;
             this.MaxTemperature.HeaderText = "Max Temp (Celsius)";
-<<<<<<< HEAD
-=======
             this.MaxTemperature.MinimumWidth = 6;
->>>>>>> 793aad33e89359ff94cbb9ab5fd6d562e8042eb4
             this.MaxTemperature.Name = "MaxTemperature";
             this.MaxTemperature.ReadOnly = true;
             // 
