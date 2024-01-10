@@ -19,35 +19,6 @@ namespace SupermarketManagementApp.GUI.Product.ProductInInventory
         private Guna2DataGridView gridView = null;
         private const int INVENTORY_CAPACITY = 100;
 
-        List<DTO.Product> products = new List<DTO.Product>
-            {
-                new DTO.Product
-                {
-                    ProductID = 1,
-                    ProductTypeID = 1,
-                    ProductName = "Product1",
-                    UnitPrice = 10.5,
-                    WholeSaleUnit = "Box",
-                    RetailUnit = "Piece",
-                    UnitConversion = 12,
-                    PreservationType = "Cool",
-                    ProductCapacity = 100
-                },
-                new DTO.Product
-                {
-                    ProductID = 2,
-                    ProductTypeID = 2,
-                    ProductName = "Product2",
-                    UnitPrice = 15.75,
-                    WholeSaleUnit = "Carton",
-                    RetailUnit = "Unit",
-                    UnitConversion = 10,
-                    PreservationType = "Dry",
-                    ProductCapacity = 50
-                },
-                // Add more products as needed
-            };
-
         public FormProductInventoryManagement()
         {
             InitializeComponent();

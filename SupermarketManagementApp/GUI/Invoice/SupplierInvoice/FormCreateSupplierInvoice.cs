@@ -14,10 +14,13 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
 {
     public partial class FormCreateSupplierInvoice : Form
     {
+        private const int INVENTORY_CAPACITY = 500000;
+        private double used = 0;
+        private double remaining = 0;
         public FormCreateSupplierInvoice()
         {
             InitializeComponent();
-
+            UpdateAvailableCapacity();
         }
  
         List<string> productNames = new List<string>()
@@ -27,6 +30,17 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             "dsa",
             // Thêm tên sản phẩm khác vào đây
         };
+
+        private void UpdateAvailableCapacity()
+        {
+            availableCapacity.Minimum = 0;
+            availableCapacity.Maximum = INVENTORY_CAPACITY;
+
+            availableCapacity.Value = (int)used;
+
+            remaining = INVENTORY_CAPACITY - used;
+            availableCapacity.Text = ("Capacity: " + used + " used, " + remaining + " remaining.");
+        }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -47,6 +61,8 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             newLine.Controls.Add(panelQuantity("Quantity", "txtQuantity", newLine));
             newLine.Controls.Add(panelUnitPrice("Unit Price", "txtUnitPrice", newLine));
             newLine.Controls.Add(panelTotalPrice("Total Price", "txtTotalPrice", newLine));
+            newLine.Controls.Add(panelCapacity("Capacity", "txtCapacity", newLine));
+            newLine.Controls.Add(panelTotalCapacity("Total Capacity", "txtTotalCapacity", newLine));
 
             newLine.Controls.Add(buttonRemoveProduct(newLine));
             panelOrderInformation.Controls.Add(newLine);
@@ -187,19 +203,21 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             textBox.SelectedText = "";
             textBox.Size = new System.Drawing.Size(100, 36);
             textBox.TabIndex = 12;
-            textBox.Text = "0";
             textBox.TextOffset = new System.Drawing.Point(5, 0);
 
             textBox.TextChanged += (sender, e) =>
             {
                 Control unitPrice = new Control();
                 Control totalPrice = new Control();
+                Control capacity = new Control();
+                Control totalCapacity = new Control();
 
                 if (textBox.Text == String.Empty)
                 {
                     textBox.Text = "0";
                 }
 
+                // Find text box for Total Price
                 foreach (Control control in currentLine.Controls)
                 {
                     if (control.Name == "panelTotalPrice")
@@ -215,6 +233,7 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
                     }
                 }
 
+                // Find text box for Unit Price
                 foreach (Control control in currentLine.Controls)
                 {
                     if (control.Name == "panelUnitPrice")
@@ -230,17 +249,53 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
                     }
                 }
 
-                double unitPriceValue, quantityValue;
-
-                // Kiểm tra xem các giá trị có thể chuyển đổi thành double không
-                if (double.TryParse(unitPrice.Text, out unitPriceValue) && double.TryParse(textBox.Text, out quantityValue))
+                // Find text box for Total Capacity
+                foreach (Control control in currentLine.Controls)
                 {
-                    // Thực hiện phép nhân và cập nhật giá trị cho totalPrice
-                    totalPrice.Text = (unitPriceValue * quantityValue).ToString();
+                    if (control.Name == "panelTotalCapacity")
+                    {
+                        foreach (Control control2 in control.Controls)
+                        {
+                            if (control2.Name == "txtTotalCapacity")
+                            {
+                                totalCapacity = control2;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                // Find text box for Capacity
+                foreach (Control control in currentLine.Controls)
+                {
+                    if (control.Name == "panelCapacity")
+                    {
+                        foreach (Control control2 in control.Controls)
+                        {
+                            if (control2.Name == "txtCapacity")
+                            {
+                                capacity = control2;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                double unitPriceValue, quantityValue, capacityValue;
+                if (double.TryParse(textBox.Text, out quantityValue))
+                {
+                    if (double.TryParse(unitPrice.Text, out unitPriceValue))
+                    {
+                        totalPrice.Text = (unitPriceValue * quantityValue).ToString();
+                    }
+
+                    if (double.TryParse(capacity.Text, out capacityValue))
+                    {
+                        totalCapacity.Text = (capacityValue * quantityValue).ToString();
+                    }
                 }
                 else
                 {
-                    // Xử lý trường hợp không thể chuyển đổi giá trị
                     msgBoxError.Parent = this;
                     msgBoxError.Show("Please enter number only!");
                 }
@@ -378,6 +433,130 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             return currentPanel;
         }
 
+        private Guna2Panel panelCapacity(string labelText, string controlName, FlowLayoutPanel currentLine)
+        {
+            Guna2Panel currentPanel = new Guna2Panel();
+            currentPanel.Dock = DockStyle.Bottom;
+            currentPanel.Name = "panelCapacity";
+
+            // Label for control
+            Label labelControl = new Label();
+            labelControl.AutoSize = true;
+            labelControl.Text = labelText;
+            labelControl.BackColor = Color.Transparent;
+            labelControl.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            labelControl.Location = new Point(3, 3);
+            labelControl.Name = "label" + controlName;
+            labelControl.TabIndex = 13;
+            currentPanel.Controls.Add(labelControl);
+
+            // Text box for input
+            Guna2TextBox textBox = new Guna2TextBox();
+            textBox.BorderColor = Color.Black;
+            textBox.BorderRadius = 5;
+            textBox.DefaultText = "";
+            textBox.DisabledState.BorderColor = System.Drawing.Color.Black;
+            textBox.DisabledState.FillColor = System.Drawing.Color.WhiteSmoke;
+            textBox.DisabledState.ForeColor = System.Drawing.Color.Black;
+            textBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            textBox.Enabled = false;
+            textBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            textBox.Font = new System.Drawing.Font("Segoe UI", 12F);
+            textBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            textBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            textBox.Location = new System.Drawing.Point(5, 34);
+            textBox.Margin = new System.Windows.Forms.Padding(5);
+            textBox.MaxLength = 10;
+            textBox.Name = controlName;
+            textBox.PasswordChar = '\0';
+            textBox.PlaceholderText = "";
+            textBox.SelectedText = "";
+            textBox.Size = new System.Drawing.Size(155, 36);
+            textBox.TabIndex = 15;
+            textBox.Text = "5000";
+            textBox.TextOffset = new System.Drawing.Point(5, 0);
+            currentPanel.Controls.Add(textBox);
+
+            return currentPanel;
+        }
+
+        private Guna2Panel panelTotalCapacity(string labelText, string controlName, FlowLayoutPanel currentLine)
+        {
+            Guna2Panel currentPanel = new Guna2Panel();
+            currentPanel.Dock = DockStyle.Bottom;
+            currentPanel.Name = "panelTotalCapacity";
+
+            // Label for control
+            Label labelControl = new Label();
+            labelControl.AutoSize = true;
+            labelControl.Text = labelText;
+            labelControl.BackColor = Color.Transparent;
+            labelControl.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            labelControl.Location = new Point(3, 3);
+            labelControl.Name = "label" + controlName;
+            labelControl.TabIndex = 13;
+            currentPanel.Controls.Add(labelControl);
+
+            // Text box for input
+            Guna2TextBox textBox = new Guna2TextBox();
+            textBox.BorderColor = Color.Black;
+            textBox.BorderRadius = 5;
+            textBox.DefaultText = "";
+            textBox.DisabledState.BorderColor = System.Drawing.Color.Black;
+            textBox.DisabledState.FillColor = System.Drawing.Color.WhiteSmoke;
+            textBox.DisabledState.ForeColor = System.Drawing.Color.Black;
+            textBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            textBox.Enabled = false;
+            textBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            textBox.Font = new System.Drawing.Font("Segoe UI", 12F);
+            textBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            textBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            textBox.Location = new System.Drawing.Point(5, 34);
+            textBox.Margin = new System.Windows.Forms.Padding(5);
+            textBox.MaxLength = 10;
+            textBox.Name = controlName;
+            textBox.PasswordChar = '\0';
+            textBox.PlaceholderText = "";
+            textBox.SelectedText = "";
+            textBox.Size = new System.Drawing.Size(155, 36);
+            textBox.TabIndex = 15;
+            textBox.Text = "5000";
+            textBox.TextOffset = new System.Drawing.Point(5, 0);
+            currentPanel.Controls.Add(textBox);
+
+            textBox.TextChanged += (sender, e) =>
+            {
+                double totalCapacity = 0;
+
+                foreach (FlowLayoutPanel line in panelOrderInformation.Controls)
+                {
+                    foreach (Control control in line.Controls)
+                    {
+                        if (control.Name == "panelTotalCapacity")
+                        {
+                            foreach (Control control2 in control.Controls)
+                            {
+                                if (control2.Name == "txtTotalCapacity")
+                                {
+                                    double value;
+                                    if (double.TryParse(control2.Text, out value))
+                                    {
+                                        totalCapacity += value;
+                                    }
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                used = totalCapacity;
+                UpdateAvailableCapacity();
+            };
+
+            return currentPanel;
+        }
+
         private Guna2Button buttonRemoveProduct(FlowLayoutPanel lineToRemove)
         {
             Guna2Button buttonRemove = new Guna2Button();
@@ -395,7 +574,7 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             buttonRemove.Image = global::SupermarketManagementApp.Properties.Resources.remove_product;
             buttonRemove.ImageSize = new System.Drawing.Size(30, 30);
             buttonRemove.Location = new System.Drawing.Point(856, 30);
-            buttonRemove.Margin = new System.Windows.Forms.Padding(20, 35, 3, 3);
+            buttonRemove.Margin = new System.Windows.Forms.Padding(10, 35, 3, 3);
             buttonRemove.Name = "buttonRemove";
             buttonRemove.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
             buttonRemove.PressedColor = System.Drawing.Color.Transparent;
@@ -429,12 +608,41 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
                     }
                 }
 
+                // Cập nhật lại Total Capacity ở đây
+
                 // Đặt văn hóa phù hợp
                 System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("vi-VN");
 
                 // Định dạng số thành chuỗi theo định dạng tiền tệ
                 labelTotalAmount.RightToLeft = RightToLeft.Yes;
                 labelTotalAmount.Text = totalAmount.ToString("N0", culture) + " VND";
+
+                double totalCapacity = 0;
+
+                foreach (FlowLayoutPanel line in panelOrderInformation.Controls)
+                {
+                    foreach (Control control in line.Controls)
+                    {
+                        if (control.Name == "panelTotalCapacity")
+                        {
+                            foreach (Control control2 in control.Controls)
+                            {
+                                if (control2.Name == "txtTotalCapacity")
+                                {
+                                    double value;
+                                    if (double.TryParse(control2.Text, out value))
+                                    {
+                                        totalCapacity += value;
+                                    }
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                used = totalCapacity;
+                UpdateAvailableCapacity();
             };
 
             return buttonRemove;

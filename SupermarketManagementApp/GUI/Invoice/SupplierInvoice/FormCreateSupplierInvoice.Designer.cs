@@ -48,8 +48,12 @@
             this.labelForm = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panelOrderInformation = new Guna.UI2.WinForms.Guna2Panel();
             this.labelCustomerInfor = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.availableCapacity = new Guna.UI2.WinForms.Guna2ProgressBar();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelCustomerInformation.SuspendLayout();
+            this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -67,7 +71,7 @@
             this.btnCancel.FillColor = System.Drawing.Color.Transparent;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnCancel.Location = new System.Drawing.Point(750, 712);
+            this.btnCancel.Location = new System.Drawing.Point(1150, 712);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(140, 40);
             this.btnCancel.TabIndex = 53;
@@ -107,7 +111,7 @@
             this.btnCheckOut.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnCheckOut.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCheckOut.ForeColor = System.Drawing.Color.White;
-            this.btnCheckOut.Location = new System.Drawing.Point(910, 712);
+            this.btnCheckOut.Location = new System.Drawing.Point(1310, 712);
             this.btnCheckOut.Name = "btnCheckOut";
             this.btnCheckOut.Size = new System.Drawing.Size(140, 40);
             this.btnCheckOut.TabIndex = 52;
@@ -172,7 +176,7 @@
             this.btnAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnAdd.Image = global::SupermarketManagementApp.Properties.Resources.add_product_invoice;
             this.btnAdd.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnAdd.Location = new System.Drawing.Point(50, 709);
+            this.btnAdd.Location = new System.Drawing.Point(50, 712);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(49, 40);
             this.btnAdd.TabIndex = 50;
@@ -203,7 +207,7 @@
             this.panelCustomerInformation.Controls.Add(this.txtBoxPhoneNumber);
             this.panelCustomerInformation.Location = new System.Drawing.Point(50, 100);
             this.panelCustomerInformation.Name = "panelCustomerInformation";
-            this.panelCustomerInformation.Size = new System.Drawing.Size(546, 115);
+            this.panelCustomerInformation.Size = new System.Drawing.Size(561, 115);
             this.panelCustomerInformation.TabIndex = 34;
             // 
             // guna2HtmlLabel1
@@ -307,7 +311,7 @@
             this.labelForm.BackColor = System.Drawing.Color.Transparent;
             this.labelForm.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelForm.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelForm.Location = new System.Drawing.Point(400, 30);
+            this.labelForm.Location = new System.Drawing.Point(510, 30);
             this.labelForm.Name = "labelForm";
             this.labelForm.Size = new System.Drawing.Size(301, 39);
             this.labelForm.TabIndex = 33;
@@ -325,7 +329,7 @@
             this.panelOrderInformation.MinimumSize = new System.Drawing.Size(1000, 0);
             this.panelOrderInformation.Name = "panelOrderInformation";
             this.panelOrderInformation.Padding = new System.Windows.Forms.Padding(20, 20, 30, 10);
-            this.panelOrderInformation.Size = new System.Drawing.Size(1000, 350);
+            this.panelOrderInformation.Size = new System.Drawing.Size(1400, 350);
             this.panelOrderInformation.TabIndex = 48;
             // 
             // labelCustomerInfor
@@ -341,10 +345,56 @@
             this.labelCustomerInfor.TabIndex = 35;
             this.labelCustomerInfor.Text = "Supplier Information";
             // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.guna2Panel1.BorderColor = System.Drawing.Color.Black;
+            this.guna2Panel1.Controls.Add(this.availableCapacity);
+            this.guna2Panel1.Location = new System.Drawing.Point(689, 100);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(761, 115);
+            this.guna2Panel1.TabIndex = 35;
+            // 
+            // guna2HtmlLabel2
+            // 
+            this.guna2HtmlLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.DarkOrange;
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(728, 80);
+            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(183, 32);
+            this.guna2HtmlLabel2.TabIndex = 54;
+            this.guna2HtmlLabel2.Text = "Inventory Capacity";
+            // 
+            // availableCapacity
+            // 
+            this.availableCapacity.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.availableCapacity.BorderRadius = 15;
+            this.availableCapacity.BorderThickness = 1;
+            this.availableCapacity.FillColor = System.Drawing.Color.DarkGray;
+            this.availableCapacity.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.availableCapacity.ForeColor = System.Drawing.Color.White;
+            this.availableCapacity.Location = new System.Drawing.Point(39, 39);
+            this.availableCapacity.Name = "availableCapacity";
+            this.availableCapacity.ProgressColor = System.Drawing.Color.ForestGreen;
+            this.availableCapacity.ProgressColor2 = System.Drawing.Color.ForestGreen;
+            this.availableCapacity.ShowText = true;
+            this.availableCapacity.Size = new System.Drawing.Size(681, 52);
+            this.availableCapacity.TabIndex = 15;
+            this.availableCapacity.TextMode = Guna.UI2.WinForms.Enums.ProgressBarTextMode.Custom;
+            this.availableCapacity.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            // 
             // FormCreateSupplierInvoice
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1100, 800);
+            this.ClientSize = new System.Drawing.Size(1500, 800);
+            this.Controls.Add(this.guna2HtmlLabel2);
+            this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.labelCustomerInfor);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.labelOrderInformation);
@@ -364,6 +414,7 @@
             this.tableLayoutPanel1.PerformLayout();
             this.panelCustomerInformation.ResumeLayout(false);
             this.panelCustomerInformation.PerformLayout();
+            this.guna2Panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -390,5 +441,8 @@
         private Guna.UI2.WinForms.Guna2Panel panelOrderInformation;
         private Guna.UI2.WinForms.Guna2HtmlLabel labelCustomerInfor;
         private Guna.UI2.WinForms.Guna2MessageDialog msgBoxError;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2ProgressBar availableCapacity;
     }
 }
