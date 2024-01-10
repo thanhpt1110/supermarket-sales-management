@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SupermarketManagementApp.ErrorHandle;
 using System.Linq.Expressions;
+using System.Data.Entity.Migrations;
 
 namespace SupermarketManagementApp.DAO
 {
@@ -79,16 +80,22 @@ namespace SupermarketManagementApp.DAO
         {
             try
             {
-                var proudctType = context.ProductTypes.Find(entity.ProductTypeID);
-                if (proudctType == null)
+                var productType = context.ProductTypes.Find(entity.ProductTypeID);
+                if (productType == null)
                 {
                     throw new NotExistedObjectException("Product type is not existed");
                 }
-                if(proudctType.Products.Count > 0)
+                if(productType.Products.Count > 0)
                 {
                     throw new ObjectDependException("Can not remove this product type");
-                }    
-                return await base.Update(entity);
+                }
+                productType.ProductTypeName = entity.ProductTypeName;
+                productType.MinTemperature = entity.MinTemperature;
+                productType.MaxTemperature = entity.MaxTemperature;
+                productType.Description = entity.Description;
+                context.ProductTypes.AddOrUpdate(productType);
+                await context.SaveChangesAsync();
+                return entity;
             }
             catch
             {

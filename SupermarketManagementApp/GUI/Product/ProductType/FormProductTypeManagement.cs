@@ -1,4 +1,6 @@
 ﻿using Guna.UI2.WinForms;
+using SupermarketManagementApp.BUS;
+using SupermarketManagementApp.DTO;
 using SupermarketManagementApp.Utils;
 using System;
 using System.Collections.Generic;
@@ -17,40 +19,46 @@ namespace SupermarketManagementApp.GUI.Product.ProductType
         #region Declare variable
         private Guna2DataGridView gridView = null;
         private FormMain formMain = null;
+        private Timer searchTimer = null;
+        private ProductTypeBUS productTypeBUS = null;
         #endregion
-
+        private List<SupermarketManagementApp.DTO.ProductType> productTypes = null;
         public FormProductTypeManagement(FormMain formMain)
         {
             this.formMain = formMain;
-
+            productTypeBUS = ProductTypeBUS.GetInstance();
             InitializeComponent();
             CustomStyleGridView();
-            LoadGridData();
             UpdateScrollBarValues();
+            InitAllProductType();
+            InitTimer();
         }
 
         public FormProductTypeManagement()
         {
+            productTypeBUS = ProductTypeBUS.GetInstance();
             InitializeComponent();
             CustomStyleGridView();
-            LoadGridData();
             UpdateScrollBarValues();
+            InitAllProductType();
+            InitTimer();
         }
-
+        public async void InitAllProductType()
+        {
+            Result<IEnumerable<DTO.ProductType>> productTypeResult = await productTypeBUS.getAllProductType();
+            if (productTypeResult.IsSuccess)
+            {
+                this.productTypes = productTypeResult.Data.ToList();
+            }
+            LoadGridData();
+        }
         private void LoadGridData()
         {
-            gridView.Rows.Add(new object[] { null, "Bakery", "Place selling fresh baked goods.", "20", "180" });
-            gridView.Rows.Add(new object[] { null, "Produce", "Section with fresh fruits and vegetables.", "8", "25" });
-            gridView.Rows.Add(new object[] { null, "Dairy", "Area selling milk, cheese, and other dairy products.", "2", "8" });
-            gridView.Rows.Add(new object[] { null, "Frozen Foods", "Freezer section with frozen food items.", "-18", "-5" });
-            gridView.Rows.Add(new object[] { null, "Meat", "Section for fresh meat products.", "0", "4" });
-            gridView.Rows.Add(new object[] { null, "Beverages", "Shelf with various drinks.", "5", "25" });
-            gridView.Rows.Add(new object[] { null, "Snacks", "Area for snacks and packaged goods.", "15", "28" });
-            gridView.Rows.Add(new object[] { null, "Canned Goods", "Shelves with canned and preserved foods.", "10", "30" });
-            gridView.Rows.Add(new object[] { null, "Household", "Section for household and cleaning products.", "5", "25" });
-            gridView.Rows.Add(new object[] { null, "Personal Care", "Aisle with personal care and hygiene items.", "15", "25" });
-            gridView.Rows.Add(new object[] { null, "Electronics", "Section for electronic gadgets and accessories.", "10", "35" });
-            gridView.Rows.Add(new object[] { null, "Clothing", "Department with clothing and apparel.", "18", "25" });
+            gridView.Rows.Clear();
+            foreach (var productType in productTypes)
+            {
+                gridView.Rows.Add(new object[] { null, productType.ProductTypeID, productType.ProductTypeName, productType.Description,productType.MinTemperature, productType.MaxTemperature });
+            }
         }
 
         #region Customize data grid
@@ -104,7 +112,7 @@ namespace SupermarketManagementApp.GUI.Product.ProductType
             if (e.RowIndex == -1)
             {
                 // Kiểm tra xem có phải là header của cột 2, 3, 4 hoặc header của cột 4, 5
-                if (e.ColumnIndex >= 1 && e.ColumnIndex <= 4)
+                if (e.ColumnIndex >= 2 && e.ColumnIndex <= 5)
                 {
                     gridView.Cursor = Cursors.Hand;
                     return;
@@ -112,7 +120,7 @@ namespace SupermarketManagementApp.GUI.Product.ProductType
             }
 
             // Nếu không phải là header của cột và nằm trong khoảng cột 4, 5, đặt kiểu cursor thành Hand
-            if (e.RowIndex >= 0 && (e.ColumnIndex == 5 || e.ColumnIndex == 6))
+            if (e.RowIndex >= 0 && (e.ColumnIndex == 6 || e.ColumnIndex == 7))
             {
                 gridView.Cursor = Cursors.Hand;
                 return;
@@ -129,7 +137,7 @@ namespace SupermarketManagementApp.GUI.Product.ProductType
             FormBackground formBackground = new FormBackground(formMain);
             try
             {
-                using (FormCreateProductType formCreateProductType = new FormCreateProductType())
+                using (FormCreateProductType formCreateProductType = new FormCreateProductType(this))
                 {
                     formBackground.Owner = formMain;
                     formBackground.Show();
@@ -159,17 +167,18 @@ namespace SupermarketManagementApp.GUI.Product.ProductType
             }
         }
 
-        private void gridViewMain_CellClick(object sender, DataGridViewCellEventArgs e)
+        private async void gridViewMain_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            int x = e.ColumnIndex, y = e.RowIndex;
             if (e.RowIndex >= 0)
             {
-                if (e.ColumnIndex == 5)
+                if (e.ColumnIndex == 6)
                 {
                     // Update
                     FormBackground formBackground = new FormBackground(formMain);
                     try
                     {
-                        using (FormUpdateProductType formUpdateProductType = new FormUpdateProductType())
+                        using (FormUpdateProductType formUpdateProductType = new FormUpdateProductType(this, int.Parse(gridView.Rows[y].Cells[1].Value.ToString())))
                         {
                             formBackground.Owner = formMain;
                             formBackground.Show();
@@ -184,7 +193,7 @@ namespace SupermarketManagementApp.GUI.Product.ProductType
                         msgBoxError.Show(ex.Message, "Error");
                     }
                 }
-                else if (e.ColumnIndex == 6)
+                else if (e.ColumnIndex == 7)
                 {
                     // Delete
                     msgBoxDelete.Parent = formMain;
@@ -194,7 +203,17 @@ namespace SupermarketManagementApp.GUI.Product.ProductType
                         case DialogResult.Yes:
                             try
                             {
+                                Result<bool> result = await productTypeBUS.deteleProductType(int.Parse(gridView.Rows[y].Cells[1].Value.ToString()));
+                                if (result.IsSuccess)
+                                {
+                                    MessageBox.Show("Remove Product Type successfully!", "Success", MessageBoxButtons.OK);
+                                    InitAllProductType();
+                                }
+                                else
+                                {
+                                    msgBoxError.Show(result.ErrorMessage, "Error");
 
+                                }
                             }
                             catch (Exception ex)
                             {
@@ -209,5 +228,32 @@ namespace SupermarketManagementApp.GUI.Product.ProductType
             }
         }
         #endregion
+
+        #region Init timer event
+        private void InitTimer()
+        {
+            searchTimer = new Timer();
+            searchTimer.Interval = 300;
+            searchTimer.Tick += SearchTimer_Tick;
+        }
+        private async void SearchTimer_Tick(object sender, EventArgs e)
+        {
+            this.searchTimer.Stop();
+            Result<IEnumerable<DTO.ProductType>> result = await productTypeBUS.findProductTypeByName(txtBoxSearchProductType.Text);
+            this.productTypes = result.Data.ToList();
+            LoadGridData();
+        }
+        #endregion
+
+        #region Text changed event
+        private void txtBoxSearchProductType_TextChanged_1(object sender, EventArgs e)
+        {
+            this.searchTimer.Stop();
+            this.searchTimer.Start();
+        }
+
+        #endregion
+
+
     }
 }
