@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using SupermarketManagementApp.ErrorHandle;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 
 namespace SupermarketManagementApp.DAO
 {
@@ -109,7 +110,18 @@ namespace SupermarketManagementApp.DAO
                 {
                     throw new ExistedObjectException("Product name is already existed");
                 }
-                return await base.Update(entity);
+                product.ProductName = entity.ProductName;   
+                product.ProductTypeID = entity.ProductTypeID;
+                product.UnitPrice = entity.UnitPrice;
+                product.ProductCapacity = entity.ProductCapacity;
+                product.WholeSaleUnit = entity.WholeSaleUnit;
+                product.ProductCapacity = entity.ProductCapacity;
+                product.RetailUnit = entity.RetailUnit;
+                product.UnitConversion = entity.UnitConversion;
+                context.Products.AddOrUpdate(product);
+
+                await context.SaveChangesAsync();
+                return entity;
             }
             catch (DbUpdateException ex)
             {
