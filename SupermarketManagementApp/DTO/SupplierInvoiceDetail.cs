@@ -12,11 +12,11 @@ namespace SupermarketManagementApp.DTO
         [Key]
         public long SuppliernvoiceDetailID { get; set; }
 
-        public long? SupllierInvoiceID { get; set; }
+        public long SupllierInvoiceID { get; set; }
 
-        public long? ProductID { get; set; }
+        public long ProductID { get; set; }
 
-        public int? ProductQuantity { get; set; }
+        public int ProductQuantity { get; set; }
 
         public virtual Product Product { get; set; }
 
