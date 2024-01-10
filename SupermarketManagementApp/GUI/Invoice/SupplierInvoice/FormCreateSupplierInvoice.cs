@@ -161,7 +161,7 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
                 {
                     var product = productDictionary[currentLine.Name];
                     MessageBox.Show(product.ProductName);
-                    PriceText = product.UnitPrice.ToString();
+                    PriceText = (product.UnitPrice * product.UnitConversion).ToString();
                     capacityText = (product.ProductCapacity * product.UnitConversion).ToString();
                 }    
                 foreach (Control control in currentLine.Controls)
@@ -391,7 +391,7 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             textBox.SelectedText = "";
             textBox.Size = new System.Drawing.Size(155, 36);
             textBox.TabIndex = 15;
-            textBox.Text = "5000";
+            textBox.Text = "0";
             textBox.TextOffset = new System.Drawing.Point(5, 0);
             currentPanel.Controls.Add(textBox);
 
@@ -519,7 +519,7 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             textBox.SelectedText = "";
             textBox.Size = new System.Drawing.Size(155, 36);
             textBox.TabIndex = 15;
-            textBox.Text = "5000";
+            textBox.Text = "50";
             textBox.TextOffset = new System.Drawing.Point(5, 0);
             currentPanel.Controls.Add(textBox);
 
@@ -566,7 +566,7 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             textBox.SelectedText = "";
             textBox.Size = new System.Drawing.Size(155, 36);
             textBox.TabIndex = 15;
-            textBox.Text = "5000";
+            textBox.Text = "0";
             textBox.TextOffset = new System.Drawing.Point(5, 0);
             currentPanel.Controls.Add(textBox);
 
