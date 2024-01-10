@@ -36,9 +36,6 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.dtgvTopSellProducts = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.Top = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
@@ -51,6 +48,9 @@
             this.panelMonthRevenue = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.labelMonthRevenue = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.revenueChart = new LiveCharts.WinForms.CartesianChart();
+            this.Top = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Panel1.SuspendLayout();
             this.guna2ShadowPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTopSellProducts)).BeginInit();
@@ -156,32 +156,6 @@
             this.dtgvTopSellProducts.ThemeStyle.RowsStyle.Height = 55;
             this.dtgvTopSellProducts.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgvTopSellProducts.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // Top
-            // 
-            this.Top.HeaderText = "Top";
-            this.Top.MinimumWidth = 6;
-            this.Top.Name = "Top";
-            this.Top.ReadOnly = true;
-            // 
-            // ProductName
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.ProductName.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ProductName.FillWeight = 200F;
-            this.ProductName.HeaderText = "Product Name";
-            this.ProductName.MinimumWidth = 6;
-            this.ProductName.Name = "ProductName";
-            this.ProductName.ReadOnly = true;
-            // 
-            // TotalOrder
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.TotalOrder.DefaultCellStyle = dataGridViewCellStyle4;
-            this.TotalOrder.HeaderText = "Total Orders";
-            this.TotalOrder.MinimumWidth = 6;
-            this.TotalOrder.Name = "TotalOrder";
-            this.TotalOrder.ReadOnly = true;
             // 
             // guna2HtmlLabel1
             // 
@@ -332,6 +306,35 @@
             this.revenueChart.TabIndex = 1;
             this.revenueChart.Text = "cartesianChart1";
             // 
+            // Top
+            // 
+            this.Top.HeaderText = "Top";
+            this.Top.MinimumWidth = 6;
+            this.Top.Name = "Top";
+            this.Top.ReadOnly = true;
+            this.Top.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ProductName
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.ProductName.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ProductName.FillWeight = 200F;
+            this.ProductName.HeaderText = "Product Name";
+            this.ProductName.MinimumWidth = 6;
+            this.ProductName.Name = "ProductName";
+            this.ProductName.ReadOnly = true;
+            this.ProductName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // TotalOrder
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.TotalOrder.DefaultCellStyle = dataGridViewCellStyle4;
+            this.TotalOrder.HeaderText = "Total Orders";
+            this.TotalOrder.MinimumWidth = 6;
+            this.TotalOrder.Name = "TotalOrder";
+            this.TotalOrder.ReadOnly = true;
+            this.TotalOrder.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // FormDashboard
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -368,14 +371,14 @@
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2DataGridView dtgvTopSellProducts;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Top;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalOrder;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Top;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalOrder;
     }
 }
