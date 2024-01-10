@@ -16,16 +16,32 @@ namespace SupermarketManagementApp.GUI.Account
 {
     public partial class FormCreateAccount : Form
     {
+        EmployeeBUS employeeBUS = null;
         private AccountBUS accountBUS = null;
-        public FormCreateAccount()
+        private List<string> listEmployeeID = new List<string>();
+        private FormAccountManagement formAccountManagement;
+        public FormCreateAccount(FormAccountManagement formAccountManagement)
         {
             InitializeComponent();
             txtBoxPassword.IconRightClick += txtBoxPassword_IconRightClick;
             accountBUS = AccountBUS.GetInstance();
+            employeeBUS = EmployeeBUS.GetInstance();
+            this.formAccountManagement = formAccountManagement;
+            loadEmployeeData();
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        private async void loadEmployeeData()
+        {
+            Result<IEnumerable<DTO.Employee>> result = await employeeBUS.GetAllEmployee();
+            if(result.IsSuccess)
+            {
+                cbBoxEmployeeID.DataSource = result.Data;
+                cbBoxEmployeeID.DisplayMember = "EmployeeID"; // Hiển thị thuộc tính "Ten" của đối tượng
+                cbBoxEmployeeID.ValueMember = "EmployeeID";    // Sử dụng thuộc tính "Id" của đối tượng khi chọn mục
+            }
         }
 
         private async void btnSave_Click(object sender, EventArgs e)
@@ -33,12 +49,13 @@ namespace SupermarketManagementApp.GUI.Account
             DTO.Account account = new DTO.Account();
             account.Username = txtBoxUsername.Text;
             account.Password = txtBoxPassword.Text;
-            account.Role = this.cbBoxRole.SelectedText;
-            account.EmployeeID = 1; // Để tạm
+            account.Role = this.cbBoxRole.Text;
+            account.EmployeeID = int.Parse(cbBoxEmployeeID.Text);
             Result<DTO.Account> result = await accountBUS.createNewAccount(account);
             if (result.IsSuccess)
             {
-                MessageBox.Show("Create account success");
+                MessageBox.Show("Create account success!");
+                formAccountManagement.InitAllAccount();
             }
             else
             {

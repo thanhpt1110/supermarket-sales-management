@@ -35,6 +35,10 @@
             this.scrollBar = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.gridViewMain = new Guna.UI2.WinForms.Guna2DataGridView();
             this.icon = new System.Windows.Forms.DataGridViewImageColumn();
+<<<<<<< HEAD
+=======
+            this.ProductTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+>>>>>>> 793aad33e89359ff94cbb9ab5fd6d562e8042eb4
             this.ProductTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MinTemperature = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,7 +78,7 @@
             this.txtBoxSearchProductType.IconRightOffset = new System.Drawing.Point(15, -1);
             this.txtBoxSearchProductType.IconRightSize = new System.Drawing.Size(25, 25);
             this.txtBoxSearchProductType.Location = new System.Drawing.Point(45, 35);
-            this.txtBoxSearchProductType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBoxSearchProductType.Margin = new System.Windows.Forms.Padding(4);
             this.txtBoxSearchProductType.Name = "txtBoxSearchProductType";
             this.txtBoxSearchProductType.PasswordChar = '\0';
             this.txtBoxSearchProductType.PlaceholderForeColor = System.Drawing.Color.Silver;
@@ -83,6 +87,7 @@
             this.txtBoxSearchProductType.Size = new System.Drawing.Size(285, 45);
             this.txtBoxSearchProductType.TabIndex = 10;
             this.txtBoxSearchProductType.TextOffset = new System.Drawing.Point(5, 0);
+            this.txtBoxSearchProductType.TextChanged += new System.EventHandler(this.txtBoxSearchProductType_TextChanged_1);
             // 
             // scrollBar
             // 
@@ -125,6 +130,7 @@
             this.gridViewMain.ColumnHeadersHeight = 50;
             this.gridViewMain.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.icon,
+            this.ProductTypeID,
             this.ProductTypeName,
             this.Description,
             this.MinTemperature,
@@ -187,6 +193,17 @@
             this.icon.ReadOnly = true;
             this.icon.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
+<<<<<<< HEAD
+=======
+            // ProductTypeID
+            // 
+            this.ProductTypeID.HeaderText = "ProductTypeID";
+            this.ProductTypeID.MinimumWidth = 6;
+            this.ProductTypeID.Name = "ProductTypeID";
+            this.ProductTypeID.ReadOnly = true;
+            this.ProductTypeID.Visible = false;
+            // 
+>>>>>>> 793aad33e89359ff94cbb9ab5fd6d562e8042eb4
             // ProductTypeName
             // 
             this.ProductTypeName.HeaderText = "Product Type";
@@ -206,6 +223,10 @@
             // 
             this.MinTemperature.FillWeight = 80F;
             this.MinTemperature.HeaderText = "Min Temp (Celsius)";
+<<<<<<< HEAD
+=======
+            this.MinTemperature.MinimumWidth = 6;
+>>>>>>> 793aad33e89359ff94cbb9ab5fd6d562e8042eb4
             this.MinTemperature.Name = "MinTemperature";
             this.MinTemperature.ReadOnly = true;
             // 
@@ -213,6 +234,10 @@
             // 
             this.MaxTemperature.FillWeight = 80F;
             this.MaxTemperature.HeaderText = "Max Temp (Celsius)";
+<<<<<<< HEAD
+=======
+            this.MaxTemperature.MinimumWidth = 6;
+>>>>>>> 793aad33e89359ff94cbb9ab5fd6d562e8042eb4
             this.MaxTemperature.Name = "MaxTemperature";
             this.MaxTemperature.ReadOnly = true;
             // 
@@ -382,6 +407,7 @@
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel1;
         private Guna.UI2.WinForms.Guna2MessageDialog msgBoxInfo;
         private System.Windows.Forms.DataGridViewImageColumn icon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductTypeID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductTypeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn MinTemperature;

@@ -160,6 +160,7 @@
             // Top
             // 
             this.Top.HeaderText = "Top";
+            this.Top.MinimumWidth = 6;
             this.Top.Name = "Top";
             this.Top.ReadOnly = true;
             // 
@@ -188,7 +189,7 @@
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(40, 16);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(200, 32);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(247, 38);
             this.guna2HtmlLabel1.TabIndex = 3;
             this.guna2HtmlLabel1.Text = "Top Selling Products";
             // 
@@ -241,7 +242,7 @@
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel3.Location = new System.Drawing.Point(94, 10);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(52, 27);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(66, 34);
             this.guna2HtmlLabel3.TabIndex = 10;
             this.guna2HtmlLabel3.Text = "Order";
             // 
@@ -266,7 +267,7 @@
             this.guna2HtmlLabel4.ForeColor = System.Drawing.Color.ForestGreen;
             this.guna2HtmlLabel4.Location = new System.Drawing.Point(39, 82);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(163, 32);
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(201, 38);
             this.guna2HtmlLabel4.TabIndex = 10;
             this.guna2HtmlLabel4.Text = "10.000.000 VNĐ";
             this.guna2HtmlLabel4.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -277,7 +278,7 @@
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel2.Location = new System.Drawing.Point(81, 10);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(77, 27);
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(97, 34);
             this.guna2HtmlLabel2.TabIndex = 9;
             this.guna2HtmlLabel2.Text = "Revenue";
             // 
@@ -287,7 +288,7 @@
             this.labelTodaySale.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTodaySale.Location = new System.Drawing.Point(42, 16);
             this.labelTodaySale.Name = "labelTodaySale";
-            this.labelTodaySale.Size = new System.Drawing.Size(107, 32);
+            this.labelTodaySale.Size = new System.Drawing.Size(132, 38);
             this.labelTodaySale.TabIndex = 3;
             this.labelTodaySale.Text = "Today Sale";
             // 
@@ -315,7 +316,7 @@
             this.labelMonthRevenue.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMonthRevenue.Location = new System.Drawing.Point(42, 22);
             this.labelMonthRevenue.Name = "labelMonthRevenue";
-            this.labelMonthRevenue.Size = new System.Drawing.Size(170, 32);
+            this.labelMonthRevenue.Size = new System.Drawing.Size(210, 38);
             this.labelMonthRevenue.TabIndex = 2;
             this.labelMonthRevenue.Text = "Monthly Revenue";
             // 
@@ -324,7 +325,7 @@
             this.revenueChart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.revenueChart.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.revenueChart.Location = new System.Drawing.Point(42, 62);
+            this.revenueChart.Location = new System.Drawing.Point(51, 68);
             this.revenueChart.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.revenueChart.Name = "revenueChart";
             this.revenueChart.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);

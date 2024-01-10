@@ -37,6 +37,7 @@
             this.scrollBar = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.gridViewMain = new Guna.UI2.WinForms.Guna2DataGridView();
             this.icon = new System.Windows.Forms.DataGridViewImageColumn();
+            this.IDAccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AccountName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -152,6 +153,7 @@
             this.gridViewMain.ColumnHeadersHeight = 50;
             this.gridViewMain.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.icon,
+            this.IDAccount,
             this.AccountName,
             this.Username,
             this.Role,
@@ -170,6 +172,7 @@
             this.gridViewMain.Name = "gridViewMain";
             this.gridViewMain.ReadOnly = true;
             this.gridViewMain.RowHeadersVisible = false;
+            this.gridViewMain.RowHeadersWidth = 51;
             this.gridViewMain.RowTemplate.DividerHeight = 1;
             this.gridViewMain.RowTemplate.Height = 55;
             this.gridViewMain.RowTemplate.ReadOnly = true;
@@ -207,26 +210,38 @@
             this.icon.FillWeight = 50F;
             this.icon.HeaderText = "";
             this.icon.Image = global::SupermarketManagementApp.Properties.Resources.grid_account;
+            this.icon.MinimumWidth = 6;
             this.icon.Name = "icon";
             this.icon.ReadOnly = true;
             this.icon.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // IDAccount
+            // 
+            this.IDAccount.HeaderText = "ID Account";
+            this.IDAccount.MinimumWidth = 6;
+            this.IDAccount.Name = "IDAccount";
+            this.IDAccount.ReadOnly = true;
+            this.IDAccount.Visible = false;
             // 
             // AccountName
             // 
             this.AccountName.FillWeight = 140F;
             this.AccountName.HeaderText = "Name";
+            this.AccountName.MinimumWidth = 6;
             this.AccountName.Name = "AccountName";
             this.AccountName.ReadOnly = true;
             // 
             // Username
             // 
             this.Username.HeaderText = "Username";
+            this.Username.MinimumWidth = 6;
             this.Username.Name = "Username";
             this.Username.ReadOnly = true;
             // 
             // Role
             // 
             this.Role.HeaderText = "Role";
+            this.Role.MinimumWidth = 6;
             this.Role.Name = "Role";
             this.Role.ReadOnly = true;
             // 
@@ -234,6 +249,7 @@
             // 
             this.Edit.HeaderText = "";
             this.Edit.Image = global::SupermarketManagementApp.Properties.Resources.grid_edit;
+            this.Edit.MinimumWidth = 6;
             this.Edit.Name = "Edit";
             this.Edit.ReadOnly = true;
             this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -242,6 +258,7 @@
             // 
             this.Delete.HeaderText = "";
             this.Delete.Image = global::SupermarketManagementApp.Properties.Resources.grid_delete;
+            this.Delete.MinimumWidth = 6;
             this.Delete.Name = "Delete";
             this.Delete.ReadOnly = true;
             this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -278,6 +295,7 @@
             this.dataGridViewImageColumn1.FillWeight = 50F;
             this.dataGridViewImageColumn1.HeaderText = "";
             this.dataGridViewImageColumn1.Image = global::SupermarketManagementApp.Properties.Resources.grid_account;
+            this.dataGridViewImageColumn1.MinimumWidth = 6;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.ReadOnly = true;
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -287,6 +305,7 @@
             // 
             this.dataGridViewImageColumn2.HeaderText = "";
             this.dataGridViewImageColumn2.Image = global::SupermarketManagementApp.Properties.Resources.grid_edit;
+            this.dataGridViewImageColumn2.MinimumWidth = 6;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.Width = 139;
@@ -295,6 +314,7 @@
             // 
             this.dataGridViewImageColumn3.HeaderText = "";
             this.dataGridViewImageColumn3.Image = global::SupermarketManagementApp.Properties.Resources.grid_delete;
+            this.dataGridViewImageColumn3.MinimumWidth = 6;
             this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
             this.dataGridViewImageColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn3.Width = 139;
@@ -319,7 +339,7 @@
             this.txtBoxSearchAccount.IconRightOffset = new System.Drawing.Point(15, -1);
             this.txtBoxSearchAccount.IconRightSize = new System.Drawing.Size(25, 25);
             this.txtBoxSearchAccount.Location = new System.Drawing.Point(45, 35);
-            this.txtBoxSearchAccount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBoxSearchAccount.Margin = new System.Windows.Forms.Padding(4);
             this.txtBoxSearchAccount.Name = "txtBoxSearchAccount";
             this.txtBoxSearchAccount.PasswordChar = '\0';
             this.txtBoxSearchAccount.PlaceholderForeColor = System.Drawing.Color.Silver;
@@ -328,10 +348,11 @@
             this.txtBoxSearchAccount.Size = new System.Drawing.Size(285, 45);
             this.txtBoxSearchAccount.TabIndex = 6;
             this.txtBoxSearchAccount.TextOffset = new System.Drawing.Point(5, 0);
+            this.txtBoxSearchAccount.TextChanged += new System.EventHandler(this.txtBoxSearchAccount_TextChanged);
             // 
             // FormAccountManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(984, 761);
@@ -356,17 +377,18 @@
         private Guna.UI2.WinForms.Guna2DataGridView gridViewMain;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private Guna.UI2.WinForms.Guna2VScrollBar scrollBar;
-        private System.Windows.Forms.DataGridViewImageColumn icon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AccountName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Username;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Role;
-        private System.Windows.Forms.DataGridViewImageColumn Edit;
-        private System.Windows.Forms.DataGridViewImageColumn Delete;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
         private Guna.UI2.WinForms.Guna2MessageDialog msgBoxDelete;
         private Guna.UI2.WinForms.Guna2MessageDialog msgBoxError;
         private Guna.UI2.WinForms.Guna2MessageDialog msgBoxInfo;
         private Guna.UI2.WinForms.Guna2TextBox txtBoxSearchAccount;
+        private System.Windows.Forms.DataGridViewImageColumn icon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDAccount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AccountName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Username;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Role;
+        private System.Windows.Forms.DataGridViewImageColumn Edit;
+        private System.Windows.Forms.DataGridViewImageColumn Delete;
     }
 }
