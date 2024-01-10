@@ -64,29 +64,13 @@ namespace SupermarketManagementApp.GUI
         {
             dtgvTopSellProducts.ColumnHeadersDefaultCellStyle.Font = new Font(dtgvTopSellProducts.Font, FontStyle.Bold);
             dtgvTopSellProducts.DefaultCellStyle.Font = new Font("Segoe UI", 12);
-            dtgvTopSellProducts.ColumnHeadersHeight = 50;
-
-            dtgvTopSellProducts.Columns.Add("Number", "#");
-            dtgvTopSellProducts.Columns.Add("Name", "Name");
-            dtgvTopSellProducts.Columns.Add("Count", "Count");
 
             // Add the first row with data
-            dtgvTopSellProducts.Rows.Add("01", "Vinamilk", 100);
-            dtgvTopSellProducts.Rows.Add("02", "Vinamilk", 100);
-            dtgvTopSellProducts.Rows.Add("03", "Vinamilk", 100);
-            dtgvTopSellProducts.Rows.Add("04", "Vinamilk", 100);
-            dtgvTopSellProducts.Rows.Add("05", "Vinamilk", 100);
-            dtgvTopSellProducts.Rows.Add("06", "Vinamilk", 100);
-            dtgvTopSellProducts.Rows.Add("07", "Vinamilk", 100);
-            dtgvTopSellProducts.Rows.Add("08", "Vinamilk", 100);
-
-            foreach (DataGridViewRow row in dtgvTopSellProducts.Rows)
-            {
-                row.Height = 50;
-            }
+            dtgvTopSellProducts.Rows.Add("#1", "Laptop", 563);
+            dtgvTopSellProducts.Rows.Add("#2", "Iphone", 235);
+            dtgvTopSellProducts.Rows.Add("#3", "Balo UIT", 127);
         }
+
         #endregion
-
-
     }
 }
