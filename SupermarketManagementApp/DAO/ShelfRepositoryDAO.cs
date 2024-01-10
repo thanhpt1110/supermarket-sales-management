@@ -1,4 +1,4 @@
-﻿using SupermarketManagementApp.DAO;
+﻿using SupermarketManagementApp.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using SupermarketManagementApp.ErrorHandle;
 using System.Linq.Expressions;
 
-namespace SupermarketManagementApp.Infrastructure.Repository
+namespace SupermarketManagementApp.DAO
 {
-    public class ShelfRepository:GenericRepository<Shelf>
+    public class ShelfRepositoryDAO: GenericRepositoryDAO<Shelf>
     {
-        public ShelfRepository():base() { }
-        public ShelfRepository(SupermarketContext context) : base(context) { }
+        public ShelfRepositoryDAO():base() { }
+        public ShelfRepositoryDAO(SupermarketContext context) : base(context) { }
         public override Task<Shelf> Add(Shelf entity)
         {
             try

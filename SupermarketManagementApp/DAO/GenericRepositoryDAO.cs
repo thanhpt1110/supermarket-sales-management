@@ -1,4 +1,4 @@
-﻿using SupermarketManagementApp.DAO;
+﻿using SupermarketManagementApp.DTO;
 using SupermarketManagementApp.ErrorHandle;
 using System;
 using System.Collections.Generic;
@@ -9,16 +9,16 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SupermarketManagementApp.Infrastructure.Repository
+namespace SupermarketManagementApp.DAO
 {
-    public abstract class GenericRepository<T> : IRepository<T> where T : class
+    public abstract class GenericRepositoryDAO<T> : IRepositoryDAO<T> where T : class
     {
         protected SupermarketContext context;
-        public GenericRepository()
+        public GenericRepositoryDAO()
         {
             this.context = new SupermarketContext();
         }
-        public GenericRepository(SupermarketContext context)
+        public GenericRepositoryDAO(SupermarketContext context)
         {
             this.context = context;
         }

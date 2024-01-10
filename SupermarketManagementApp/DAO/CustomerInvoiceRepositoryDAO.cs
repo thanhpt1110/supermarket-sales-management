@@ -1,4 +1,4 @@
-﻿using SupermarketManagementApp.DAO;
+﻿using SupermarketManagementApp.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,13 +6,13 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using SupermarketManagementApp.ErrorHandle;
-namespace SupermarketManagementApp.Infrastructure.Repository
+namespace SupermarketManagementApp.DAO
 {
-    public class CustomerInvoiceRepository: GenericRepository<CustomerInvoice>
+    public class CustomerInvoiceRepositoryDAO: GenericRepositoryDAO<CustomerInvoice>
     {
-        public CustomerInvoiceRepository():base() { 
+        public CustomerInvoiceRepositoryDAO():base() { 
         }
-        public CustomerInvoiceRepository(SupermarketContext context) : base(context)
+        public CustomerInvoiceRepositoryDAO(SupermarketContext context) : base(context)
         {
         }
         public override async Task<CustomerInvoice> Add(CustomerInvoice entity)

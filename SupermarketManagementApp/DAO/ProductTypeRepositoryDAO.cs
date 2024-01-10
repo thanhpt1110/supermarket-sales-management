@@ -1,4 +1,4 @@
-﻿using SupermarketManagementApp.DAO;
+﻿using SupermarketManagementApp.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using SupermarketManagementApp.ErrorHandle;
 using System.Linq.Expressions;
 
-namespace SupermarketManagementApp.Infrastructure.Repository
+namespace SupermarketManagementApp.DAO
 {
-    public class ProductTypeRepository: GenericRepository<ProductType>
+    public class ProductTypeRepositoryDAO: GenericRepositoryDAO<ProductType>
     {
-        public ProductTypeRepository():base() { }
-        public ProductTypeRepository(SupermarketContext context) : base(context) { }
+        public ProductTypeRepositoryDAO():base() { }
+        public ProductTypeRepositoryDAO(SupermarketContext context) : base(context) { }
         public override async Task<ProductType> FindByID(long id)
         {
             try

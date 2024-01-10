@@ -30,12 +30,12 @@ namespace SupermarketManagementApp.GUI.Account
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
-            DAO.Account account = new DAO.Account();
+            DTO.Account account = new DTO.Account();
             account.Username = txtBoxUsername.Text;
             account.Password = txtBoxPassword.Text;
             account.Role = this.cbBoxRole.SelectedText;
             account.EmployeeID = 1; // Để tạm
-            Result<DAO.Account> result = await accountBUS.createNewAccount(account);
+            Result<DTO.Account> result = await accountBUS.createNewAccount(account);
             if (result.IsSuccess)
             {
                 MessageBox.Show("Create account success");

@@ -1,4 +1,4 @@
-﻿using SupermarketManagementApp.DAO;
+﻿using SupermarketManagementApp.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +8,12 @@ using SupermarketManagementApp.ErrorHandle;
 using System.Data.Entity;
 using System.Linq.Expressions;
 
-namespace SupermarketManagementApp.Infrastructure.Repository
+namespace SupermarketManagementApp.DAO
 {
-    public class InventoryDetailRepository: GenericRepository<InventoryDetail>
+    public class InventoryDetailRepositoryDAO: GenericRepositoryDAO<InventoryDetail>
     {
-        public InventoryDetailRepository():base() { }
-        public InventoryDetailRepository(SupermarketContext context) : base(context) { }
+        public InventoryDetailRepositoryDAO():base() { }
+        public InventoryDetailRepositoryDAO(SupermarketContext context) : base(context) { }
         public override async Task<InventoryDetail> Update(InventoryDetail entity)
         {
             try

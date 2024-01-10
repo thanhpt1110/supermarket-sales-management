@@ -43,7 +43,7 @@ CREATE TABLE ProductType (
 CREATE TABLE Product (
     ProductID BIGINT PRIMARY KEY IDENTITY ,
 	ProductTypeID INT,
-    ProductName NVARCHAR(max),
+    ProductName NVARCHAR(255),
     UnitPrice FLOAT,
     WholeSaleUnit NVARCHAR(max),
     RetailUnit NVARCHAR(max),
@@ -125,3 +125,5 @@ VALUES ( 'NhanVien Employee', '01-01-1995', '987654321', 'ID456', 'Male');
 INSERT INTO Account (EmployeeID, Username, Password, Role)
 VALUES (2, 'nhanvien', '1234', 'Employee');
 SELECT * FROM Account
+INSERT INTO Customer(CustomerName, Birthday, PhoneNumber, Gender)
+VALUES ( N'Khách hàng 1', '01-01-1995', '987654321', 'Male');

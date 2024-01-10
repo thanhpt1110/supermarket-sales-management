@@ -15,7 +15,7 @@ namespace SupermarketManagementApp.GUI.Employee
 {
     public partial class FormUpdateEmployee : Form
     {
-        private DAO.Employee employee;
+        private DTO.Employee employee;
         private EmployeeBUS employeeBUS;
         private FormEmployeeManagement formEmployeeManagement;
         public FormUpdateEmployee()
@@ -31,15 +31,16 @@ namespace SupermarketManagementApp.GUI.Employee
         }
         private async void loadEmployee(long _id)
         {
-            Result<DAO.Employee> result = await employeeBUS.findEmployeeByID(_id);
-            if(result.IsSuccess)
+            Result<DTO.Employee> result = await employeeBUS.findEmployeeByID(_id);
+            employee = new DTO.Employee();
+            if (result.IsSuccess)
             {
-                this.employee = result.Data;
-                this.txtBoxEmployeeName.Text = employee.EmployeeName;
-                this.txtBoxIdCardNumber.Text = employee.IdCardNumber;
-                this.txtBoxPhoneNumber.Text = employee.PhoneNumber;
-                this.cbBoxGender.Text = employee.Gender;
-                this.birthDayPicker.Value = employee.Birthday;
+                this.employee.EmployeeID = result.Data.EmployeeID;
+                this.txtBoxEmployeeName.Text = result.Data.EmployeeName;
+                this.txtBoxIdCardNumber.Text = result.Data.IdCardNumber;
+                this.txtBoxPhoneNumber.Text = result.Data.PhoneNumber;
+                this.cbBoxGender.Text = result.Data.Gender;
+                this.birthDayPicker.Value = result.Data.Birthday;
             }
             else
             {
@@ -59,7 +60,7 @@ namespace SupermarketManagementApp.GUI.Employee
             employee.EmployeeName = txtBoxEmployeeName.Text;
             employee.IdCardNumber = txtBoxIdCardNumber.Text;
             employee.Gender = cbBoxGender.Text;
-            Result<DAO.Employee> result = await employeeBUS.updateEmployee(employee);
+            Result<DTO.Employee> result = await employeeBUS.updateEmployee(employee);
             if(result.IsSuccess)
             {
                 MessageBox.Show("Update employee success");

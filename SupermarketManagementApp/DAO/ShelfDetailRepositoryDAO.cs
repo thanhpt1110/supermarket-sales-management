@@ -1,16 +1,16 @@
-﻿using SupermarketManagementApp.DAO;
+﻿using SupermarketManagementApp.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SupermarketManagementApp.ErrorHandle;
-namespace SupermarketManagementApp.Infrastructure.Repository
+namespace SupermarketManagementApp.DAO
 {
-    public class ShelfDetailRepository: GenericRepository<ShelfDetail>
+    public class ShelfDetailRepositoryDAO: GenericRepositoryDAO<ShelfDetail>
     {
-        public ShelfDetailRepository():base() { }
-        public ShelfDetailRepository(SupermarketContext context) : base(context) { }
+        public ShelfDetailRepositoryDAO():base() { }
+        public ShelfDetailRepositoryDAO(SupermarketContext context) : base(context) { }
         public override async Task UpdateManyAsync(IEnumerable<ShelfDetail> entities)
         {
             try

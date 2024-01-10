@@ -29,12 +29,12 @@ namespace SupermarketManagementApp.BUS
             }
             return instance;
         }
-        public async Task<Result<DAO.Account>> getAccountByID(int id)
+        public async Task<Result<DTO.Account>> getAccountByID(int id)
         {
-            Result<DAO.Account> result = new Result<DAO.Account> ();
+            Result<DTO.Account> result = new Result<DTO.Account> ();
             try
             {
-                result.Data = await unitOfWork.AccountRepository.FindByID(id);
+                result.Data = await unitOfWork.AccountRepositoryDAO.FindByID(id);
                 result.IsSuccess = true;
                 result.ErrorMessage = null;
             }
@@ -46,12 +46,12 @@ namespace SupermarketManagementApp.BUS
             }
             return result;
         }
-        public async Task<Result<IEnumerable<DAO.Account>>> findAccountByUsername(string userName)
+        public async Task<Result<IEnumerable<DTO.Account>>> findAccountByUsername(string userName)
         {
-            Result<IEnumerable<DAO.Account>> result = new Result<IEnumerable<DAO.Account>>();
+            Result<IEnumerable<DTO.Account>> result = new Result<IEnumerable<DTO.Account>>();
             try
             {
-                result.Data = await unitOfWork.AccountRepository.Find(account => account.Username.Contains(userName));
+                result.Data = await unitOfWork.AccountRepositoryDAO.Find(account => account.Username.Contains(userName));
                 result.IsSuccess = true;
                 result.ErrorMessage = null;
             }
@@ -63,12 +63,12 @@ namespace SupermarketManagementApp.BUS
             }
             return result;
         }
-        public async Task<Result<IEnumerable<DAO.Account>>> getAllAccount()
+        public async Task<Result<IEnumerable<DTO.Account>>> getAllAccount()
         {
-            Result<IEnumerable<DAO.Account>> result = new Result<IEnumerable<DAO.Account>>();
+            Result<IEnumerable<DTO.Account>> result = new Result<IEnumerable<DTO.Account>>();
             try
             {
-                result.Data = await unitOfWork.AccountRepository.GetAll();
+                result.Data = await unitOfWork.AccountRepositoryDAO.GetAll();
                 result.IsSuccess = true;
                 result.ErrorMessage = null;
             }
@@ -80,9 +80,9 @@ namespace SupermarketManagementApp.BUS
             }
             return result;
         }
-        public async Task<Result<DAO.Account>> createNewAccount(DAO.Account account)
+        public async Task<Result<DTO.Account>> createNewAccount(DTO.Account account)
         {
-            Result<DAO.Account> result = new Result<DAO.Account>();
+            Result<DTO.Account> result = new Result<DTO.Account>();
             if (string.IsNullOrEmpty(account.Username) || string.IsNullOrEmpty(account.Password) || account.EmployeeID == 0
                 || string.IsNullOrEmpty(account.Role))
             {
@@ -94,7 +94,7 @@ namespace SupermarketManagementApp.BUS
             {
                 try
                 {
-                    result.Data = await unitOfWork.AccountRepository.Add(account);
+                    result.Data = await unitOfWork.AccountRepositoryDAO.Add(account);
                     result.IsSuccess = true;
                     result.ErrorMessage = null;
                     await unitOfWork.SaveChanges();
@@ -110,9 +110,9 @@ namespace SupermarketManagementApp.BUS
             }
             return result;
         }
-        public async Task<Result<DAO.Account>> updateAccount(DAO.Account account)
+        public async Task<Result<DTO.Account>> updateAccount(DTO.Account account)
         {
-            Result<DAO.Account> result = new Result<DAO.Account>();
+            Result<DTO.Account> result = new Result<DTO.Account>();
             if (string.IsNullOrEmpty(account.Username) || string.IsNullOrEmpty(account.Password) || account.EmployeeID == 0)
             {
                 result.Data = null;
@@ -123,7 +123,7 @@ namespace SupermarketManagementApp.BUS
             {
                 try
                 {
-                    result.Data = await unitOfWork.AccountRepository.Update(account);
+                    result.Data = await unitOfWork.AccountRepositoryDAO.Update(account);
                     result.IsSuccess = true;
                     result.ErrorMessage = null;
                     await unitOfWork.SaveChanges();
@@ -145,7 +145,7 @@ namespace SupermarketManagementApp.BUS
             Result<Boolean> result = new Result<Boolean>();
             try
             {
-                result.Data = await unitOfWork.AccountRepository.RemoveByID(accountId);
+                result.Data = await unitOfWork.AccountRepositoryDAO.RemoveByID(accountId);
                 result.IsSuccess = true;
                 result.ErrorMessage = null;
                 await unitOfWork.SaveChanges();

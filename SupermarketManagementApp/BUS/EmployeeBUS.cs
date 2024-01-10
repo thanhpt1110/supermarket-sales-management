@@ -1,4 +1,4 @@
-﻿using SupermarketManagementApp.DAO;
+﻿using SupermarketManagementApp.DTO;
 using SupermarketManagementApp.Infrastructure;
 using SupermarketManagementApp.Utils;
 using System;
@@ -33,7 +33,7 @@ namespace SupermarketManagementApp.BUS
             Result<IEnumerable<Employee>> result = new Result<IEnumerable<Employee>>();
             try
             {
-                result.Data = await unitOfWork.EmployeeRepository.GetAll();
+                result.Data = await unitOfWork.EmployeeRepositoryDAO.GetAll();
                 result.IsSuccess = true;
                 result.ErrorMessage = string.Empty;
             }
@@ -62,7 +62,7 @@ namespace SupermarketManagementApp.BUS
             {
                 try
                 {
-                    result.Data = await unitOfWork.EmployeeRepository.Add(employee);
+                    result.Data = await unitOfWork.EmployeeRepositoryDAO.Add(employee);
                     result.IsSuccess = true;
                 }
                 catch (Exception ex)
@@ -79,7 +79,7 @@ namespace SupermarketManagementApp.BUS
             Result<IEnumerable<Employee>> result = new Result<IEnumerable<Employee>>();
             try
             {
-                result.Data = await unitOfWork.EmployeeRepository.Find(p=>p.EmployeeName.Contains(name));
+                result.Data = await unitOfWork.EmployeeRepositoryDAO.Find(p=>p.EmployeeName.Contains(name));
                 result.IsSuccess = true;
                 result.ErrorMessage = string.Empty;
             }
@@ -94,7 +94,7 @@ namespace SupermarketManagementApp.BUS
             Result<bool> result = new Result<bool>();
             try
             {
-                result.Data = await unitOfWork.EmployeeRepository.RemoveByID(id);
+                result.Data = await unitOfWork.EmployeeRepositoryDAO.RemoveByID(id);
                 result.IsSuccess = true;
                 result.ErrorMessage = string.Empty;
             }
@@ -110,7 +110,7 @@ namespace SupermarketManagementApp.BUS
             Result<Employee> result = new Result<Employee>();
             try
             {
-                result.Data = await unitOfWork.EmployeeRepository.FindByID(id);
+                result.Data = await unitOfWork.EmployeeRepositoryDAO.FindByID(id);
                 result.IsSuccess = true;
                 result.ErrorMessage = string.Empty;
             }
@@ -139,7 +139,7 @@ namespace SupermarketManagementApp.BUS
             {
                 try
                 {
-                    result.Data = await unitOfWork.EmployeeRepository.Update(employee);
+                    result.Data = await unitOfWork.EmployeeRepositoryDAO.Update(employee);
                     result.IsSuccess = true; 
                     result.ErrorMessage = string.Empty;
                 }

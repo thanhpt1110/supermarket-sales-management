@@ -85,19 +85,19 @@
     <Compile Include="BUS\ProductBUS.cs" />
     <Compile Include="BUS\ProductTypeBUS.cs" />
     <Compile Include="BUS\ShelfBUS.cs" />
-    <Compile Include="DAO\Account.cs" />
-    <Compile Include="DAO\Customer.cs" />
-    <Compile Include="DAO\CustomerInvoice.cs" />
-    <Compile Include="DAO\CustomerInvoiceDetail.cs" />
-    <Compile Include="DAO\Employee.cs" />
-    <Compile Include="DAO\InventoryDetail.cs" />
-    <Compile Include="DAO\Product.cs" />
-    <Compile Include="DAO\ProductType.cs" />
-    <Compile Include="DAO\Shelf.cs" />
-    <Compile Include="DAO\ShelfDetail.cs" />
-    <Compile Include="DAO\SupermarketContext.cs" />
-    <Compile Include="DAO\SupplierInvoice.cs" />
-    <Compile Include="DAO\SupplierInvoiceDetail.cs" />
+    <Compile Include="DTO\Account.cs" />
+    <Compile Include="DTO\Customer.cs" />
+    <Compile Include="DTO\CustomerInvoice.cs" />
+    <Compile Include="DTO\CustomerInvoiceDetail.cs" />
+    <Compile Include="DTO\Employee.cs" />
+    <Compile Include="DTO\InventoryDetail.cs" />
+    <Compile Include="DTO\Product.cs" />
+    <Compile Include="DTO\ProductType.cs" />
+    <Compile Include="DTO\Shelf.cs" />
+    <Compile Include="DTO\ShelfDetail.cs" />
+    <Compile Include="DTO\SupermarketContext.cs" />
+    <Compile Include="DTO\SupplierInvoice.cs" />
+    <Compile Include="DTO\SupplierInvoiceDetail.cs" />
     <Compile Include="ErrorHandle\ExistedObjectException.cs" />
     <Compile Include="ErrorHandle\NotExistedObjectException.cs" />
     <Compile Include="ErrorHandle\ObjectDependException.cs" />
@@ -287,15 +287,15 @@
     <Compile Include="GUI\Shelf\FormUpdateShelf.Designer.cs">
       <DependentUpon>FormUpdateShelf.cs</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\Repository\CustomerRepository.cs" />
-    <Compile Include="Infrastructure\Repository\InventoryDetailRepository.cs" />
-    <Compile Include="Infrastructure\Repository\ProductTypeRepository.cs" />
-    <Compile Include="Infrastructure\Repository\CustomerInvoiceRepository.cs" />
-    <Compile Include="Infrastructure\Repository\ProductRepository.cs" />
+    <Compile Include="DAO\CustomerRepositoryDAO.cs" />
+    <Compile Include="DAO\InventoryDetailRepositoryDAO.cs" />
+    <Compile Include="DAO\ProductTypeRepositoryDAO.cs" />
+    <Compile Include="DAO\CustomerInvoiceRepositoryDAO.cs" />
+    <Compile Include="DAO\ProductRepositoryDAO.cs" />
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
-    <Compile Include="Infrastructure\Repository\ShelfDetailRepository.cs" />
-    <Compile Include="Infrastructure\Repository\ShelfRepository.cs" />
-    <Compile Include="Infrastructure\Repository\SupplierInvoiceRepository.cs" />
+    <Compile Include="DAO\ShelfDetailRepositoryDAO.cs" />
+    <Compile Include="DAO\ShelfRepositoryDAO.cs" />
+    <Compile Include="DAO\SupplierInvoiceRepositoryDAO.cs" />
     <Compile Include="Utils\Result.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
     <Compile Include="Program.cs" />
@@ -305,10 +305,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\Repository\AccountRepository.cs" />
-    <Compile Include="Infrastructure\Repository\EmployeeRepository.cs" />
-    <Compile Include="Infrastructure\Repository\GenericRepository.cs" />
-    <Compile Include="Infrastructure\Repository\IRepository.cs" />
+    <Compile Include="DAO\AccountRepositoryDAO.cs" />
+    <Compile Include="DAO\EmployeeRepositoryDAO.cs" />
+    <Compile Include="DAO\GenericRepositoryDAO.cs" />
+    <Compile Include="DAO\IRepositoryDAO.cs" />
     <Compile Include="Utils\DbHelper.cs" />
     <Compile Include="Utils\FormBackground.cs">
       <SubType>Form</SubType>

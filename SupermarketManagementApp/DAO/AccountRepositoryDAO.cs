@@ -1,22 +1,23 @@
-﻿using SupermarketManagementApp.DAO;
+﻿using SupermarketManagementApp.DTO;
 using SupermarketManagementApp.ErrorHandle;
 using SupermarketManagementApp.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SupermarketManagementApp.Infrastructure.Repository
+namespace SupermarketManagementApp.DAO
 {
-    public class AccountRepository : GenericRepository<Account>
+    public class AccountRepositoryDAO : GenericRepositoryDAO<Account>
     {
-        public AccountRepository(SupermarketContext context) : base(context)
+        public AccountRepositoryDAO(SupermarketContext context) : base(context)
         {
         }
-        public AccountRepository():base()
+        public AccountRepositoryDAO():base()
         {
         }
         public override async Task<Account> FindByID(long id)
@@ -45,14 +46,17 @@ namespace SupermarketManagementApp.Infrastructure.Repository
         {
             try
             {
-                var account = await context.Accounts.FindAsync(entity.AccountID);
-                if (account == null)
+                var account = await context.Accounts.FindAsync(entity.AccountID) ?? throw (new NotExistedObjectException("Account not existed"));
+                if (account.Username != entity.Username && await context.Accounts.SingleOrDefaultAsync(p=>p.Username == entity.Username)!=null)
                 {
-                    throw (new NotExistedObjectException("Account not existed"));
+                    throw new ExistedObjectException("This username is already existed");
                 }
                 account.Username = entity.Username;
+                account.Password = entity.Password;
                 account.Role = entity.Role;
-                return await base.Update(account);
+                context.Accounts.AddOrUpdate(account);
+                await context.SaveChangesAsync();
+                return account;
             }
             catch (Exception ex)
             {

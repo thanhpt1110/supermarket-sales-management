@@ -1,23 +1,24 @@
-﻿using SupermarketManagementApp.DAO;
+﻿using SupermarketManagementApp.DTO;
 using SupermarketManagementApp.ErrorHandle;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SupermarketManagementApp.Infrastructure.Repository
+namespace SupermarketManagementApp.DAO
 {
-    public class EmployeeRepository: GenericRepository<Employee>
+    public class EmployeeRepositoryDAO: GenericRepositoryDAO<Employee>
     {
-        public EmployeeRepository():base()
+        public EmployeeRepositoryDAO():base()
         { 
 
         }
-        public EmployeeRepository(SupermarketContext context):base(context)
+        public EmployeeRepositoryDAO(SupermarketContext context):base(context)
         {
         }
         public override async Task<Employee> FindByID(long id)
@@ -50,10 +51,25 @@ namespace SupermarketManagementApp.Infrastructure.Repository
         {
             try
             {
-                if(await context.Employees.FindAsync(entity.EmployeeID)!=null) {
+                var employee = await context.Employees.FindAsync(entity.EmployeeID);
+                if(employee == null) {
                     throw new NotExistedObjectException("Employee is not existeđ");
                 }
-                return await base.Update(entity);
+                if(entity.PhoneNumber != employee.PhoneNumber && await context.Employees.SingleOrDefaultAsync(p=>p.PhoneNumber==entity.PhoneNumber) != null)
+                {
+                    throw new ExistedObjectException("This phone number is already existeđ");
+                }
+                if (entity.IdCardNumber != employee.IdCardNumber && await context.Employees.SingleOrDefaultAsync(p => p.IdCardNumber == entity.IdCardNumber) != null)
+                {
+                    throw new ExistedObjectException("This id card number is already existeđ");
+                }
+                employee.PhoneNumber = entity.PhoneNumber;
+                employee.IdCardNumber = entity.IdCardNumber;
+                employee.Birthday = entity.Birthday;
+                employee.EmployeeName = entity.EmployeeName;
+                context.Employees.AddOrUpdate(employee);
+                await context.SaveChangesAsync();
+                return employee;   
             }
             catch (DbUpdateException ex)
             {

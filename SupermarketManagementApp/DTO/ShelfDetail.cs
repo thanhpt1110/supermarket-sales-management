@@ -1,4 +1,4 @@
-namespace SupermarketManagementApp.DAO
+namespace SupermarketManagementApp.DTO
 {
     using System;
     using System.Collections.Generic;
