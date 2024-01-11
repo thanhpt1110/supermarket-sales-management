@@ -64,7 +64,9 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
             gridView.Rows.Clear();
             foreach (var customerInvoice in customerInvoices)
             {
-                gridView.Rows.Add(new object[] { null, customerInvoice.CustomerInvoiceID, customerInvoice.Employee.EmployeeName, customerInvoice.Customer.CustomerName, customerInvoice.DatePayment, customerInvoice.TotalAmount });
+               
+                string TotalAmount = string.Format("{0:N0} VNĐ", customerInvoice.TotalAmount);
+                gridView.Rows.Add(new object[] { null, customerInvoice.CustomerInvoiceID, customerInvoice.Employee.EmployeeName, customerInvoice.Customer.CustomerName, customerInvoice.DatePayment, TotalAmount });
             }
         }
 
@@ -120,7 +122,7 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
             if (e.RowIndex == -1)
             {
                 // Kiểm tra xem có phải là header của cột 2, 3, 4 hoặc header của cột 4, 5
-                if (e.ColumnIndex >= 1 && e.ColumnIndex <= 4)
+                if (e.ColumnIndex >= 2 && e.ColumnIndex <= 5)
                 {
                     gridView.Cursor = Cursors.Hand;
                     return;
@@ -128,7 +130,7 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
             }
 
             // Nếu không phải là header của cột và nằm trong khoảng cột 4, 5, đặt kiểu cursor thành Hand
-            if (e.RowIndex >= 0 && e.ColumnIndex == 5)
+            if (e.RowIndex >= 0 && e.ColumnIndex == 6)
             {
                 gridView.Cursor = Cursors.Hand;
                 return;
@@ -165,8 +167,38 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
         {
             try
             {
-                msgBoxError.Parent = formMain;
-                msgBoxError.Show();
+                if (gridView.Rows.Count > 0)
+                {
+                    Microsoft.Office.Interop.Excel.Application XcelApp = new Microsoft.Office.Interop.Excel.Application();
+                    XcelApp.Application.Workbooks.Add(Type.Missing);
+
+                    int row = gridView.Rows.Count;
+                    int col = gridView.Columns.Count;
+
+                    // Get Header text of Column
+                    for (int i = 1; i < col - 1 + 1; i++)
+                    {
+                        if (i == 1) continue;
+                        XcelApp.Cells[1, i - 1] = gridView.Columns[i - 1].HeaderText;
+                    }
+
+                    // Get data of cells
+                    for (int i = 0; i < row; i++)
+                    {
+                        for (int j = 1; j < col - 1; j++)
+                        {
+                            XcelApp.Cells[i + 2, j] = gridView.Rows[i].Cells[j].Value.ToString();
+                        }
+                    }
+
+                    XcelApp.Columns.AutoFit();
+                    XcelApp.Visible = true;
+                }
+                else
+                {
+                    msgBoxError.Parent = formMain;
+                    msgBoxError.Show("Error");
+                }
             }
             catch (Exception ex)
             {
@@ -179,7 +211,7 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
         {
             if (e.RowIndex >= 0)
             {
-                if (e.ColumnIndex == 5)
+                if (e.ColumnIndex == 6)
                 {
                     // View infor details
                     FormBackground formBackground = new FormBackground(formMain);

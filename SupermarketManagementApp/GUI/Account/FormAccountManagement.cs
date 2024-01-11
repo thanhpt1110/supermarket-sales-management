@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls;
+using System.Windows;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
 using SupermarketManagementApp.BUS;
 using SupermarketManagementApp.Properties;
 using SupermarketManagementApp.Utils;
+using MessageBox = System.Windows.MessageBox;
 
 namespace SupermarketManagementApp.GUI.Account
 {
@@ -67,7 +69,7 @@ namespace SupermarketManagementApp.GUI.Account
         private void CustomStyleGridView()
         {
             gridView = gridViewMain;
-            gridView.ColumnHeadersDefaultCellStyle.Font = new Font(gridView.Font, FontStyle.Bold);
+            gridView.ColumnHeadersDefaultCellStyle.Font = new Font(gridView.Font, System.Drawing.FontStyle.Bold);
             gridView.DefaultCellStyle.Font = new Font("Segoe UI", 12);
         }
 
@@ -160,8 +162,38 @@ namespace SupermarketManagementApp.GUI.Account
         {
             try
             {
-                msgBoxError.Parent = formMain;
-                msgBoxError.Show();
+                if (gridView.Rows.Count > 0)
+                {
+                    Microsoft.Office.Interop.Excel.Application XcelApp = new Microsoft.Office.Interop.Excel.Application();
+                    XcelApp.Application.Workbooks.Add(Type.Missing);
+
+                    int row = gridView.Rows.Count;
+                    int col = gridView.Columns.Count;
+
+                    // Get Header text of Column
+                    for (int i = 1; i < col - 2 + 1; i++)
+                    {
+                        if (i == 1) continue;
+                        XcelApp.Cells[1, i - 1] = gridView.Columns[i - 1].HeaderText;
+                    }
+
+                    // Get data of cells
+                    for (int i = 0; i < row; i++)
+                    {
+                        for (int j = 1; j < col - 2; j++)
+                        {
+                            XcelApp.Cells[i + 2, j] = gridView.Rows[i].Cells[j].Value.ToString();
+                        }
+                    }
+
+                    XcelApp.Columns.AutoFit();
+                    XcelApp.Visible = true;
+                }
+                else
+                {
+                    msgBoxError.Parent = formMain;
+                    msgBoxError.Show( "Error");
+                }
             }
             catch (Exception ex)
             {
@@ -209,7 +241,7 @@ namespace SupermarketManagementApp.GUI.Account
                                 Result<bool> result = await accountBUS.deleteAccount(int.Parse(gridView.Rows[y].Cells[1].Value.ToString()));
                                 if (result.IsSuccess)
                                 {
-                                    MessageBox.Show("Remove account successfully!", "Success", MessageBoxButtons.OK);
+                                    MessageBox.Show("Remove account successfully!", "Success", MessageBoxButton.OK);
                                     InitAllAccount();
                                 }
                                 else
