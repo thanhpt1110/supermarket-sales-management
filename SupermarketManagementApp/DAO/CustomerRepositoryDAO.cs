@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using SupermarketManagementApp.ErrorHandle;
 using System.Linq.Expressions;
 using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Migrations;
 
 namespace SupermarketManagementApp.DAO
 {
@@ -79,7 +80,7 @@ namespace SupermarketManagementApp.DAO
                 {
                     throw new NotExistedObjectException("Customer is not existed");
                 }
-                if (customer.CustomerInvoices != null)
+                if (customer.CustomerInvoices.Count > 0)
                 {
                     throw new ObjectDependException("Couldn't remove this customer");
                 }
@@ -96,7 +97,13 @@ namespace SupermarketManagementApp.DAO
                 {
                     throw new NotExistedObjectException("Customer is not existed");
                 }
-                return await base.Update(entity);
+                customer.PhoneNumber = entity.PhoneNumber;
+                customer.Birthday = entity.Birthday;
+                customer.Gender = entity.Gender;
+                customer.CustomerName = entity.CustomerName;
+                context.Customers.AddOrUpdate(customer);
+                await context.SaveChangesAsync();
+                return customer;
             }
             catch (DbUpdateException ex)
             {

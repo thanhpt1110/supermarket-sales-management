@@ -49,7 +49,7 @@ namespace SupermarketManagementApp.GUI.Product
         {
             DTO.Product product = new DTO.Product();
             product.ProductName = txtBoxProductName.Text;
-            product.UnitPrice = double.Parse(txtUnitConversion.Text);
+            product.UnitPrice = double.Parse(txtUnitPrice.Text);
             product.WholeSaleUnit = txtBoxWholesaleUnit.Text;
             product.RetailUnit = txtBoxRetailUnit.Text;
             product.ProductCapacity = int.Parse(txtBoxProductCapacity.Text);
