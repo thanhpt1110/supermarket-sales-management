@@ -50,13 +50,33 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
                 ("103", "Vegetable", 30, 80),
                 ("104", "Dairy", 45, 90),
                 ("105", "Meat", 60, 120),
-                ("101", "Grain", 38, 100),
+                ("101", "Grain", 128, 100),
             };
             foreach (var shelfData in shelvesData)
             {
                 string shelfName = "Shelf " + shelfData.ShelfID + " - " + shelfData.ShelfType;
                 panelShelfContainer.Controls.Add(Shelf(shelfData.ShelfID, shelfName, shelfData.UsedCapacity, shelfData.TotalCapacity));
             }
+        }
+
+        private void UpdateProgressBar(Guna2ProgressBar progressBar, int used, int total)
+        {
+            progressBar.Value = used;
+            progressBar.Maximum = total;
+
+            int remaining = total - used;
+            if (used <= total)
+            {
+                progressBar.ProgressColor = Color.ForestGreen;
+                progressBar.ProgressColor2 = Color.ForestGreen;
+            }
+            else
+            {
+                progressBar.ProgressColor = Color.Firebrick;
+                progressBar.ProgressColor2 = Color.Firebrick;
+            }
+
+            progressBar.Text = ("Capacity: " + used + " used, " + remaining + " remaining.");
         }
 
         private void btnExportExcel_Click(object sender, EventArgs e)
@@ -159,12 +179,7 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
             int startX = (fixedWidthPanel / 2 - shelfCapacity.Size.Width / 2);
             shelfCapacity.Location = new System.Drawing.Point(startX, 55);
 
-            shelfCapacity.Minimum = 0;
-            shelfCapacity.Maximum = totalCapacity;
-            shelfCapacity.Value = usedCapacity;
-            int remaining = totalCapacity - usedCapacity;
-            shelfCapacity.Text = ("Capacity: " + usedCapacity + " used, " + remaining + " remaining.");
-
+            UpdateProgressBar(shelfCapacity, usedCapacity, totalCapacity);
             return shelfCapacity;  
         }
     }

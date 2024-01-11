@@ -49,8 +49,8 @@
             this.panelOrderInformation = new Guna.UI2.WinForms.Guna2Panel();
             this.labelCustomerInfor = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.availableCapacity = new Guna.UI2.WinForms.Guna2ProgressBar();
+            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelCustomerInformation.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
@@ -358,6 +358,25 @@
             this.guna2Panel1.Size = new System.Drawing.Size(761, 115);
             this.guna2Panel1.TabIndex = 35;
             // 
+            // availableCapacity
+            // 
+            this.availableCapacity.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.availableCapacity.BorderRadius = 15;
+            this.availableCapacity.BorderThickness = 1;
+            this.availableCapacity.FillColor = System.Drawing.Color.DarkGray;
+            this.availableCapacity.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.availableCapacity.ForeColor = System.Drawing.Color.White;
+            this.availableCapacity.Location = new System.Drawing.Point(39, 39);
+            this.availableCapacity.Maximum = 999999999;
+            this.availableCapacity.Name = "availableCapacity";
+            this.availableCapacity.ProgressColor = System.Drawing.Color.ForestGreen;
+            this.availableCapacity.ProgressColor2 = System.Drawing.Color.ForestGreen;
+            this.availableCapacity.ShowText = true;
+            this.availableCapacity.Size = new System.Drawing.Size(681, 52);
+            this.availableCapacity.TabIndex = 15;
+            this.availableCapacity.TextMode = Guna.UI2.WinForms.Enums.ProgressBarTextMode.Custom;
+            this.availableCapacity.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            // 
             // guna2HtmlLabel2
             // 
             this.guna2HtmlLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -370,24 +389,6 @@
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(183, 32);
             this.guna2HtmlLabel2.TabIndex = 54;
             this.guna2HtmlLabel2.Text = "Inventory Capacity";
-            // 
-            // availableCapacity
-            // 
-            this.availableCapacity.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.availableCapacity.BorderRadius = 15;
-            this.availableCapacity.BorderThickness = 1;
-            this.availableCapacity.FillColor = System.Drawing.Color.DarkGray;
-            this.availableCapacity.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.availableCapacity.ForeColor = System.Drawing.Color.White;
-            this.availableCapacity.Location = new System.Drawing.Point(39, 39);
-            this.availableCapacity.Name = "availableCapacity";
-            this.availableCapacity.ProgressColor = System.Drawing.Color.ForestGreen;
-            this.availableCapacity.ProgressColor2 = System.Drawing.Color.ForestGreen;
-            this.availableCapacity.ShowText = true;
-            this.availableCapacity.Size = new System.Drawing.Size(681, 52);
-            this.availableCapacity.TabIndex = 15;
-            this.availableCapacity.TextMode = Guna.UI2.WinForms.Enums.ProgressBarTextMode.Custom;
-            this.availableCapacity.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             // 
             // FormCreateSupplierInvoice
             // 

@@ -68,6 +68,7 @@
             this.shelfCapacity.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.shelfCapacity.ForeColor = System.Drawing.Color.White;
             this.shelfCapacity.Location = new System.Drawing.Point(50, 80);
+            this.shelfCapacity.Maximum = 999999999;
             this.shelfCapacity.Name = "shelfCapacity";
             this.shelfCapacity.ProgressColor = System.Drawing.Color.ForestGreen;
             this.shelfCapacity.ProgressColor2 = System.Drawing.Color.ForestGreen;

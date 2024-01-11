@@ -46,6 +46,17 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
             progressBar.Maximum = total;
 
             int remaining = total - used;
+            if (used <= total)
+            {
+                progressBar.ProgressColor = Color.ForestGreen;
+                progressBar.ProgressColor2 = Color.ForestGreen;
+            }
+            else
+            {
+                progressBar.ProgressColor = Color.Firebrick;
+                progressBar.ProgressColor2 = Color.Firebrick;
+            }
+
             progressBar.Text = ("Capacity: " + used + " used, " + remaining + " remaining.");
         }
 
@@ -152,7 +163,7 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
             txtBoxProductName.SelectedText = "";
             txtBoxProductName.Size = new System.Drawing.Size(221, 36);
             txtBoxProductName.TabIndex = 12;
-            txtBoxProductName.Text = "0";
+            txtBoxProductName.Text = "";
             txtBoxProductName.TextOffset = new System.Drawing.Point(5, 0);
             txtBoxProductName.AutoCompleteCustomSource.AddRange(products.ToArray());
             txtBoxProductName.AutoCompleteMode = AutoCompleteMode.Suggest;
