@@ -124,7 +124,5 @@ namespace SupermarketManagementApp.DAO
         {
             context.SaveChanges();
         }
-
-
     }
 }
