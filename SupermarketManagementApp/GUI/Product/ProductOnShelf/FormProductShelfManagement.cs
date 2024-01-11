@@ -31,6 +31,7 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
         {
             InitializeComponent();
             this.formMain = formMain;
+            filterFloor.SelectedItem = "Floor 1";
         }
 
         // Phải load data trong sự kiện này thì UI mới cập nhật đúng

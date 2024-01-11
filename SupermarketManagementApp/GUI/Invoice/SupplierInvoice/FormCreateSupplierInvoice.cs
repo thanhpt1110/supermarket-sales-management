@@ -34,14 +34,7 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             productDictionary = new Dictionary<string, DTO.Product>();
             loadProduct();
         }
- 
-        List<string> productNames = new List<string>()
-        {
-            "abc xyz",
-            "abc ",
-            "dsa",
-            // Thêm tên sản phẩm khác vào đây
-        };
+
         private async void loadProduct()
         {
             Result<IEnumerable<DTO.Product>> productResult = await productBUS.getAllProduct();
