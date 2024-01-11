@@ -36,7 +36,6 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             LoadGridData();
             UpdateScrollBarValues();
         }
-
         private void LoadGridData()
         {
             gridView.Rows.Add(new object[] { null, "Sophia Johnson", "John Doe", "15/04/2022", "1,200,000" });
@@ -52,7 +51,7 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             gridView.Rows.Add(new object[] { null, "Amelia Moore", "Daniel Miller", "12/11/2022", "1,750,000" });
             gridView.Rows.Add(new object[] { null, "Oliver Harris", "Sophia Davis", "01/07/2022", "1,450,000" });
         }
-
+        
         #region Customize data grid
         private void CustomStyleGridView()
         {

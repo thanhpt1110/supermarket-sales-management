@@ -2,6 +2,9 @@
 using SupermarketManagementApp.ErrorHandle;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -19,22 +22,61 @@ namespace SupermarketManagementApp.DAO
             {
                 entity.DatePayment = DateTime.Now;
                 entity.TotalAmount = 0;
-                var customerInvoice = await base.Add(entity);
+                entity.EmployeeID = 1;
+                List<SupplierInvoiceDetail> suppliers = entity.SupplierInvoiceDetails.ToList();
+                entity.SupplierInvoiceDetails = null;
+                // Add SupplierInvoice to the context
+                context.SupplierInvoices.Add(entity);
 
-                foreach (SupplierInvoiceDetail customerInvoiceDetail in entity.SupplierInvoiceDetails)
-                {
-                    customerInvoiceDetail.SupllierInvoiceID = customerInvoice.SupplierInvoiceID;
-                    context.SupplierInvoiceDetails.Add(customerInvoiceDetail);
-                    entity.TotalAmount += customerInvoiceDetail.Product.UnitPrice * customerInvoiceDetail.ProductQuantity;
-                }
+                // Save changes to get the SupplierInvoiceID generated (assuming it's an auto-increment field)
                 await context.SaveChangesAsync();
-                return customerInvoice;
+
+                // Iterate through SupplierInvoiceDetails
+                foreach (SupplierInvoiceDetail supplierInvoiceDetail in suppliers)
+                {
+                    // Assign SupplierInvoiceID to each SupplierInvoiceDetail
+                    supplierInvoiceDetail.SupplierInvoiceID = entity.SupplierInvoiceID;
+
+                    // Add SupplierInvoiceDetail to the context
+
+                    // Update TotalAmount based on SupplierInvoiceDetails
+                    entity.TotalAmount += supplierInvoiceDetail.Product.UnitPrice * supplierInvoiceDetail.ProductQuantity;
+                    supplierInvoiceDetail.ProductID = supplierInvoiceDetail.Product.ProductID;
+                    supplierInvoiceDetail.Product = null;
+                    context.SupplierInvoiceDetails.Add(supplierInvoiceDetail);
+                }
+                context.SupplierInvoices.AddOrUpdate(entity);
+                // Update the SupplierInvoice entity with the calculated TotalAmount
+                context.Entry(entity).State = EntityState.Modified;
+
+                // Save changes to persist SupplierInvoiceDetails and update TotalAmount
+                await context.SaveChangesAsync();
+
+                return entity;
+            }
+            catch (DbUpdateException ex)
+            {
+                // Handle DbUpdateException (thrown by SaveChangesAsync)
+                // Log or handle the exception as needed
+                // You can inspect ex.InnerException for more details
+                Console.WriteLine("DbUpdateException occurred: " + ex.Message);
+
+                // Check the inner exception for more details
+                if (ex.InnerException != null)
+                {
+                    Console.WriteLine("Inner Exception: " + ex.InnerException.Message);
+                }
+
+                // Rethrow the exception or handle it based on your requirements
+                throw;
             }
             catch (Exception ex)
             {
+                // Handle exception (log, rethrow, etc.)
                 throw;
             }
         }
+
         public override Task<IEnumerable<SupplierInvoice>> Find(Expression<Func<SupplierInvoice, bool>> predicate)
         {
             try

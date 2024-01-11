@@ -46,7 +46,7 @@ namespace SupermarketManagementApp.DTO
             modelBuilder.Entity<SupplierInvoice>()
                 .HasMany(e => e.SupplierInvoiceDetails)
                 .WithOptional(e => e.SupplierInvoice)
-                .HasForeignKey(e => e.SupllierInvoiceID);
+                .HasForeignKey(e => e.SupplierInvoiceID);
         }
 
     }
