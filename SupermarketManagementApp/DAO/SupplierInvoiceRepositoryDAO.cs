@@ -17,11 +17,13 @@ namespace SupermarketManagementApp.DAO
         {
             try
             {
-                var customerInvoice = await base.Add(entity);
                 entity.DatePayment = DateTime.Now;
                 entity.TotalAmount = 0;
+                var customerInvoice = await base.Add(entity);
+
                 foreach (SupplierInvoiceDetail customerInvoiceDetail in entity.SupplierInvoiceDetails)
                 {
+                    customerInvoiceDetail.SupllierInvoiceID = customerInvoice.SupplierInvoiceID;
                     context.SupplierInvoiceDetails.Add(customerInvoiceDetail);
                     entity.TotalAmount += customerInvoiceDetail.Product.UnitPrice * customerInvoiceDetail.ProductQuantity;
                 }

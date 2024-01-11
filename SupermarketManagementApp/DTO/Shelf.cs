@@ -17,13 +17,13 @@ namespace SupermarketManagementApp.DTO
 
         public int ShelfID { get; set; }
 
-        public int? ShelfFloor { get; set; }
+        public int ShelfFloor { get; set; }
 
         public string ShelfType { get; set; }
 
-        public int? LayerQuantity { get; set; }
+        public int LayerQuantity { get; set; }
 
-        public int? LayerCapacity { get; set; }
+        public int LayerCapacity { get; set; }
 
         public string Status { get; set; }
 

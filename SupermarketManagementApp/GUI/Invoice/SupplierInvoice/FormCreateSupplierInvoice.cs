@@ -1,5 +1,6 @@
 ﻿using Guna.UI2.WinForms;
 using SupermarketManagementApp.BUS;
+using SupermarketManagementApp.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,10 +18,21 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
         private const int INVENTORY_CAPACITY = 500000;
         private double used = 0;
         private double remaining = 0;
+        private List<string> listProductName;
+        private List<DTO.Product> listProduct;
+        private List<string> listSelectedProductName;
+        private List<DTO.Product> listSelectedProduct;
+        private ProductBUS productBUS;
+        private SupplierInvoiceBUS supplierInvoiceBUS;
+        private Dictionary<string,DTO.Product> productDictionary;
         public FormCreateSupplierInvoice()
         {
             InitializeComponent();
             UpdateAvailableCapacity();
+            productBUS = ProductBUS.GetInstance();
+            supplierInvoiceBUS = SupplierInvoiceBUS.GetInstance();
+            productDictionary = new Dictionary<string, DTO.Product>();
+            loadProduct();
         }
  
         List<string> productNames = new List<string>()
@@ -30,7 +42,20 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             "dsa",
             // Thêm tên sản phẩm khác vào đây
         };
-
+        private async void loadProduct()
+        {
+            Result<IEnumerable<DTO.Product>> productResult = await productBUS.getAllProduct();
+            if (productResult.IsSuccess)
+            {
+                listProduct = productResult.Data.ToList();
+                listProductName = listProduct.Select(p=>p.ProductName).ToList();
+            }
+            else
+            {
+                MessageBox.Show(productResult.ErrorMessage);
+                this.Close();
+            }
+        }
         private void UpdateAvailableCapacity()
         {
             availableCapacity.Minimum = 0;
@@ -56,14 +81,14 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
         {
             FlowLayoutPanel newLine = new FlowLayoutPanel();
             newLine.Dock = DockStyle.Top;
-
+            newLine.Name = "FlowPanel"+panelOrderInformation.Controls.Count.ToString();
             newLine.Controls.Add(panelProductName("Product Name", "txtProductName", newLine));
             newLine.Controls.Add(panelQuantity("Quantity", "txtQuantity", newLine));
             newLine.Controls.Add(panelUnitPrice("Unit Price", "txtUnitPrice", newLine));
             newLine.Controls.Add(panelTotalPrice("Total Price", "txtTotalPrice", newLine));
             newLine.Controls.Add(panelCapacity("Capacity", "txtCapacity", newLine));
             newLine.Controls.Add(panelTotalCapacity("Total Capacity", "txtTotalCapacity", newLine));
-
+            productDictionary[newLine.Name] = null;
             newLine.Controls.Add(buttonRemoveProduct(newLine));
             panelOrderInformation.Controls.Add(newLine);
         }
@@ -122,13 +147,23 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             textBox.Size = new System.Drawing.Size(220, 36);
             textBox.TabIndex = 12;
             textBox.TextOffset = new System.Drawing.Point(5, 0);
-
-            textBox.AutoCompleteCustomSource.AddRange(productNames.ToArray());
+            textBox.AutoCompleteCustomSource.AddRange(listProductName.ToArray());
             textBox.AutoCompleteMode = AutoCompleteMode.Suggest;
             textBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
             textBox.TextChanged += (sender, e) =>
             {
+                productDictionary[currentLine.Name] = listProduct.FirstOrDefault(p=>p.ProductName == textBox.Text);
+                string PriceText = "0";
+                string capacityText = "0";
+
+                if (productDictionary[currentLine.Name]!=null)
+                {
+                    var product = productDictionary[currentLine.Name];
+                    MessageBox.Show(product.ProductName);
+                    PriceText = (product.UnitPrice * product.UnitConversion).ToString();
+                    capacityText = (product.ProductCapacity * product.UnitConversion).ToString();
+                }    
                 foreach (Control control in currentLine.Controls)
                 {
                     if (control.Name == "panelUnitPrice")
@@ -137,14 +172,25 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
                         {
                             if (control2.Name == "txtUnitPrice")
                             {
-                                // control2.Text = textBox.Text;
-                                return;
+                                control2.Text = PriceText;
+                                break;
+                            }
+                        }
+                    }
+                    if (control.Name == "panelCapacity")
+                    {
+                        foreach (Control control2 in control.Controls)
+                        {
+                            if (control2.Name == "txtCapacity")
+                            {
+                                control2.Text = capacityText;
+                                break;
                             }
                         }
                     }
                 }
+                // Find text box for Capacity
             };
-
             currentPanel.Controls.Add(textBox);
 
             return currentPanel;
@@ -345,7 +391,7 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             textBox.SelectedText = "";
             textBox.Size = new System.Drawing.Size(155, 36);
             textBox.TabIndex = 15;
-            textBox.Text = "5000";
+            textBox.Text = "0";
             textBox.TextOffset = new System.Drawing.Point(5, 0);
             currentPanel.Controls.Add(textBox);
 
@@ -473,7 +519,7 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             textBox.SelectedText = "";
             textBox.Size = new System.Drawing.Size(155, 36);
             textBox.TabIndex = 15;
-            textBox.Text = "5000";
+            textBox.Text = "50";
             textBox.TextOffset = new System.Drawing.Point(5, 0);
             currentPanel.Controls.Add(textBox);
 
@@ -520,7 +566,7 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             textBox.SelectedText = "";
             textBox.Size = new System.Drawing.Size(155, 36);
             textBox.TabIndex = 15;
-            textBox.Text = "5000";
+            textBox.Text = "0";
             textBox.TextOffset = new System.Drawing.Point(5, 0);
             currentPanel.Controls.Add(textBox);
 

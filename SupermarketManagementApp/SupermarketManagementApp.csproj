@@ -85,6 +85,7 @@
     <Compile Include="BUS\ProductBUS.cs" />
     <Compile Include="BUS\ProductTypeBUS.cs" />
     <Compile Include="BUS\ShelfBUS.cs" />
+    <Compile Include="BUS\SupplierInvoiceBUS.cs" />
     <Compile Include="DTO\Account.cs" />
     <Compile Include="DTO\Customer.cs" />
     <Compile Include="DTO\CustomerInvoice.cs" />
@@ -322,6 +323,7 @@
     <Compile Include="Utils\FormBackground.Designer.cs">
       <DependentUpon>FormBackground.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\StaticGlobal.cs" />
     <EmbeddedResource Include="GUI\Account\FormAccountManagement.resx">
       <DependentUpon>FormAccountManagement.cs</DependentUpon>
     </EmbeddedResource>

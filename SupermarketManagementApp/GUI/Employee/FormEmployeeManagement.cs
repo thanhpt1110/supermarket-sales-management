@@ -54,8 +54,13 @@ namespace SupermarketManagementApp.GUI.Employee
            if(employeeResult.IsSuccess)
            {
                this.employees = employeeResult.Data.ToList();
-           }
-            LoadGridData();
+                LoadGridData();
+
+            }
+            else
+            {
+                MessageBox.Show(employeeResult.ErrorMessage);
+            }
         }
         private void LoadGridData()
         {

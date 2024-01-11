@@ -13,9 +13,9 @@ namespace SupermarketManagementApp.DTO
         [Column("InventoryDetailID")]
         public long InventoryDetailID { get; set; }
 
-        public long? ProductID { get; set; }
+        public long ProductID { get; set; }
 
-        public int? ProductQuantity { get; set; }
+        public int ProductQuantity { get; set; }
 
         public virtual Product Product { get; set; }
     }

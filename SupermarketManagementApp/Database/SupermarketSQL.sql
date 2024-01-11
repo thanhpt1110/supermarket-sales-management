@@ -35,7 +35,6 @@ CREATE TABLE Shelf (
 CREATE TABLE ProductType (
     ProductTypeID INT PRIMARY KEY IDENTITY ,
     ProductTypeName NVARCHAR(max),
-	GuaranteeType NVARCHAR(max),
     Description NVARCHAR(max),
 	MinTemperature INT,
 	MaxTemperature INT,
@@ -48,7 +47,6 @@ CREATE TABLE Product (
     WholeSaleUnit NVARCHAR(max),
     RetailUnit NVARCHAR(max),
     UnitConversion INT,
-    PreservationType NVARCHAR(max),
     ProductCapacity INT,
 	FOREIGN KEY (ProductTypeID) REFERENCES ProductType(ProductTypeID)
 );

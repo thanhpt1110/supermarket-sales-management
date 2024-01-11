@@ -39,11 +39,8 @@
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.scrollBar = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.gridViewMain = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.txtBoxSearchProduct = new Guna.UI2.WinForms.Guna2TextBox();
             this.icon = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +50,10 @@
             this.Info = new System.Windows.Forms.DataGridViewImageColumn();
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.txtBoxSearchProduct = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewMain)).BeginInit();
             this.SuspendLayout();
@@ -183,6 +184,7 @@
             this.gridViewMain.ColumnHeadersHeight = 50;
             this.gridViewMain.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.icon,
+            this.ProductID,
             this.ProductName,
             this.ProductType,
             this.UnitPrice,
@@ -238,6 +240,98 @@
             this.gridViewMain.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewMain_CellMouseLeave);
             this.gridViewMain.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridViewMain_CellMouseMove);
             // 
+            // icon
+            // 
+            this.icon.FillWeight = 50F;
+            this.icon.HeaderText = "";
+            this.icon.Image = global::SupermarketManagementApp.Properties.Resources.grid_product;
+            this.icon.MinimumWidth = 6;
+            this.icon.Name = "icon";
+            this.icon.ReadOnly = true;
+            this.icon.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // ProductID
+            // 
+            this.ProductID.HeaderText = "ProductID";
+            this.ProductID.MinimumWidth = 6;
+            this.ProductID.Name = "ProductID";
+            this.ProductID.ReadOnly = true;
+            this.ProductID.Visible = false;
+            // 
+            // ProductName
+            // 
+            this.ProductName.FillWeight = 150F;
+            this.ProductName.HeaderText = "Name";
+            this.ProductName.MinimumWidth = 6;
+            this.ProductName.Name = "ProductName";
+            this.ProductName.ReadOnly = true;
+            // 
+            // ProductType
+            // 
+            this.ProductType.FillWeight = 110F;
+            this.ProductType.HeaderText = "Type";
+            this.ProductType.MinimumWidth = 6;
+            this.ProductType.Name = "ProductType";
+            this.ProductType.ReadOnly = true;
+            // 
+            // UnitPrice
+            // 
+            this.UnitPrice.HeaderText = "Unit Price";
+            this.UnitPrice.MinimumWidth = 6;
+            this.UnitPrice.Name = "UnitPrice";
+            this.UnitPrice.ReadOnly = true;
+            // 
+            // WholeSaleUnit
+            // 
+            this.WholeSaleUnit.FillWeight = 120F;
+            this.WholeSaleUnit.HeaderText = "Wholesale Unit";
+            this.WholeSaleUnit.MinimumWidth = 6;
+            this.WholeSaleUnit.Name = "WholeSaleUnit";
+            this.WholeSaleUnit.ReadOnly = true;
+            // 
+            // RetailUnit
+            // 
+            this.RetailUnit.HeaderText = "Retail Unit";
+            this.RetailUnit.MinimumWidth = 6;
+            this.RetailUnit.Name = "RetailUnit";
+            this.RetailUnit.ReadOnly = true;
+            // 
+            // UnitConversion
+            // 
+            this.UnitConversion.HeaderText = "Conversion";
+            this.UnitConversion.MinimumWidth = 6;
+            this.UnitConversion.Name = "UnitConversion";
+            this.UnitConversion.ReadOnly = true;
+            // 
+            // Info
+            // 
+            this.Info.FillWeight = 70F;
+            this.Info.HeaderText = "";
+            this.Info.Image = global::SupermarketManagementApp.Properties.Resources.grid_info;
+            this.Info.MinimumWidth = 6;
+            this.Info.Name = "Info";
+            this.Info.ReadOnly = true;
+            // 
+            // Edit
+            // 
+            this.Edit.FillWeight = 50F;
+            this.Edit.HeaderText = "";
+            this.Edit.Image = global::SupermarketManagementApp.Properties.Resources.grid_edit;
+            this.Edit.MinimumWidth = 6;
+            this.Edit.Name = "Edit";
+            this.Edit.ReadOnly = true;
+            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // Delete
+            // 
+            this.Delete.FillWeight = 50F;
+            this.Delete.HeaderText = "";
+            this.Delete.Image = global::SupermarketManagementApp.Properties.Resources.grid_delete;
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.FillWeight = 50F;
@@ -287,7 +381,7 @@
             this.txtBoxSearchProduct.IconRightOffset = new System.Drawing.Point(15, -1);
             this.txtBoxSearchProduct.IconRightSize = new System.Drawing.Size(25, 25);
             this.txtBoxSearchProduct.Location = new System.Drawing.Point(45, 35);
-            this.txtBoxSearchProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBoxSearchProduct.Margin = new System.Windows.Forms.Padding(4);
             this.txtBoxSearchProduct.Name = "txtBoxSearchProduct";
             this.txtBoxSearchProduct.PasswordChar = '\0';
             this.txtBoxSearchProduct.PlaceholderForeColor = System.Drawing.Color.Silver;
@@ -296,92 +390,11 @@
             this.txtBoxSearchProduct.Size = new System.Drawing.Size(285, 45);
             this.txtBoxSearchProduct.TabIndex = 7;
             this.txtBoxSearchProduct.TextOffset = new System.Drawing.Point(5, 0);
-            // 
-            // icon
-            // 
-            this.icon.FillWeight = 50F;
-            this.icon.HeaderText = "";
-            this.icon.Image = global::SupermarketManagementApp.Properties.Resources.grid_product;
-            this.icon.MinimumWidth = 6;
-            this.icon.Name = "icon";
-            this.icon.ReadOnly = true;
-            this.icon.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // ProductName
-            // 
-            this.ProductName.FillWeight = 150F;
-            this.ProductName.HeaderText = "Name";
-            this.ProductName.MinimumWidth = 6;
-            this.ProductName.Name = "ProductName";
-            this.ProductName.ReadOnly = true;
-            // 
-            // ProductType
-            // 
-            this.ProductType.FillWeight = 110F;
-            this.ProductType.HeaderText = "Type";
-            this.ProductType.Name = "ProductType";
-            this.ProductType.ReadOnly = true;
-            // 
-            // UnitPrice
-            // 
-            this.UnitPrice.HeaderText = "Unit Price";
-            this.UnitPrice.MinimumWidth = 6;
-            this.UnitPrice.Name = "UnitPrice";
-            this.UnitPrice.ReadOnly = true;
-            // 
-            // WholeSaleUnit
-            // 
-            this.WholeSaleUnit.FillWeight = 120F;
-            this.WholeSaleUnit.HeaderText = "Wholesale Unit";
-            this.WholeSaleUnit.MinimumWidth = 6;
-            this.WholeSaleUnit.Name = "WholeSaleUnit";
-            this.WholeSaleUnit.ReadOnly = true;
-            // 
-            // RetailUnit
-            // 
-            this.RetailUnit.HeaderText = "Retail Unit";
-            this.RetailUnit.MinimumWidth = 6;
-            this.RetailUnit.Name = "RetailUnit";
-            this.RetailUnit.ReadOnly = true;
-            // 
-            // UnitConversion
-            // 
-            this.UnitConversion.HeaderText = "Conversion";
-            this.UnitConversion.MinimumWidth = 6;
-            this.UnitConversion.Name = "UnitConversion";
-            this.UnitConversion.ReadOnly = true;
-            // 
-            // Info
-            // 
-            this.Info.FillWeight = 70F;
-            this.Info.HeaderText = "";
-            this.Info.Image = global::SupermarketManagementApp.Properties.Resources.grid_info;
-            this.Info.Name = "Info";
-            this.Info.ReadOnly = true;
-            // 
-            // Edit
-            // 
-            this.Edit.FillWeight = 50F;
-            this.Edit.HeaderText = "";
-            this.Edit.Image = global::SupermarketManagementApp.Properties.Resources.grid_edit;
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.ReadOnly = true;
-            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // Delete
-            // 
-            this.Delete.FillWeight = 50F;
-            this.Delete.HeaderText = "";
-            this.Delete.Image = global::SupermarketManagementApp.Properties.Resources.grid_delete;
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.txtBoxSearchProduct.TextChanged += new System.EventHandler(this.txtBoxSearchProduct_TextChanged);
             // 
             // FormProductManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(984, 761);
@@ -413,6 +426,7 @@
         private Guna.UI2.WinForms.Guna2DataGridView gridViewMain;
         private Guna.UI2.WinForms.Guna2TextBox txtBoxSearchProduct;
         private System.Windows.Forms.DataGridViewImageColumn icon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductType;
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;

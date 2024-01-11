@@ -28,6 +28,41 @@ namespace SupermarketManagementApp.BUS
             }
             return instance;
         }
+        public async Task<Result<DTO.Product>> getProductByID(int id)
+        {
+            Result<DTO.Product> result = new Result<DTO.Product>();
+            try
+            {
+                result.Data = await unitOfWork.ProductRepositoryDAO.FindByID(id);
+                result.IsSuccess = true;
+                result.ErrorMessage = null;
+            }
+            catch (Exception ex)
+            {
+                result.Data = null;
+                result.ErrorMessage = ex.Message;
+                result.IsSuccess = false;
+            }
+            return result;
+        }
+        public async Task<Result<IEnumerable<DTO.Product>>> findProductByProductName(string productName)
+        {
+            Result<IEnumerable<DTO.Product>> result = new Result<IEnumerable<DTO.Product>>();
+            try
+            {
+                result.Data = await unitOfWork.ProductRepositoryDAO.Find(product => product.ProductName.Contains(productName));
+                result.IsSuccess = true;
+                result.ErrorMessage = null;
+            }
+            catch (Exception ex)
+            {
+                result.Data = null;
+                result.ErrorMessage = ex.Message;
+                result.IsSuccess = false;
+            }
+            return result;
+        }
+
         public async Task<Result<IEnumerable<Product>>> getAllProduct()
         {
             Result<IEnumerable<Product>> result = new Result<IEnumerable<Product>>();
@@ -44,5 +79,87 @@ namespace SupermarketManagementApp.BUS
             }
             return result;
         }
+        public async Task<Result<DTO.Product>> createNewProduct(DTO.Product product)
+        {
+            Result<DTO.Product> result = new Result<DTO.Product>();
+            if (string.IsNullOrEmpty(product.ProductName) || product.ProductTypeID == 0 || product.UnitPrice == 0 || product.ProductCapacity == 0
+                || string.IsNullOrEmpty(product.WholeSaleUnit) || string.IsNullOrEmpty(product.RetailUnit) || product.UnitConversion == 0)
+            {
+                result.Data = null;
+                result.IsSuccess = false;
+                result.ErrorMessage = "Please provide all required information!";
+            }
+            else
+            {
+                try
+                {
+                    result.Data = await unitOfWork.ProductRepositoryDAO.Add(product);
+                    result.IsSuccess = true;
+                    result.ErrorMessage = null;
+                    await unitOfWork.SaveChanges();
+                    return result;
+                }
+                catch (Exception e)
+                {
+                    // Xử lý các exception khác nếu cần
+                    result.ErrorMessage = e.Message;
+                    result.IsSuccess = false;
+                    result.Data = null;
+                }
+            }
+            return result;
+        }
+
+        public async Task<Result<DTO.Product>> updateProduct(DTO.Product product)
+        {
+            Result<DTO.Product> result = new Result<DTO.Product>();
+            if (string.IsNullOrEmpty(product.ProductName) || product.ProductTypeID == 0 || product.UnitPrice == 0 || product.ProductCapacity == 0
+                || string.IsNullOrEmpty(product.WholeSaleUnit) || string.IsNullOrEmpty(product.RetailUnit) || product.UnitConversion == 0)
+            {
+                result.Data = null;
+                result.IsSuccess = false;
+                result.ErrorMessage = "Please enter all information";
+            }
+            else
+            {
+                try
+                {
+                    result.Data = await unitOfWork.ProductRepositoryDAO.Update(product);
+                    result.IsSuccess = true;
+                    result.ErrorMessage = null;
+                    await unitOfWork.SaveChanges();
+                    return result;
+
+                }
+                catch (Exception e)
+                {
+                    // Xử lý các exception khác nếu cần
+                    result.ErrorMessage = e.Message;
+                    result.IsSuccess = false;
+                    result.Data = null;
+                }
+            }
+            return result;
+        }
+        public async Task<Result<bool>> deleteProduct(int productID)
+        {
+            Result<bool> result = new Result<bool>();
+            try
+            {
+                result.Data = await unitOfWork.ProductRepositoryDAO.RemoveByID(productID);
+                result.IsSuccess = true;
+                result.ErrorMessage = null;
+                await unitOfWork.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                // Xử lý các exception khác nếu cần
+                result.ErrorMessage = e.Message;
+                result.IsSuccess = false;
+                result.Data = false;
+            }
+            return result;
+        }
+
     }
 }

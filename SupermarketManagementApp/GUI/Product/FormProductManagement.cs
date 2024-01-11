@@ -1,4 +1,6 @@
 ﻿using Guna.UI2.WinForms;
+using SupermarketManagementApp.BUS;
+using SupermarketManagementApp.DTO;
 using SupermarketManagementApp.GUI.Account;
 using SupermarketManagementApp.GUI.Customer;
 using SupermarketManagementApp.Utils;
@@ -20,40 +22,53 @@ namespace SupermarketManagementApp.GUI.Product
         #region Declare variable
         private Guna2DataGridView gridView = null;
         private FormMain formMain = null;
+        private Timer searchTimer = null;
+        private ProductBUS productBUS = null;
         #endregion
-
+        private List<SupermarketManagementApp.DTO.Product> products = null;
         public FormProductManagement(FormMain formMain)
         {
             this.formMain = formMain;
-
+            productBUS = ProductBUS.GetInstance();
             InitializeComponent();
             CustomStyleGridView();
-            LoadGridData();
             UpdateScrollBarValues();
+            InitAllProduct();
+            InitTimer();
         }
 
         public FormProductManagement()
         {
+            productBUS = ProductBUS.GetInstance();
             InitializeComponent();
             CustomStyleGridView();
-            LoadGridData();
             UpdateScrollBarValues();
+            InitAllProduct();
+            InitTimer();
+        }
+
+        public async void InitAllProduct()
+        {
+            Result<IEnumerable<DTO.Product>> productResult = await productBUS.getAllProduct();
+            if (productResult.IsSuccess)
+            {
+                this.products = productResult.Data.ToList();
+                LoadGridData();
+            }
+            else
+            {
+                MessageBox.Show(productResult.ErrorMessage);
+                this.Close();
+            }
         }
 
         private void LoadGridData()
         {
-            gridView.Rows.Add(new object[] { null, "Milk", "Dairy", 25000, "Carton", "Bottle", 12 });
-            gridView.Rows.Add(new object[] { null, "Bread", "Bakery", 18000, "Loaf", "Piece", 1 });
-            gridView.Rows.Add(new object[] { null, "Rice", "Grains", 30000, "Bag", "Kilogram", 2 });
-            gridView.Rows.Add(new object[] { null, "Chocolate", "Sweets", 35000, "Packet", "Bar", 5 });
-            gridView.Rows.Add(new object[] { null, "Coffee", "Beverages", 40000, "Can", "Gram", 250 });
-            gridView.Rows.Add(new object[] { null, "Eggs", "Dairy", 5000, "Dozen", "Unit", 12 });
-            gridView.Rows.Add(new object[] { null, "Toothpaste", "Toiletries", 15000, "Tube", "Piece", 1 });
-            gridView.Rows.Add(new object[] { null, "Apples", "Fruits", 12000, "Basket", "Kilogram", 5 });
-            gridView.Rows.Add(new object[] { null, "Chicken Breast", "Meat", 70000, "Pack", "Kilogram", 1 });
-            gridView.Rows.Add(new object[] { null, "Orange Juice", "Beverages", 25000, "Bottle", "Liter", 1 });
-            gridView.Rows.Add(new object[] { null, "Potato Chips", "Snacks", 18000, "Pack", "Gram", 150 });
-            gridView.Rows.Add(new object[] { null, "T-shirt", "Clothing", 80000, "Piece", "Piece", 1 });
+            gridView.Rows.Clear();
+            foreach (var product in products)
+            {
+                gridView.Rows.Add(new object[] { null, product.ProductID, product.ProductName, product.ProductTypeID, product.UnitPrice, product.WholeSaleUnit,product.RetailUnit, product.UnitConversion });
+            }
         }
 
         #region Customize data grid
@@ -107,7 +122,7 @@ namespace SupermarketManagementApp.GUI.Product
             if (e.RowIndex == -1)
             {
                 // Kiểm tra xem có phải là header của cột 2, 3, 4 hoặc header của cột 4, 5
-                if (e.ColumnIndex >= 1 && e.ColumnIndex <= 6)
+                if (e.ColumnIndex >= 2 && e.ColumnIndex <= 7)
                 {
                     gridView.Cursor = Cursors.Hand;
                     return;
@@ -115,7 +130,7 @@ namespace SupermarketManagementApp.GUI.Product
             }
 
             // Nếu không phải là header của cột và nằm trong khoảng cột 4, 5, đặt kiểu cursor thành Hand
-            if (e.RowIndex >= 0 && (e.ColumnIndex == 7 || e.ColumnIndex == 8 || e.ColumnIndex == 9))
+            if (e.RowIndex >= 0 && (e.ColumnIndex == 8 || e.ColumnIndex == 9 || e.ColumnIndex == 10))
             {
                 gridView.Cursor = Cursors.Hand;
                 return;
@@ -132,7 +147,7 @@ namespace SupermarketManagementApp.GUI.Product
             FormBackground formBackground = new FormBackground(formMain);
             try
             {
-                using (FormCreateProduct formCreateProduct = new FormCreateProduct())
+                using (FormCreateProduct formCreateProduct = new FormCreateProduct(this))
                 {
                     formBackground.Owner = formMain;
                     formBackground.Show();
@@ -162,17 +177,18 @@ namespace SupermarketManagementApp.GUI.Product
             }
         }
 
-        private void gridViewMain_CellClick(object sender, DataGridViewCellEventArgs e)
+        private async void gridViewMain_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            int x = e.ColumnIndex, y = e.RowIndex;
             if (e.RowIndex >= 0)
             {
-                if (e.ColumnIndex == 7)
+                if (e.ColumnIndex == 8)
                 {
                     // Update
                     FormBackground formBackground = new FormBackground(formMain);
                     try
                     {
-                        using (FormInforProduct formInforProduct = new FormInforProduct())
+                        using (FormInforProduct formInforProduct = new FormInforProduct(this, int.Parse(gridView.Rows[y].Cells[1].Value.ToString())))
                         {
                             formBackground.Owner = formMain;
                             formBackground.Show();
@@ -187,13 +203,13 @@ namespace SupermarketManagementApp.GUI.Product
                         msgBoxError.Show(ex.Message, "Error");
                     }
                 }
-                else if (e.ColumnIndex == 8)
+                else if (e.ColumnIndex == 9)
                 {
                     // Update
                     FormBackground formBackground = new FormBackground(formMain);
                     try
                     {
-                        using (FormUpdateProduct formUpdateProduct = new FormUpdateProduct())
+                        using (FormUpdateProduct formUpdateProduct = new FormUpdateProduct(this, int.Parse(gridView.Rows[y].Cells[1].Value.ToString())))
                         {
                             formBackground.Owner = formMain;
                             formBackground.Show();
@@ -208,7 +224,7 @@ namespace SupermarketManagementApp.GUI.Product
                         msgBoxError.Show(ex.Message, "Error");
                     }
                 }
-                else if (e.ColumnIndex == 9)
+                else if (e.ColumnIndex == 10)
                 {
                     // Delete
                     msgBoxDelete.Parent = formMain;
@@ -218,7 +234,17 @@ namespace SupermarketManagementApp.GUI.Product
                         case DialogResult.Yes:
                             try
                             {
+                                Result<bool> result = await productBUS.deleteProduct(int.Parse(gridView.Rows[y].Cells[1].Value.ToString()));
+                                if (result.IsSuccess)
+                                {
+                                    MessageBox.Show("Remove account successfully!", "Success", MessageBoxButtons.OK);
+                                    InitAllProduct();
+                                }
+                                else
+                                {
+                                    msgBoxError.Show(result.ErrorMessage, "Error");
 
+                                }
                             }
                             catch (Exception ex)
                             {
@@ -231,6 +257,30 @@ namespace SupermarketManagementApp.GUI.Product
                     }
                 }
             }
+        }
+        #endregion
+
+        #region Init timer event
+        private void InitTimer()
+        {
+            searchTimer = new Timer();
+            searchTimer.Interval = 300;
+            searchTimer.Tick += SearchTimer_Tick;
+        }
+        private async void SearchTimer_Tick(object sender, EventArgs e)
+        {
+            this.searchTimer.Stop();
+            Result<IEnumerable<DTO.Product>> result = await productBUS.findProductByProductName(txtBoxSearchProduct.Text);
+            this.products = result.Data.ToList();
+            LoadGridData();
+        }
+        #endregion
+        
+        #region Text changed event
+        private void txtBoxSearchProduct_TextChanged(object sender, EventArgs e)
+        {
+            this.searchTimer.Stop();
+            this.searchTimer.Start();
         }
         #endregion
     }

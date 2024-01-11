@@ -20,19 +20,19 @@ namespace SupermarketManagementApp.DTO
 
         public long ProductID { get; set; }
 
-        public int? ProductTypeID { get; set; }
+        public int ProductTypeID { get; set; }
         public string ProductName { get; set; }
-        public double? UnitPrice { get; set; }
+        public double UnitPrice { get; set; }
 
         public string WholeSaleUnit { get; set; }
 
         public string RetailUnit { get; set; }
 
-        public int? UnitConversion { get; set; }
+        public int UnitConversion { get; set; }
 
         public string PreservationType { get; set; }
 
-        public int? ProductCapacity { get; set; }
+        public int ProductCapacity { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CustomerInvoiceDetail> CustomerInvoiceDetails { get; set; }
