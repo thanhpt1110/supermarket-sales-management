@@ -117,7 +117,7 @@
             this.btnCheckOut.TabIndex = 52;
             this.btnCheckOut.Text = "Check Out";
             this.btnCheckOut.TextOffset = new System.Drawing.Point(0, -1);
-            this.btnCheckOut.Click += new System.EventHandler(this.btnCheckOut_Click);
+            this.btnCheckOut.Click += new System.EventHandler(this.btnCheckOut_ClickAsync);
             // 
             // tableLayoutPanel1
             // 

@@ -15,16 +15,50 @@ using LiveCharts.Definitions.Charts;
 using LiveCharts.WinForms;
 using LiveCharts.Wpf;
 using Guna.UI2.WinForms;
+using SupermarketManagementApp.BUS;
+using SupermarketManagementApp.Utils;
+using Series = System.Windows.Forms.DataVisualization.Charting.Series;
+using System.Globalization;
+using LiveCharts.Defaults;
+using System.Windows.Media.TextFormatting;
 
 namespace SupermarketManagementApp.GUI
 {
     public partial class FormDashboard : Form
     {
-        public FormDashboard() 
+        //Customer Invoices
+        private List<SupermarketManagementApp.DTO.CustomerInvoice> customerInvoices = null;
+        private CustomerInvoiceBUS customerInvoiceBUS = null;
+
+        private List<SupermarketManagementApp.DTO.Product> products = null;
+        private ProductBUS product = null;
+
+        public FormDashboard()
         {
+            customerInvoiceBUS = CustomerInvoiceBUS.GetInstance();
+            product = ProductBUS.GetInstance();
             InitializeComponent();
-            LoadChart();
             LoadTopSellProducts();
+            InitAllCustomerInvoice();
+            
+        }
+
+        public async void InitAllCustomerInvoice()
+        {
+            Result<IEnumerable<DTO.CustomerInvoice>> cusInvoiceResult = await customerInvoiceBUS.getAllCustomerInvoice();
+            if (cusInvoiceResult.IsSuccess)
+            {
+                this.customerInvoices = cusInvoiceResult.Data.ToList();
+            }
+
+            Load();
+        }
+
+        public void Load()
+        {
+            LoadChart();
+            CalcTodayRevenue();
+            CalcOrder();
         }
 
         #region RevenueChart
@@ -43,13 +77,36 @@ namespace SupermarketManagementApp.GUI
             return new string[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
         }
 
-        // Implement this method to populate the chart with data
         private void PopulateChartData()
         {
-            // Sample data for illustration purposes
-            List<double> dataPoints = new List<double> { 1200, 1500, 2000, 1800, 2500, 3000, 2800, 3200, 3500, 4000, 2000, 1500 };
 
-            revenueChart.Series.Add(new LineSeries { Title = "Monthly Revenue", Values = new ChartValues<double>(dataPoints) });
+            // Tạo một List<double> để lưu trữ tổng TotalAmount cho mỗi tháng
+            List<double> monthlyTotalAmounts = new List<double>();
+
+            // Khởi tạo giá trị 0 cho tất cả các tháng từ tháng 1 đến tháng 12
+            for (int i = 1; i <= 12; i++)
+            {
+                monthlyTotalAmounts.Add(0.0);
+            }
+
+            // Lặp qua dữ liệu để tính tổng TotalAmount cho mỗi tháng
+            // Lặp qua dữ liệu để tính tổng TotalAmount cho mỗi tháng
+            foreach (var invoice in customerInvoices)
+            {
+                if (invoice.DatePayment.HasValue && invoice.DatePayment.Value.Year == DateTime.Now.Year && invoice.DatePayment.Value <= DateTime.Now)
+                {
+                    // Lấy chỉ số của tháng từ ngày thanh toán của hóa đơn
+                    int monthIndex = invoice.DatePayment.Value.Month;
+
+                    // Cộng thêm vào tổng của tháng đó
+                    monthlyTotalAmounts[monthIndex - 1] += (double)invoice.TotalAmount;
+                }
+            }
+
+            // Sample data for illustration purposes
+            //List<double> dataPoints = new List<double> { 1200, 1500, 2000, 1800, 2500, 3000, 2800, 3200, 3500, 4000, 2000, 1500 };
+
+            revenueChart.Series.Add(new LineSeries { Title = "Monthly Revenue", Values = new ChartValues<double>(monthlyTotalAmounts) });
         }
         #endregion
 
@@ -64,7 +121,51 @@ namespace SupermarketManagementApp.GUI
             dtgvTopSellProducts.Rows.Add("#2", "Iphone", 235);
             dtgvTopSellProducts.Rows.Add("#3", "Balo UIT", 127);
         }
+        #endregion
 
+        #region TodaySale
+
+        private void CenterLabelInPanel(Guna2HtmlLabel label, Guna2Panel panel)
+        {
+            int x = (panel.Width - label.Width) / 2;
+            int y = (panel.Height - label.Height) / 2;
+
+            // Đặt lại vị trí của Label
+            label.Location = new System.Drawing.Point(x, y);
+        }
+
+        private void CalcTodayRevenue()
+        {
+            double todayRevenue = 0;
+            foreach (var invoice in customerInvoices)
+            {
+                if (invoice.DatePayment.HasValue && invoice.DatePayment.Value.Day == DateTime.Now.Day && invoice.DatePayment.Value.Year == DateTime.Now.Year)
+                {
+                    // Cộng thêm vào tổng của ngày 
+                    todayRevenue += (double)invoice.TotalAmount;
+                }
+            }
+
+            lbtodayRevenue.Text = todayRevenue.ToString();
+
+            CenterLabelInPanel(lbtodayRevenue,pnRevenue);
+        }
+
+        private void CalcOrder()
+        {
+            int calc = 0;
+            foreach (var invoice in customerInvoices)
+            {
+                if (invoice.DatePayment.HasValue && invoice.DatePayment.Value.Day == DateTime.Now.Day && invoice.DatePayment.Value.Year == DateTime.Now.Year)
+                {
+                    //Tăng biến thêm 1
+                    calc++;
+                }
+            }
+            lbOrder.Text = calc.ToString();
+
+            CenterLabelInPanel(lbOrder, pnOrder);
+        }
         #endregion
     }
 }

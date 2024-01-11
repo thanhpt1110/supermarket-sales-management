@@ -4,6 +4,7 @@ using SupermarketManagementApp.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -44,6 +45,24 @@ namespace SupermarketManagementApp.BUS
             }
             return result;
         }
+        public async Task<Result<IEnumerable<DTO.Product>>> findProductByProductName(string productName)
+        {
+            Result<IEnumerable<DTO.Product>> result = new Result<IEnumerable<DTO.Product>>();
+            try
+            {
+                result.Data = await unitOfWork.ProductRepositoryDAO.Find(product => product.ProductName.Contains(productName));
+                result.IsSuccess = true;
+                result.ErrorMessage = null;
+            }
+            catch (Exception ex)
+            {
+                result.Data = null;
+                result.ErrorMessage = ex.Message;
+                result.IsSuccess = false;
+            }
+            return result;
+        }
+
         public async Task<Result<IEnumerable<Product>>> getAllProduct()
         {
             Result<IEnumerable<Product>> result = new Result<IEnumerable<Product>>();
@@ -119,6 +138,25 @@ namespace SupermarketManagementApp.BUS
                     result.IsSuccess = false;
                     result.Data = null;
                 }
+            }
+            return result;
+        }
+        public async Task<Result<bool>> deleteProduct(int productID)
+        {
+            Result<bool> result = new Result<bool>();
+            try
+            {
+                result.Data = await unitOfWork.ProductRepositoryDAO.RemoveByID(productID);
+                result.IsSuccess = true;
+                result.ErrorMessage = null;
+                await unitOfWork.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                // Xử lý các exception khác nếu cần
+                result.ErrorMessage = e.Message;
+                result.IsSuccess = false;
+                result.Data = false;
             }
             return result;
         }

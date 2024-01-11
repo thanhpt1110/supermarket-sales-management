@@ -1,5 +1,6 @@
 ﻿using Guna.UI2.WinForms;
 using SupermarketManagementApp.BUS;
+using SupermarketManagementApp.DTO;
 using SupermarketManagementApp.Utils;
 using System;
 using System.Collections.Generic;
@@ -24,15 +25,19 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
         private List<DTO.Product> listSelectedProduct;
         private ProductBUS productBUS;
         private SupplierInvoiceBUS supplierInvoiceBUS;
-        private Dictionary<string,DTO.Product> productDictionary;
+        private Dictionary<string,DTO.SupplierInvoiceDetail> productDictionary;
+        private InvetoryDetailBUS invetoryDetailBUS;
+        private int inventoryNumber;
         public FormCreateSupplierInvoice()
         {
             InitializeComponent();
-            UpdateAvailableCapacity();
             productBUS = ProductBUS.GetInstance();
             supplierInvoiceBUS = SupplierInvoiceBUS.GetInstance();
-            productDictionary = new Dictionary<string, DTO.Product>();
+            invetoryDetailBUS = InvetoryDetailBUS.GetInstance();
+            productDictionary = new Dictionary<string, DTO.SupplierInvoiceDetail>();
             loadProduct();
+            LoadFirstCapacity();
+
         }
 
         private async void loadProduct()
@@ -50,11 +55,20 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             }
         }
 
+        private async void LoadFirstCapacity()
+        {
+            Result<float> reuslt = await invetoryDetailBUS.getCapacityOfInventory();
+            if (reuslt.IsSuccess)
+            {
+                used = reuslt.Data;
+                inventoryNumber = (int)reuslt.Data;
+            }
+            UpdateAvailableCapacity();
+        }    
         private void UpdateAvailableCapacity()
         {
             availableCapacity.Value = used;
             availableCapacity.Maximum = INVENTORY_CAPACITY;
-
             remaining = INVENTORY_CAPACITY - used;
             if (used <= INVENTORY_CAPACITY)
             {
@@ -75,9 +89,18 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             this.Close();
         }
 
-        private void btnCheckOut_Click(object sender, EventArgs e)
+        private async void btnCheckOut_ClickAsync(object sender, EventArgs e)
         {
-            this.Close();
+            Result<DTO.SupplierInvoice> supplierResult = await supplierInvoiceBUS.AddNewSupplierInvoice(productDictionary, this.txtBoxCustomerName.Text);
+            if(supplierResult.IsSuccess)
+            {
+                MessageBox.Show("Create invoice successfully");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show(supplierResult.ErrorMessage,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -91,7 +114,7 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             newLine.Controls.Add(panelTotalPrice("Total Price", "txtTotalPrice", newLine));
             newLine.Controls.Add(panelCapacity("Capacity", "txtCapacity", newLine));
             newLine.Controls.Add(panelTotalCapacity("Total Capacity", "txtTotalCapacity", newLine));
-            productDictionary[newLine.Name] = null;
+            productDictionary[newLine.Name] = new DTO.SupplierInvoiceDetail();
             newLine.Controls.Add(buttonRemoveProduct(newLine));
             panelOrderInformation.Controls.Add(newLine);
         }
@@ -156,13 +179,13 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
 
             textBox.TextChanged += (sender, e) =>
             {
-                productDictionary[currentLine.Name] = listProduct.FirstOrDefault(p=>p.ProductName == textBox.Text);
+                productDictionary[currentLine.Name].Product = listProduct.FirstOrDefault(p=>p.ProductName == textBox.Text);
                 string PriceText = "0";
                 string capacityText = "0";
 
-                if (productDictionary[currentLine.Name]!=null)
+                if (productDictionary[currentLine.Name].Product!=null)
                 {
-                    var product = productDictionary[currentLine.Name];
+                    var product = productDictionary[currentLine.Name].Product;
                     MessageBox.Show(product.ProductName);
                     PriceText = (product.UnitPrice * product.UnitConversion).ToString();
                     capacityText = (product.ProductCapacity * product.UnitConversion).ToString();
@@ -265,7 +288,7 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
                 {
                     textBox.Text = "0";
                 }
-
+                productDictionary[currentLine.Name].ProductQuantity = int.Parse(textBox.Text);
                 // Find text box for Total Price
                 foreach (Control control in currentLine.Controls)
                 {
@@ -599,7 +622,7 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
                     }
                 }
                 
-                used = totalCapacity;
+                used = totalCapacity + inventoryNumber;
                 UpdateAvailableCapacity();
             };
 
@@ -634,7 +657,7 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             {
                 panelOrderInformation.Controls.Remove(lineToRemove);
                 double totalAmount = 0;
-
+                productDictionary.Remove(lineToRemove.Name);
                 foreach (FlowLayoutPanel line in panelOrderInformation.Controls)
                 {
                     foreach (Control control in line.Controls)

@@ -34,6 +34,7 @@ namespace SupermarketManagementApp.GUI.Product
             CustomStyleGridView();
             UpdateScrollBarValues();
             InitAllProduct();
+            InitTimer();
         }
 
         public FormProductManagement()
@@ -43,6 +44,7 @@ namespace SupermarketManagementApp.GUI.Product
             CustomStyleGridView();
             UpdateScrollBarValues();
             InitAllProduct();
+            InitTimer();
         }
 
         public async void InitAllProduct()
@@ -165,8 +167,38 @@ namespace SupermarketManagementApp.GUI.Product
         {
             try
             {
-                msgBoxError.Parent = formMain;
-                msgBoxError.Show();
+                if (gridView.Rows.Count > 0)
+                {
+                    Microsoft.Office.Interop.Excel.Application XcelApp = new Microsoft.Office.Interop.Excel.Application();
+                    XcelApp.Application.Workbooks.Add(Type.Missing);
+
+                    int row = gridView.Rows.Count;
+                    int col = gridView.Columns.Count;
+
+                    // Get Header text of Column
+                    for (int i = 1; i < col - 2 + 1; i++)
+                    {
+                        if (i == 1) continue;
+                        XcelApp.Cells[1, i - 1] = gridView.Columns[i - 1].HeaderText;
+                    }
+
+                    // Get data of cells
+                    for (int i = 0; i < row; i++)
+                    {
+                        for (int j = 1; j < col - 3; j++)
+                        {
+                            XcelApp.Cells[i + 2, j] = gridView.Rows[i].Cells[j].Value.ToString();
+                        }
+                    }
+
+                    XcelApp.Columns.AutoFit();
+                    XcelApp.Visible = true;
+                }
+                else
+                {
+                    msgBoxError.Parent = formMain;
+                    msgBoxError.Show("Error");
+                }
             }
             catch (Exception ex)
             {
@@ -175,7 +207,7 @@ namespace SupermarketManagementApp.GUI.Product
             }
         }
 
-        private void gridViewMain_CellClick(object sender, DataGridViewCellEventArgs e)
+        private async void gridViewMain_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int x = e.ColumnIndex, y = e.RowIndex;
             if (e.RowIndex >= 0)
@@ -186,7 +218,7 @@ namespace SupermarketManagementApp.GUI.Product
                     FormBackground formBackground = new FormBackground(formMain);
                     try
                     {
-                        using (FormInforProduct formInforProduct = new FormInforProduct())
+                        using (FormInforProduct formInforProduct = new FormInforProduct(this, int.Parse(gridView.Rows[y].Cells[1].Value.ToString())))
                         {
                             formBackground.Owner = formMain;
                             formBackground.Show();
@@ -232,7 +264,17 @@ namespace SupermarketManagementApp.GUI.Product
                         case DialogResult.Yes:
                             try
                             {
+                                Result<bool> result = await productBUS.deleteProduct(int.Parse(gridView.Rows[y].Cells[1].Value.ToString()));
+                                if (result.IsSuccess)
+                                {
+                                    MessageBox.Show("Remove account successfully!", "Success", MessageBoxButtons.OK);
+                                    InitAllProduct();
+                                }
+                                else
+                                {
+                                    msgBoxError.Show(result.ErrorMessage, "Error");
 
+                                }
                             }
                             catch (Exception ex)
                             {
@@ -245,6 +287,30 @@ namespace SupermarketManagementApp.GUI.Product
                     }
                 }
             }
+        }
+        #endregion
+
+        #region Init timer event
+        private void InitTimer()
+        {
+            searchTimer = new Timer();
+            searchTimer.Interval = 300;
+            searchTimer.Tick += SearchTimer_Tick;
+        }
+        private async void SearchTimer_Tick(object sender, EventArgs e)
+        {
+            this.searchTimer.Stop();
+            Result<IEnumerable<DTO.Product>> result = await productBUS.findProductByProductName(txtBoxSearchProduct.Text);
+            this.products = result.Data.ToList();
+            LoadGridData();
+        }
+        #endregion
+        
+        #region Text changed event
+        private void txtBoxSearchProduct_TextChanged(object sender, EventArgs e)
+        {
+            this.searchTimer.Stop();
+            this.searchTimer.Start();
         }
         #endregion
     }

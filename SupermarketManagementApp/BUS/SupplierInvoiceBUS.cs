@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SupermarketManagementApp.BUS
 {
@@ -27,36 +28,80 @@ namespace SupermarketManagementApp.BUS
             }
             return instance;
         }
-        public async Task<Result<SupplierInvoice>> AddNewSupplierInvoice(SupplierInvoice supplierInvoice)
+        public async Task<Result<SupplierInvoice>> AddNewSupplierInvoice(Dictionary<string, SupplierInvoiceDetail> productDictionary, string name )
         {
+
             Result<SupplierInvoice> result = new Result<SupplierInvoice>();
-            if(string.IsNullOrEmpty(supplierInvoice.SupplierName))
-            {
-                result.IsSuccess = false;
-                result.ErrorMessage = "Please enter all required information";
-                return result;
-            }
-            float capacity = supplierInvoice.SupplierInvoiceDetails.Sum(p => p.ProductQuantity * p.Product.UnitConversion * p.Product.ProductCapacity);
-            var listInventory = await unitOfWork.InventoryDetailRepositoryDAO.GetAll();
-            float capacityInvetory = 0;
-            foreach (var item in listInventory)
-            {
-                capacity += item.ProductQuantity * item.Product.ProductCapacity;
-            }
-            if (StaticGlobal.SYSTEM_CAPACITY-capacityInvetory < capacity)
-            {
-                result.IsSuccess = false;
-                result.ErrorMessage = "Inventory is not enough";
-                return result;
-            }
+            List<InventoryDetail> inventoryDetails = new List<InventoryDetail>();
             try
             {
-                result.Data = await unitOfWork.SupplierInvoiceRepositoryDAO.Add(supplierInvoice);
-                result.ErrorMessage = string.Empty;
-                result.IsSuccess = true;
+                if (string.IsNullOrEmpty(name))
+                {
+                    result.IsSuccess = false;
+                    result.ErrorMessage = "Please enter all required information";
+                    return result;
+                }
+
+                List<SupplierInvoiceDetail> supplierInvoiceDetails = new List<SupplierInvoiceDetail>();
+                if (productDictionary.Count > 0)
+                {
+                    foreach (var kval in productDictionary)
+                    {
+                        if (kval.Value.Product == null)
+                        {
+                            result.IsSuccess = false;
+                            result.ErrorMessage = "Please add all required information";
+                            return result;
+                        }
+                        if (supplierInvoiceDetails.FirstOrDefault(p => p.Product.ProductName == kval.Value.Product.ProductName) != null)
+                        {
+                            string message = String.Format("There are duplicate product {0}", kval.Value.Product.ProductName);
+                            MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            result.IsSuccess = false;
+                            result.ErrorMessage = message;
+                            return result;
+                        }
+                        supplierInvoiceDetails.Add(kval.Value);
+                    }
+                }
+                DTO.SupplierInvoice supplierInvoice = new DTO.SupplierInvoice();
+                supplierInvoice.SupplierName = name;
+                supplierInvoice.SupplierInvoiceDetails = supplierInvoiceDetails;
+                foreach (SupplierInvoiceDetail supplierInvoiceDetail in supplierInvoice.SupplierInvoiceDetails)
+                {
+                    inventoryDetails.Add(new InventoryDetail() { ProductID = supplierInvoiceDetail.Product.ProductID, ProductQuantity = supplierInvoiceDetail.ProductQuantity });
+                }
+                float capacity = supplierInvoice.SupplierInvoiceDetails.Sum(p => p.ProductQuantity * p.Product.UnitConversion * p.Product.ProductCapacity);
+                var listInventory = await unitOfWork.InventoryDetailRepositoryDAO.GetAll();
+                float capacityInvetory = 0;
+                foreach (var item in listInventory)
+                {
+                    capacity += item.ProductQuantity * item.Product.ProductCapacity;
+                }
+                if (StaticGlobal.SYSTEM_CAPACITY - capacityInvetory < capacity)
+                {
+                    result.IsSuccess = false;
+                    result.ErrorMessage = "Inventory is not enough";
+                    return result;
+                }
+                try
+                {
+                    result.Data = await unitOfWork.SupplierInvoiceRepositoryDAO.Add(supplierInvoice);
+                    result.ErrorMessage = string.Empty;
+                    result.IsSuccess = true;
+                    if(result.IsSuccess)
+                    {
+                        foreach (InventoryDetail invnetory in inventoryDetails)
+                          await  unitOfWork.InventoryDetailRepositoryDAO.AddOrUpdate(invnetory);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    result.IsSuccess = false;
+                    result.ErrorMessage = ex.Message;
+                }
             }
-            catch (Exception ex)
-            {
+            catch(Exception ex) {
                 result.IsSuccess = false;
                 result.ErrorMessage = ex.Message;
             }

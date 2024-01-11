@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using SupermarketManagementApp.ErrorHandle;
 using System.Data.Entity;
 using System.Linq.Expressions;
+using System.Data.Entity.Migrations;
 
 namespace SupermarketManagementApp.DAO
 {
@@ -37,12 +38,16 @@ namespace SupermarketManagementApp.DAO
                 var inventoryDetail = await context.InventoryDetails.SingleOrDefaultAsync<InventoryDetail>(p=>p.ProductID == entity.ProductID);
                 if(inventoryDetail == null)
                 {
-                    return await base.Add(entity);
+                    context.InventoryDetails.Add(entity);
+                    await context.SaveChangesAsync();
+                    return entity;
                 }    
                 else
                 {
                     inventoryDetail.ProductQuantity += entity.ProductQuantity;
-                    return await base.Update(inventoryDetail);
+                    context.InventoryDetails.AddOrUpdate(inventoryDetail);
+                    await context.SaveChangesAsync();
+                    return inventoryDetail;
                 }
             }
             catch {
@@ -64,7 +69,7 @@ namespace SupermarketManagementApp.DAO
         {
             try
             {
-                return await base.GetAll();
+                return await context.InventoryDetails.ToListAsync();
             }
             catch
             {

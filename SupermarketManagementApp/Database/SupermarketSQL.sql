@@ -60,7 +60,7 @@ CREATE TABLE ShelfDetail (
 );
 
 CREATE TABLE InventoryDetail (
-	InventoryDetail BIGINT PRIMARY KEY IDENTITY ,
+	InventoryDetailID BIGINT PRIMARY KEY IDENTITY ,
     ProductID BIGINT,
     ProductQuantity INT,
 	FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
@@ -94,20 +94,19 @@ CREATE TABLE CustomerInvoiceDetail (
 );
 
 CREATE TABLE SupplierInvoice (
-    SuppliernvoiceID BIGINT PRIMARY KEY IDENTITY ,
+    SupplierInvoiceID BIGINT PRIMARY KEY IDENTITY ,
     EmployeeID INT,
     DatePayment DATETIME,
     SupplierName NVARCHAR(max),
     TotalAmount FLOAT,
     FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
 );
-
 CREATE TABLE SupplierInvoiceDetail (
     SuppliernvoiceDetailID BIGINT PRIMARY KEY IDENTITY ,
-    SupllierInvoiceID BIGINT,
+    SupplierInvoiceID BIGINT,
     ProductID BIGINT,
     ProductQuantity INT,
-    FOREIGN KEY (SupllierInvoiceID) REFERENCES SupplierInvoice(SuppliernvoiceID),
+    FOREIGN KEY (SupplierInvoiceID) REFERENCES SupplierInvoice(SupplierInvoiceID),
     FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
 );
 INSERT INTO Employee ( EmployeeName, Birthday, PhoneNumber, IdCardNumber, Gender)
@@ -125,3 +124,7 @@ VALUES (2, 'nhanvien', '1234', 'Employee');
 SELECT * FROM Account
 INSERT INTO Customer(CustomerName, Birthday, PhoneNumber, Gender)
 VALUES ( N'Khách hàng 1', '01-01-1995', '987654321', 'Male');
+SELECT * FROM SupplierInvoice 
+SELECT * FROM SupplierInvoiceDetail WHERE SupplierInvoiceDetail.SupplierInvoiceID = 11
+SELECT * FROM InventoryDetail
+SELECT * FROM Product

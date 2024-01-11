@@ -67,6 +67,7 @@ namespace SupermarketManagementApp.DAO
                 employee.IdCardNumber = entity.IdCardNumber;
                 employee.Birthday = entity.Birthday;
                 employee.EmployeeName = entity.EmployeeName;
+                employee.Gender = entity.Gender;
                 context.Employees.AddOrUpdate(employee);
                 await context.SaveChangesAsync();
                 return employee;   

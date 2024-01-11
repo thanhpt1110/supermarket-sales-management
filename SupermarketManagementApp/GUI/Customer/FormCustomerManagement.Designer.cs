@@ -38,18 +38,19 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.scrollBar = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.gridViewMain = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
-            this.msgBoxError = new Guna.UI2.WinForms.Guna2MessageDialog();
-            this.btnCreateCustomer = new Guna.UI2.WinForms.Guna2Button();
-            this.txtBoxSearchCustomer = new Guna.UI2.WinForms.Guna2TextBox();
             this.icon = new System.Windows.Forms.DataGridViewImageColumn();
+            this.CustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Birthday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
+            this.msgBoxError = new Guna.UI2.WinForms.Guna2MessageDialog();
+            this.btnCreateCustomer = new Guna.UI2.WinForms.Guna2Button();
+            this.txtBoxSearchCustomer = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewMain)).BeginInit();
             this.guna2ShadowPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -143,6 +144,7 @@
             this.gridViewMain.ColumnHeadersHeight = 50;
             this.gridViewMain.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.icon,
+            this.CustomerID,
             this.CustomerName,
             this.PhoneNumber,
             this.Birthday,
@@ -195,6 +197,74 @@
             this.gridViewMain.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewMain_CellClick);
             this.gridViewMain.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewMain_CellMouseLeave);
             this.gridViewMain.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridViewMain_CellMouseMove);
+            // 
+            // icon
+            // 
+            this.icon.FillWeight = 50F;
+            this.icon.HeaderText = "";
+            this.icon.Image = global::SupermarketManagementApp.Properties.Resources.grid_customer;
+            this.icon.MinimumWidth = 6;
+            this.icon.Name = "icon";
+            this.icon.ReadOnly = true;
+            this.icon.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // CustomerID
+            // 
+            this.CustomerID.HeaderText = "CustomerID";
+            this.CustomerID.MinimumWidth = 6;
+            this.CustomerID.Name = "CustomerID";
+            this.CustomerID.ReadOnly = true;
+            this.CustomerID.Visible = false;
+            // 
+            // CustomerName
+            // 
+            this.CustomerName.FillWeight = 170F;
+            this.CustomerName.HeaderText = "Name";
+            this.CustomerName.MinimumWidth = 6;
+            this.CustomerName.Name = "CustomerName";
+            this.CustomerName.ReadOnly = true;
+            // 
+            // PhoneNumber
+            // 
+            this.PhoneNumber.FillWeight = 130F;
+            this.PhoneNumber.HeaderText = "Phone number";
+            this.PhoneNumber.MinimumWidth = 6;
+            this.PhoneNumber.Name = "PhoneNumber";
+            this.PhoneNumber.ReadOnly = true;
+            // 
+            // Birthday
+            // 
+            this.Birthday.FillWeight = 120F;
+            this.Birthday.HeaderText = "Birthday";
+            this.Birthday.MinimumWidth = 6;
+            this.Birthday.Name = "Birthday";
+            this.Birthday.ReadOnly = true;
+            // 
+            // Gender
+            // 
+            this.Gender.FillWeight = 140F;
+            this.Gender.HeaderText = "Gender";
+            this.Gender.MinimumWidth = 6;
+            this.Gender.Name = "Gender";
+            this.Gender.ReadOnly = true;
+            // 
+            // Edit
+            // 
+            this.Edit.HeaderText = "";
+            this.Edit.Image = global::SupermarketManagementApp.Properties.Resources.grid_edit;
+            this.Edit.MinimumWidth = 6;
+            this.Edit.Name = "Edit";
+            this.Edit.ReadOnly = true;
+            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "";
+            this.Delete.Image = global::SupermarketManagementApp.Properties.Resources.grid_delete;
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // guna2ShadowPanel1
             // 
@@ -286,7 +356,7 @@
             this.txtBoxSearchCustomer.IconRightOffset = new System.Drawing.Point(15, -1);
             this.txtBoxSearchCustomer.IconRightSize = new System.Drawing.Size(25, 25);
             this.txtBoxSearchCustomer.Location = new System.Drawing.Point(45, 35);
-            this.txtBoxSearchCustomer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBoxSearchCustomer.Margin = new System.Windows.Forms.Padding(4);
             this.txtBoxSearchCustomer.Name = "txtBoxSearchCustomer";
             this.txtBoxSearchCustomer.PasswordChar = '\0';
             this.txtBoxSearchCustomer.PlaceholderForeColor = System.Drawing.Color.Silver;
@@ -295,66 +365,7 @@
             this.txtBoxSearchCustomer.Size = new System.Drawing.Size(285, 45);
             this.txtBoxSearchCustomer.TabIndex = 9;
             this.txtBoxSearchCustomer.TextOffset = new System.Drawing.Point(5, 0);
-            // 
-            // icon
-            // 
-            this.icon.FillWeight = 50F;
-            this.icon.HeaderText = "";
-            this.icon.Image = global::SupermarketManagementApp.Properties.Resources.grid_customer;
-            this.icon.MinimumWidth = 6;
-            this.icon.Name = "icon";
-            this.icon.ReadOnly = true;
-            this.icon.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // CustomerName
-            // 
-            this.CustomerName.FillWeight = 170F;
-            this.CustomerName.HeaderText = "Name";
-            this.CustomerName.MinimumWidth = 6;
-            this.CustomerName.Name = "CustomerName";
-            this.CustomerName.ReadOnly = true;
-            // 
-            // PhoneNumber
-            // 
-            this.PhoneNumber.FillWeight = 130F;
-            this.PhoneNumber.HeaderText = "Phone number";
-            this.PhoneNumber.MinimumWidth = 6;
-            this.PhoneNumber.Name = "PhoneNumber";
-            this.PhoneNumber.ReadOnly = true;
-            // 
-            // Birthday
-            // 
-            this.Birthday.FillWeight = 120F;
-            this.Birthday.HeaderText = "Birthday";
-            this.Birthday.MinimumWidth = 6;
-            this.Birthday.Name = "Birthday";
-            this.Birthday.ReadOnly = true;
-            // 
-            // Gender
-            // 
-            this.Gender.FillWeight = 140F;
-            this.Gender.HeaderText = "Gender";
-            this.Gender.MinimumWidth = 6;
-            this.Gender.Name = "Gender";
-            this.Gender.ReadOnly = true;
-            // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "";
-            this.Edit.Image = global::SupermarketManagementApp.Properties.Resources.grid_edit;
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.ReadOnly = true;
-            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "";
-            this.Delete.Image = global::SupermarketManagementApp.Properties.Resources.grid_delete;
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.txtBoxSearchCustomer.TextChanged += new System.EventHandler(this.txtBoxSearchCustomer_TextChanged);
             // 
             // FormCustomerManagement
             // 
@@ -389,6 +400,7 @@
         private Guna.UI2.WinForms.Guna2Button btnCreateCustomer;
         private Guna.UI2.WinForms.Guna2TextBox txtBoxSearchCustomer;
         private System.Windows.Forms.DataGridViewImageColumn icon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerName;
         private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn Birthday;
