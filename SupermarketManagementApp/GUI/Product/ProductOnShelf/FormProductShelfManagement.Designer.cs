@@ -28,36 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
             this.msgBoxInfo = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.msgBoxDelete = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.msgBoxError = new Guna.UI2.WinForms.Guna2MessageDialog();
-            this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.txtBoxSearchProduct = new Guna.UI2.WinForms.Guna2TextBox();
-            this.shelfCapacity = new Guna.UI2.WinForms.Guna2ProgressBar();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2ShadowPanel1.SuspendLayout();
+            this.txtBoxSearchShelf = new Guna.UI2.WinForms.Guna2TextBox();
+            this.panelShelfContainer = new System.Windows.Forms.FlowLayoutPanel();
+            this.filterFloor = new Guna.UI2.WinForms.Guna2ComboBox();
             this.SuspendLayout();
-            // 
-            // btnExportExcel
-            // 
-            this.btnExportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExportExcel.BorderRadius = 15;
-            this.btnExportExcel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExportExcel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnExportExcel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnExportExcel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnExportExcel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnExportExcel.FillColor = System.Drawing.Color.Orange;
-            this.btnExportExcel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportExcel.ForeColor = System.Drawing.Color.Black;
-            this.btnExportExcel.Location = new System.Drawing.Point(767, 35);
-            this.btnExportExcel.Name = "btnExportExcel";
-            this.btnExportExcel.Size = new System.Drawing.Size(169, 45);
-            this.btnExportExcel.TabIndex = 16;
-            this.btnExportExcel.Text = "Export Excel";
-            this.btnExportExcel.TextOffset = new System.Drawing.Point(0, -1);
             // 
             // msgBoxInfo
             // 
@@ -86,24 +64,6 @@
             this.msgBoxError.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
             this.msgBoxError.Text = "There were some errors, please try again later!";
             // 
-            // guna2ShadowPanel1
-            // 
-            this.guna2ShadowPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel1.Controls.Add(this.guna2HtmlLabel1);
-            this.guna2ShadowPanel1.Controls.Add(this.shelfCapacity);
-            this.guna2ShadowPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.guna2ShadowPanel1.Location = new System.Drawing.Point(45, 132);
-            this.guna2ShadowPanel1.Name = "guna2ShadowPanel1";
-            this.guna2ShadowPanel1.Radius = 20;
-            this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
-            this.guna2ShadowPanel1.ShadowDepth = 255;
-            this.guna2ShadowPanel1.ShadowStyle = Guna.UI2.WinForms.Guna2ShadowPanel.ShadowMode.ForwardDiagonal;
-            this.guna2ShadowPanel1.Size = new System.Drawing.Size(903, 108);
-            this.guna2ShadowPanel1.TabIndex = 17;
-            // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.FillWeight = 50F;
@@ -113,90 +73,101 @@
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewImageColumn1.Width = 68;
             // 
-            // txtBoxSearchProduct
+            // txtBoxSearchShelf
             // 
-            this.txtBoxSearchProduct.BackColor = System.Drawing.Color.Transparent;
-            this.txtBoxSearchProduct.BorderColor = System.Drawing.Color.DarkGray;
-            this.txtBoxSearchProduct.BorderRadius = 5;
-            this.txtBoxSearchProduct.BorderThickness = 2;
-            this.txtBoxSearchProduct.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBoxSearchProduct.DefaultText = "";
-            this.txtBoxSearchProduct.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtBoxSearchProduct.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtBoxSearchProduct.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBoxSearchProduct.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBoxSearchProduct.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.txtBoxSearchProduct.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxSearchProduct.ForeColor = System.Drawing.Color.Black;
-            this.txtBoxSearchProduct.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.txtBoxSearchProduct.IconRight = global::SupermarketManagementApp.Properties.Resources.silver_search;
-            this.txtBoxSearchProduct.IconRightOffset = new System.Drawing.Point(15, -1);
-            this.txtBoxSearchProduct.IconRightSize = new System.Drawing.Size(25, 25);
-            this.txtBoxSearchProduct.Location = new System.Drawing.Point(45, 35);
-            this.txtBoxSearchProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtBoxSearchProduct.Name = "txtBoxSearchProduct";
-            this.txtBoxSearchProduct.PasswordChar = '\0';
-            this.txtBoxSearchProduct.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txtBoxSearchProduct.PlaceholderText = "Enter product name";
-            this.txtBoxSearchProduct.SelectedText = "";
-            this.txtBoxSearchProduct.Size = new System.Drawing.Size(285, 45);
-            this.txtBoxSearchProduct.TabIndex = 15;
-            this.txtBoxSearchProduct.TextOffset = new System.Drawing.Point(5, 0);
+            this.txtBoxSearchShelf.BackColor = System.Drawing.Color.Transparent;
+            this.txtBoxSearchShelf.BorderColor = System.Drawing.Color.DarkGray;
+            this.txtBoxSearchShelf.BorderRadius = 5;
+            this.txtBoxSearchShelf.BorderThickness = 2;
+            this.txtBoxSearchShelf.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBoxSearchShelf.DefaultText = "";
+            this.txtBoxSearchShelf.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtBoxSearchShelf.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtBoxSearchShelf.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBoxSearchShelf.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBoxSearchShelf.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.txtBoxSearchShelf.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxSearchShelf.ForeColor = System.Drawing.Color.Black;
+            this.txtBoxSearchShelf.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.txtBoxSearchShelf.IconRight = global::SupermarketManagementApp.Properties.Resources.silver_search;
+            this.txtBoxSearchShelf.IconRightOffset = new System.Drawing.Point(15, -1);
+            this.txtBoxSearchShelf.IconRightSize = new System.Drawing.Size(25, 25);
+            this.txtBoxSearchShelf.Location = new System.Drawing.Point(45, 35);
+            this.txtBoxSearchShelf.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBoxSearchShelf.Name = "txtBoxSearchShelf";
+            this.txtBoxSearchShelf.PasswordChar = '\0';
+            this.txtBoxSearchShelf.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txtBoxSearchShelf.PlaceholderText = "Enter shelf type";
+            this.txtBoxSearchShelf.SelectedText = "";
+            this.txtBoxSearchShelf.Size = new System.Drawing.Size(285, 45);
+            this.txtBoxSearchShelf.TabIndex = 15;
+            this.txtBoxSearchShelf.TextOffset = new System.Drawing.Point(5, 0);
             // 
-            // shelfCapacity
+            // panelShelfContainer
             // 
-            this.shelfCapacity.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.shelfCapacity.BorderRadius = 15;
-            this.shelfCapacity.BorderThickness = 1;
-            this.shelfCapacity.FillColor = System.Drawing.Color.Gray;
-            this.shelfCapacity.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.shelfCapacity.ForeColor = System.Drawing.Color.White;
-            this.shelfCapacity.Location = new System.Drawing.Point(60, 70);
-            this.shelfCapacity.Name = "shelfCapacity";
-            this.shelfCapacity.ProgressColor = System.Drawing.Color.ForestGreen;
-            this.shelfCapacity.ProgressColor2 = System.Drawing.Color.ForestGreen;
-            this.shelfCapacity.ShowText = true;
-            this.shelfCapacity.Size = new System.Drawing.Size(785, 22);
-            this.shelfCapacity.TabIndex = 19;
-            this.shelfCapacity.TextMode = Guna.UI2.WinForms.Enums.ProgressBarTextMode.Custom;
-            this.shelfCapacity.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.panelShelfContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelShelfContainer.AutoScroll = true;
+            this.panelShelfContainer.Location = new System.Drawing.Point(45, 136);
+            this.panelShelfContainer.Name = "panelShelfContainer";
+            this.panelShelfContainer.Size = new System.Drawing.Size(891, 535);
+            this.panelShelfContainer.TabIndex = 19;
             // 
-            // guna2HtmlLabel1
+            // filterFloor
             // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(379, 25);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(127, 23);
-            this.guna2HtmlLabel1.TabIndex = 20;
-            this.guna2HtmlLabel1.Text = "guna2HtmlLabel1";
+            this.filterFloor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.filterFloor.BackColor = System.Drawing.Color.Transparent;
+            this.filterFloor.BorderColor = System.Drawing.Color.DarkGray;
+            this.filterFloor.BorderRadius = 5;
+            this.filterFloor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.filterFloor.DropDownHeight = 150;
+            this.filterFloor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.filterFloor.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.filterFloor.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.filterFloor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filterFloor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.filterFloor.IntegralHeight = false;
+            this.filterFloor.ItemHeight = 30;
+            this.filterFloor.Items.AddRange(new object[] {
+            "Floor 1",
+            "Floor 2",
+            "Floor 3",
+            "Floor 4",
+            "Floor 5"});
+            this.filterFloor.ItemsAppearance.ForeColor = System.Drawing.Color.Black;
+            this.filterFloor.Location = new System.Drawing.Point(723, 44);
+            this.filterFloor.MaxDropDownItems = 5;
+            this.filterFloor.Name = "filterFloor";
+            this.filterFloor.Size = new System.Drawing.Size(180, 36);
+            this.filterFloor.TabIndex = 20;
+            this.filterFloor.TextOffset = new System.Drawing.Point(5, 0);
             // 
             // FormProductShelfManagement
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(984, 761);
-            this.Controls.Add(this.txtBoxSearchProduct);
-            this.Controls.Add(this.btnExportExcel);
-            this.Controls.Add(this.guna2ShadowPanel1);
+            this.Controls.Add(this.filterFloor);
+            this.Controls.Add(this.panelShelfContainer);
+            this.Controls.Add(this.txtBoxSearchShelf);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FormProductShelfManagement";
             this.Text = "FormProductShelfManagement";
-            this.guna2ShadowPanel1.ResumeLayout(false);
-            this.guna2ShadowPanel1.PerformLayout();
+            this.Shown += new System.EventHandler(this.FormProductShelfManagement_Shown);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2TextBox txtBoxSearchProduct;
-        private Guna.UI2.WinForms.Guna2Button btnExportExcel;
+        private Guna.UI2.WinForms.Guna2TextBox txtBoxSearchShelf;
         private Guna.UI2.WinForms.Guna2MessageDialog msgBoxInfo;
         private Guna.UI2.WinForms.Guna2MessageDialog msgBoxDelete;
         private Guna.UI2.WinForms.Guna2MessageDialog msgBoxError;
-        private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private Guna.UI2.WinForms.Guna2ProgressBar shelfCapacity;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private System.Windows.Forms.FlowLayoutPanel panelShelfContainer;
+        private Guna.UI2.WinForms.Guna2ComboBox filterFloor;
     }
 }

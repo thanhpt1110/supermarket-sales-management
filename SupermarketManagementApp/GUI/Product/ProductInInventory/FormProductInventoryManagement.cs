@@ -17,7 +17,8 @@ namespace SupermarketManagementApp.GUI.Product.ProductInInventory
     {
         private FormMain formMain;
         private Guna2DataGridView gridView = null;
-        private const int INVENTORY_CAPACITY = 100;
+        private const int INVENTORY_CAPACITY = 1000;
+        private int usedInventoryCapacity = 400;
 
         public FormProductInventoryManagement()
         {
@@ -31,20 +32,27 @@ namespace SupermarketManagementApp.GUI.Product.ProductInInventory
             this.gridView = gridViewMain;
             CustomStyleGridView();
             LoadGridData();
-            LoadAvailableCapacity();
             UpdateScrollBarValues();
+            UpdateProgressBar();
         }
 
-        private void LoadAvailableCapacity()
+        private void UpdateProgressBar()
         {
-            availableCapacity.Minimum = 0;
+            availableCapacity.Value = usedInventoryCapacity;
             availableCapacity.Maximum = INVENTORY_CAPACITY;
 
-            int used = 39;
-            availableCapacity.Value = used;
-
-            int remaining = INVENTORY_CAPACITY - used;
-            availableCapacity.Text = ("Capacity: " + used + " used, " + remaining + " remaining.");
+            int remaining = INVENTORY_CAPACITY - usedInventoryCapacity;
+            if (usedInventoryCapacity <= INVENTORY_CAPACITY)
+            {
+                availableCapacity.ProgressColor = Color.ForestGreen;
+                availableCapacity.ProgressColor2 = Color.ForestGreen;
+            }
+            else
+            {
+                availableCapacity.ProgressColor = Color.Firebrick;
+                availableCapacity.ProgressColor2 = Color.Firebrick;
+            }
+            availableCapacity.Text = ("Capacity: " + usedInventoryCapacity + " used, " + remaining + " remaining.");
         }
 
         private void LoadGridData()

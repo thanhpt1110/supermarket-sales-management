@@ -17,8 +17,8 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
     public partial class FormCreateSupplierInvoice : Form
     {
         private const int INVENTORY_CAPACITY = 500000;
-        private double used = 0;
-        private double remaining = 0;
+        private int used = 0;
+        private int remaining = 0;
         private List<string> listProductName;
         private List<DTO.Product> listProduct;
         private List<string> listSelectedProductName;
@@ -39,6 +39,7 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             LoadFirstCapacity();
 
         }
+
         private async void loadProduct()
         {
             Result<IEnumerable<DTO.Product>> productResult = await productBUS.getAllProduct();
@@ -53,22 +54,34 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
                 this.Close();
             }
         }
+
         private async void LoadFirstCapacity()
         {
             Result<float> reuslt = await invetoryDetailBUS.getCapacityOfInventory();
             if (reuslt.IsSuccess)
             {
-                used = reuslt.Data;
+                used = (int)reuslt.Data;
                 inventoryNumber = (int)reuslt.Data;
             }
             UpdateAvailableCapacity();
         }    
+
         private void UpdateAvailableCapacity()
         {
-            availableCapacity.Minimum = 0;
+            availableCapacity.Value = used;
             availableCapacity.Maximum = INVENTORY_CAPACITY;
-            availableCapacity.Value = (int)used;
             remaining = INVENTORY_CAPACITY - used;
+            if (used <= INVENTORY_CAPACITY)
+            {
+                availableCapacity.ProgressColor = Color.ForestGreen;
+                availableCapacity.ProgressColor2 = Color.ForestGreen;
+            }
+            else
+            {
+                availableCapacity.ProgressColor = Color.Firebrick;
+                availableCapacity.ProgressColor2 = Color.Firebrick;
+            }
+
             availableCapacity.Text = ("Capacity: " + used + " used, " + remaining + " remaining.");
         }
 
@@ -586,7 +599,7 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
 
             textBox.TextChanged += (sender, e) =>
             {
-                double totalCapacity = 0;
+                int totalCapacity = 0;
 
                 foreach (FlowLayoutPanel line in panelOrderInformation.Controls)
                 {
@@ -598,8 +611,8 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
                             {
                                 if (control2.Name == "txtTotalCapacity")
                                 {
-                                    double value;
-                                    if (double.TryParse(control2.Text, out value))
+                                    int value;
+                                    if (int.TryParse(control2.Text, out value))
                                     {
                                         totalCapacity += value;
                                     }
@@ -675,7 +688,7 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
                 labelTotalAmount.RightToLeft = RightToLeft.Yes;
                 labelTotalAmount.Text = totalAmount.ToString("N0", culture) + " VND";
 
-                double totalCapacity = 0;
+                int totalCapacity = 0;
 
                 foreach (FlowLayoutPanel line in panelOrderInformation.Controls)
                 {
@@ -687,8 +700,8 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
                             {
                                 if (control2.Name == "txtTotalCapacity")
                                 {
-                                    double value;
-                                    if (double.TryParse(control2.Text, out value))
+                                    int value;
+                                    if (int.TryParse(control2.Text, out value))
                                     {
                                         totalCapacity += value;
                                     }

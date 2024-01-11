@@ -1,4 +1,6 @@
 ﻿using Guna.UI2.WinForms;
+using SupermarketManagementApp.BUS;
+using SupermarketManagementApp.DTO;
 using SupermarketManagementApp.GUI.Invoice.CustomerInvoice;
 using SupermarketManagementApp.Utils;
 using System;
@@ -18,39 +20,49 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
         #region Declare variable
         private Guna2DataGridView gridView = null;
         private FormMain formMain = null;
+        EmployeeBUS employeeBUS = null;
+        private Timer searchTimer = null;
+        private SupplierInvoiceBUS supplierInvoiceBUS = null;
         #endregion
-
+        private List<SupermarketManagementApp.DTO.SupplierInvoice> supplierInvoices = null;
         public FormSupplierInvoiceManagement(FormMain formMain)
         {
             this.formMain = formMain;
+            supplierInvoiceBUS = SupplierInvoiceBUS.GetInstance();
+            employeeBUS = EmployeeBUS.GetInstance();
             InitializeComponent();
             CustomStyleGridView();
-            LoadGridData();
             UpdateScrollBarValues();
+            InitAllSupplierInvoice();
         }
 
         public FormSupplierInvoiceManagement()
         {
+            supplierInvoiceBUS = SupplierInvoiceBUS.GetInstance();
+            employeeBUS = EmployeeBUS.GetInstance();
             InitializeComponent();
             CustomStyleGridView();
-            LoadGridData();
             UpdateScrollBarValues();
+            InitAllSupplierInvoice();
+        }
+        public async void InitAllSupplierInvoice()
+        {
+            Result<IEnumerable<DTO.SupplierInvoice>> supplierInvoiceResult = await supplierInvoiceBUS.getAllSupplierInvoice();
+            if (supplierInvoiceResult.IsSuccess)
+            {
+                this.supplierInvoices = supplierInvoiceResult.Data.ToList();
+            }
+            LoadGridData();
         }
         private void LoadGridData()
         {
-            gridView.Rows.Add(new object[] { null, "Sophia Johnson", "John Doe", "15/04/2022", "1,200,000" });
-            gridView.Rows.Add(new object[] { null, "Liam Wilson", "Alice Smith", "21/08/2022", "800,000" });
-            gridView.Rows.Add(new object[] { null, "Ava Smith", "Bob Miller", "08/06/2022", "1,500,000" });
-            gridView.Rows.Add(new object[] { null, "Noah Davis", "Eva Wilson", "14/03/2022", "950,000" });
-            gridView.Rows.Add(new object[] { null, "Emma Miller", "Chris Anderson", "02/12/2022", "700,000" });
-            gridView.Rows.Add(new object[] { null, "Lucas White", "Sophie Lee", "25/10/2022", "1,300,000" });
-            gridView.Rows.Add(new object[] { null, "Olivia Taylor", "David Brown", "18/07/2022", "1,100,000" });
-            gridView.Rows.Add(new object[] { null, "Ethan Brown", "Emily White", "03/09/2022", "1,800,000" });
-            gridView.Rows.Add(new object[] { null, "Isabella Jackson", "Michael Taylor", "30/04/2022", "1,600,000" });
-            gridView.Rows.Add(new object[] { null, "Mason Harris", "Olivia Johnson", "09/01/2022", "1,000,000" });
-            gridView.Rows.Add(new object[] { null, "Amelia Moore", "Daniel Miller", "12/11/2022", "1,750,000" });
-            gridView.Rows.Add(new object[] { null, "Oliver Harris", "Sophia Davis", "01/07/2022", "1,450,000" });
+            gridView.Rows.Clear();
+            foreach (var supplierInvoice in supplierInvoices)
+            {
+                gridView.Rows.Add(new object[] { null, supplierInvoice.SupplierInvoiceID, supplierInvoice.Employee.EmployeeName, supplierInvoice.SupplierName, supplierInvoice.DatePayment.ToString("dd/MM/yyyy"), supplierInvoice.TotalAmount });
+            }
         }
+ 
         
         #region Customize data grid
         private void CustomStyleGridView()
@@ -104,7 +116,7 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             if (e.RowIndex == -1)
             {
                 // Kiểm tra xem có phải là header của cột 2, 3, 4 hoặc header của cột 4, 5
-                if (e.ColumnIndex >= 1 && e.ColumnIndex <= 4)
+                if (e.ColumnIndex >= 2 && e.ColumnIndex <= 5)
                 {
                     gridView.Cursor = Cursors.Hand;
                     return;
@@ -112,7 +124,7 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             }
 
             // Nếu không phải là header của cột và nằm trong khoảng cột 4, 5, đặt kiểu cursor thành Hand
-            if (e.RowIndex >= 0 && e.ColumnIndex == 5)
+            if (e.RowIndex >= 0 && e.ColumnIndex == 6)
             {
                 gridView.Cursor = Cursors.Hand;
                 return;
@@ -149,8 +161,38 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
         {
             try
             {
-                msgBoxError.Parent = formMain;
-                msgBoxError.Show();
+                if (gridView.Rows.Count > 0)
+                {
+                    Microsoft.Office.Interop.Excel.Application XcelApp = new Microsoft.Office.Interop.Excel.Application();
+                    XcelApp.Application.Workbooks.Add(Type.Missing);
+
+                    int row = gridView.Rows.Count;
+                    int col = gridView.Columns.Count;
+
+                    // Get Header text of Column
+                    for (int i = 1; i < col - 1 + 1; i++)
+                    {
+                        if (i == 1) continue;
+                        XcelApp.Cells[1, i - 1] = gridView.Columns[i - 1].HeaderText;
+                    }
+
+                    // Get data of cells
+                    for (int i = 0; i < row; i++)
+                    {
+                        for (int j = 1; j < col - 1; j++)
+                        {
+                            XcelApp.Cells[i + 2, j] = gridView.Rows[i].Cells[j].Value.ToString();
+                        }
+                    }
+
+                    XcelApp.Columns.AutoFit();
+                    XcelApp.Visible = true;
+                }
+                else
+                {
+                    msgBoxError.Parent = formMain;
+                    msgBoxError.Show("Error");
+                }
             }
             catch (Exception ex)
             {
@@ -163,7 +205,7 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
         {
             if (e.RowIndex >= 0)
             {
-                if (e.ColumnIndex == 5)
+                if (e.ColumnIndex == 6)
                 {
                     // View infor details
                     FormBackground formBackground = new FormBackground(formMain);
