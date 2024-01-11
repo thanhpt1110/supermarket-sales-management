@@ -303,7 +303,7 @@
             // 
             // SupplierInvoiceID
             // 
-            this.SupplierInvoiceID.HeaderText = "Supplierr Invoice ID";
+            this.SupplierInvoiceID.HeaderText = "Supplier Invoice ID";
             this.SupplierInvoiceID.MinimumWidth = 6;
             this.SupplierInvoiceID.Name = "SupplierInvoiceID";
             this.SupplierInvoiceID.ReadOnly = true;

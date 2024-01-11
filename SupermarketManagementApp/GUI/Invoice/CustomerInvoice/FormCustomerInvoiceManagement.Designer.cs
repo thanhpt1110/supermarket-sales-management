@@ -35,12 +35,6 @@
             this.msgBoxDelete = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.scrollBar = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.gridViewMain = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.icon = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Employee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Details = new System.Windows.Forms.DataGridViewImageColumn();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
             this.msgBoxError = new Guna.UI2.WinForms.Guna2MessageDialog();
@@ -49,6 +43,13 @@
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.txtBoxSearchInvoice = new Guna.UI2.WinForms.Guna2TextBox();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.icon = new System.Windows.Forms.DataGridViewImageColumn();
+            this.CustomerInvoiceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Employee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Details = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewMain)).BeginInit();
             this.guna2ShadowPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -112,6 +113,7 @@
             this.gridViewMain.ColumnHeadersHeight = 50;
             this.gridViewMain.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.icon,
+            this.CustomerInvoiceID,
             this.Employee,
             this.Customer,
             this.Date,
@@ -130,6 +132,7 @@
             this.gridViewMain.Name = "gridViewMain";
             this.gridViewMain.ReadOnly = true;
             this.gridViewMain.RowHeadersVisible = false;
+            this.gridViewMain.RowHeadersWidth = 51;
             this.gridViewMain.RowTemplate.DividerHeight = 1;
             this.gridViewMain.RowTemplate.Height = 55;
             this.gridViewMain.RowTemplate.ReadOnly = true;
@@ -161,48 +164,6 @@
             this.gridViewMain.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewMain_CellClick);
             this.gridViewMain.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewMain_CellMouseLeave);
             this.gridViewMain.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridViewMain_CellMouseMove);
-            // 
-            // icon
-            // 
-            this.icon.FillWeight = 50F;
-            this.icon.HeaderText = "";
-            this.icon.Image = global::SupermarketManagementApp.Properties.Resources.grid_invoice;
-            this.icon.Name = "icon";
-            this.icon.ReadOnly = true;
-            this.icon.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Employee
-            // 
-            this.Employee.FillWeight = 140F;
-            this.Employee.HeaderText = "Employee";
-            this.Employee.Name = "Employee";
-            this.Employee.ReadOnly = true;
-            // 
-            // Customer
-            // 
-            this.Customer.HeaderText = "Customer";
-            this.Customer.Name = "Customer";
-            this.Customer.ReadOnly = true;
-            // 
-            // Date
-            // 
-            this.Date.HeaderText = "Date";
-            this.Date.Name = "Date";
-            this.Date.ReadOnly = true;
-            // 
-            // TotalAmount
-            // 
-            this.TotalAmount.HeaderText = "Total Amount";
-            this.TotalAmount.Name = "TotalAmount";
-            this.TotalAmount.ReadOnly = true;
-            // 
-            // Details
-            // 
-            this.Details.HeaderText = "";
-            this.Details.Image = global::SupermarketManagementApp.Properties.Resources.grid_info;
-            this.Details.Name = "Details";
-            this.Details.ReadOnly = true;
-            this.Details.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // guna2ShadowPanel1
             // 
@@ -276,6 +237,7 @@
             this.dataGridViewImageColumn1.FillWeight = 50F;
             this.dataGridViewImageColumn1.HeaderText = "";
             this.dataGridViewImageColumn1.Image = global::SupermarketManagementApp.Properties.Resources.grid_account;
+            this.dataGridViewImageColumn1.MinimumWidth = 6;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.ReadOnly = true;
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -285,6 +247,7 @@
             // 
             this.dataGridViewImageColumn2.HeaderText = "";
             this.dataGridViewImageColumn2.Image = global::SupermarketManagementApp.Properties.Resources.grid_edit;
+            this.dataGridViewImageColumn2.MinimumWidth = 6;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.Width = 139;
@@ -309,7 +272,7 @@
             this.txtBoxSearchInvoice.IconRightOffset = new System.Drawing.Point(15, -1);
             this.txtBoxSearchInvoice.IconRightSize = new System.Drawing.Size(25, 25);
             this.txtBoxSearchInvoice.Location = new System.Drawing.Point(45, 35);
-            this.txtBoxSearchInvoice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBoxSearchInvoice.Margin = new System.Windows.Forms.Padding(4);
             this.txtBoxSearchInvoice.Name = "txtBoxSearchInvoice";
             this.txtBoxSearchInvoice.PasswordChar = '\0';
             this.txtBoxSearchInvoice.PlaceholderForeColor = System.Drawing.Color.Silver;
@@ -323,9 +286,66 @@
             // 
             this.dataGridViewImageColumn3.HeaderText = "";
             this.dataGridViewImageColumn3.Image = global::SupermarketManagementApp.Properties.Resources.grid_delete;
+            this.dataGridViewImageColumn3.MinimumWidth = 6;
             this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
             this.dataGridViewImageColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn3.Width = 139;
+            // 
+            // icon
+            // 
+            this.icon.FillWeight = 50F;
+            this.icon.HeaderText = "";
+            this.icon.Image = global::SupermarketManagementApp.Properties.Resources.grid_invoice;
+            this.icon.MinimumWidth = 6;
+            this.icon.Name = "icon";
+            this.icon.ReadOnly = true;
+            this.icon.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // CustomerInvoiceID
+            // 
+            this.CustomerInvoiceID.HeaderText = "CustomerInvoiceID";
+            this.CustomerInvoiceID.MinimumWidth = 6;
+            this.CustomerInvoiceID.Name = "CustomerInvoiceID";
+            this.CustomerInvoiceID.ReadOnly = true;
+            this.CustomerInvoiceID.Visible = false;
+            // 
+            // Employee
+            // 
+            this.Employee.FillWeight = 140F;
+            this.Employee.HeaderText = "Employee";
+            this.Employee.MinimumWidth = 6;
+            this.Employee.Name = "Employee";
+            this.Employee.ReadOnly = true;
+            // 
+            // Customer
+            // 
+            this.Customer.HeaderText = "Customer";
+            this.Customer.MinimumWidth = 6;
+            this.Customer.Name = "Customer";
+            this.Customer.ReadOnly = true;
+            // 
+            // Date
+            // 
+            this.Date.HeaderText = "Date";
+            this.Date.MinimumWidth = 6;
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            // 
+            // TotalAmount
+            // 
+            this.TotalAmount.HeaderText = "Total Amount";
+            this.TotalAmount.MinimumWidth = 6;
+            this.TotalAmount.Name = "TotalAmount";
+            this.TotalAmount.ReadOnly = true;
+            // 
+            // Details
+            // 
+            this.Details.HeaderText = "";
+            this.Details.Image = global::SupermarketManagementApp.Properties.Resources.grid_info;
+            this.Details.MinimumWidth = 6;
+            this.Details.Name = "Details";
+            this.Details.ReadOnly = true;
+            this.Details.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // FormCustomerInvoiceManagement
             // 
@@ -360,6 +380,7 @@
         private Guna.UI2.WinForms.Guna2MessageDialog msgBoxError;
         private Guna.UI2.WinForms.Guna2Button btnCreateInvoice;
         private System.Windows.Forms.DataGridViewImageColumn icon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerInvoiceID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Employee;
         private System.Windows.Forms.DataGridViewTextBoxColumn Customer;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;

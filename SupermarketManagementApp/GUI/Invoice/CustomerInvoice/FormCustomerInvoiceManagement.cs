@@ -1,4 +1,6 @@
 ﻿using Guna.UI2.WinForms;
+using SupermarketManagementApp.BUS;
+using SupermarketManagementApp.DTO;
 using SupermarketManagementApp.GUI.Account;
 using SupermarketManagementApp.Utils;
 using System;
@@ -18,40 +20,52 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
         #region Declare variable
         private Guna2DataGridView gridView = null;
         private FormMain formMain = null;
+        EmployeeBUS employeeBUS = null;
+        CustomerBUS customerBUS = null;
+        private Timer searchTimer = null;
+        private CustomerInvoiceBUS customerInvoiceBUS = null;
         #endregion
+        private List<SupermarketManagementApp.DTO.CustomerInvoice> customerInvoices = null;
+
 
         public FormCustomerInvoiceManagement(FormMain formMain)
         {
             this.formMain = formMain;
-
+            customerInvoiceBUS = CustomerInvoiceBUS.GetInstance();
+            employeeBUS = EmployeeBUS.GetInstance();
+            customerBUS = CustomerBUS.GetInstance();
             InitializeComponent();
             CustomStyleGridView();
-            LoadGridData();
             UpdateScrollBarValues();
+            InitAllCustomerInvoice();
         }
 
         public FormCustomerInvoiceManagement()
         {
+            customerInvoiceBUS = CustomerInvoiceBUS.GetInstance();
+            employeeBUS = EmployeeBUS.GetInstance();
+            customerBUS = CustomerBUS.GetInstance();
             InitializeComponent();
             CustomStyleGridView();
-            LoadGridData();
             UpdateScrollBarValues();
+            InitAllCustomerInvoice();
         }
-
+        public async void InitAllCustomerInvoice()
+        {
+            Result<IEnumerable<DTO.CustomerInvoice>> customerInvoiceResult = await customerInvoiceBUS.getAllCustomerInvoice();
+            if (customerInvoiceResult.IsSuccess)
+            {
+                this.customerInvoices = customerInvoiceResult.Data.ToList();
+            }
+            LoadGridData();
+        }
         private void LoadGridData()
         {
-            gridView.Rows.Add(new object[] { null, "Sophia Johnson", "John Doe", "15/04/2022", "1,200,000" });
-            gridView.Rows.Add(new object[] { null, "Liam Wilson", "Alice Smith", "21/08/2022", "800,000" });
-            gridView.Rows.Add(new object[] { null, "Ava Smith", "Bob Miller", "08/06/2022", "1,500,000" });
-            gridView.Rows.Add(new object[] { null, "Noah Davis", "Eva Wilson", "14/03/2022", "950,000" });
-            gridView.Rows.Add(new object[] { null, "Emma Miller", "Chris Anderson", "02/12/2022", "700,000" });
-            gridView.Rows.Add(new object[] { null, "Lucas White", "Sophie Lee", "25/10/2022", "1,300,000" });
-            gridView.Rows.Add(new object[] { null, "Olivia Taylor", "David Brown", "18/07/2022", "1,100,000" });
-            gridView.Rows.Add(new object[] { null, "Ethan Brown", "Emily White", "03/09/2022", "1,800,000" });
-            gridView.Rows.Add(new object[] { null, "Isabella Jackson", "Michael Taylor", "30/04/2022", "1,600,000" });
-            gridView.Rows.Add(new object[] { null, "Mason Harris", "Olivia Johnson", "09/01/2022", "1,000,000" });
-            gridView.Rows.Add(new object[] { null, "Amelia Moore", "Daniel Miller", "12/11/2022", "1,750,000" });
-            gridView.Rows.Add(new object[] { null, "Oliver Harris", "Sophia Davis", "01/07/2022", "1,450,000" });
+            gridView.Rows.Clear();
+            foreach (var customerInvoice in customerInvoices)
+            {
+                gridView.Rows.Add(new object[] { null, customerInvoice.CustomerInvoiceID, customerInvoice.Employee.EmployeeName, customerInvoice.Customer.CustomerName, customerInvoice.DatePayment, customerInvoice.TotalAmount });
+            }
         }
 
         #region Customize data grid
