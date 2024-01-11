@@ -41,7 +41,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
+            this.btnExportPDF = new Guna.UI2.WinForms.Guna2Button();
             this.dtpkFrom = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.btnWeek = new Guna.UI2.WinForms.Guna2Button();
             this.btnMonth = new Guna.UI2.WinForms.Guna2Button();
@@ -72,24 +72,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvCustomers)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnExportExcel
+            // btnExportPDF
             // 
-            this.btnExportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExportExcel.BorderRadius = 15;
-            this.btnExportExcel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExportExcel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnExportExcel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnExportExcel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnExportExcel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnExportExcel.FillColor = System.Drawing.Color.Orange;
-            this.btnExportExcel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportExcel.ForeColor = System.Drawing.Color.Black;
-            this.btnExportExcel.Location = new System.Drawing.Point(1389, 30);
-            this.btnExportExcel.Name = "btnExportExcel";
-            this.btnExportExcel.Size = new System.Drawing.Size(161, 45);
-            this.btnExportExcel.TabIndex = 9;
-            this.btnExportExcel.Text = "Export Excel";
-            this.btnExportExcel.TextOffset = new System.Drawing.Point(0, -1);
+            this.btnExportPDF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExportPDF.BorderRadius = 15;
+            this.btnExportPDF.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExportPDF.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnExportPDF.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnExportPDF.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnExportPDF.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnExportPDF.FillColor = System.Drawing.Color.Orange;
+            this.btnExportPDF.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportPDF.ForeColor = System.Drawing.Color.Black;
+            this.btnExportPDF.Location = new System.Drawing.Point(1389, 30);
+            this.btnExportPDF.Name = "btnExportPDF";
+            this.btnExportPDF.Size = new System.Drawing.Size(161, 45);
+            this.btnExportPDF.TabIndex = 9;
+            this.btnExportPDF.Text = "Export PDF";
+            this.btnExportPDF.TextOffset = new System.Drawing.Point(0, -1);
+            this.btnExportPDF.Click += new System.EventHandler(this.btnExportPDF_Click);
             // 
             // dtpkFrom
             // 
@@ -502,7 +503,7 @@
             this.Controls.Add(this.btnMonth);
             this.Controls.Add(this.btnWeek);
             this.Controls.Add(this.dtpkFrom);
-            this.Controls.Add(this.btnExportExcel);
+            this.Controls.Add(this.btnExportPDF);
             this.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.Name = "FormReport_Statistic";
@@ -523,7 +524,7 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2Button btnExportExcel;
+        private Guna.UI2.WinForms.Guna2Button btnExportPDF;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpkFrom;
         private Guna.UI2.WinForms.Guna2Button btnWeek;
         private Guna.UI2.WinForms.Guna2Button btnMonth;
