@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using SupermarketManagementApp.ErrorHandle;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity;
+using System.Windows;
 
 namespace SupermarketManagementApp.DAO
 {
@@ -126,5 +127,7 @@ namespace SupermarketManagementApp.DAO
             }
             catch { throw; }
         }
+
+        
     }
 }
