@@ -12,6 +12,9 @@ using System.Threading.Tasks;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using SupermarketManagementApp.DAO;
+using SupermarketManagementApp.BUS;
+using SupermarketManagementApp.DTO;
+
 namespace SupermarketManagementApp.GUI.Customer
 {
     public partial class FormCustomerManagement : Form
@@ -19,40 +22,61 @@ namespace SupermarketManagementApp.GUI.Customer
         #region Declare variable
         private Guna2DataGridView gridView = null;
         private FormMain formMain = null;
+        private Timer searchTimer = null;
         #endregion
+
+        #region Declare specific Variable type
+        private List<SupermarketManagementApp.DTO.Customer> customers = null;
+        private CustomerBUS customerBUS = null;
+        #endregion
+
+        public FormCustomerManagement(FormMain formMain)
+        {
+            this.formMain = formMain;
+            customerBUS = CustomerBUS.GetInstance();
+            InitializeComponent();
+            CustomStyleGridView();
+            UpdateScrollBarValues();
+            InitAllCustomer();
+            InitTimer();
+
+        }
         public FormCustomerManagement()
         {
             InitializeComponent();
             CustomStyleGridView();
             UpdateScrollBarValues();
-            LoadGridData();
+            InitAllCustomer();
+            InitTimer();
+
 
         }
-        public FormCustomerManagement(FormMain formMain)
+
+        #region Load grid event
+        public async void InitAllCustomer()
         {
-            this.formMain = formMain;
-            InitializeComponent();
-            CustomStyleGridView();
-            LoadGridData();
-            UpdateScrollBarValues();
+            Result<IEnumerable<DTO.Customer>> customerResult = await customerBUS.GetAllCustomer();
+            if (customerResult.IsSuccess)
+            {
+                this.customers = customerResult.Data.ToList();
+                LoadGridData();
 
+            }
+            else
+            {
+                MessageBox.Show(customerResult.ErrorMessage);
+            }
         }
-
         private void LoadGridData()
         {
-            gridView.Rows.Add(new object[] { null, "Sophia Johnson", "0987654321", "15/04/1992", "Female" });
-            gridView.Rows.Add(new object[] { null, "Liam Wilson", "0901122334", "21/08/1988", "Male" });
-            gridView.Rows.Add(new object[] { null, "Ava Smith", "0977123456", "08/06/1997", "Female" });
-            gridView.Rows.Add(new object[] { null, "Noah Davis", "0938111222", "14/03/1985", "Male" });
-            gridView.Rows.Add(new object[] { null, "Emma Miller", "0914555666", "02/12/1990", "Female" });
-            gridView.Rows.Add(new object[] { null, "Lucas White", "0966888999", "25/10/1993", "Male" });
-            gridView.Rows.Add(new object[] { null, "Olivia Taylor", "0944777666", "18/07/1981", "Female" });
-            gridView.Rows.Add(new object[] { null, "Ethan Brown", "0988333222", "03/09/1999", "Male" });
-            gridView.Rows.Add(new object[] { null, "Isabella Jackson", "0914222111", "30/04/1987", "Female" });
-            gridView.Rows.Add(new object[] { null, "Mason Harris", "0977999888", "09/01/1996", "Male" });
-            gridView.Rows.Add(new object[] { null, "Amelia Moore", "0936555444", "12/11/1983", "Female" });
-            gridView.Rows.Add(new object[] { null, "Oliver Harris", "0922333444", "01/07/1998", "Male" });
+            gridView.Rows.Clear();
+            foreach (var customer in customers)
+            {
+                gridView.Rows.Add(new object[] { null, customer.CustomerID, customer.CustomerName, customer.PhoneNumber, customer.Birthday.ToString("dd/MM/yyyy"), customer.Gender });
+            }
         }
+        #endregion
+       
         #region Customize data grid
         private void CustomStyleGridView()
         {
@@ -106,7 +130,7 @@ namespace SupermarketManagementApp.GUI.Customer
             if (e.RowIndex == -1)
             {
                 // Kiểm tra xem có phải là header của cột 2, 3, 4 hoặc header của cột 4, 5
-                if (e.ColumnIndex >= 1 && e.ColumnIndex <= 4)
+                if (e.ColumnIndex >= 2 && e.ColumnIndex <= 5)
                 {
                     gridView.Cursor = Cursors.Hand;
                     return;
@@ -114,7 +138,7 @@ namespace SupermarketManagementApp.GUI.Customer
             }
 
             // Nếu không phải là header của cột và nằm trong khoảng cột 4, 5, đặt kiểu cursor thành Hand
-            if (e.RowIndex >= 0 && (e.ColumnIndex == 5 || e.ColumnIndex == 6))
+            if (e.RowIndex >= 0 && (e.ColumnIndex == 6 || e.ColumnIndex == 7))
             {
                 gridView.Cursor = Cursors.Hand;
                 return;
@@ -131,7 +155,7 @@ namespace SupermarketManagementApp.GUI.Customer
             FormBackground formBackground = new FormBackground(formMain);
             try
             {
-                using (FormCreateCustomer formCreateCustomer = new FormCreateCustomer())
+                using (FormCreateCustomer formCreateCustomer = new FormCreateCustomer(this))
                 {
                     formBackground.Owner = formMain;
                     formBackground.Show();
@@ -161,17 +185,18 @@ namespace SupermarketManagementApp.GUI.Customer
             }
         }
 
-        private void gridViewMain_CellClick(object sender, DataGridViewCellEventArgs e)
+        private async void gridViewMain_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            int x = e.ColumnIndex, y = e.RowIndex;
             if (e.RowIndex >= 0)
             {
-                if (e.ColumnIndex == 5)
+                if (e.ColumnIndex == 6)
                 {
                     // Update
                     FormBackground formBackground = new FormBackground(formMain);
                     try
                     {
-                        using (FormUpdateCustomer formUpdateCustomer = new FormUpdateCustomer())
+                        using (FormUpdateCustomer formUpdateCustomer = new FormUpdateCustomer(this, int.Parse(gridView.Rows[y].Cells[1].Value.ToString())))
                         {
                             formBackground.Owner = formMain;
                             formBackground.Show();
@@ -186,7 +211,7 @@ namespace SupermarketManagementApp.GUI.Customer
                         msgBoxError.Show(ex.Message, "Error");
                     }
                 }
-                else if (e.ColumnIndex == 6)
+                else if (e.ColumnIndex == 7)
                 {
                     // Delete
                     msgBoxDelete.Parent = formMain;
@@ -196,7 +221,18 @@ namespace SupermarketManagementApp.GUI.Customer
                         case DialogResult.Yes:
                             try
                             {
+                                Result<bool> result = await customerBUS.removeCustomerByID(int.Parse(gridView.Rows[y].Cells[1].Value.ToString()));
+                                if (result.IsSuccess)
+                                {
+                                    MessageBox.Show("Remove successfully!", "Success", MessageBoxButtons.OK);
+                                    InitAllCustomer();
+                                }
+                                else
+                                {
+                                    msgBoxError.Parent = formMain;
+                                    msgBoxError.Show(result.ErrorMessage, "Error");
 
+                                }
                             }
                             catch (Exception ex)
                             {
@@ -211,6 +247,28 @@ namespace SupermarketManagementApp.GUI.Customer
             }
         }
         #endregion
-
+        
+        #region Init timer event
+        private void InitTimer()
+        {
+            searchTimer = new Timer();
+            searchTimer.Interval = 300;
+            searchTimer.Tick += SearchTimer_Tick;
+        }
+        private async void SearchTimer_Tick(object sender, EventArgs e)
+        {
+            this.searchTimer.Stop();
+            Result<IEnumerable<DTO.Customer>> result = await customerBUS.searchCustomerByName(txtBoxSearchCustomer.Text);
+            this.customers = result.Data.ToList();
+            LoadGridData();
+        }
+        #endregion
+        #region Text changed event
+        private void txtBoxSearchCustomer_TextChanged(object sender, EventArgs e)
+        {
+            this.searchTimer.Stop();
+            this.searchTimer.Start();
+        }
+        #endregion
     }
 }

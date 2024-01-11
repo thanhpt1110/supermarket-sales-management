@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SupermarketManagementApp.BUS;
+using SupermarketManagementApp.GUI.Employee;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,13 @@ namespace SupermarketManagementApp.GUI.Customer
 {
     public partial class FormCreateCustomer : Form
     {
-        public FormCreateCustomer()
+        private CustomerBUS customerBUS;
+        private FormCustomerManagement formCustomerManagement;
+        public FormCreateCustomer(FormCustomerManagement formCustomerManagement)
         {
             InitializeComponent();
+            customerBUS = CustomerBUS.GetInstance();
+            this.formCustomerManagement = formCustomerManagement;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -22,9 +28,35 @@ namespace SupermarketManagementApp.GUI.Customer
             this.Close();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private async void btnSave_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DTO.Customer customer = new DTO.Customer();
+            customer.CustomerName = this.txtBoxCustomerName.Text;
+            customer.Gender = this.cbBoxGender.Text;
+            customer.Birthday = this.birthDayPicker.Value;
+            customer.PhoneNumber = this.txtBoxPhoneNumber.Text;
+            
+            
+            try
+            {
+                var customerResult = await customerBUS.AddCustomer(customer);
+                if (customerResult.IsSuccess)
+                {
+                    MessageBox.Show("Added new employee Success");
+                    formCustomerManagement.InitAllCustomer();
+                    this.Close();
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show(customerResult.ErrorMessage);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

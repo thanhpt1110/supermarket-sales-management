@@ -83,7 +83,7 @@ namespace SupermarketManagementApp.GUI.Product
             Result<DTO.Product> result = await productBUS.updateProduct(product);
             if (result.IsSuccess)
             {
-                MessageBox.Show("Update Account successfully!");
+                MessageBox.Show("Update Product successfully!");
                 this.formProductManagement.InitAllProduct();
                 this.Close();
             }

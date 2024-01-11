@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using SupermarketManagementApp.ErrorHandle;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity;
+using System.Windows;
 using System.Data.Entity.Migrations;
 
 namespace SupermarketManagementApp.DAO
@@ -52,7 +53,7 @@ namespace SupermarketManagementApp.DAO
                 {
                     throw new NotExistedObjectException("Product is not existed");
                 }    
-                if(product.CustomerInvoiceDetails != null || product.SupplierInvoiceDetails != null) {
+                if(product.CustomerInvoiceDetails.Count>0 || product.SupplierInvoiceDetails.Count>0) {
                     throw new ObjectDependException("Couldn't remove this product");
                 }
                 return await base.RemoveByID(id);
@@ -138,5 +139,7 @@ namespace SupermarketManagementApp.DAO
             }
             catch { throw; }
         }
+
+        
     }
 }
