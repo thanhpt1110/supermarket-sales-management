@@ -60,11 +60,12 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             Result<float> reuslt = await invetoryDetailBUS.getCapacityOfInventory();
             if (reuslt.IsSuccess)
             {
-                used = reuslt.Data;
+                used = (int)reuslt.Data;
                 inventoryNumber = (int)reuslt.Data;
             }
             UpdateAvailableCapacity();
         }    
+
         private void UpdateAvailableCapacity()
         {
             availableCapacity.Value = used;
