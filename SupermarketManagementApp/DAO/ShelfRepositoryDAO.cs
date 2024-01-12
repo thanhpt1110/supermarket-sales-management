@@ -6,6 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using SupermarketManagementApp.ErrorHandle;
 using System.Linq.Expressions;
+using SupermarketManagementApp.Utils;
+using System.Windows.Forms;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Data.Entity;
+using System.Runtime.CompilerServices;
 
 namespace SupermarketManagementApp.DAO
 {
@@ -13,17 +18,44 @@ namespace SupermarketManagementApp.DAO
     {
         public ShelfRepositoryDAO():base() { }
         public ShelfRepositoryDAO(SupermarketContext context) : base(context) { }
-        public override Task<Shelf> Add(Shelf entity)
+        public override async Task<Shelf> Add(Shelf entity)
         {
             try
             {
-                return base.Add(entity);
+                entity.ShelfID = await getNewShelfID(entity.ShelfFloor);
+                context.Shelves.Add(entity);
+                await context.SaveChangesAsync();
+                for (int i = 0; i < entity.LayerQuantity; i++)
+                {
+                    ShelfDetail shelfDetail = new ShelfDetail();
+                    shelfDetail.ShelfID = (int) entity.ShelfID;
+                    shelfDetail.ProductID = null;
+                    shelfDetail.ProductQuantity = 0;
+                    context.ShelfDetails.Add(shelfDetail);
+                }
+                await context.SaveChangesAsync();
+                return entity;  
             }
             catch (Exception ex)
             {
                 throw;
             }
         }
+        private async Task<int> getNewShelfID(int floor)
+        {
+            var latestShelf = await context.Shelves
+                .Where(s => s.ShelfFloor == floor)
+                .OrderByDescending(s => s.ShelfID)
+                .FirstOrDefaultAsync();
+
+            if (latestShelf == null)
+            {
+                return floor * 100 + 1;
+            }
+
+            return (int) latestShelf.ShelfID + 1;
+        }
+
         public override async Task<Shelf> AddOrUpdate(Shelf entity)
         {
             try
@@ -87,5 +119,6 @@ namespace SupermarketManagementApp.DAO
                 throw;
             }
         }
+       
     }
 }

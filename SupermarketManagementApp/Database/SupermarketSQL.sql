@@ -21,14 +21,6 @@ CREATE TABLE Account (
     FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
 );
 
-CREATE TABLE Shelf (
-    ShelfID INT PRIMARY KEY IDENTITY ,
-    ShelfFloor INT,
-    ShelfType NVARCHAR(max),
-    LayerQuantity INT,
-    LayerCapacity INT,
-    Status NVARCHAR(max)
-);
 
 
 
@@ -49,6 +41,16 @@ CREATE TABLE Product (
     UnitConversion INT,
     ProductCapacity INT,
 	FOREIGN KEY (ProductTypeID) REFERENCES ProductType(ProductTypeID)
+);
+CREATE TABLE Shelf (
+    ShelfID INT PRIMARY KEY ,
+    ShelfFloor INT,
+    ProductTypeID INT,
+    LayerQuantity INT,
+    LayerCapacity INT,
+    Status NVARCHAR(max),
+    FOREIGN KEY (ProductTypeID) REFERENCES ProductType(ProductTypeID)
+
 );
 CREATE TABLE ShelfDetail (
     ShelfDetailID INT PRIMARY KEY IDENTITY ,
@@ -128,3 +130,5 @@ SELECT * FROM SupplierInvoice
 SELECT * FROM SupplierInvoiceDetail WHERE SupplierInvoiceDetail.SupplierInvoiceID = 11
 SELECT * FROM InventoryDetail
 SELECT * FROM Product
+SELECT * FROM Shelf
+select * from ShelfDetail

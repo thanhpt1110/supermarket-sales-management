@@ -14,12 +14,13 @@ namespace SupermarketManagementApp.DTO
         {
             ShelfDetails = new HashSet<ShelfDetail>();
         }
-
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ShelfID { get; set; }
 
         public int ShelfFloor { get; set; }
 
-        public string ShelfType { get; set; }
+        public int ProductTypeID { get; set; }  
 
         public int LayerQuantity { get; set; }
 
@@ -29,5 +30,7 @@ namespace SupermarketManagementApp.DTO
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ShelfDetail> ShelfDetails { get; set; }
+        public virtual ProductType ProductType { get; set; }
+
     }
 }

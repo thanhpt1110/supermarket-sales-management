@@ -13,6 +13,7 @@ namespace SupermarketManagementApp.DTO
         public ProductType()
         {
             Products = new HashSet<Product>();
+            Shelves = new HashSet<Shelf>();
         }
 
         public int ProductTypeID { get; set; }
@@ -29,5 +30,7 @@ namespace SupermarketManagementApp.DTO
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<Shelf> Shelves { get; set; }
+
     }
 }

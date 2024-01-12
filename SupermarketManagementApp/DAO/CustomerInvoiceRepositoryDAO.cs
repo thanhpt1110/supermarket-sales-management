@@ -19,16 +19,18 @@ namespace SupermarketManagementApp.DAO
         {
             try
             {
-                var customerInvoice = await base.Add(entity);
                 entity.DatePayment = DateTime.Now;
                 entity.TotalAmount = 0;
+                context.CustomerInvoices.Add(entity);
+                // Save changes to get the SupplierInvoiceID generated (assuming it's an auto-increment field)
+                await context.SaveChangesAsync();
                 foreach (CustomerInvoiceDetail customerInvoiceDetail in entity.CustomerInvoiceDetails)
                 {
                     context.CustomerInvoiceDetails.Add(customerInvoiceDetail);
                     entity.TotalAmount += customerInvoiceDetail.Product.UnitPrice * customerInvoiceDetail.ProductQuantity;
                 }
                 await context.SaveChangesAsync();
-                return customerInvoice;
+                return entity;
             }
             catch (Exception ex)
             {

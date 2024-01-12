@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SupermarketManagementApp.BUS;
+using SupermarketManagementApp.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,19 +14,55 @@ namespace SupermarketManagementApp.GUI.Shelf
 {
     public partial class FormCreateShelf : Form
     {
+        private ProductTypeBUS productTypeBUS = null;
+        private ShelfBUS shelfBUS = null;
         public FormCreateShelf()
         {
             InitializeComponent();
+            productTypeBUS = ProductTypeBUS.GetInstance();
+            shelfBUS = ShelfBUS.GetInstance();
+            loadProductData();
         }
-
+        private async void loadProductData()
+        {
+            Result<IEnumerable<DTO.ProductType>> result = await productTypeBUS.getAllProductType();
+            if (result.IsSuccess)
+            {
+                cbBoxShelfType.DataSource = result.Data;
+                cbBoxShelfType.DisplayMember = "ProductTypeName"; // Hiển thị thuộc tính "Ten" của đối tượng
+                cbBoxShelfType.ValueMember = "ProductTypeID";    // Sử dụng thuộc tính "Id" của đối tượng khi chọn mục
+            }
+        }
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private async void btnSave_Click(object sender, EventArgs e)
         {
-            this.Close();
+            try
+            {
+                DTO.Shelf shelf = new DTO.Shelf();
+                shelf.ShelfFloor = int.Parse(txtBoxShelfFloor.Text);
+                shelf.LayerCapacity = int.Parse(txtBoxLayerCapacity.Text);
+                shelf.LayerQuantity = int.Parse(txtBoxNumberOfLayer.Text);
+                shelf.ProductTypeID = int.Parse(cbBoxShelfType.SelectedValue.ToString());
+                shelf.Status = "Available";
+                Result<DTO.Shelf> resultShelf = await shelfBUS.AddShelf(shelf);
+                if(resultShelf.IsSuccess)
+                {
+                    MessageBox.Show("Create shelf success");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show(resultShelf.ErrorMessage);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void txtBoxLayerCapacity_TextChanged(object sender, EventArgs e)

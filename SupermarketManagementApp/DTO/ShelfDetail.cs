@@ -11,9 +11,9 @@ namespace SupermarketManagementApp.DTO
     {
         public int ShelfDetailID { get; set; }
 
-        public int ShelfID { get; set; }
+        public int? ShelfID { get; set; }
 
-        public long ProductID { get; set; }
+        public long? ProductID { get; set; }
 
         public int ProductQuantity { get; set; }
 

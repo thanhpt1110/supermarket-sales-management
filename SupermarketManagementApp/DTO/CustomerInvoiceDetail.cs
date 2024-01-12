@@ -15,7 +15,7 @@ namespace SupermarketManagementApp.DTO
 
         public long? ProductID { get; set; }
 
-        public int? ProductQuantity { get; set; }
+        public int ProductQuantity { get; set; }
 
         public virtual CustomerInvoice CustomerInvoice { get; set; }
 

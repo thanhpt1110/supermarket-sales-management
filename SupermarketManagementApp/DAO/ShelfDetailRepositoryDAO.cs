@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SupermarketManagementApp.ErrorHandle;
+using System.Data.Entity.Migrations;
+
 namespace SupermarketManagementApp.DAO
 {
     public class ShelfDetailRepositoryDAO: GenericRepositoryDAO<ShelfDetail>
@@ -52,7 +54,11 @@ namespace SupermarketManagementApp.DAO
                 {
                     throw new NotExistedObjectException("Shelf detail is not existed");
                 }
-                return await base.Update(entity);
+                shelfDetail.ProductQuantity = entity.ProductQuantity;
+                shelfDetail.ProductID = entity.ProductID;
+                context.ShelfDetails.AddOrUpdate(shelfDetail);
+                await context.SaveChangesAsync();
+                return shelfDetail;
             }
             catch
             {

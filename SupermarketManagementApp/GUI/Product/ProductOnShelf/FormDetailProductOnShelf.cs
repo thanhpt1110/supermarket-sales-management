@@ -1,4 +1,7 @@
 ﻿using Guna.UI2.WinForms;
+using SupermarketManagementApp.BUS;
+using SupermarketManagementApp.DTO;
+using SupermarketManagementApp.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,13 +19,49 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
     {
         private int totalShelfCapacity = 0;
         private int usedShelfCapacity = 0;
-
-        public FormDetailProductOnShelf()
+        private FormProductShelfManagement formProductShelfManagement;
+        private ShelfBUS shelfBUS;
+        private Dictionary<int, ShelfDetail> dictionaryShelf;
+        private List<DTO.Product> listProduct;
+        private ProductBUS productBUS;
+        private List<string> listProductName;
+        public FormDetailProductOnShelf(FormProductShelfManagement formProductShelfManagement,int shelfID, int totalCapacity, string name)
         {
+            this.formProductShelfManagement = formProductShelfManagement;
+            shelfBUS = ShelfBUS.GetInstance();
+            productBUS = ProductBUS.GetInstance();
             InitializeComponent();
+            this.totalShelfCapacity = totalCapacity;
+            this.labelName.Text = name;
             totalShelfCapacity = 50000;
+            dictionaryShelf = new Dictionary<int, ShelfDetail>();
+            getShelf(shelfID);
         }
+        private async void getShelf(int id)
+        {
+            Result<DTO.Shelf> result = await shelfBUS.getShelfByID(id);
+            Result<IEnumerable<DTO.Product>> resultProduct = await productBUS.getAllProduct();
+            if(resultProduct.IsSuccess) {
+                this.listProduct = resultProduct.Data.ToList();
+                listProductName = listProduct.Select(p=>p.ProductName).ToList();
+            }
+            if(result.IsSuccess)
+            {
+                foreach(ShelfDetail shelfDetail in result.Data.ShelfDetails)
+                {
+                    dictionaryShelf[shelfDetail.ShelfDetailID] = new ShelfDetail() {ShelfDetailID = shelfDetail.ShelfDetailID
+                        , ShelfID = shelfDetail.ShelfID, Shelf = shelfDetail.Shelf, Product = shelfDetail.Product, ProductID = shelfDetail.ProductID, ProductQuantity = shelfDetail.ProductQuantity};
+                    int layerUsedCapacity = 0;
 
+                    if (shelfDetail.Product != null)
+                    {
+                        layerUsedCapacity = shelfDetail.ProductQuantity * shelfDetail.Product.ProductCapacity;
+                    }    
+                    panelLayerContainer.Controls.Add(ShelfLayer(layerUsedCapacity, result.Data.LayerCapacity, dictionaryShelf[shelfDetail.ShelfDetailID]));
+
+                }
+            }    
+        }
         List<string> products = new List<string>
             {
                 "Abc",
@@ -35,9 +74,21 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
             this.Close();
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private async void btnUpdate_Click(object sender, EventArgs e)
         {
-            this.Close();
+            List<ShelfDetail> shelfDetails = dictionaryShelf.Values.ToList();
+            Result<List<ShelfDetail>> result = await shelfBUS.updateShelfDetail(shelfDetails);
+            if(result.IsSuccess)
+            {
+                MessageBox.Show("Update shelf success");
+                this.Close();
+
+            }
+            else
+            {
+                MessageBox.Show(result.ErrorMessage, "Error",MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                return;
+            }
         }
 
         private void UpdateProgressBar(Guna2ProgressBar progressBar, int used, int total)
@@ -62,16 +113,16 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            int layerUsedCapacity = 0;
+/*            int layerUsedCapacity = 0;
             int layerTotalCapacity = 2000;
             panelLayerContainer.Controls.Add(ShelfLayer(layerUsedCapacity, layerTotalCapacity));
 
             layerUsedCapacity = 23;
             layerTotalCapacity = 1000;
-            panelLayerContainer.Controls.Add(ShelfLayer(layerUsedCapacity, layerTotalCapacity));    
+            panelLayerContainer.Controls.Add(ShelfLayer(layerUsedCapacity, layerTotalCapacity));    */
         }
 
-        private Guna2Panel ShelfLayer(int layerUsedCapacity, int layerTotalCapacity) 
+        private Guna2Panel ShelfLayer(int layerUsedCapacity, int layerTotalCapacity, ShelfDetail shelfDetail) 
         {
             #region Declare control
             Guna2Panel shelfLayer = new Guna2Panel();
@@ -163,17 +214,25 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
             txtBoxProductName.SelectedText = "";
             txtBoxProductName.Size = new System.Drawing.Size(221, 36);
             txtBoxProductName.TabIndex = 12;
-            txtBoxProductName.Text = "";
+            if (shelfDetail.Product != null)
+                txtBoxProductName.Text = shelfDetail.Product.ProductName;
+            else
+                txtBoxProductName.Text = "";
             txtBoxProductName.TextOffset = new System.Drawing.Point(5, 0);
-            txtBoxProductName.AutoCompleteCustomSource.AddRange(products.ToArray());
+            txtBoxProductName.AutoCompleteCustomSource.AddRange(listProductName.ToArray());
             txtBoxProductName.AutoCompleteMode = AutoCompleteMode.Suggest;
             txtBoxProductName.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
             txtBoxProductName.TextChanged += (sender, e) =>
             {
-                if (txtBoxQuantity.Text != "0")
+                var productSearch = listProduct.FirstOrDefault(p => p.ProductName == txtBoxProductName.Text);
+                dictionaryShelf[shelfDetail.ShelfDetailID].Product = productSearch;
+                if (productSearch != null)
+                    txtBoxCapacity.Text = productSearch.ProductCapacity.ToString();
+                else
                 {
-                    txtBoxQuantity.Text = "0";
+                    txtBoxCapacity.Text = "0";
+                    dictionaryShelf[shelfDetail.ShelfDetailID].ProductID = null;
                 }
             };
             #endregion
@@ -200,7 +259,7 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
             txtBoxQuantity.SelectedText = "";
             txtBoxQuantity.Size = new System.Drawing.Size(139, 36);
             txtBoxQuantity.TabIndex = 12;
-            txtBoxQuantity.Text = "";
+            txtBoxQuantity.Text = shelfDetail.ProductQuantity.ToString();
             txtBoxQuantity.TextOffset = new System.Drawing.Point(5, 0);
 
             txtBoxQuantity.TextChanged += (sender, e) =>
@@ -208,11 +267,12 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
                 if (txtBoxQuantity.Text == string.Empty)
                 {
                     txtBoxQuantity.Text = "0";
+                    shelfDetail.ProductQuantity = 0;
                 }
-
                 int quantityValue, capacityValue;
                 if (int.TryParse(txtBoxQuantity.Text, out quantityValue) && int.TryParse(txtBoxCapacity.Text, out capacityValue))
                 {
+                    shelfDetail.ProductQuantity = quantityValue;
                     int _totalCapacity = quantityValue * capacityValue;
                     layerUsedCapacity = _totalCapacity;
                     txtBoxTotalCapacity.Text = _totalCapacity.ToString();
@@ -248,7 +308,14 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
             txtBoxCapacity.SelectedText = "";
             txtBoxCapacity.Size = new System.Drawing.Size(175, 36);
             txtBoxCapacity.TabIndex = 15;
-            txtBoxCapacity.Text = "100";
+            if(shelfDetail.Product!=null)
+            {
+                txtBoxCapacity.Text = shelfDetail.Product.ProductCapacity.ToString();
+            }
+            else
+            {
+                txtBoxCapacity.Text = "0";
+            }
             txtBoxCapacity.TextOffset = new System.Drawing.Point(5, 0);
             #endregion
 
@@ -274,7 +341,10 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
             txtBoxTotalCapacity.SelectedText = "";
             txtBoxTotalCapacity.Size = new System.Drawing.Size(175, 36);
             txtBoxTotalCapacity.TabIndex = 15;
-            txtBoxTotalCapacity.Text = "0";
+            if (shelfDetail.Product != null)
+                txtBoxTotalCapacity.Text = (shelfDetail.Product.ProductCapacity * shelfDetail.ProductQuantity).ToString();
+            else
+                txtBoxCapacity.Text = "0";
             txtBoxTotalCapacity.TextOffset = new System.Drawing.Point(5, 0);
 
             txtBoxTotalCapacity.TextChanged += (sender, e) =>

@@ -14,7 +14,7 @@ namespace SupermarketManagementApp.DTO
 
         public long? SupplierInvoiceID { get; set; }
 
-        public long ProductID { get; set; }
+        public long? ProductID { get; set; }
 
         public int ProductQuantity { get; set; }
 

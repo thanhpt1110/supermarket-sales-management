@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SupermarketManagementApp.BUS
 {
@@ -93,6 +94,64 @@ namespace SupermarketManagementApp.BUS
             {
                 result.ErrorMessage = e.Message;
                 result.IsSuccess = false;
+            }
+            return result;
+        }
+        public async Task<Result<CustomerInvoice>> AddNewCustomerInvoice(Dictionary<string, CustomerInvoiceDetail> productDictionary, int idCustomer)
+        {
+
+            Result<CustomerInvoice> result = new Result<CustomerInvoice>();
+            try
+            {
+                if (idCustomer==0)
+                {
+                    result.IsSuccess = false;
+                    result.ErrorMessage = "Please enter all required information";
+                    return result;
+                }
+
+                List<CustomerInvoiceDetail> customerInvoiceDetails = new List<CustomerInvoiceDetail>();
+                if (productDictionary.Count > 0)
+                {
+                    foreach (var kval in productDictionary)
+                    {
+                        if (kval.Value.Product == null)
+                        {
+                            result.IsSuccess = false;
+                            result.ErrorMessage = "Please add all required information";
+                            return result;
+                        }
+                        if (customerInvoiceDetails.FirstOrDefault(p => p.Product.ProductName == kval.Value.Product.ProductName) != null)
+                        {
+                            string message = String.Format("There are duplicate product {0}", kval.Value.Product.ProductName);
+                            MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            result.IsSuccess = false;
+                            result.ErrorMessage = message;
+                            return result;
+                        }
+                        customerInvoiceDetails.Add(kval.Value);
+                    }
+                }
+                DTO.CustomerInvoice customerInvoice = new DTO.CustomerInvoice();
+                customerInvoice.EmployeeID = 1;
+                customerInvoice.CustomerID = idCustomer;
+                customerInvoice.CustomerInvoiceDetails = customerInvoiceDetails;
+                try
+                {
+                    result.Data = await unitOfWork.CustomerInvoiceRepositoryDAO.Add(customerInvoice);
+                    result.ErrorMessage = string.Empty;
+                    result.IsSuccess = true;
+                }
+                catch (Exception ex)
+                {
+                    result.IsSuccess = false;
+                    result.ErrorMessage = ex.Message;
+                }
+            }
+            catch (Exception ex)
+            {
+                result.IsSuccess = false;
+                result.ErrorMessage = ex.Message;
             }
             return result;
         }

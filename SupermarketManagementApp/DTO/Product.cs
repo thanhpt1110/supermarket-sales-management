@@ -14,13 +14,12 @@ namespace SupermarketManagementApp.DTO
         {
             CustomerInvoiceDetails = new HashSet<CustomerInvoiceDetail>();
             InventoryDetails = new HashSet<InventoryDetail>();
-            ShelfDetails = new HashSet<ShelfDetail>();
             SupplierInvoiceDetails = new HashSet<SupplierInvoiceDetail>();
         }
 
-        public long ProductID { get; set; }
+        public long? ProductID { get; set; }
 
-        public int ProductTypeID { get; set; }
+        public int? ProductTypeID { get; set; }
         public string ProductName { get; set; }
         public double UnitPrice { get; set; }
 
@@ -42,8 +41,7 @@ namespace SupermarketManagementApp.DTO
 
         public virtual ProductType ProductType { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ShelfDetail> ShelfDetails { get; set; }
+
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SupplierInvoiceDetail> SupplierInvoiceDetails { get; set; }

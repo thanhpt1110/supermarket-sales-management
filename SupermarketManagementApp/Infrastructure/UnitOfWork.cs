@@ -18,8 +18,8 @@ namespace SupermarketManagementApp.Infrastructure
         private IRepositoryDAO<Product> productRepositoryDAO;
         private IRepositoryDAO<ProductType> productTypeRepositoryDAO;
         private IRepositoryDAO<Shelf> shelfRepositoryDAO;
+        private IRepositoryDAO<ShelfDetail> shelfDetailRepositoryDAO;
         private IRepositoryDAO<SupplierInvoice> supplierInvoiceRepositoryDAO;
-        
         private UnitOfWork(SupermarketContext context)
         {
             this.context = context;
@@ -111,7 +111,17 @@ namespace SupermarketManagementApp.Infrastructure
                 return productTypeRepositoryDAO;
             }
         }
-
+        public IRepositoryDAO<ShelfDetail> ShelfDetailRepositoryDAO
+        {
+            get
+            {
+                if (shelfDetailRepositoryDAO == null)
+                {
+                    shelfDetailRepositoryDAO = new ShelfDetailRepositoryDAO(context);
+                }
+                return shelfDetailRepositoryDAO;
+            }
+        }
         public IRepositoryDAO<Shelf> ShelfRepositoryDAO
         {
             get

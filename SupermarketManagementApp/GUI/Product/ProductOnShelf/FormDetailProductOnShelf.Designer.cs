@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panelLayerContainer = new System.Windows.Forms.FlowLayoutPanel();
-            this.labelForm = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.labelName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.shelfCapacity = new Guna.UI2.WinForms.Guna2ProgressBar();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.btnUpdate = new Guna.UI2.WinForms.Guna2Button();
@@ -49,15 +49,15 @@
             this.panelLayerContainer.Size = new System.Drawing.Size(900, 550);
             this.panelLayerContainer.TabIndex = 0;
             // 
-            // labelForm
+            // labelName
             // 
-            this.labelForm.BackColor = System.Drawing.Color.Transparent;
-            this.labelForm.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelForm.Location = new System.Drawing.Point(415, 30);
-            this.labelForm.Name = "labelForm";
-            this.labelForm.Size = new System.Drawing.Size(154, 32);
-            this.labelForm.TabIndex = 1;
-            this.labelForm.Text = "Shelf 101 - Grain";
+            this.labelName.BackColor = System.Drawing.Color.Transparent;
+            this.labelName.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelName.Location = new System.Drawing.Point(415, 30);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(191, 38);
+            this.labelName.TabIndex = 1;
+            this.labelName.Text = "Shelf 101 - Grain";
             // 
             // shelfCapacity
             // 
@@ -160,7 +160,7 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.shelfCapacity);
-            this.Controls.Add(this.labelForm);
+            this.Controls.Add(this.labelName);
             this.Controls.Add(this.panelLayerContainer);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -176,7 +176,7 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel panelLayerContainer;
-        private Guna.UI2.WinForms.Guna2HtmlLabel labelForm;
+        private Guna.UI2.WinForms.Guna2HtmlLabel labelName;
         private Guna.UI2.WinForms.Guna2ProgressBar shelfCapacity;
         private Guna.UI2.WinForms.Guna2Button btnClose;
         private Guna.UI2.WinForms.Guna2Button btnUpdate;

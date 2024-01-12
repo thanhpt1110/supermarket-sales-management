@@ -1,4 +1,5 @@
 ﻿using Guna.UI2.WinForms;
+using SupermarketManagementApp.BUS;
 using SupermarketManagementApp.GUI.Product;
 using SupermarketManagementApp.Utils;
 using System;
@@ -19,25 +20,26 @@ namespace SupermarketManagementApp.GUI.Shelf
         private Guna2DataGridView gridView = null;
         private FormMain formMain = null;
         #endregion
-
+        private ShelfBUS shelfBUS = null;
+        private List<DTO.Shelf> shelves = null;
         public FormShelfManagement(FormMain formMain)
         {
             this.formMain = formMain;
+            shelfBUS = ShelfBUS.GetInstance();
             InitializeComponent();
             CustomStyleGridView();
-            LoadGridData();
             UpdateScrollBarValues();
+            InitAllShelf();
         }
 
         public FormShelfManagement()
         {
             InitializeComponent();
             CustomStyleGridView();
-            LoadGridData();
             UpdateScrollBarValues();
         }
 
-        private void LoadGridData()
+/*        private void LoadGridData()
         {
             gridView.Rows.Add(new object[] { null, "Shelf 102", "Snack", 5, "80/100", "Available" });
             gridView.Rows.Add(new object[] { null, "Shelf 103", "Frozen Food", 4, "60/100", "Not Available" });
@@ -51,8 +53,40 @@ namespace SupermarketManagementApp.GUI.Shelf
             gridView.Rows.Add(new object[] { null, "Shelf 111", "Household", 6, "72/100", "Available" });
             gridView.Rows.Add(new object[] { null, "Shelf 112", "Electronics", 3, "88/100", "Available" });
             gridView.Rows.Add(new object[] { null, "Shelf 113", "Clothing", 5, "45/100", "Not Available" });
-        }
+        }*/
+        #region Load grid event
+        public async void InitAllShelf()
+        {
+            Result<IEnumerable<DTO.Shelf>> shelfResult = await shelfBUS.getAllShelf();
+            if (shelfResult.IsSuccess)
+            {
+                this.shelves = shelfResult.Data.ToList();
+                LoadGridData();
 
+            }
+            else
+            {
+                MessageBox.Show(shelfResult.ErrorMessage);
+            }
+        }
+        private void LoadGridData()
+        {
+            gridView.Rows.Clear();
+            foreach (var shelf in shelves)
+            {
+                int capacityLoad = 0;
+                foreach(var shelfDetail in shelf.ShelfDetails)
+                {
+                    if (shelfDetail.Product != null)
+                    {
+                        capacityLoad += shelfDetail.Product.ProductCapacity * shelfDetail.ProductQuantity;
+                    }    
+                }    
+                gridView.Rows.Add(new object[] { null, "Shelf " + shelf.ShelfID.ToString(), shelf.ProductType.ProductTypeName, shelf.LayerQuantity
+                    , capacityLoad.ToString() + "/" + (shelf.LayerCapacity*shelf.LayerQuantity).ToString(), shelf.Status });
+            }
+        }
+        #endregion
         #region Customize data grid
         private void CustomStyleGridView()
         {

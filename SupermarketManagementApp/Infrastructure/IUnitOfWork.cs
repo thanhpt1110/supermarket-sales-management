@@ -18,6 +18,8 @@ namespace SupermarketManagementApp.Infrastructure
         IRepositoryDAO<Product> ProductRepositoryDAO { get; }
         IRepositoryDAO<ProductType> ProductTypeRepositoryDAO { get; }
         IRepositoryDAO<Shelf> ShelfRepositoryDAO { get; }
+        IRepositoryDAO<ShelfDetail> ShelfDetailRepositoryDAO { get; }
+
         IRepositoryDAO<SupplierInvoice> SupplierInvoiceRepositoryDAO { get; }
 
         Task SaveChanges();

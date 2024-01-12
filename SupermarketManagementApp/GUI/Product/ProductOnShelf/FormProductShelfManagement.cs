@@ -1,4 +1,6 @@
 ﻿using Guna.UI2.WinForms;
+using SupermarketManagementApp.BUS;
+using SupermarketManagementApp.DTO;
 using SupermarketManagementApp.GUI.Invoice.SupplierInvoice;
 using SupermarketManagementApp.Utils;
 using System;
@@ -18,7 +20,10 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
     {
         private FormMain formMain;
         private int fixedWidthPanel = 0;
-       
+        private ShelfBUS shelfBUS;
+        private List<DTO.Shelf> shelves;
+        private int selectedFloor = 1;
+        private bool load = false;
         // Tạo list để load thông tin shelves
         private (string ShelfID, string ShelfType, int UsedCapacity, int TotalCapacity)[] shelvesData;
 
@@ -31,34 +36,50 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
         {
             InitializeComponent();
             this.formMain = formMain;
-            filterFloor.SelectedItem = "Floor 1";
+            shelfBUS = ShelfBUS.GetInstance();
+
         }
 
         // Phải load data trong sự kiện này thì UI mới cập nhật đúng
         private void FormProductShelfManagement_Shown(object sender, EventArgs e)
         {
             fixedWidthPanel = panelShelfContainer.Width - 25;
-            LoadShelfData();
+            initAllShelf();
         }
-
-        private void LoadShelfData()
+        private async void initAllShelf()
         {
-            shelvesData = new[]
+            Result<IEnumerable<DTO.Shelf>> shelfResult = await shelfBUS.getAllShelf();
+            if (shelfResult.IsSuccess)
             {
-                ("101", "Grain", 38, 100),
-                ("102", "Fruit", 50, 120),
-                ("103", "Vegetable", 30, 80),
-                ("104", "Dairy", 45, 90),
-                ("105", "Meat", 60, 120),
-                ("101", "Grain", 128, 100),
-            };
-            foreach (var shelfData in shelvesData)
-            {
-                string shelfName = "Shelf " + shelfData.ShelfID + " - " + shelfData.ShelfType;
-                panelShelfContainer.Controls.Add(Shelf(shelfData.ShelfID, shelfName, shelfData.UsedCapacity, shelfData.TotalCapacity));
+                this.shelves = shelfResult.Data.ToList();
+                loadFloorData();
             }
         }
-
+        private void LoadShelfData()
+        {
+            List<DTO.Shelf> listShelveInFloor = shelves.Where(p=>p.ShelfFloor == selectedFloor).ToList();
+            panelShelfContainer.Controls.Clear();
+            foreach (var shelfData in listShelveInFloor)
+            {
+                string shelfName = "Shelf " + shelfData.ShelfID + " - " + shelfData.ProductType.ProductTypeName;
+                int usedCapacity = 0;
+                int totalCapacity = shelfData.LayerCapacity * shelfData.LayerQuantity;
+                foreach (var shelfDetail in shelfData.ShelfDetails)
+                {
+                    if (shelfDetail.Product != null)
+                    {
+                        usedCapacity += shelfDetail.Product.ProductCapacity * shelfDetail.ProductQuantity;
+                    }
+                }
+                panelShelfContainer.Controls.Add(Shelf(shelfData.ShelfID.ToString(), shelfName, usedCapacity, totalCapacity));
+            }
+            
+        }
+        private void loadFloorData()
+        {
+            List<int> floor = shelves.Select(p=>p.ShelfFloor).Distinct().ToList(); 
+            filterFloor.DataSource = floor;
+        }
         private void UpdateProgressBar(Guna2ProgressBar progressBar, int used, int total)
         {
             progressBar.Value = used;
@@ -120,7 +141,7 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
                 FormBackground formBackground = new FormBackground(formMain);
                 try
                 {
-                    using (FormDetailProductOnShelf formDetailProductOnShelf = new FormDetailProductOnShelf())
+                    using (FormDetailProductOnShelf formDetailProductOnShelf = new FormDetailProductOnShelf(this, int.Parse(shelfID), totalCapacity,shelfName))
                     {
                         formBackground.Owner = formMain;
                         formBackground.Show();
@@ -181,6 +202,12 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
 
             UpdateProgressBar(shelfCapacity, usedCapacity, totalCapacity);
             return shelfCapacity;  
+        }
+
+        private void filterFloor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedFloor = int.Parse(filterFloor.Text);
+            LoadShelfData();
         }
     }
 }

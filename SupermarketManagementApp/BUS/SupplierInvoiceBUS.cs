@@ -69,7 +69,7 @@ namespace SupermarketManagementApp.BUS
                 supplierInvoice.SupplierInvoiceDetails = supplierInvoiceDetails;
                 foreach (SupplierInvoiceDetail supplierInvoiceDetail in supplierInvoice.SupplierInvoiceDetails)
                 {
-                    inventoryDetails.Add(new InventoryDetail() { ProductID = supplierInvoiceDetail.Product.ProductID, ProductQuantity = supplierInvoiceDetail.ProductQuantity });
+                    inventoryDetails.Add(new InventoryDetail() { ProductID = supplierInvoiceDetail.Product.ProductID, ProductQuantity = supplierInvoiceDetail.ProductQuantity * supplierInvoiceDetail.Product.UnitConversion});
                 }
                 float capacity = supplierInvoice.SupplierInvoiceDetails.Sum(p => p.ProductQuantity * p.Product.UnitConversion * p.Product.ProductCapacity);
                 var listInventory = await unitOfWork.InventoryDetailRepositoryDAO.GetAll();

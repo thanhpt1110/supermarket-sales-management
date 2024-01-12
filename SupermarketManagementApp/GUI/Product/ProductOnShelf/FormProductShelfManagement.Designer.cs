@@ -69,6 +69,7 @@
             this.dataGridViewImageColumn1.FillWeight = 50F;
             this.dataGridViewImageColumn1.HeaderText = "";
             this.dataGridViewImageColumn1.Image = global::SupermarketManagementApp.Properties.Resources.grid_invoice;
+            this.dataGridViewImageColumn1.MinimumWidth = 6;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewImageColumn1.Width = 68;
@@ -93,7 +94,7 @@
             this.txtBoxSearchShelf.IconRightOffset = new System.Drawing.Point(15, -1);
             this.txtBoxSearchShelf.IconRightSize = new System.Drawing.Size(25, 25);
             this.txtBoxSearchShelf.Location = new System.Drawing.Point(45, 35);
-            this.txtBoxSearchShelf.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBoxSearchShelf.Margin = new System.Windows.Forms.Padding(4);
             this.txtBoxSearchShelf.Name = "txtBoxSearchShelf";
             this.txtBoxSearchShelf.PasswordChar = '\0';
             this.txtBoxSearchShelf.PlaceholderForeColor = System.Drawing.Color.Silver;
@@ -142,6 +143,7 @@
             this.filterFloor.Size = new System.Drawing.Size(180, 36);
             this.filterFloor.TabIndex = 20;
             this.filterFloor.TextOffset = new System.Drawing.Point(5, 0);
+            this.filterFloor.SelectedIndexChanged += new System.EventHandler(this.filterFloor_SelectedIndexChanged);
             // 
             // FormProductShelfManagement
             // 
