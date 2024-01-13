@@ -63,7 +63,7 @@
     <Reference Include="PdfSharp.Charting, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
       <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.Charting.dll</HintPath>
     </Reference>
-		<Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
@@ -256,17 +256,17 @@
     <Compile Include="GUI\Product\ProductInInventory\FormProductInventoryManagement.Designer.cs">
       <DependentUpon>FormProductInventoryManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Product\ProductOnShelf\FormDetailProductOnShelf.cs">
+    <Compile Include="GUI\ShelfMap\FormDetailProductOnShelf.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Product\ProductOnShelf\FormDetailProductOnShelf.Designer.cs">
+    <Compile Include="GUI\ShelfMap\FormDetailProductOnShelf.Designer.cs">
       <DependentUpon>FormDetailProductOnShelf.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Product\ProductOnShelf\FormProductShelfManagement.cs">
+    <Compile Include="GUI\ShelfMap\FormShelfMap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Product\ProductOnShelf\FormProductShelfManagement.Designer.cs">
-      <DependentUpon>FormProductShelfManagement.cs</DependentUpon>
+    <Compile Include="GUI\ShelfMap\FormShelfMap.Designer.cs">
+      <DependentUpon>FormShelfMap.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Product\ProductType\FormCreateProductType.cs">
       <SubType>Form</SubType>
@@ -409,11 +409,11 @@
     <EmbeddedResource Include="GUI\Product\ProductInInventory\FormProductInventoryManagement.resx">
       <DependentUpon>FormProductInventoryManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Product\ProductOnShelf\FormDetailProductOnShelf.resx">
+    <EmbeddedResource Include="GUI\ShelfMap\FormDetailProductOnShelf.resx">
       <DependentUpon>FormDetailProductOnShelf.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Product\ProductOnShelf\FormProductShelfManagement.resx">
-      <DependentUpon>FormProductShelfManagement.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\ShelfMap\FormShelfMap.resx">
+      <DependentUpon>FormShelfMap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Product\ProductType\FormCreateProductType.resx">
       <DependentUpon>FormCreateProductType.cs</DependentUpon>
@@ -554,6 +554,11 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="resources\black-shelf-map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\white-shelf-map.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

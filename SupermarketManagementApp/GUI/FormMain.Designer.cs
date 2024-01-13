@@ -45,7 +45,6 @@
             this.btnManageCustomerInvoice = new Guna.UI2.WinForms.Guna2Button();
             this.panelSubProduct = new Guna.UI2.WinForms.Guna2Panel();
             this.btnProductInInventory = new Guna.UI2.WinForms.Guna2Button();
-            this.btnProductOnShelf = new Guna.UI2.WinForms.Guna2Button();
             this.btnManageProductType = new Guna.UI2.WinForms.Guna2Button();
             this.btnManageProduct = new Guna.UI2.WinForms.Guna2Button();
             this.btnManageShelf = new Guna.UI2.WinForms.Guna2Button();
@@ -58,8 +57,9 @@
             this.btnInvoice = new Guna.UI2.WinForms.Guna2Button();
             this.btnProduct = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.btnSignOut = new Guna.UI2.WinForms.Guna2ImageButton();
             this.avatar = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.btnSignOut = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.btnShelfMap = new Guna.UI2.WinForms.Guna2Button();
             this.panelHeader.SuspendLayout();
             this.panelAccount.SuspendLayout();
             this.panelMenuSidebar.SuspendLayout();
@@ -156,6 +156,7 @@
             this.panelMenuSidebar.Controls.Add(this.panelSubProduct);
             this.panelMenuSidebar.Controls.Add(this.btnProduct);
             this.panelMenuSidebar.Controls.Add(this.btnManageShelf);
+            this.panelMenuSidebar.Controls.Add(this.btnShelfMap);
             this.panelMenuSidebar.Controls.Add(this.btnDashboard);
             this.panelMenuSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenuSidebar.FillColor = System.Drawing.Color.White;
@@ -339,13 +340,12 @@
             // 
             this.panelSubProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.panelSubProduct.Controls.Add(this.btnProductInInventory);
-            this.panelSubProduct.Controls.Add(this.btnProductOnShelf);
             this.panelSubProduct.Controls.Add(this.btnManageProductType);
             this.panelSubProduct.Controls.Add(this.btnManageProduct);
             this.panelSubProduct.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubProduct.Location = new System.Drawing.Point(0, 165);
+            this.panelSubProduct.Location = new System.Drawing.Point(0, 220);
             this.panelSubProduct.Name = "panelSubProduct";
-            this.panelSubProduct.Size = new System.Drawing.Size(298, 220);
+            this.panelSubProduct.Size = new System.Drawing.Size(298, 165);
             this.panelSubProduct.TabIndex = 16;
             // 
             // btnProductInInventory
@@ -365,7 +365,7 @@
             this.btnProductInInventory.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProductInInventory.ForeColor = System.Drawing.Color.Black;
             this.btnProductInInventory.ImageOffset = new System.Drawing.Point(0, 5);
-            this.btnProductInInventory.Location = new System.Drawing.Point(0, 165);
+            this.btnProductInInventory.Location = new System.Drawing.Point(0, 110);
             this.btnProductInInventory.Name = "btnProductInInventory";
             this.btnProductInInventory.Size = new System.Drawing.Size(298, 55);
             this.btnProductInInventory.TabIndex = 8;
@@ -373,32 +373,6 @@
             this.btnProductInInventory.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnProductInInventory.TextOffset = new System.Drawing.Point(70, -2);
             this.btnProductInInventory.Click += new System.EventHandler(this.btnProductInInventory_Click);
-            // 
-            // btnProductOnShelf
-            // 
-            this.btnProductOnShelf.BackColor = System.Drawing.Color.Transparent;
-            this.btnProductOnShelf.BorderRadius = 25;
-            this.btnProductOnShelf.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProductOnShelf.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnProductOnShelf.CustomImages.ImageOffset = new System.Drawing.Point(20, 0);
-            this.btnProductOnShelf.CustomImages.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnProductOnShelf.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnProductOnShelf.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnProductOnShelf.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnProductOnShelf.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnProductOnShelf.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnProductOnShelf.FillColor = System.Drawing.Color.Transparent;
-            this.btnProductOnShelf.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProductOnShelf.ForeColor = System.Drawing.Color.Black;
-            this.btnProductOnShelf.ImageOffset = new System.Drawing.Point(0, 5);
-            this.btnProductOnShelf.Location = new System.Drawing.Point(0, 110);
-            this.btnProductOnShelf.Name = "btnProductOnShelf";
-            this.btnProductOnShelf.Size = new System.Drawing.Size(298, 55);
-            this.btnProductOnShelf.TabIndex = 7;
-            this.btnProductOnShelf.Text = "Product on Shelf";
-            this.btnProductOnShelf.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnProductOnShelf.TextOffset = new System.Drawing.Point(70, -2);
-            this.btnProductOnShelf.Click += new System.EventHandler(this.btnProductOnShelf_Click);
             // 
             // btnManageProductType
             // 
@@ -471,7 +445,7 @@
             this.btnManageShelf.ForeColor = System.Drawing.Color.Black;
             this.btnManageShelf.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnManageShelf.ImageOffset = new System.Drawing.Point(0, 5);
-            this.btnManageShelf.Location = new System.Drawing.Point(0, 55);
+            this.btnManageShelf.Location = new System.Drawing.Point(0, 110);
             this.btnManageShelf.Name = "btnManageShelf";
             this.btnManageShelf.Size = new System.Drawing.Size(298, 55);
             this.btnManageShelf.TabIndex = 2;
@@ -549,9 +523,9 @@
             this.labelCopyright.ForeColor = System.Drawing.Color.White;
             this.labelCopyright.Location = new System.Drawing.Point(20, 13);
             this.labelCopyright.Name = "labelCopyright";
-            this.labelCopyright.Size = new System.Drawing.Size(305, 19);
+            this.labelCopyright.Size = new System.Drawing.Size(314, 19);
             this.labelCopyright.TabIndex = 0;
-            this.labelCopyright.Text = "Copyright © 2023 by TBD Team. All rights reserved.";
+            this.labelCopyright.Text = "Copyright © 2023 by TBDD Team. All rights reserved.";
             // 
             // msgBoxConfirm
             // 
@@ -613,7 +587,7 @@
             this.btnProduct.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnProduct.ImageOffset = new System.Drawing.Point(20, -1);
             this.btnProduct.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnProduct.Location = new System.Drawing.Point(0, 110);
+            this.btnProduct.Location = new System.Drawing.Point(0, 165);
             this.btnProduct.Name = "btnProduct";
             this.btnProduct.Size = new System.Drawing.Size(298, 55);
             this.btnProduct.TabIndex = 3;
@@ -633,6 +607,18 @@
             this.guna2PictureBox1.TabIndex = 6;
             this.guna2PictureBox1.TabStop = false;
             // 
+            // avatar
+            // 
+            this.avatar.Image = global::SupermarketManagementApp.Properties.Resources.icon_avatar;
+            this.avatar.ImageRotate = 0F;
+            this.avatar.Location = new System.Drawing.Point(19, 30);
+            this.avatar.Name = "avatar";
+            this.avatar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.avatar.Size = new System.Drawing.Size(68, 68);
+            this.avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.avatar.TabIndex = 6;
+            this.avatar.TabStop = false;
+            // 
             // btnSignOut
             // 
             this.btnSignOut.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
@@ -649,17 +635,32 @@
             this.btnSignOut.TabIndex = 5;
             this.btnSignOut.Click += new System.EventHandler(this.btnSignOut_Click);
             // 
-            // avatar
+            // btnShelfMap
             // 
-            this.avatar.Image = global::SupermarketManagementApp.Properties.Resources.icon_avatar;
-            this.avatar.ImageRotate = 0F;
-            this.avatar.Location = new System.Drawing.Point(19, 30);
-            this.avatar.Name = "avatar";
-            this.avatar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.avatar.Size = new System.Drawing.Size(68, 68);
-            this.avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.avatar.TabIndex = 6;
-            this.avatar.TabStop = false;
+            this.btnShelfMap.BackColor = System.Drawing.Color.Transparent;
+            this.btnShelfMap.BorderRadius = 25;
+            this.btnShelfMap.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnShelfMap.CustomImages.Image = global::SupermarketManagementApp.Properties.Resources.black_shelf_map;
+            this.btnShelfMap.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnShelfMap.CustomImages.ImageOffset = new System.Drawing.Point(20, 0);
+            this.btnShelfMap.CustomImages.ImageSize = new System.Drawing.Size(26, 26);
+            this.btnShelfMap.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnShelfMap.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnShelfMap.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnShelfMap.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnShelfMap.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnShelfMap.FillColor = System.Drawing.Color.Transparent;
+            this.btnShelfMap.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShelfMap.ForeColor = System.Drawing.Color.Black;
+            this.btnShelfMap.ImageOffset = new System.Drawing.Point(0, 5);
+            this.btnShelfMap.Location = new System.Drawing.Point(0, 55);
+            this.btnShelfMap.Name = "btnShelfMap";
+            this.btnShelfMap.Size = new System.Drawing.Size(298, 55);
+            this.btnShelfMap.TabIndex = 18;
+            this.btnShelfMap.Text = "Shelf Map";
+            this.btnShelfMap.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnShelfMap.TextOffset = new System.Drawing.Point(70, -2);
+            this.btnShelfMap.Click += new System.EventHandler(this.btnShelfMap_Click);
             // 
             // FormMain
             // 
@@ -712,7 +713,6 @@
         private Guna.UI2.WinForms.Guna2Button btnManageSupplierInvoice;
         private Guna.UI2.WinForms.Guna2Button btnManageCustomerInvoice;
         private Guna.UI2.WinForms.Guna2Panel panelSubProduct;
-        private Guna.UI2.WinForms.Guna2Button btnProductOnShelf;
         private Guna.UI2.WinForms.Guna2Button btnManageProductType;
         private Guna.UI2.WinForms.Guna2Button btnManageProduct;
         private Guna.UI2.WinForms.Guna2Button btnProductInInventory;
@@ -723,6 +723,7 @@
         private Guna.UI2.WinForms.Guna2ImageButton btnSignOut;
         private Guna.UI2.WinForms.Guna2MessageDialog msgBoxConfirm;
         private Guna.UI2.WinForms.Guna2CirclePictureBox avatar;
+        private Guna.UI2.WinForms.Guna2Button btnShelfMap;
     }
 }
 
