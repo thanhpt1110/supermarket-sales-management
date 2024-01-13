@@ -25,14 +25,13 @@ namespace SupermarketManagementApp.GUI.Product
         private Timer searchTimer = null;
         private ProductBUS productBUS = null;
         #endregion
-        private List<SupermarketManagementApp.DTO.Product> products = null;
+        private List<DTO.Product> products = null;
         public FormProductManagement(FormMain formMain)
         {
             this.formMain = formMain;
             productBUS = ProductBUS.GetInstance();
             InitializeComponent();
             CustomStyleGridView();
-            UpdateScrollBarValues();
             InitAllProduct();
             InitTimer();
         }
@@ -42,7 +41,6 @@ namespace SupermarketManagementApp.GUI.Product
             productBUS = ProductBUS.GetInstance();
             InitializeComponent();
             CustomStyleGridView();
-            UpdateScrollBarValues();
             InitAllProduct();
             InitTimer();
         }
@@ -67,8 +65,9 @@ namespace SupermarketManagementApp.GUI.Product
             gridView.Rows.Clear();
             foreach (var product in products)
             {
-                gridView.Rows.Add(new object[] { null, product.ProductID, product.ProductName, product.ProductTypeID, product.UnitPrice, product.WholeSaleUnit,product.RetailUnit, product.UnitConversion });
+                gridView.Rows.Add(new object[] { null, product.ProductID, product.ProductName, product.ProductTypeID, string.Format("{0:N0} VND", product.UnitPrice), product.WholeSaleUnit,product.RetailUnit, product.UnitConversion });
             }
+            UpdateScrollBarValues();
         }
 
         #region Customize data grid
@@ -100,6 +99,11 @@ namespace SupermarketManagementApp.GUI.Product
 
         private void GridView_MouseWheel(object sender, MouseEventArgs e)
         {
+            if (!scrollBar.Visible)
+            {
+                return;
+            }
+
             int delta = e.Delta; 
             int newScrollBarValue = scrollBar.Value - delta / 100;
             scrollBar.Value = Math.Max(scrollBar.Minimum, Math.Min(scrollBar.Maximum, newScrollBarValue));
@@ -107,12 +111,14 @@ namespace SupermarketManagementApp.GUI.Product
 
         private void scrollBar_Scroll(object sender, ScrollEventArgs e)
         {
-            gridView.FirstDisplayedScrollingRowIndex = scrollBar.Value;
+            if (scrollBar.Visible)
+            {
+                gridView.FirstDisplayedScrollingRowIndex = scrollBar.Value;
+            }
         }
 
         private void gridViewMain_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
-            // Khi rời khỏi ô, đặt kiểu cursor mặc định
             gridView.Cursor = Cursors.Default;
         }
 

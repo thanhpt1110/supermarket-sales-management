@@ -35,6 +35,7 @@ namespace SupermarketManagementApp.GUI.Product.ProductInInventory
             invetoryDetailBUS = InvetoryDetailBUS.GetInstance();
             CustomStyleGridView();
             LoadGridData();
+            UpdateProgressBar();
             UpdateScrollBarValues();
         }
 
@@ -65,7 +66,7 @@ namespace SupermarketManagementApp.GUI.Product.ProductInInventory
                 gridView.Rows.Add(new object[] { null, inventoryDetail.Product.ProductName, inventoryDetail.ProductQuantity, inventoryDetail.Product.ProductCapacity, inventoryDetail.ProductQuantity * inventoryDetail.Product.ProductCapacity, null });
             }
             UpdateProgressBar();
-
+            UpdateScrollBarValues();
         }
 
         private void btnExportExcel_Click(object sender, EventArgs e)
@@ -141,6 +142,10 @@ namespace SupermarketManagementApp.GUI.Product.ProductInInventory
 
         private void GridView_MouseWheel(object sender, MouseEventArgs e)
         {
+            if (!scrollBar.Visible)
+            {
+                return;
+            }
             int delta = e.Delta;
             int newScrollBarValue = scrollBar.Value - delta / 100;
             scrollBar.Value = Math.Max(scrollBar.Minimum, Math.Min(scrollBar.Maximum, newScrollBarValue));
@@ -148,7 +153,10 @@ namespace SupermarketManagementApp.GUI.Product.ProductInInventory
 
         private void scrollBar_Scroll(object sender, ScrollEventArgs e)
         {
-            gridView.FirstDisplayedScrollingRowIndex = scrollBar.Value;
+            if (scrollBar.Visible)
+            {
+                gridView.FirstDisplayedScrollingRowIndex = scrollBar.Value;
+            }
         }
 
         private void gridViewMain_CellMouseLeave(object sender, DataGridViewCellEventArgs e)

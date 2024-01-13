@@ -26,8 +26,7 @@ using System.Diagnostics;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
-using Org.BouncyCastle.Utilities;
-using System.Windows.Media.Animation;
+using System.Windows;
 
 namespace SupermarketManagementApp.GUI.Report_Statistic
 {
@@ -88,7 +87,6 @@ namespace SupermarketManagementApp.GUI.Report_Statistic
                     series.Points.AddXY(invoice.DatePayment.Value, invoice.TotalAmount);
                 }
             }
-
 
             // Thêm loạt dữ liệu vào Chart
             RevenueChart.Series.Add(series);
@@ -281,6 +279,7 @@ namespace SupermarketManagementApp.GUI.Report_Statistic
             {
                 dtgvProducts.Rows.Add(new object[] { product.ProductID, product.ProductName, product.ProductCapacity });
             }
+            CustomStyleProductGridView();
         }
 
         public async void InitAllCustomer()
@@ -306,15 +305,149 @@ namespace SupermarketManagementApp.GUI.Report_Statistic
             int top = 1;
             foreach (var x in sortedList)
             {
-                dtgvCustomers.Rows.Add(new object[] { top , x.CustomerName, x.TotalAmount });
+                dtgvCustomers.Rows.Add(new object[] { top, x.CustomerName, string.Format("{0:N0} VND", x.TotalAmount) });
                 top++;
             }
-            /*dtgvCustomers.Columns[0].Width = 50; // Cột đầu tiên
-            dtgvCustomers.Columns[2].Width = (int)(dtgvCustomers.Width * 0.6);
-            dtgvCustomers.Columns[3].Width = (int)(dtgvCustomers.Width * 0.4);*/
+            CustomStyleCustomerGridView();
         }
         #endregion
 
+        #region Customize data grid
+
+        #region Datagrid for Product
+        private void CustomStyleProductGridView()
+        {
+            dtgvProducts.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font(dtgvProducts.Font, System.Drawing.FontStyle.Bold);
+            dtgvProducts.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 12);
+            UpdateScrollBarProductValues();
+        }
+
+        private void UpdateScrollBarProductValues()
+        {
+            scrollBarProduct.Minimum = 0;
+
+            int numberOfRows = dtgvProducts.Rows.Count;
+            scrollBarProduct.Maximum = numberOfRows - 1;
+
+            if (numberOfRows <= dtgvProducts.DisplayedRowCount(false))
+            {
+                scrollBarProduct.Visible = false;
+            }
+            else
+            {
+                scrollBarProduct.Visible = true;
+            }
+            scrollBarProduct.Value = dtgvProducts.FirstDisplayedScrollingRowIndex;
+            dtgvProducts.MouseWheel += GridViewProduct_MouseWheel;
+        }
+
+        private void GridViewProduct_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (!scrollBarProduct.Visible)
+            {
+                return;
+            }
+
+            int delta = e.Delta;
+            int newScrollBarValue = scrollBarProduct.Value - delta / 100;
+            scrollBarProduct.Value = Math.Max(scrollBarProduct.Minimum, Math.Min(scrollBarProduct.Maximum, newScrollBarValue));
+        }
+
+        private void scrollBarProduct_Scroll(object sender, ScrollEventArgs e)
+        {
+            if (scrollBarProduct.Visible)
+            {
+                dtgvProducts.FirstDisplayedScrollingRowIndex = scrollBarProduct.Value;
+            }
+        }
+
+        private void gridViewProduct_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            dtgvProducts.Cursor = Cursors.Default;
+        }
+
+        private void gridViewProduct_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex == -1)
+            {
+                if (e.ColumnIndex >= 0 && e.ColumnIndex <= 2)
+                {
+                    dtgvProducts.Cursor = Cursors.Hand;
+                    return;
+                }
+            }
+            dtgvProducts.Cursor = Cursors.Default;
+        }
+        #endregion
+
+        #region Datagrid for Customer
+        private void CustomStyleCustomerGridView()
+        {
+            dtgvCustomers.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font(dtgvCustomers.Font, System.Drawing.FontStyle.Bold);
+            dtgvCustomers.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 12);
+            UpdateScrollBarCustomerValues();
+        }
+
+        private void UpdateScrollBarCustomerValues()
+        {
+            scrollBarCustomer.Minimum = 0;
+
+            int numberOfRows = dtgvCustomers.Rows.Count;
+            scrollBarCustomer.Maximum = numberOfRows - 1;
+
+            if (numberOfRows <= dtgvCustomers.DisplayedRowCount(false))
+            {
+                scrollBarCustomer.Visible = false;
+            }
+            else
+            {
+                scrollBarCustomer.Visible = true;
+            }
+            scrollBarCustomer.Value = dtgvCustomers.FirstDisplayedScrollingRowIndex;
+            dtgvCustomers.MouseWheel += GridViewCustomer_MouseWheel;
+        }
+
+        private void GridViewCustomer_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (!scrollBarCustomer.Visible)
+            {
+                return;
+            }
+
+            int delta = e.Delta;
+            int newScrollBarValue = scrollBarCustomer.Value - delta / 100;
+            scrollBarCustomer.Value = Math.Max(scrollBarCustomer.Minimum, Math.Min(scrollBarCustomer.Maximum, newScrollBarValue));
+        }
+
+        private void scrollBarCustomer_Scroll(object sender, ScrollEventArgs e)
+        {
+            if (scrollBarCustomer.Visible)
+            {
+                dtgvCustomers.FirstDisplayedScrollingRowIndex = scrollBarCustomer.Value;
+            }
+        }
+
+        private void gridViewCustomer_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            dtgvCustomers.Cursor = Cursors.Default;
+        }
+
+        private void gridViewCustomer_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex == -1)
+            {
+                if (e.ColumnIndex >= 0 && e.ColumnIndex <= 2)
+                {
+                    dtgvCustomers.Cursor = Cursors.Hand;
+                    return;
+                }
+            }
+            dtgvCustomers.Cursor = Cursors.Default;
+        }
+        #endregion
+
+        #endregion
+        
         #region Export
         private void btnExportPDF_Click(object sender, EventArgs e)
         {

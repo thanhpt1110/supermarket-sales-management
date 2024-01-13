@@ -30,7 +30,6 @@ namespace SupermarketManagementApp.GUI.Shelf
             productTypeBUS = ProductTypeBUS.GetInstance();
             InitializeComponent();
             CustomStyleGridView();
-            UpdateScrollBarValues();
             InitAllShelf();
         }
 
@@ -38,24 +37,8 @@ namespace SupermarketManagementApp.GUI.Shelf
         {
             InitializeComponent();
             CustomStyleGridView();
-            UpdateScrollBarValues();
         }
 
-/*        private void LoadGridData()
-        {
-            gridView.Rows.Add(new object[] { null, "Shelf 102", "Snack", 5, "80/100", "Available" });
-            gridView.Rows.Add(new object[] { null, "Shelf 103", "Frozen Food", 4, "60/100", "Not Available" });
-            gridView.Rows.Add(new object[] { null, "Shelf 104", "Condiments", 7, "75/100", "Available" });
-            gridView.Rows.Add(new object[] { null, "Shelf 105", "Canned Goods", 8, "50/100", "Not Available" });
-            gridView.Rows.Add(new object[] { null, "Shelf 106", "Dairy", 3, "70/100", "Available" });
-            gridView.Rows.Add(new object[] { null, "Shelf 107", "Produce", 6, "85/100", "Available" });
-            gridView.Rows.Add(new object[] { null, "Shelf 108", "Bakery", 5, "40/100", "Not Available" });
-            gridView.Rows.Add(new object[] { null, "Shelf 109", "Meat", 4, "65/100", "Available" });
-            gridView.Rows.Add(new object[] { null, "Shelf 110", "Personal Care", 7, "55/100", "Not Available" });
-            gridView.Rows.Add(new object[] { null, "Shelf 111", "Household", 6, "72/100", "Available" });
-            gridView.Rows.Add(new object[] { null, "Shelf 112", "Electronics", 3, "88/100", "Available" });
-            gridView.Rows.Add(new object[] { null, "Shelf 113", "Clothing", 5, "45/100", "Not Available" });
-        }*/
         #region Load grid event
         public async void InitAllShelf()
         {
@@ -92,8 +75,10 @@ namespace SupermarketManagementApp.GUI.Shelf
                 gridView.Rows.Add(new object[] { null, "Shelf " + shelf.ShelfID.ToString(), shelf.ProductType.ProductTypeName, shelf.LayerQuantity
                     , capacityLoad.ToString() + "/" + (shelf.LayerCapacity*shelf.LayerQuantity).ToString(), shelf.Status });
             }
+            UpdateScrollBarValues();
         }
         #endregion
+
         #region Customize data grid
         private void CustomStyleGridView()
         {
@@ -123,6 +108,10 @@ namespace SupermarketManagementApp.GUI.Shelf
 
         private void GridView_MouseWheel(object sender, MouseEventArgs e)
         {
+            if (!scrollBar.Visible)
+            {
+                return;
+            }
             int delta = e.Delta;
             int newScrollBarValue = scrollBar.Value - delta / 100;
             scrollBar.Value = Math.Max(scrollBar.Minimum, Math.Min(scrollBar.Maximum, newScrollBarValue));
@@ -130,7 +119,10 @@ namespace SupermarketManagementApp.GUI.Shelf
 
         private void scrollBar_Scroll(object sender, ScrollEventArgs e)
         {
-            gridView.FirstDisplayedScrollingRowIndex = scrollBar.Value;
+            if (scrollBar.Visible)
+            {
+                gridView.FirstDisplayedScrollingRowIndex = scrollBar.Value;
+            }
         }
 
         private void gridViewMain_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
@@ -145,7 +137,7 @@ namespace SupermarketManagementApp.GUI.Shelf
             if (e.RowIndex == -1)
             {
                 // Kiểm tra xem có phải là header của cột 2, 3, 4 hoặc header của cột 4, 5
-                if (e.ColumnIndex >= 1 && e.ColumnIndex <= 5)
+                if (e.ColumnIndex >= 1 && e.ColumnIndex <= 4)
                 {
                     gridView.Cursor = Cursors.Hand;
                     return;
@@ -153,7 +145,7 @@ namespace SupermarketManagementApp.GUI.Shelf
             }
 
             // Nếu không phải là header của cột và nằm trong khoảng cột 4, 5, đặt kiểu cursor thành Hand
-            if (e.RowIndex >= 0 && (e.ColumnIndex == 6 || e.ColumnIndex == 7))
+            if (e.RowIndex >= 0 && (e.ColumnIndex == 6))
             {
                 gridView.Cursor = Cursors.Hand;
                 return;
@@ -196,7 +188,7 @@ namespace SupermarketManagementApp.GUI.Shelf
             catch (Exception ex)
             {
                 msgBoxError.Parent = formMain;
-                msgBoxError.Show(ex.Message, "Error");
+                msgBoxError.Show(ex.Message, "Error");  
             }
         }
 
@@ -205,7 +197,7 @@ namespace SupermarketManagementApp.GUI.Shelf
             int x = e.ColumnIndex, y = e.RowIndex;
             if (e.RowIndex >= 0)
             {
-                if (e.ColumnIndex == 6)
+                /*if (e.ColumnIndex == 6)
                 {
                     // Update
                     FormBackground formBackground = new FormBackground(formMain);
@@ -225,8 +217,8 @@ namespace SupermarketManagementApp.GUI.Shelf
                         msgBoxError.Parent = formMain;
                         msgBoxError.Show(ex.Message, "Error");
                     }
-                }
-                else if (e.ColumnIndex == 7)
+                }*/
+                if (e.ColumnIndex == 6)
                 {
                     // Delete
                     msgBoxDelete.Parent = formMain;

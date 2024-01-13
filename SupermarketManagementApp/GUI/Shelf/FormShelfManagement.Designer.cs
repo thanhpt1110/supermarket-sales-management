@@ -34,6 +34,13 @@
             this.txtBoxSearchShelf = new Guna.UI2.WinForms.Guna2TextBox();
             this.scrollBar = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.gridViewMain = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.icon = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ShelfName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ShelfType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LayerQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Capacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.msgBoxError = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
             this.btnCreateShelf = new Guna.UI2.WinForms.Guna2Button();
@@ -43,14 +50,6 @@
             this.msgBoxDelete = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.msgBoxInfo = new Guna.UI2.WinForms.Guna2MessageDialog();
-            this.icon = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ShelfName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ShelfType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LayerQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Capacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewMain)).BeginInit();
             this.guna2ShadowPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -131,7 +130,6 @@
             this.LayerQuantity,
             this.Capacity,
             this.Status,
-            this.Edit,
             this.Delete});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
@@ -178,6 +176,63 @@
             this.gridViewMain.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewMain_CellClick);
             this.gridViewMain.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewMain_CellMouseLeave);
             this.gridViewMain.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridViewMain_CellMouseMove);
+            // 
+            // icon
+            // 
+            this.icon.FillWeight = 50F;
+            this.icon.HeaderText = "";
+            this.icon.Image = global::SupermarketManagementApp.Properties.Resources.grid_shelf;
+            this.icon.MinimumWidth = 6;
+            this.icon.Name = "icon";
+            this.icon.ReadOnly = true;
+            this.icon.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // ShelfName
+            // 
+            this.ShelfName.FillWeight = 140F;
+            this.ShelfName.HeaderText = "Shelf Name";
+            this.ShelfName.MinimumWidth = 6;
+            this.ShelfName.Name = "ShelfName";
+            this.ShelfName.ReadOnly = true;
+            // 
+            // ShelfType
+            // 
+            this.ShelfType.HeaderText = "Type";
+            this.ShelfType.MinimumWidth = 6;
+            this.ShelfType.Name = "ShelfType";
+            this.ShelfType.ReadOnly = true;
+            // 
+            // LayerQuantity
+            // 
+            this.LayerQuantity.FillWeight = 140F;
+            this.LayerQuantity.HeaderText = "Layer Quantity ";
+            this.LayerQuantity.MinimumWidth = 6;
+            this.LayerQuantity.Name = "LayerQuantity";
+            this.LayerQuantity.ReadOnly = true;
+            // 
+            // Capacity
+            // 
+            this.Capacity.HeaderText = "Capacity";
+            this.Capacity.MinimumWidth = 6;
+            this.Capacity.Name = "Capacity";
+            this.Capacity.ReadOnly = true;
+            // 
+            // Status
+            // 
+            this.Status.FillWeight = 140F;
+            this.Status.HeaderText = "Status";
+            this.Status.MinimumWidth = 6;
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "";
+            this.Delete.Image = global::SupermarketManagementApp.Properties.Resources.grid_delete;
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // msgBoxError
             // 
@@ -293,72 +348,6 @@
             this.msgBoxInfo.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
             this.msgBoxInfo.Text = "Create Product successfully!";
             // 
-            // icon
-            // 
-            this.icon.FillWeight = 50F;
-            this.icon.HeaderText = "";
-            this.icon.Image = global::SupermarketManagementApp.Properties.Resources.grid_shelf;
-            this.icon.MinimumWidth = 6;
-            this.icon.Name = "icon";
-            this.icon.ReadOnly = true;
-            this.icon.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // ShelfName
-            // 
-            this.ShelfName.FillWeight = 140F;
-            this.ShelfName.HeaderText = "Shelf Name";
-            this.ShelfName.MinimumWidth = 6;
-            this.ShelfName.Name = "ShelfName";
-            this.ShelfName.ReadOnly = true;
-            // 
-            // ShelfType
-            // 
-            this.ShelfType.HeaderText = "Type";
-            this.ShelfType.MinimumWidth = 6;
-            this.ShelfType.Name = "ShelfType";
-            this.ShelfType.ReadOnly = true;
-            // 
-            // LayerQuantity
-            // 
-            this.LayerQuantity.FillWeight = 140F;
-            this.LayerQuantity.HeaderText = "Layer Quantity ";
-            this.LayerQuantity.MinimumWidth = 6;
-            this.LayerQuantity.Name = "LayerQuantity";
-            this.LayerQuantity.ReadOnly = true;
-            // 
-            // Capacity
-            // 
-            this.Capacity.HeaderText = "Capacity";
-            this.Capacity.MinimumWidth = 6;
-            this.Capacity.Name = "Capacity";
-            this.Capacity.ReadOnly = true;
-            // 
-            // Status
-            // 
-            this.Status.FillWeight = 140F;
-            this.Status.HeaderText = "Status";
-            this.Status.MinimumWidth = 6;
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "";
-            this.Edit.Image = global::SupermarketManagementApp.Properties.Resources.grid_edit;
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.ReadOnly = true;
-            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "";
-            this.Delete.Image = global::SupermarketManagementApp.Properties.Resources.grid_delete;
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
             // FormShelfManagement
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -397,7 +386,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn LayerQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Capacity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
     }
 }

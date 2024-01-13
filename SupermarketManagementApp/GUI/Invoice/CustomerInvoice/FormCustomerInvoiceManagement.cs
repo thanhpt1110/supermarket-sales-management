@@ -36,7 +36,6 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
             customerBUS = CustomerBUS.GetInstance();
             InitializeComponent();
             CustomStyleGridView();
-            UpdateScrollBarValues();
             InitAllCustomerInvoice();
         }
 
@@ -47,7 +46,6 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
             customerBUS = CustomerBUS.GetInstance();
             InitializeComponent();
             CustomStyleGridView();
-            UpdateScrollBarValues();
             InitAllCustomerInvoice();
         }
         public async void InitAllCustomerInvoice()
@@ -64,10 +62,10 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
             gridView.Rows.Clear();
             foreach (var customerInvoice in customerInvoices)
             {
-               
-                string TotalAmount = string.Format("{0:N0} VNĐ", customerInvoice.TotalAmount);
+                string TotalAmount = string.Format("{0:N0} VND", customerInvoice.TotalAmount);
                 gridView.Rows.Add(new object[] { null, customerInvoice.CustomerInvoiceID, customerInvoice.Employee.EmployeeName, customerInvoice.Customer.CustomerName, customerInvoice.DatePayment, TotalAmount });
             }
+            UpdateScrollBarValues();
         }
 
         #region Customize data grid
@@ -99,6 +97,10 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
 
         private void GridView_MouseWheel(object sender, MouseEventArgs e)
         {
+            if (!scrollBar.Visible)
+            {
+                return;
+            }
             int delta = e.Delta; // Số "bước" mà chuột đã cuộn, có thể là dương hoặc âm
             // Cập nhật giá trị của ScrollBar tùy chỉnh khi DataGridView được cuộn
             int newScrollBarValue = scrollBar.Value - delta / 100;
@@ -107,7 +109,10 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
 
         private void scrollBar_Scroll(object sender, ScrollEventArgs e)
         {
-            gridView.FirstDisplayedScrollingRowIndex = scrollBar.Value;
+            if (scrollBar.Visible)
+            {
+                gridView.FirstDisplayedScrollingRowIndex = scrollBar.Value;
+            }
         }
 
         private void gridViewMain_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
