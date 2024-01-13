@@ -137,7 +137,7 @@ namespace SupermarketManagementApp.GUI.Shelf
             if (e.RowIndex == -1)
             {
                 // Kiểm tra xem có phải là header của cột 2, 3, 4 hoặc header của cột 4, 5
-                if (e.ColumnIndex >= 1 && e.ColumnIndex <= 5)
+                if (e.ColumnIndex >= 1 && e.ColumnIndex <= 4)
                 {
                     gridView.Cursor = Cursors.Hand;
                     return;
@@ -145,7 +145,7 @@ namespace SupermarketManagementApp.GUI.Shelf
             }
 
             // Nếu không phải là header của cột và nằm trong khoảng cột 4, 5, đặt kiểu cursor thành Hand
-            if (e.RowIndex >= 0 && (e.ColumnIndex == 6 || e.ColumnIndex == 7))
+            if (e.RowIndex >= 0 && (e.ColumnIndex == 6))
             {
                 gridView.Cursor = Cursors.Hand;
                 return;
@@ -188,7 +188,7 @@ namespace SupermarketManagementApp.GUI.Shelf
             catch (Exception ex)
             {
                 msgBoxError.Parent = formMain;
-                msgBoxError.Show(ex.Message, "Error");
+                msgBoxError.Show(ex.Message, "Error");  
             }
         }
 
@@ -197,7 +197,7 @@ namespace SupermarketManagementApp.GUI.Shelf
             int x = e.ColumnIndex, y = e.RowIndex;
             if (e.RowIndex >= 0)
             {
-                if (e.ColumnIndex == 6)
+                /*if (e.ColumnIndex == 6)
                 {
                     // Update
                     FormBackground formBackground = new FormBackground(formMain);
@@ -217,8 +217,8 @@ namespace SupermarketManagementApp.GUI.Shelf
                         msgBoxError.Parent = formMain;
                         msgBoxError.Show(ex.Message, "Error");
                     }
-                }
-                else if (e.ColumnIndex == 7)
+                }*/
+                if (e.ColumnIndex == 6)
                 {
                     // Delete
                     msgBoxDelete.Parent = formMain;

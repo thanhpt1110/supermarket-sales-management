@@ -43,7 +43,7 @@ namespace SupermarketManagementApp.GUI.Shelf
         private async void btnSave_Click(object sender, EventArgs e)
         {
             try
-            {
+            {         
                 DTO.Shelf shelf = new DTO.Shelf();
                 shelf.ShelfFloor = int.Parse(txtBoxShelfFloor.Text);
                 shelf.LayerCapacity = int.Parse(txtBoxLayerCapacity.Text);
