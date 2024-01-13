@@ -313,5 +313,51 @@ namespace SupermarketManagementApp
             }
         }
         #endregion
+
+        #region Authorization
+        private void ProcessUIAuthorization(UserRole userRole)
+        {
+            switch (userRole)
+            {
+                case UserRole.Admin:
+                    btnManageAccount.Visible = true;
+                    btnManageEmployee.Visible = true;   
+                    btnStatistic.Visible = true;
+                    break;
+
+                case UserRole.Manager:
+                    btnManageAccount.Visible = false;
+                    btnStatistic.Visible = true;
+                    btnManageEmployee.Visible = true;
+                    break;
+
+                case UserRole.Employee:
+                    btnManageAccount.Visible = false;
+                    btnStatistic.Visible = false;
+                    btnManageEmployee.Visible = false;
+                    break;
+
+                default:
+                    btnManageAccount.Visible = false;
+                    btnStatistic.Visible = false;
+                    btnManageEmployee.Visible = false;
+                    break;
+            }
+        }
+
+        // Enum định nghĩa các vai trò người dùng
+        public enum UserRole
+        {
+            Admin,
+            Manager,
+            Employee
+        }
+
+        // Gọi hàm này khi người dùng đăng nhập
+        private void UserLoggedIn(UserRole userRole)
+        {
+            ProcessUIAuthorization(userRole);
+        }
+        #endregion
     }
 }
