@@ -16,7 +16,7 @@ using System.Windows.Forms;
 
 namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
 {
-    public partial class FormProductShelfManagement : Form
+    public partial class FormShelfMap : Form
     {
         private FormMain formMain;
         private int fixedWidthPanel = 0;
@@ -27,12 +27,12 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
         // Tạo list để load thông tin shelves
         private (string ShelfID, string ShelfType, int UsedCapacity, int TotalCapacity)[] shelvesData;
 
-        public FormProductShelfManagement()
+        public FormShelfMap()
         {
             InitializeComponent();
         }
 
-        public FormProductShelfManagement(FormMain formMain)
+        public FormShelfMap(FormMain formMain)
         {
             InitializeComponent();
             this.formMain = formMain;

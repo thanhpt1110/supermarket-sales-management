@@ -42,11 +42,11 @@ namespace SupermarketManagementApp
         {
             // Background
             btnDashboard.FillColor = Color.Transparent;
+            btnShelfMap.FillColor = Color.Transparent;
             btnManageShelf.FillColor = Color.Transparent;
             btnProduct.FillColor = Color.Transparent; 
                 btnManageProduct.FillColor = Color.Transparent;
                 btnManageProductType.FillColor = Color.Transparent;
-                btnProductOnShelf.FillColor = Color.Transparent;
                 btnProductInInventory.FillColor = Color.Transparent;
             btnInvoice.FillColor = Color.Transparent;
                 btnManageCustomerInvoice.FillColor = Color.Transparent;
@@ -59,10 +59,10 @@ namespace SupermarketManagementApp
             // Fore color
             btnDashboard.ForeColor = Color.Black;
             btnManageShelf.ForeColor = Color.Black;
+            btnShelfMap.ForeColor = Color.Black;
             btnProduct.ForeColor = Color.Black;
                 btnManageProduct.ForeColor = Color.Black;
                 btnManageProductType.ForeColor = Color.Black;
-                btnProductOnShelf.ForeColor = Color.Black;
                 btnProductInInventory.ForeColor = Color.Black;
             btnInvoice.ForeColor = Color.Black;
                 btnManageCustomerInvoice.ForeColor = Color.Black;
@@ -74,6 +74,7 @@ namespace SupermarketManagementApp
 
             // Image
             btnDashboard.CustomImages.Image = Resources.black_gauge;
+            btnShelfMap.CustomImages.Image = Resources.black_shelf_map;
             btnManageShelf.CustomImages.Image = Resources.black_shelf;
             btnProduct.CustomImages.Image = Resources.black_product;
             btnInvoice.CustomImages.Image = Resources.black_invoice;
@@ -157,6 +158,15 @@ namespace SupermarketManagementApp
             OpenChildForm(new FormDashboard());
         }
 
+        private void btnShelfMap_Click(object sender, EventArgs e)
+        {
+            SetDefaultColor();
+            CloseSubMenu(); 
+            SetColorButton((Guna2Button)sender);
+            btnShelfMap.CustomImages.Image = Resources.white_shelf_map;
+            OpenChildForm(new FormShelfMap(this));
+        }
+
         private void btnManageShelf_Click(object sender, EventArgs e)
         {
             SetDefaultColor();
@@ -198,13 +208,6 @@ namespace SupermarketManagementApp
             SetDefaultColor();
             SetColorButton((Guna2Button)sender);
             OpenChildForm(new FormProductTypeManagement(this));
-        }
-
-        private void btnProductOnShelf_Click(object sender, EventArgs e)
-        {
-            SetDefaultColor();
-            SetColorButton((Guna2Button)sender);
-            OpenChildForm(new FormProductShelfManagement(this));
         }
 
         private void btnProductInInventory_Click(object sender, EventArgs e)

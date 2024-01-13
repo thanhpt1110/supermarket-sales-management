@@ -90,7 +90,6 @@ namespace SupermarketManagementApp.GUI
             }
 
             // Lặp qua dữ liệu để tính tổng TotalAmount cho mỗi tháng
-            // Lặp qua dữ liệu để tính tổng TotalAmount cho mỗi tháng
             foreach (var invoice in customerInvoices)
             {
                 if (invoice.DatePayment.HasValue && invoice.DatePayment.Value.Year == DateTime.Now.Year && invoice.DatePayment.Value <= DateTime.Now)
