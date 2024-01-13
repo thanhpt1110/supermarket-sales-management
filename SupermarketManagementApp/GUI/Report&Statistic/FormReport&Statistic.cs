@@ -492,7 +492,7 @@ namespace SupermarketManagementApp.GUI.Report_Statistic
                 txtReporter.SpacingAfter = 10f;
                 document.Add(txtReporter);
 
-                Paragraph txtName = new Paragraph("Tuan Thanh", tfont);
+                Paragraph txtName = new Paragraph(GlobalVariable.LoggedAccount.Employee.EmployeeName, tfont);
                 txtName.Alignment = Element.ALIGN_RIGHT;
                 txtName.IndentationRight = 30;
                 txtName.SpacingBefore = 20f;
