@@ -49,6 +49,7 @@ namespace SupermarketManagementApp.GUI.Report_Statistic
         public FormReport_Statistic()
         {
             InitializeComponent();
+            
             customerInvoiceBUS = CustomerInvoiceBUS.GetInstance();
             productBUS = ProductBUS.GetInstance();
             customerBUS = CustomerBUS.GetInstance();

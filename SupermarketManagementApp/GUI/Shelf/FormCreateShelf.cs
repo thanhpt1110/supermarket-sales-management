@@ -20,6 +20,9 @@ namespace SupermarketManagementApp.GUI.Shelf
         public FormCreateShelf(FormShelfManagement formShelfManagement)
         {
             InitializeComponent();
+            msgBoxInfo.Parent = this;
+            msgBoxError.Parent = this;
+            msgBoxDelete.Parent = this;
             productTypeBUS = ProductTypeBUS.GetInstance();
             shelfBUS = ShelfBUS.GetInstance();
             loadProductData();
@@ -54,7 +57,7 @@ namespace SupermarketManagementApp.GUI.Shelf
                 if(resultShelf.IsSuccess)
                 {
                     formShelfManagement.InitAllShelf();
-                    MessageBox.Show("Create shelf success");
+                    msgBoxInfo.Show("Create shelf success");
                     this.Close();
                 }
                 else

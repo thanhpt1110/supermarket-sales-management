@@ -22,6 +22,9 @@ namespace SupermarketManagementApp.GUI.Product.ProductType
             InitializeComponent();
             productTypeBUS = ProductTypeBUS.GetInstance();
             this.formProductTypeManagement = formProductTypeManagement;
+            msgBoxInfo.Parent = this;
+            msgBoxError.Parent = this;
+            msgBoxDelete.Parent = this;
            
         }
 
@@ -43,7 +46,7 @@ namespace SupermarketManagementApp.GUI.Product.ProductType
             Result<DTO.ProductType> result = await productTypeBUS.createNewProductType(productType);
             if (result.IsSuccess)
             {
-                MessageBox.Show("Create new ProductType successfully!");
+                msgBoxInfo.Show("Create new ProductType successfully!");
                 formProductTypeManagement.InitAllProductType();
             }
             else
