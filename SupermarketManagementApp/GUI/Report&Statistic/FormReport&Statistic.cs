@@ -68,6 +68,9 @@ namespace SupermarketManagementApp.GUI.Report_Statistic
 
         private void DisplayChartData()
         {
+            dtpkTo.Value = DateTime.Now;
+            dtpkFrom.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+
             // Xóa các dữ liệu hiện tại trên Chart (nếu có)
             RevenueChart.Series.Clear();
 
@@ -295,103 +298,193 @@ namespace SupermarketManagementApp.GUI.Report_Statistic
         #region Export
         private void btnExportPDF_Click(object sender, EventArgs e)
         {
-            ExportToPdf("C:\\Users\\thanh\\Downloads\\Statictis.pdf");
+            ExportToPdf();
         }
 
-        public void ExportToPdf(string filePath)
+        public void ExportToPdf()
         {
-            // Tạo tài liệu PDF
-            Document document = new Document();
+            // Create a SaveFileDialog to get the file path from the user
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "PDF Files|*.pdf";
+            saveFileDialog.Title = "Save PDF File";
+            saveFileDialog.ShowDialog();
 
-            // Tạo đối tượng PdfWriter để ghi vào file PDF
-            PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(filePath, FileMode.Create));
-
-            // Mở tài liệu
-            document.Open();
-
-            iTextSharp.text.Font hfont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 20f, iTextSharp.text.Font.BOLD);
-            iTextSharp.text.Font tfont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10f, iTextSharp.text.Font.ITALIC);
-            iTextSharp.text.Font font = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 14f);
-
-            Paragraph Title = new Paragraph("Report", hfont);
-            Title.Alignment = Element.ALIGN_CENTER;
-            document.Add(Title);
-
-            Paragraph timeline = new Paragraph(DateTime.Now.ToString(), tfont);
-            timeline.Alignment = Element.ALIGN_CENTER;
-            document.Add(timeline);
-
-            Paragraph r = new Paragraph("Revenue", font);
-            r.Alignment = Element.ALIGN_LEFT;
-            document.Add(r); 
-
-            // Tạo đối tượng PdfPTable với 1 cột
-            PdfPTable chartTable = new PdfPTable(1);
-
-            // Chuyển đổi biểu đồ thành hình ảnh
-            using (MemoryStream ms = new MemoryStream())
+            if (saveFileDialog.FileName != "")
             {
-                RevenueChart.SaveImage(ms, ChartImageFormat.Png);
-                iTextSharp.text.Image chartImage = iTextSharp.text.Image.GetInstance(ms.ToArray());
+                string filePath = saveFileDialog.FileName;
 
-                // Đặt kích thước của hình ảnh
-                chartImage.ScaleToFit(500, 300);
+                // Tạo tài liệu PDF
+                Document document = new Document();
 
-                // Tạo một ô chứa hình ảnh
-                PdfPCell cell = new PdfPCell(chartImage);
+                // Tạo đối tượng PdfWriter để ghi vào file PDF
+                PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(filePath, FileMode.Create));
 
-                // Đặt căn giữa cho ô chứa hình ảnh
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.VerticalAlignment = Element.ALIGN_MIDDLE;
+                // Mở tài liệu
+                document.Open();
 
-                // Thêm ô chứa hình ảnh vào table
-                chartTable.AddCell(cell);
-            }
+                iTextSharp.text.Font hfont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 20f, iTextSharp.text.Font.BOLD);
+                iTextSharp.text.Font tfont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10f, iTextSharp.text.Font.ITALIC);
+                iTextSharp.text.Font font = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 14f);
 
-            // Thêm table vào tài liệu PDF
-            chartTable.SpacingBefore = 14f;
-            chartTable.SpacingAfter = 14f;
-            document.Add(chartTable);
+                Paragraph Title = new Paragraph("Report", hfont);
+                Title.Alignment = Element.ALIGN_CENTER;
+                document.Add(Title);
 
-            Paragraph product = new Paragraph("Product", font);
-            Title.Alignment = Element.ALIGN_LEFT;
-            document.Add(product);
+                Paragraph timeline = new Paragraph(DateTime.Now.ToString(), tfont);
+                timeline.Alignment = Element.ALIGN_CENTER;
+                document.Add(timeline);
 
-            PdfPTable table = new PdfPTable(dtgvProducts.Columns.Count);
+                Paragraph r1 = new Paragraph("", font);
+                r1.Alignment = Element.ALIGN_LEFT;
+                document.Add(r1);
 
-            // Đặt chiều rộng cột của bảng dựa trên kích thước của DataGridView
-            float[] columnWidths = new float[dtgvProducts.Columns.Count];
-            for (int i = 0; i < dtgvProducts.Columns.Count; i++)
-            {
-                columnWidths[i] = (float)dtgvProducts.Columns[i].Width;
-            }
-            table.SetWidths(columnWidths);
-
-            // Thêm dòng tiêu đề từ DataGridView vào bảng PDF
-            for (int i = 0; i < dtgvProducts.Columns.Count; i++)
-            {
-                table.AddCell(new Phrase(dtgvProducts.Columns[i].HeaderText));
-            }
-
-            // Thêm dữ liệu từ DataGridView vào bảng PDF
-            for (int i = 0; i < dtgvProducts.Rows.Count; i++)
-            {
-                for (int j = 0; j < dtgvProducts.Rows.Count; j++)
+                ////THÊM BẢNG SẢN PHẦM CÒN 
+                // Tạo số lượng hàng của DataGridView
+                int row = 0;
+                if (dtgvProducts.Columns.Count > 10)
                 {
-                    if (dtgvProducts[j, i].Value != null)
+                    row = 10;
+                }
+                else 
+                {
+                    row = dtgvProducts.Rows.Count;
+                }
+
+                PdfPTable table = new PdfPTable(row);
+
+                // Đặt chiều rộng cột của bảng dựa trên kích thước của DataGridView
+                float[] columnWidths = new float[dtgvProducts.Columns.Count];
+                for (int i = 0; i < dtgvProducts.Columns.Count; i++)
+                {
+                    columnWidths[i] = (float)dtgvProducts.Columns[i].Width;
+                }
+                table.SetWidths(columnWidths);
+
+                // Thêm dòng tiêu đề từ DataGridView vào bảng PDF
+                for (int i = 0; i < dtgvProducts.Columns.Count; i++)
+                {
+                    table.AddCell(new Phrase(dtgvProducts.Columns[i].HeaderText));
+                }
+
+                // Thêm dữ liệu từ DataGridView vào bảng PDF
+                for (int i = 0; i < dtgvProducts.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dtgvProducts.Rows.Count; j++)
                     {
-                        table.AddCell(new Phrase(dtgvProducts[j, i].Value.ToString()));
+                        if (dtgvProducts[j, i].Value != null)
+                        {
+                            table.AddCell(new Phrase(dtgvProducts[j, i].Value.ToString()));
+                        }
                     }
                 }
+                table.SpacingBefore = 14f;
+                table.SpacingAfter = 14f;
+                document.Add(table);
+
+
+
+                ////THÊM BẢNG TOP KHÁCH HÀNG
+                int cusRow = 0;
+                if (dtgvCustomers.Columns.Count > 10)
+                {
+                    cusRow = 10;
+                }
+                else
+                {
+                    cusRow = dtgvCustomers.Rows.Count;
+                }
+
+                PdfPTable CusTable = new PdfPTable(row);
+
+                // Đặt chiều rộng cột của bảng dựa trên kích thước của DataGridView
+                float[] CusColumnWidths = new float[dtgvCustomers.Columns.Count];
+                for (int i = 0; i < dtgvCustomers.Columns.Count; i++)
+                {
+                    CusColumnWidths[i] = (float)dtgvCustomers.Columns[i].Width;
+                }
+                CusTable.SetWidths(CusColumnWidths);
+
+                // Thêm dòng tiêu đề từ DataGridView vào bảng PDF
+                for (int i = 0; i < dtgvCustomers.Columns.Count; i++)
+                {
+                    CusTable.AddCell(new Phrase(dtgvCustomers.Columns[i].HeaderText));
+                }
+
+                // Thêm dữ liệu từ DataGridView vào bảng PDF
+                for (int i = 0; i < dtgvCustomers.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dtgvCustomers.Rows.Count; j++)
+                    {
+                        if (dtgvCustomers[j, i].Value != null)
+                        {
+                            table.AddCell(new Phrase(dtgvCustomers[j, i].Value.ToString()));
+                        }
+                    }
+                }
+                CusTable.SpacingBefore = 14f;
+                CusTable.SpacingAfter = 14f;
+                document.Add(CusTable);
+                
+
+
+                //// THÊM BIỂU ĐỒ
+                // Tạo đối tượng PdfPTable với 1 cột
+                PdfPTable chartTable = new PdfPTable(1);
+                chartTable.WidthPercentage = 100;
+                chartTable.DefaultCell.Border = 0;
+
+                // Chuyển đổi biểu đồ thành hình ảnh
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    RevenueChart.SaveImage(ms, ChartImageFormat.Png);
+                    iTextSharp.text.Image chartImage = iTextSharp.text.Image.GetInstance(ms.ToArray());
+
+                    // Đặt kích thước của hình ảnh
+                    chartImage.ScaleToFit(500, 300);
+
+                    // Tạo một ô chứa hình ảnh
+                    PdfPCell cell = new PdfPCell(chartImage);
+                    cell.Border = 0;
+
+                    // Đặt căn giữa cho ô chứa hình ảnh
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.VerticalAlignment = Element.ALIGN_MIDDLE;
+
+                    // Thêm ô chứa hình ảnh vào table
+                    chartTable.AddCell(cell);
+                }
+
+                // Thêm table vào tài liệu PDF
+                chartTable.SpacingBefore = 14f;
+                chartTable.SpacingAfter = 14f;
+                document.Add(chartTable);
+
+                // Đặt tên cho biểu đồ
+                Paragraph ChartName = new Paragraph("Revenue Chart from " + dtpkFrom.Value.ToShortDateString() + " to " + dtpkTo.Value.ToShortDateString(), tfont);
+                ChartName.Alignment = Element.ALIGN_CENTER;
+                document.Add(ChartName);
+
+
+                ////KHAI BAO GOC PHAI
+                Paragraph txtReporter = new Paragraph("Reporter", font);
+                txtReporter.Alignment = Element.ALIGN_RIGHT;
+                txtReporter.IndentationRight = 30 ;
+                txtReporter.SpacingBefore = 20f; 
+                txtReporter.SpacingAfter = 10f;
+                document.Add(txtReporter);
+
+                Paragraph txtName = new Paragraph("Tuan Thanh", tfont);
+                txtName.Alignment = Element.ALIGN_RIGHT;
+                txtName.IndentationRight = 30;
+                txtName.SpacingBefore = 20f;
+                txtName.SpacingAfter = 10f;
+                document.Add(txtName);
+
+                // Đóng tài liệu
+                document.Close();
+
+                Process.Start(filePath);
             }
-            table.SpacingBefore = 14f;
-            table.SpacingAfter = 14f;
-            document.Add(table);
-
-            // Đóng tài liệu
-            document.Close();
-
-            Process.Start(filePath);
         }
         #endregion
     }
