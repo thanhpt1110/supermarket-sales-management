@@ -1,4 +1,6 @@
 ﻿using Guna.UI2.WinForms;
+using SupermarketManagementApp.BUS;
+using SupermarketManagementApp.DTO;
 using SupermarketManagementApp.GUI.Invoice.CustomerInvoice;
 using SupermarketManagementApp.Utils;
 using System;
@@ -17,9 +19,9 @@ namespace SupermarketManagementApp.GUI.Product.ProductInInventory
     {
         private FormMain formMain;
         private Guna2DataGridView gridView = null;
-        private const int INVENTORY_CAPACITY = 1000;
-        private int usedInventoryCapacity = 400;
-
+        private  float INVENTORY_CAPACITY = StaticGlobal.SYSTEM_CAPACITY;
+        private int usedInventoryCapacity = 0;
+        private InvetoryDetailBUS invetoryDetailBUS = null;
         public FormProductInventoryManagement()
         {
             InitializeComponent();
@@ -30,18 +32,18 @@ namespace SupermarketManagementApp.GUI.Product.ProductInInventory
             InitializeComponent();
             this.formMain = formMain;
             this.gridView = gridViewMain;
+            invetoryDetailBUS = InvetoryDetailBUS.GetInstance();
             CustomStyleGridView();
             LoadGridData();
             UpdateScrollBarValues();
-            UpdateProgressBar();
         }
 
         private void UpdateProgressBar()
         {
             availableCapacity.Value = usedInventoryCapacity;
-            availableCapacity.Maximum = INVENTORY_CAPACITY;
+            availableCapacity.Maximum = (int) INVENTORY_CAPACITY;
 
-            int remaining = INVENTORY_CAPACITY - usedInventoryCapacity;
+            int remaining =(int) INVENTORY_CAPACITY - usedInventoryCapacity;
             if (usedInventoryCapacity <= INVENTORY_CAPACITY)
             {
                 availableCapacity.ProgressColor = Color.ForestGreen;
@@ -55,21 +57,15 @@ namespace SupermarketManagementApp.GUI.Product.ProductInInventory
             availableCapacity.Text = ("Capacity: " + usedInventoryCapacity + " used, " + remaining + " remaining.");
         }
 
-        private void LoadGridData()
+        private async void LoadGridData()
         {
-            gridView.Rows.Add(new object[] { null, "Bakery", 12, 10, 120, null });
-            gridView.Rows.Add(new object[] { null, "Bakery", 12, 10, 120, null });
-            gridView.Rows.Add(new object[] { null, "Bakery", 12, 10, 120, null });
-            gridView.Rows.Add(new object[] { null, "Bakery", 12, 10, 120, null });
-            gridView.Rows.Add(new object[] { null, "Bakery", 12, 10, 120, null });
-            gridView.Rows.Add(new object[] { null, "Bakery", 12, 10, 120, null });
-            gridView.Rows.Add(new object[] { null, "Bakery", 12, 10, 120, null });
-            gridView.Rows.Add(new object[] { null, "Bakery", 12, 10, 120, null });
-            gridView.Rows.Add(new object[] { null, "Bakery", 12, 10, 120, null });
-            gridView.Rows.Add(new object[] { null, "Bakery", 12, 10, 120, null });
-            gridView.Rows.Add(new object[] { null, "Bakery", 12, 10, 120, null });
-            gridView.Rows.Add(new object[] { null, "Bakery", 12, 10, 120, null });
-            gridView.Rows.Add(new object[] { null, "Bakery", 12, 10, 120, null });
+            Result<IEnumerable<InventoryDetail>> result = await invetoryDetailBUS.getAllInventoryDetail();
+            foreach(InventoryDetail inventoryDetail in result.Data) {
+                usedInventoryCapacity += inventoryDetail.ProductQuantity * inventoryDetail.Product.ProductCapacity;
+                gridView.Rows.Add(new object[] { null, inventoryDetail.Product.ProductName, inventoryDetail.ProductQuantity, inventoryDetail.Product.ProductCapacity, inventoryDetail.ProductQuantity * inventoryDetail.Product.ProductCapacity, null });
+            }
+            UpdateProgressBar();
+
         }
 
         private void btnExportExcel_Click(object sender, EventArgs e)

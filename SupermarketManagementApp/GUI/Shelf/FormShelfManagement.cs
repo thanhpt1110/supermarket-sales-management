@@ -163,7 +163,7 @@ namespace SupermarketManagementApp.GUI.Shelf
             FormBackground formBackground = new FormBackground(formMain);
             try
             {
-                using (FormCreateShelf formCreateShelf = new FormCreateShelf())
+                using (FormCreateShelf formCreateShelf = new FormCreateShelf(this))
                 {
                     formBackground.Owner = formMain;
                     formBackground.Show();

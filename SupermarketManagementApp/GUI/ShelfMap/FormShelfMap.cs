@@ -46,7 +46,7 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
             fixedWidthPanel = panelShelfContainer.Width - 25;
             initAllShelf();
         }
-        private async void initAllShelf()
+        public async void initAllShelf()
         {
             Result<IEnumerable<DTO.Shelf>> shelfResult = await shelfBUS.getAllShelf();
             if (shelfResult.IsSuccess)

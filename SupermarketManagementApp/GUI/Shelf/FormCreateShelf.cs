@@ -16,12 +16,14 @@ namespace SupermarketManagementApp.GUI.Shelf
     {
         private ProductTypeBUS productTypeBUS = null;
         private ShelfBUS shelfBUS = null;
-        public FormCreateShelf()
+        private FormShelfManagement formShelfManagement = null;
+        public FormCreateShelf(FormShelfManagement formShelfManagement)
         {
             InitializeComponent();
             productTypeBUS = ProductTypeBUS.GetInstance();
             shelfBUS = ShelfBUS.GetInstance();
             loadProductData();
+            this.formShelfManagement = formShelfManagement;
         }
         private async void loadProductData()
         {
@@ -51,6 +53,7 @@ namespace SupermarketManagementApp.GUI.Shelf
                 Result<DTO.Shelf> resultShelf = await shelfBUS.AddShelf(shelf);
                 if(resultShelf.IsSuccess)
                 {
+                    formShelfManagement.InitAllShelf();
                     MessageBox.Show("Create shelf success");
                     this.Close();
                 }

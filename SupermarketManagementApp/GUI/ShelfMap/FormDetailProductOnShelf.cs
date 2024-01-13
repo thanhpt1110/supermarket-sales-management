@@ -33,8 +33,8 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
             InitializeComponent();
             this.totalShelfCapacity = totalCapacity;
             this.labelName.Text = name;
-            totalShelfCapacity = 50000;
             dictionaryShelf = new Dictionary<int, ShelfDetail>();
+            
             getShelf(shelfID);
         }
         private async void getShelf(int id)
@@ -47,7 +47,8 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
             }
             if(result.IsSuccess)
             {
-                foreach(ShelfDetail shelfDetail in result.Data.ShelfDetails)
+                totalShelfCapacity = result.Data.LayerCapacity * result.Data.LayerQuantity;
+                foreach (ShelfDetail shelfDetail in result.Data.ShelfDetails)
                 {
                     dictionaryShelf[shelfDetail.ShelfDetailID] = new ShelfDetail() {ShelfDetailID = shelfDetail.ShelfDetailID
                         , ShelfID = shelfDetail.ShelfID, Shelf = shelfDetail.Shelf, Product = shelfDetail.Product, ProductID = shelfDetail.ProductID, ProductQuantity = shelfDetail.ProductQuantity};
@@ -56,11 +57,13 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
                     if (shelfDetail.Product != null)
                     {
                         layerUsedCapacity = shelfDetail.ProductQuantity * shelfDetail.Product.ProductCapacity;
+                        usedShelfCapacity += shelfDetail.ProductQuantity * shelfDetail.Product.ProductCapacity;
                     }    
                     panelLayerContainer.Controls.Add(ShelfLayer(layerUsedCapacity, result.Data.LayerCapacity, dictionaryShelf[shelfDetail.ShelfDetailID]));
 
                 }
-            }    
+            }
+            UpdateProgressBar(shelfCapacity, usedShelfCapacity, totalShelfCapacity);
         }
         List<string> products = new List<string>
             {
@@ -80,6 +83,7 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
             Result<List<ShelfDetail>> result = await shelfBUS.updateShelfDetail(shelfDetails);
             if(result.IsSuccess)
             {
+                formProductShelfManagement.initAllShelf();
                 MessageBox.Show("Update shelf success");
                 this.Close();
 
