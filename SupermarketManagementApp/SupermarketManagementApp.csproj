@@ -96,12 +96,14 @@
     <Compile Include="BUS\AccountBUS.cs" />
     <Compile Include="BUS\CustomerBUS.cs" />
     <Compile Include="BUS\CustomerInvoiceBUS.cs" />
+    <Compile Include="BUS\CustomerInvoiceDetailBUS.cs" />
     <Compile Include="BUS\EmployeeBUS.cs" />
     <Compile Include="BUS\InvetoryDetailBUS.cs" />
     <Compile Include="BUS\ProductBUS.cs" />
     <Compile Include="BUS\ProductTypeBUS.cs" />
     <Compile Include="BUS\ShelfBUS.cs" />
     <Compile Include="BUS\SupplierInvoiceBUS.cs" />
+    <Compile Include="DAO\CustomerInvoiceDetailRepositoryDAO.cs" />
     <Compile Include="DTO\Account.cs" />
     <Compile Include="DTO\Customer.cs" />
     <Compile Include="DTO\CustomerInvoice.cs" />
