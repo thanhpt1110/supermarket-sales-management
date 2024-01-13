@@ -305,7 +305,7 @@ namespace SupermarketManagementApp.GUI.Report_Statistic
             int top = 1;
             foreach (var x in sortedList)
             {
-                dtgvCustomers.Rows.Add(new object[] { top , x.CustomerName, x.TotalAmount });
+                dtgvCustomers.Rows.Add(new object[] { top, x.CustomerName, string.Format("{0:N0} VND", x.TotalAmount) });
                 top++;
             }
             CustomStyleCustomerGridView();

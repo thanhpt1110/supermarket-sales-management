@@ -65,7 +65,7 @@ namespace SupermarketManagementApp.GUI.Product
             gridView.Rows.Clear();
             foreach (var product in products)
             {
-                gridView.Rows.Add(new object[] { null, product.ProductID, product.ProductName, product.ProductTypeID, product.UnitPrice, product.WholeSaleUnit,product.RetailUnit, product.UnitConversion });
+                gridView.Rows.Add(new object[] { null, product.ProductID, product.ProductName, product.ProductTypeID, string.Format("{0:N0} VND", product.UnitPrice), product.WholeSaleUnit,product.RetailUnit, product.UnitConversion });
             }
             UpdateScrollBarValues();
         }
