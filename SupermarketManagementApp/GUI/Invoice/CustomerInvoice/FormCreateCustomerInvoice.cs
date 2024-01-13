@@ -31,7 +31,6 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
                     WholeSaleUnit = "Box",
                     RetailUnit = "Piece",
                     UnitConversion = 12,
-                    PreservationType = "Cool",
                     ProductCapacity = 100
                 },
                 new DTO.Product
@@ -43,7 +42,6 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
                     WholeSaleUnit = "Carton",
                     RetailUnit = "Unit",
                     UnitConversion = 10,
-                    PreservationType = "Dry",
                     ProductCapacity = 50
                 },
                 // Add more products as needed
