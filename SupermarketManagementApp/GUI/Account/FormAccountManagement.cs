@@ -36,6 +36,8 @@ namespace SupermarketManagementApp.GUI.Account
             UpdateScrollBarValues();
             InitAllAccount();
             InitTimer();
+            msgBoxInfo.Parent = formMain;
+
         }
         public FormAccountManagement()
         {
@@ -241,7 +243,7 @@ namespace SupermarketManagementApp.GUI.Account
                                 Result<bool> result = await accountBUS.deleteAccount(int.Parse(gridView.Rows[y].Cells[1].Value.ToString()));
                                 if (result.IsSuccess)
                                 {
-                                    MessageBox.Show("Remove account successfully!", "Success", MessageBoxButton.OK);
+                                    msgBoxInfo.Show("Remove account successfully!");
                                     InitAllAccount();
                                 }
                                 else

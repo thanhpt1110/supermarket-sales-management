@@ -54,6 +54,8 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
         public FormCreateCustomerInvoice()
         {
             InitializeComponent();
+            msgBoxError.Parent = this;
+            msgBoxInfo.Parent = this;
             customerInvoiceDictionary = new Dictionary<string, CustomerInvoiceDetail>();
             customerInvoice = new DTO.CustomerInvoice();
             customerBUS = CustomerBUS.GetInstance();
@@ -73,7 +75,7 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
             }
             else
             {
-                MessageBox.Show("Load form failed");
+                msgBoxError.Show("Load form failed");
 
             }
         }
@@ -90,7 +92,7 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
             }
             else
             {
-                MessageBox.Show("Load form failed");
+                msgBoxError.Show("Load form failed");
             }
         }
         private void LoadCustomerByPhoneNumber()
@@ -145,7 +147,7 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
                 }
                 else
                 {
-                    MessageBox.Show(resultCustomer.ErrorMessage);
+                    msgBoxError.Show(resultCustomer.ErrorMessage);
                     return;
                 }
             }
@@ -155,12 +157,12 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
             Result<DTO.CustomerInvoice> result = await customerInvoiceBUS.AddNewCustomerInvoice(customerInvoice);
             if(result.IsSuccess)
             {
-                MessageBox.Show("Create invoice success");
+                msgBoxInfo.Show("Create invoice success");
                 this.Close();
             }
             else
             {
-                MessageBox.Show(result.ErrorMessage);
+                msgBoxError.Show(result.ErrorMessage);
             }
         }
 
@@ -250,7 +252,6 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
                 if (customerInvoiceDictionary[currentLine.Name].Product != null)
                 {
                     var product = customerInvoiceDictionary[currentLine.Name].Product;
-                    MessageBox.Show(product.ProductName);
                     PriceText = product.UnitPrice.ToString();
                 }
                 foreach (Control control in currentLine.Controls)

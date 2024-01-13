@@ -38,6 +38,7 @@ namespace SupermarketManagementApp.GUI.Customer
             CustomStyleGridView();
             UpdateScrollBarValues();
             InitAllCustomer();
+            msgBoxInfo.Parent = formMain;
             InitTimer();
 
         }
@@ -64,7 +65,7 @@ namespace SupermarketManagementApp.GUI.Customer
             }
             else
             {
-                MessageBox.Show(customerResult.ErrorMessage);
+                msgBoxError.Show(customerResult.ErrorMessage);
             }
         }
         private void LoadGridData()
@@ -254,7 +255,7 @@ namespace SupermarketManagementApp.GUI.Customer
                                 Result<bool> result = await customerBUS.removeCustomerByID(int.Parse(gridView.Rows[y].Cells[1].Value.ToString()));
                                 if (result.IsSuccess)
                                 {
-                                    MessageBox.Show("Remove successfully!", "Success", MessageBoxButtons.OK);
+                                    msgBoxInfo.Show("Remove successfully!");
                                     InitAllCustomer();
                                 }
                                 else

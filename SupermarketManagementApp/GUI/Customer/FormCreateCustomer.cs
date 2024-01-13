@@ -19,6 +19,8 @@ namespace SupermarketManagementApp.GUI.Customer
         public FormCreateCustomer(FormCustomerManagement formCustomerManagement)
         {
             InitializeComponent();
+            msgBoxInfo.Parent = this;
+            msgBoxError.Parent = this;
             customerBUS = CustomerBUS.GetInstance();
             this.formCustomerManagement = formCustomerManagement;
         }
@@ -42,14 +44,14 @@ namespace SupermarketManagementApp.GUI.Customer
                 var customerResult = await customerBUS.AddCustomer(customer);
                 if (customerResult.IsSuccess)
                 {
-                    MessageBox.Show("Added new employee Success");
+                    msgBoxInfo.Show("Added new employee Success");
                     formCustomerManagement.InitAllCustomer();
                     this.Close();
                     return;
                 }
                 else
                 {
-                    MessageBox.Show(customerResult.ErrorMessage);
+                    msgBoxError.Show(customerResult.ErrorMessage);
                     return;
                 }
             }

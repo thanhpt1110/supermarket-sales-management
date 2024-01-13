@@ -31,6 +31,8 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
         public FormCreateSupplierInvoice()
         {
             InitializeComponent();
+            msgBoxInfo.Parent= this;
+            msgBoxError.Parent= this;
             productBUS = ProductBUS.GetInstance();
             supplierInvoiceBUS = SupplierInvoiceBUS.GetInstance();
             invetoryDetailBUS = InvetoryDetailBUS.GetInstance();
@@ -50,7 +52,7 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             }
             else
             {
-                MessageBox.Show(productResult.ErrorMessage);
+                msgBoxError.Show(productResult.ErrorMessage);
                 this.Close();
             }
         }
@@ -95,12 +97,12 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             Result<DTO.SupplierInvoice> supplierResult = await supplierInvoiceBUS.AddNewSupplierInvoice(productDictionary, this.txtBoxCustomerName.Text);
             if(supplierResult.IsSuccess)
             {
-                MessageBox.Show("Create invoice successfully");
+                msgBoxInfo.Show("Create invoice successfully");
                 this.Close();
             }
             else
             {
-                MessageBox.Show(supplierResult.ErrorMessage,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                msgBoxError.Show(supplierResult.ErrorMessage);
             }
         }
 
@@ -187,7 +189,6 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
                 if (productDictionary[currentLine.Name].Product!=null)
                 {
                     var product = productDictionary[currentLine.Name].Product;
-                    MessageBox.Show(product.ProductName);
                     PriceText = (product.UnitPrice * product.UnitConversion).ToString();
                     capacityText = (product.ProductCapacity * product.UnitConversion).ToString();
                 }    

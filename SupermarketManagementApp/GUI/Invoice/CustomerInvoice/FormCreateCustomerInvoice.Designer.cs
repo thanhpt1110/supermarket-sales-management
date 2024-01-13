@@ -66,6 +66,7 @@
             this.btnCheckOut = new Guna.UI2.WinForms.Guna2Button();
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.msgBoxError = new Guna.UI2.WinForms.Guna2MessageDialog();
+            this.msgBoxInfo = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.panelCustomerInformation.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -584,6 +585,15 @@
             this.msgBoxError.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
             this.msgBoxError.Text = "There were some errors, please try again later!";
             // 
+            // msgBoxInfo
+            // 
+            this.msgBoxInfo.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            this.msgBoxInfo.Caption = "Information";
+            this.msgBoxInfo.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
+            this.msgBoxInfo.Parent = null;
+            this.msgBoxInfo.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
+            this.msgBoxInfo.Text = "Create account successfully!";
+            // 
             // FormCreateCustomerInvoice
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -652,5 +662,6 @@
         private Guna.UI2.WinForms.Guna2Button btnCheckOut;
         private Guna.UI2.WinForms.Guna2Button btnCancel;
         private Guna.UI2.WinForms.Guna2MessageDialog msgBoxError;
+        private Guna.UI2.WinForms.Guna2MessageDialog msgBoxInfo;
     }
 }
