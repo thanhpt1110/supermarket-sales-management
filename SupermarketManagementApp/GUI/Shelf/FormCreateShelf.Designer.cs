@@ -94,7 +94,7 @@
             this.labelForm.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelForm.Location = new System.Drawing.Point(221, 30);
             this.labelForm.Name = "labelForm";
-            this.labelForm.Size = new System.Drawing.Size(158, 39);
+            this.labelForm.Size = new System.Drawing.Size(194, 48);
             this.labelForm.TabIndex = 12;
             this.labelForm.Text = "Create Shelf";
             // 
@@ -138,7 +138,7 @@
             this.guna2HtmlLabel7.ForeColor = System.Drawing.Color.Black;
             this.guna2HtmlLabel7.Location = new System.Drawing.Point(401, 389);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            this.guna2HtmlLabel7.Size = new System.Drawing.Size(8, 23);
+            this.guna2HtmlLabel7.Size = new System.Drawing.Size(9, 30);
             this.guna2HtmlLabel7.TabIndex = 24;
             this.guna2HtmlLabel7.Text = ")";
             // 
@@ -149,7 +149,7 @@
             this.guna2HtmlLabel8.ForeColor = System.Drawing.Color.Black;
             this.guna2HtmlLabel8.Location = new System.Drawing.Point(393, 386);
             this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
-            this.guna2HtmlLabel8.Size = new System.Drawing.Size(10, 19);
+            this.guna2HtmlLabel8.Size = new System.Drawing.Size(12, 23);
             this.guna2HtmlLabel8.TabIndex = 23;
             this.guna2HtmlLabel8.Text = "2";
             // 
@@ -160,7 +160,7 @@
             this.guna2HtmlLabel9.ForeColor = System.Drawing.Color.Black;
             this.guna2HtmlLabel9.Location = new System.Drawing.Point(372, 389);
             this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
-            this.guna2HtmlLabel9.Size = new System.Drawing.Size(22, 23);
+            this.guna2HtmlLabel9.Size = new System.Drawing.Size(26, 30);
             this.guna2HtmlLabel9.TabIndex = 22;
             this.guna2HtmlLabel9.Text = "(m";
             // 
@@ -171,7 +171,7 @@
             this.guna2HtmlLabel6.ForeColor = System.Drawing.Color.Black;
             this.guna2HtmlLabel6.Location = new System.Drawing.Point(180, 297);
             this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            this.guna2HtmlLabel6.Size = new System.Drawing.Size(8, 23);
+            this.guna2HtmlLabel6.Size = new System.Drawing.Size(9, 30);
             this.guna2HtmlLabel6.TabIndex = 21;
             this.guna2HtmlLabel6.Text = ")";
             // 
@@ -208,7 +208,7 @@
             this.labelStatus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelStatus.Location = new System.Drawing.Point(50, 389);
             this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(46, 23);
+            this.labelStatus.Size = new System.Drawing.Size(57, 30);
             this.labelStatus.TabIndex = 19;
             this.labelStatus.Text = "Status";
             // 
@@ -245,7 +245,7 @@
             this.labelTotalCapacity.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTotalCapacity.Location = new System.Drawing.Point(270, 389);
             this.labelTotalCapacity.Name = "labelTotalCapacity";
-            this.labelTotalCapacity.Size = new System.Drawing.Size(100, 23);
+            this.labelTotalCapacity.Size = new System.Drawing.Size(127, 30);
             this.labelTotalCapacity.TabIndex = 15;
             this.labelTotalCapacity.Text = "Total Capacity";
             // 
@@ -256,7 +256,7 @@
             this.guna2HtmlLabel5.ForeColor = System.Drawing.Color.Black;
             this.guna2HtmlLabel5.Location = new System.Drawing.Point(172, 294);
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Size = new System.Drawing.Size(10, 19);
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(12, 23);
             this.guna2HtmlLabel5.TabIndex = 14;
             this.guna2HtmlLabel5.Text = "2";
             // 
@@ -267,7 +267,7 @@
             this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.Black;
             this.guna2HtmlLabel2.Location = new System.Drawing.Point(152, 297);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(22, 23);
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(26, 30);
             this.guna2HtmlLabel2.TabIndex = 13;
             this.guna2HtmlLabel2.Text = "(m";
             // 
@@ -319,6 +319,7 @@
             this.txtBoxNumberOfLayer.Size = new System.Drawing.Size(400, 36);
             this.txtBoxNumberOfLayer.TabIndex = 3;
             this.txtBoxNumberOfLayer.TextOffset = new System.Drawing.Point(5, 0);
+            this.txtBoxNumberOfLayer.TextChanged += new System.EventHandler(this.txtBoxNumberOfLayer_TextChanged);
             // 
             // cbBoxShelfType
             // 
@@ -349,7 +350,7 @@
             this.guna2HtmlLabel4.ForeColor = System.Drawing.Color.Red;
             this.guna2HtmlLabel4.Location = new System.Drawing.Point(90, 109);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(10, 23);
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(12, 30);
             this.guna2HtmlLabel4.TabIndex = 10;
             this.guna2HtmlLabel4.Text = "*";
             // 
@@ -359,7 +360,7 @@
             this.labelShelfFloor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelShelfFloor.Location = new System.Drawing.Point(50, 109);
             this.labelShelfFloor.Name = "labelShelfFloor";
-            this.labelShelfFloor.Size = new System.Drawing.Size(39, 23);
+            this.labelShelfFloor.Size = new System.Drawing.Size(49, 30);
             this.labelShelfFloor.TabIndex = 9;
             this.labelShelfFloor.Text = "Floor";
             // 
@@ -370,7 +371,7 @@
             this.labelRequired1.ForeColor = System.Drawing.Color.Red;
             this.labelRequired1.Location = new System.Drawing.Point(173, 199);
             this.labelRequired1.Name = "labelRequired1";
-            this.labelRequired1.Size = new System.Drawing.Size(10, 23);
+            this.labelRequired1.Size = new System.Drawing.Size(12, 30);
             this.labelRequired1.TabIndex = 1;
             this.labelRequired1.Text = "*";
             // 
@@ -380,7 +381,7 @@
             this.labelNumberOfLayer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNumberOfLayer.Location = new System.Drawing.Point(50, 199);
             this.labelNumberOfLayer.Name = "labelNumberOfLayer";
-            this.labelNumberOfLayer.Size = new System.Drawing.Size(121, 23);
+            this.labelNumberOfLayer.Size = new System.Drawing.Size(149, 30);
             this.labelNumberOfLayer.TabIndex = 0;
             this.labelNumberOfLayer.Text = "Number of Layer";
             // 
@@ -391,7 +392,7 @@
             this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.Red;
             this.guna2HtmlLabel3.Location = new System.Drawing.Point(87, 21);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(10, 23);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(12, 30);
             this.guna2HtmlLabel3.TabIndex = 7;
             this.guna2HtmlLabel3.Text = "*";
             // 
@@ -401,7 +402,7 @@
             this.labelShelfType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelShelfType.Location = new System.Drawing.Point(50, 21);
             this.labelShelfType.Name = "labelShelfType";
-            this.labelShelfType.Size = new System.Drawing.Size(36, 23);
+            this.labelShelfType.Size = new System.Drawing.Size(45, 30);
             this.labelShelfType.TabIndex = 10;
             this.labelShelfType.Text = "Type";
             // 
@@ -412,7 +413,7 @@
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Red;
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(189, 297);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(10, 23);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(12, 30);
             this.guna2HtmlLabel1.TabIndex = 4;
             this.guna2HtmlLabel1.Text = "*";
             // 
@@ -422,7 +423,7 @@
             this.labelLayerCapacity.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLayerCapacity.Location = new System.Drawing.Point(50, 297);
             this.labelLayerCapacity.Name = "labelLayerCapacity";
-            this.labelLayerCapacity.Size = new System.Drawing.Size(101, 23);
+            this.labelLayerCapacity.Size = new System.Drawing.Size(126, 30);
             this.labelLayerCapacity.TabIndex = 3;
             this.labelLayerCapacity.Text = "Layer capacity";
             // 

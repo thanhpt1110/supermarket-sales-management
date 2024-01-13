@@ -22,10 +22,12 @@ namespace SupermarketManagementApp.GUI.Shelf
         #endregion
         private ShelfBUS shelfBUS = null;
         private List<DTO.Shelf> shelves = null;
+        private ProductTypeBUS productTypeBUS = null;
         public FormShelfManagement(FormMain formMain)
         {
             this.formMain = formMain;
             shelfBUS = ShelfBUS.GetInstance();
+            productTypeBUS = ProductTypeBUS.GetInstance();
             InitializeComponent();
             CustomStyleGridView();
             UpdateScrollBarValues();
@@ -69,7 +71,7 @@ namespace SupermarketManagementApp.GUI.Shelf
                 MessageBox.Show(shelfResult.ErrorMessage);
             }
         }
-        private void LoadGridData()
+        private async Task LoadGridData()
         {
             gridView.Rows.Clear();
             foreach (var shelf in shelves)
@@ -81,6 +83,11 @@ namespace SupermarketManagementApp.GUI.Shelf
                     {
                         capacityLoad += shelfDetail.Product.ProductCapacity * shelfDetail.ProductQuantity;
                     }    
+                }    
+                if(shelf.ProductType == null)
+                {
+                    Result<DTO.ProductType> result = await productTypeBUS.findProductTypeByID(shelf.ProductTypeID);
+                    shelf.ProductType = result.Data;
                 }    
                 gridView.Rows.Add(new object[] { null, "Shelf " + shelf.ShelfID.ToString(), shelf.ProductType.ProductTypeName, shelf.LayerQuantity
                     , capacityLoad.ToString() + "/" + (shelf.LayerCapacity*shelf.LayerQuantity).ToString(), shelf.Status });

@@ -70,7 +70,22 @@ namespace SupermarketManagementApp.GUI.Shelf
 
         private void txtBoxLayerCapacity_TextChanged(object sender, EventArgs e)
         {
-            txtBoxTotalCapacity.Text = txtBoxLayerCapacity.Text.Trim();
+            if(!string.IsNullOrEmpty(txtBoxLayerCapacity.Text) && !string.IsNullOrEmpty(txtBoxLayerCapacity.Text))
+                txtBoxTotalCapacity.Text = (int.Parse(txtBoxLayerCapacity.Text.Trim()) * int.Parse(txtBoxNumberOfLayer.Text.Trim())).ToString();
+            else
+            {
+                txtBoxTotalCapacity.Text = "0";
+            }
+        }
+
+        private void txtBoxNumberOfLayer_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtBoxLayerCapacity.Text) && !string.IsNullOrEmpty(txtBoxLayerCapacity.Text))
+                txtBoxTotalCapacity.Text = (int.Parse(txtBoxLayerCapacity.Text.Trim()) * int.Parse(txtBoxNumberOfLayer.Text.Trim())).ToString();
+            else
+            {
+                txtBoxTotalCapacity.Text = "0";
+            }
         }
     }
 }

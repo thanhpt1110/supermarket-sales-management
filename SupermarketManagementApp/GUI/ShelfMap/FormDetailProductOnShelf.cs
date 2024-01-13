@@ -42,7 +42,7 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
             Result<DTO.Shelf> result = await shelfBUS.getShelfByID(id);
             Result<IEnumerable<DTO.Product>> resultProduct = await productBUS.getAllProduct();
             if(resultProduct.IsSuccess) {
-                this.listProduct = resultProduct.Data.ToList();
+                this.listProduct = resultProduct.Data.Where(p=>p.ProductID == result.Data.ProductTypeID).ToList();
                 listProductName = listProduct.Select(p=>p.ProductName).ToList();
             }
             if(result.IsSuccess)

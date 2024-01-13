@@ -157,5 +157,24 @@ namespace SupermarketManagementApp.BUS
             }
             return result;
         }
+
+        public async Task<Result<ProductType>> findProductTypeByID(int productTypeID)
+        {
+            Result<ProductType> result = new Result<ProductType>();
+            try
+            {
+                result.Data = await unitOfWork.ProductTypeRepositoryDAO.FindByID(productTypeID);
+                result.IsSuccess = true;
+                result.ErrorMessage = null;
+                await unitOfWork.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                // Xử lý các exception khác nếu cần
+                result.ErrorMessage = e.Message;
+                result.IsSuccess = false;
+            }
+            return result;
+        }
     }
 }
