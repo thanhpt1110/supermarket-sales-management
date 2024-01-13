@@ -151,5 +151,35 @@ namespace SupermarketManagementApp.BUS
             }
             return result;
         }
+        public async Task<Result<bool>> deleteShelf(int sheftID)
+        {
+            Result<bool> result = new Result<bool>();
+            try
+            {
+                IEnumerable<ShelfDetail> shelfDetails = await unitOfWork.ShelfDetailRepositoryDAO.Find(p => p.ShelfID == sheftID);
+                if(shelfDetails.FirstOrDefault(p=>p.ProductQuantity>0) != null)
+                {
+                    result.ErrorMessage = "Shelf still have product on that!";
+                    result.IsSuccess = false;
+                    return result;
+                }    
+                foreach(ShelfDetail shelfDetail in shelfDetails)
+                {
+                    await unitOfWork.ShelfDetailRepositoryDAO.RemoveByID(shelfDetail.ShelfDetailID);
+                }    
+                result.Data = await unitOfWork.ShelfRepositoryDAO.RemoveByID(sheftID);
+                result.IsSuccess = true;
+                result.ErrorMessage = null;
+                await unitOfWork.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                // Xử lý các exception khác nếu cần
+                result.ErrorMessage = e.Message;
+                result.IsSuccess = false;
+                result.Data = false;
+            }
+            return result;
+        }
     }
 }

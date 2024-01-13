@@ -1,6 +1,6 @@
 ﻿namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
 {
-    partial class FormProductShelfManagement
+    partial class FormShelfMap
     {
         /// <summary>
         /// Required designer variable.

@@ -20,8 +20,6 @@ namespace SupermarketManagementApp.DTO
 
         public string ProductTypeName { get; set; }
 
-        public string GuaranteeType { get; set; }
-
         public string Description { get; set; }
 
         public int? MinTemperature { get; set; }

@@ -19,13 +19,13 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
     {
         private int totalShelfCapacity = 0;
         private int usedShelfCapacity = 0;
-        private FormProductShelfManagement formProductShelfManagement;
+        private FormShelfMap formProductShelfManagement;
         private ShelfBUS shelfBUS;
         private Dictionary<int, ShelfDetail> dictionaryShelf;
         private List<DTO.Product> listProduct;
         private ProductBUS productBUS;
         private List<string> listProductName;
-        public FormDetailProductOnShelf(FormProductShelfManagement formProductShelfManagement,int shelfID, int totalCapacity, string name)
+        public FormDetailProductOnShelf(FormShelfMap formProductShelfManagement,int shelfID, int totalCapacity, string name)
         {
             this.formProductShelfManagement = formProductShelfManagement;
             shelfBUS = ShelfBUS.GetInstance();

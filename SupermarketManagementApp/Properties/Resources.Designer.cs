@@ -163,6 +163,16 @@ namespace SupermarketManagementApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap black_shelf_map {
+            get {
+                object obj = ResourceManager.GetObject("black-shelf-map", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap black_stats {
             get {
                 object obj = ResourceManager.GetObject("black-stats", resourceCulture);
@@ -456,6 +466,16 @@ namespace SupermarketManagementApp.Properties {
         internal static System.Drawing.Bitmap white_shelf {
             get {
                 object obj = ResourceManager.GetObject("white-shelf", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap white_shelf_map {
+            get {
+                object obj = ResourceManager.GetObject("white-shelf-map", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
