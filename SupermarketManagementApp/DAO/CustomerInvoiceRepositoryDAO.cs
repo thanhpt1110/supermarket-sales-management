@@ -21,13 +21,20 @@ namespace SupermarketManagementApp.DAO
             {
                 entity.DatePayment = DateTime.Now;
                 entity.TotalAmount = 0;
+                List<CustomerInvoiceDetail> list = entity.CustomerInvoiceDetails.ToList();
+                entity.CustomerInvoiceDetails = null;
                 context.CustomerInvoices.Add(entity);
                 // Save changes to get the SupplierInvoiceID generated (assuming it's an auto-increment field)
                 await context.SaveChangesAsync();
-                foreach (CustomerInvoiceDetail customerInvoiceDetail in entity.CustomerInvoiceDetails)
+                foreach (CustomerInvoiceDetail customerInvoiceDetail in list)
                 {
-                    context.CustomerInvoiceDetails.Add(customerInvoiceDetail);
+                    customerInvoiceDetail.CustomerInvoiceID = entity.CustomerInvoiceID;
+                    customerInvoiceDetail.CustomerInvoice = null;
                     entity.TotalAmount += customerInvoiceDetail.Product.UnitPrice * customerInvoiceDetail.ProductQuantity;
+                    customerInvoiceDetail.Product = null;
+                    context.CustomerInvoiceDetails.Add(customerInvoiceDetail);
+
+
                 }
                 await context.SaveChangesAsync();
                 return entity;

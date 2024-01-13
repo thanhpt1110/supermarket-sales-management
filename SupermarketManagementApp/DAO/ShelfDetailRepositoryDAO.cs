@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using SupermarketManagementApp.ErrorHandle;
 using System.Data.Entity.Migrations;
+using System.CodeDom;
+using iTextSharp.text.pdf.codec;
 
 namespace SupermarketManagementApp.DAO
 {
@@ -56,6 +58,23 @@ namespace SupermarketManagementApp.DAO
                 }
                 shelfDetail.ProductQuantity = entity.ProductQuantity;
                 shelfDetail.ProductID = entity.ProductID;
+                var shelf = context.Shelves.Find(shelfDetail.ShelfID);
+                int totalCapacity = 0;
+                foreach(ShelfDetail shelfDetail1 in shelf.ShelfDetails) { 
+                    if(shelfDetail.ProductID != null)
+                    {
+                        totalCapacity += shelfDetail.Product.ProductCapacity * shelfDetail.ProductQuantity;
+                    }
+                }
+                if(totalCapacity == shelf.LayerCapacity * shelf.LayerQuantity)
+                {
+                    shelf.Status = "Full";
+                }
+                else
+                {
+                    shelf.Status = "Available";
+                }
+                context.Shelves.AddOrUpdate(shelf);
                 context.ShelfDetails.AddOrUpdate(shelfDetail);
                 await context.SaveChangesAsync();
                 return shelfDetail;

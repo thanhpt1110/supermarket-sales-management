@@ -121,6 +121,7 @@ namespace SupermarketManagementApp.BUS
                     if (inventory.Any())
                     {
                         inventory.First().ProductQuantity = inventory.First().ProductQuantity - newQuantity;
+                        inventory.First().ProductID  = oldShelfDetail.ProductID;    
                         inventoryDetails.Add(inventory.First());
                     }
                     else
@@ -136,7 +137,6 @@ namespace SupermarketManagementApp.BUS
                 }
                 foreach (var inventory in inventoryDetails)
                 {
-                    inventory.Product = null;
                     
                     await unitOfWork.InventoryDetailRepositoryDAO.Update(inventory);
                 }

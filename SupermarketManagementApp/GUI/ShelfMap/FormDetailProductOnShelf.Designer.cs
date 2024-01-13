@@ -36,7 +36,6 @@
             this.btnUpdate = new Guna.UI2.WinForms.Guna2Button();
             this.borderLessForm = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.msgBoxError = new Guna.UI2.WinForms.Guna2MessageDialog();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // panelLayerContainer
@@ -137,26 +136,10 @@
             this.msgBoxError.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
             this.msgBoxError.Text = "There were some errors, please try again later!";
             // 
-            // guna2Button1
-            // 
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(50, 17);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(180, 45);
-            this.guna2Button1.TabIndex = 18;
-            this.guna2Button1.Text = "Add new line";
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
-            // 
             // FormDetailProductOnShelf
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1000, 800);
-            this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.shelfCapacity);
@@ -182,6 +165,5 @@
         private Guna.UI2.WinForms.Guna2Button btnUpdate;
         private Guna.UI2.WinForms.Guna2BorderlessForm borderLessForm;
         private Guna.UI2.WinForms.Guna2MessageDialog msgBoxError;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

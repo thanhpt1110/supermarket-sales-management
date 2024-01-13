@@ -21,6 +21,7 @@ using Series = System.Windows.Forms.DataVisualization.Charting.Series;
 using System.Globalization;
 using LiveCharts.Defaults;
 using System.Windows.Media.TextFormatting;
+using SupermarketManagementApp.DTO;
 
 namespace SupermarketManagementApp.GUI
 {
@@ -31,12 +32,16 @@ namespace SupermarketManagementApp.GUI
         private CustomerInvoiceBUS customerInvoiceBUS = null;
 
         private List<SupermarketManagementApp.DTO.Product> products = null;
-        private ProductBUS product = null;
+        private ProductBUS productBUS = null;
+
+        private List<SupermarketManagementApp.DTO.CustomerInvoiceDetail> customerInvoiceDetails = null;
+        private CustomerInvoiceDetailBUS customerInvoiceDetailBUS = null;
 
         public FormDashboard()
         {
             customerInvoiceBUS = CustomerInvoiceBUS.GetInstance();
-            product = ProductBUS.GetInstance();
+            productBUS = ProductBUS.GetInstance();
+            customerInvoiceDetailBUS = CustomerInvoiceDetailBUS.GetInstance();
             InitializeComponent();
             LoadTopSellProducts();
             InitAllCustomerInvoice();
@@ -110,15 +115,48 @@ namespace SupermarketManagementApp.GUI
         #endregion
 
         #region TopSellProducts
-        public void LoadTopSellProducts()
+        public async void LoadTopSellProducts()
         {
             dtgvTopSellProducts.ColumnHeadersDefaultCellStyle.Font = new Font(dtgvTopSellProducts.Font, FontStyle.Bold);
             dtgvTopSellProducts.DefaultCellStyle.Font = new Font("Segoe UI", 12);
 
             // Add the first row with data
-            dtgvTopSellProducts.Rows.Add("#1", "Laptop", 563);
-            dtgvTopSellProducts.Rows.Add("#2", "Iphone", 235);
-            dtgvTopSellProducts.Rows.Add("#3", "Balo UIT", 127);
+            //dtgvTopSellProducts.Rows.Add("#1", "Laptop", 563);
+            //dtgvTopSellProducts.Rows.Add("#2", "Iphone", 235);
+            //dtgvTopSellProducts.Rows.Add("#3", "Balo UIT", 127);
+
+            Result<IEnumerable<DTO.Product>> productResult = await productBUS.getAllProduct();
+
+            if (productResult.IsSuccess)
+            {
+                this.products = productResult.Data.ToList();
+            }
+
+            Result<IEnumerable<DTO.CustomerInvoiceDetail>> cusInvoiceDetailResult = await customerInvoiceDetailBUS.getAllCustomerInvoiceDetail();
+            if (cusInvoiceDetailResult.IsSuccess)
+            {
+                this.customerInvoiceDetails = cusInvoiceDetailResult.Data.ToList();
+            }
+
+            var groupedList = (from customerInvoiceDetail in customerInvoiceDetails
+                              join product in products on customerInvoiceDetail.ProductID equals product.ProductID
+                              group customerInvoiceDetail by new { product.ProductID, product.ProductName } into grouped
+                              select new
+                              {
+                                  ProductID = grouped.Key.ProductID,
+                                  ProductName = grouped.Key.ProductName,
+                                  TotalQuantity = grouped.Sum(x => x.ProductQuantity)
+                              })
+                              .OrderByDescending(x =>x.TotalQuantity)
+                              .Take(3);
+
+
+            int top = 1;
+            foreach ( var item in groupedList )
+            {
+                dtgvTopSellProducts.Rows.Add(new object[] { "#"+top, item.ProductName, item.TotalQuantity });
+                top++;
+            }
         }
         #endregion
 
@@ -144,8 +182,7 @@ namespace SupermarketManagementApp.GUI
                     todayRevenue += (double)invoice.TotalAmount;
                 }
             }
-
-            lbtodayRevenue.Text = todayRevenue.ToString();
+            lbtodayRevenue.Text = string.Format("{0:N0}", todayRevenue);
 
             CenterLabelInPanel(lbtodayRevenue,pnRevenue);
         }

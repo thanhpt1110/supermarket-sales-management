@@ -24,7 +24,16 @@ namespace SupermarketManagementApp.DAO
                 {
                     throw new NotExistedObjectException("Invetory detail is not existed");
                 }
-                return await base.Update(entity);
+                if(entity.ProductQuantity != inventoryDetail.ProductQuantity)
+                {
+                    inventoryDetail.ProductQuantity = entity.ProductQuantity;
+
+
+                }
+                inventoryDetail.ProductID = entity.ProductID;
+                context.InventoryDetails.AddOrUpdate(inventoryDetail);
+                await context.SaveChangesAsync();
+                return inventoryDetail;
             }
             catch (Exception ex)
             {

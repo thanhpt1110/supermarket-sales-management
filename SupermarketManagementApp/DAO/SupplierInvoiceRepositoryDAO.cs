@@ -22,7 +22,6 @@ namespace SupermarketManagementApp.DAO
             {
                 entity.DatePayment = DateTime.Now;
                 entity.TotalAmount = 0;
-                entity.EmployeeID = 1;
                 List<SupplierInvoiceDetail> suppliers = entity.SupplierInvoiceDetails.ToList();
                 entity.SupplierInvoiceDetails = null;
                 // Add SupplierInvoice to the context

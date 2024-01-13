@@ -18,6 +18,7 @@ using SupermarketManagementApp.GUI.Product.ProductInInventory;
 using SupermarketManagementApp.GUI.Product.ProductOnShelf;
 using SupermarketManagementApp.GUI;
 using SupermarketManagementApp.Properties;
+using SupermarketManagementApp.Utils;
 
 namespace SupermarketManagementApp
 {
@@ -35,6 +36,8 @@ namespace SupermarketManagementApp
             SetColorButton(btnDashboard);
             btnDashboard.CustomImages.Image = Resources.white_gauge;
             OpenChildForm(new FormDashboard());
+            accountName.Text = GlobalVariable.LoggedAccount.Employee.EmployeeName;
+            ProcessUIAuthorization(GlobalVariable.LoggedAccount.Role);
         }
 
         #region Set color for button 
@@ -295,6 +298,7 @@ namespace SupermarketManagementApp
                 case DialogResult.Yes:
                     try
                     {
+                        GlobalVariable.LoggedAccount = null;
                         using (FormLogin formLogin = new FormLogin())
                         {
                             this.Hide();
@@ -315,23 +319,23 @@ namespace SupermarketManagementApp
         #endregion
 
         #region Authorization
-        private void ProcessUIAuthorization(UserRole userRole)
+        private void ProcessUIAuthorization(string userRole)
         {
             switch (userRole)
             {
-                case UserRole.Admin:
+                case "Admin":
                     btnManageAccount.Visible = true;
                     btnManageEmployee.Visible = true;   
                     btnStatistic.Visible = true;
                     break;
 
-                case UserRole.Manager:
+                case "Manager":
                     btnManageAccount.Visible = false;
                     btnStatistic.Visible = true;
                     btnManageEmployee.Visible = true;
                     break;
 
-                case UserRole.Employee:
+                case "Employee":
                     btnManageAccount.Visible = false;
                     btnStatistic.Visible = false;
                     btnManageEmployee.Visible = false;
@@ -346,18 +350,6 @@ namespace SupermarketManagementApp
         }
 
         // Enum định nghĩa các vai trò người dùng
-        public enum UserRole
-        {
-            Admin,
-            Manager,
-            Employee
-        }
-
-        // Gọi hàm này khi người dùng đăng nhập
-        private void UserLoggedIn(UserRole userRole)
-        {
-            ProcessUIAuthorization(userRole);
-        }
         #endregion
     }
 }

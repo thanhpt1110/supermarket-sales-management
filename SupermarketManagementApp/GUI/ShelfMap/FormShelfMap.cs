@@ -46,7 +46,7 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
             fixedWidthPanel = panelShelfContainer.Width - 25;
             initAllShelf();
         }
-        private async void initAllShelf()
+        public async void initAllShelf()
         {
             Result<IEnumerable<DTO.Shelf>> shelfResult = await shelfBUS.getAllShelf();
             if (shelfResult.IsSuccess)
@@ -77,7 +77,11 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
         }
         private void loadFloorData()
         {
-            List<int> floor = shelves.Select(p=>p.ShelfFloor).Distinct().ToList(); 
+            List<string> floor = new List<string>();
+            foreach(int floorNum in shelves.Select(p=>p.ShelfFloor).Distinct().ToList())
+            {
+                floor.Add("Floor " + floorNum.ToString());
+            }    
             filterFloor.DataSource = floor;
         }
         private void UpdateProgressBar(Guna2ProgressBar progressBar, int used, int total)
@@ -206,7 +210,9 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
 
         private void filterFloor_SelectedIndexChanged(object sender, EventArgs e)
         {
-            selectedFloor = int.Parse(filterFloor.Text);
+            string[] parts = filterFloor.Text.Split(' ');
+            string floor = parts[1];
+            selectedFloor = int.Parse(floor);
             LoadShelfData();
         }
     }

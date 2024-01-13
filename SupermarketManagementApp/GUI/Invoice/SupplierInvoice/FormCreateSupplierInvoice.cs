@@ -16,7 +16,7 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
 {
     public partial class FormCreateSupplierInvoice : Form
     {
-        private const int INVENTORY_CAPACITY = 500000;
+        private float INVENTORY_CAPACITY = StaticGlobal.SYSTEM_CAPACITY;
         private int used = 0;
         private int remaining = 0;
         private List<string> listProductName;
@@ -69,8 +69,8 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
         private void UpdateAvailableCapacity()
         {
             availableCapacity.Value = used;
-            availableCapacity.Maximum = INVENTORY_CAPACITY;
-            remaining = INVENTORY_CAPACITY - used;
+            availableCapacity.Maximum = (int) INVENTORY_CAPACITY;
+            remaining = (int) INVENTORY_CAPACITY - used;
             if (used <= INVENTORY_CAPACITY)
             {
                 availableCapacity.ProgressColor = Color.ForestGreen;

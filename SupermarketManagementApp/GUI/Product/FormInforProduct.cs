@@ -37,7 +37,7 @@ namespace SupermarketManagementApp.GUI.Product
             {
                 this.product.ProductID = result.Data.ProductID;
                 
-                this.txtBoxProductType.Text = result.Data.ProductTypeID.ToString();
+                this.txtBoxProductType.Text = result.Data.ProductType.ProductTypeName;
                 this.txtProductName.Text = result.Data.ProductName;
                 this.txtBoxUnitPrice.Text = result.Data.UnitPrice.ToString();
                 this.txtBoxCapacity.Text = result.Data.ProductCapacity.ToString();

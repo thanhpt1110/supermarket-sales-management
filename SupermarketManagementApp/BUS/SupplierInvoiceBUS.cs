@@ -66,6 +66,7 @@ namespace SupermarketManagementApp.BUS
                 }
                 DTO.SupplierInvoice supplierInvoice = new DTO.SupplierInvoice();
                 supplierInvoice.SupplierName = name;
+                supplierInvoice.EmployeeID = GlobalVariable.LoggedAccount.EmployeeID;
                 supplierInvoice.SupplierInvoiceDetails = supplierInvoiceDetails;
                 foreach (SupplierInvoiceDetail supplierInvoiceDetail in supplierInvoice.SupplierInvoiceDetails)
                 {
