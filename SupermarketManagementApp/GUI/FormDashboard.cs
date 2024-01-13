@@ -182,8 +182,7 @@ namespace SupermarketManagementApp.GUI
                     todayRevenue += (double)invoice.TotalAmount;
                 }
             }
-
-            lbtodayRevenue.Text = string.Format("{0:N0}", todayRevenue.ToString());
+            lbtodayRevenue.Text = string.Format("{0:N0}", todayRevenue);
 
             CenterLabelInPanel(lbtodayRevenue,pnRevenue);
         }
