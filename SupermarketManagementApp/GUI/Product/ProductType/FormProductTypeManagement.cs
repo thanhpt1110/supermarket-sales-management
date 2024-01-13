@@ -50,6 +50,10 @@ namespace SupermarketManagementApp.GUI.Product.ProductType
             {
                 this.productTypes = productTypeResult.Data.ToList();
             }
+            else
+            {
+
+            }
             LoadGridData();
         }
         private void LoadGridData()

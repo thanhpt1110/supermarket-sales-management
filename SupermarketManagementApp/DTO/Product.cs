@@ -29,8 +29,6 @@ namespace SupermarketManagementApp.DTO
 
         public int UnitConversion { get; set; }
 
-        public string PreservationType { get; set; }
-
         public int ProductCapacity { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

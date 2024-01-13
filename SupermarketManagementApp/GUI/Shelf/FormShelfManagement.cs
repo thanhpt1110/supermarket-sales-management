@@ -193,8 +193,9 @@ namespace SupermarketManagementApp.GUI.Shelf
             }
         }
 
-        private void gridViewMain_CellClick(object sender, DataGridViewCellEventArgs e)
+        private async void gridViewMain_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            int x = e.ColumnIndex, y = e.RowIndex;
             if (e.RowIndex >= 0)
             {
                 if (e.ColumnIndex == 6)
@@ -229,6 +230,20 @@ namespace SupermarketManagementApp.GUI.Shelf
                             try
                             {
 
+                                string[] parts = gridView.Rows[y].Cells[1].Value.ToString().Split(' ');
+                                string cutString = parts[1];
+                                Result<bool> result = await shelfBUS.deleteShelf(int.Parse(cutString));
+                                if (result.IsSuccess)
+                                {
+                                    MessageBox.Show("Remove Sheft successfully!", "Success", MessageBoxButtons.OK);
+                                    InitAllShelf();
+                                }
+                                else
+                                {
+                                    msgBoxError.Parent = formMain;
+                                    msgBoxError.Show(result.ErrorMessage, "Error");
+
+                                }
                             }
                             catch (Exception ex)
                             {
