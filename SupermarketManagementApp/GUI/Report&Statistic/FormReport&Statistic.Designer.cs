@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnExportPDF = new Guna.UI2.WinForms.Guna2Button();
             this.dtpkFrom = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.btnWeek = new Guna.UI2.WinForms.Guna2Button();
@@ -48,6 +48,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.scrollBarProduct = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.dtgvProducts = new Guna.UI2.WinForms.Guna2DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,11 +58,12 @@
             this.RevenueChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.labelRevenue = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.scrollBarCustomer = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.dtgvCustomers = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.Top = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2ShadowPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvProducts)).BeginInit();
             this.panelMonthRevenue.SuspendLayout();
@@ -197,6 +199,7 @@
             // 
             this.guna2ShadowPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2ShadowPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel2.Controls.Add(this.scrollBarProduct);
             this.guna2ShadowPanel2.Controls.Add(this.dtgvProducts);
             this.guna2ShadowPanel2.Controls.Add(this.guna2HtmlLabel1);
             this.guna2ShadowPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -210,38 +213,57 @@
             this.guna2ShadowPanel2.Size = new System.Drawing.Size(704, 344);
             this.guna2ShadowPanel2.TabIndex = 17;
             // 
+            // scrollBarProduct
+            // 
+            this.scrollBarProduct.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.scrollBarProduct.FillColor = System.Drawing.Color.White;
+            this.scrollBarProduct.InUpdate = false;
+            this.scrollBarProduct.LargeChange = 9;
+            this.scrollBarProduct.Location = new System.Drawing.Point(637, 103);
+            this.scrollBarProduct.Maximum = 12;
+            this.scrollBarProduct.Minimum = 1;
+            this.scrollBarProduct.MouseWheelBarPartitions = 15;
+            this.scrollBarProduct.Name = "scrollBarProduct";
+            this.scrollBarProduct.ScrollbarSize = 20;
+            this.scrollBarProduct.Size = new System.Drawing.Size(20, 190);
+            this.scrollBarProduct.SmallChange = 2;
+            this.scrollBarProduct.TabIndex = 5;
+            this.scrollBarProduct.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.scrollBarProduct.Value = 1;
+            this.scrollBarProduct.Scroll += new System.Windows.Forms.ScrollEventHandler(this.scrollBarProduct_Scroll);
+            // 
             // dtgvProducts
             // 
             this.dtgvProducts.AllowUserToAddRows = false;
             this.dtgvProducts.AllowUserToDeleteRows = false;
             this.dtgvProducts.AllowUserToResizeColumns = false;
             this.dtgvProducts.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dtgvProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            this.dtgvProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dtgvProducts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dtgvProducts.ColumnHeadersHeight = 50;
             this.dtgvProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.ProductName,
             this.Remaining});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgvProducts.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvProducts.DefaultCellStyle = dataGridViewCellStyle13;
             this.dtgvProducts.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgvProducts.Location = new System.Drawing.Point(65, 54);
             this.dtgvProducts.Name = "dtgvProducts";
@@ -253,7 +275,7 @@
             this.dtgvProducts.RowTemplate.ReadOnly = true;
             this.dtgvProducts.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgvProducts.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.dtgvProducts.Size = new System.Drawing.Size(574, 239);
+            this.dtgvProducts.Size = new System.Drawing.Size(554, 239);
             this.dtgvProducts.TabIndex = 4;
             this.dtgvProducts.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgvProducts.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -276,6 +298,8 @@
             this.dtgvProducts.ThemeStyle.RowsStyle.Height = 55;
             this.dtgvProducts.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgvProducts.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dtgvProducts.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewProduct_CellMouseLeave);
+            this.dtgvProducts.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridViewProduct_CellMouseMove);
             // 
             // ID
             // 
@@ -287,8 +311,8 @@
             // 
             // ProductName
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.ProductName.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.ProductName.DefaultCellStyle = dataGridViewCellStyle11;
             this.ProductName.FillWeight = 200F;
             this.ProductName.HeaderText = "Product Name";
             this.ProductName.MinimumWidth = 6;
@@ -298,8 +322,8 @@
             // 
             // Remaining
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Remaining.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Remaining.DefaultCellStyle = dataGridViewCellStyle12;
             this.Remaining.HeaderText = "Remaining";
             this.Remaining.MinimumWidth = 6;
             this.Remaining.Name = "Remaining";
@@ -339,17 +363,17 @@
             this.RevenueChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.RevenueChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.RevenueChart.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.RevenueChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.RevenueChart.Legends.Add(legend2);
             this.RevenueChart.Location = new System.Drawing.Point(65, 66);
             this.RevenueChart.Name = "RevenueChart";
             this.RevenueChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.RevenueChart.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.RevenueChart.Series.Add(series2);
             this.RevenueChart.Size = new System.Drawing.Size(1370, 291);
             this.RevenueChart.TabIndex = 3;
             this.RevenueChart.Text = "chart1";
@@ -368,6 +392,7 @@
             // 
             this.guna2ShadowPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel1.Controls.Add(this.scrollBarCustomer);
             this.guna2ShadowPanel1.Controls.Add(this.dtgvCustomers);
             this.guna2ShadowPanel1.Controls.Add(this.guna2HtmlLabel2);
             this.guna2ShadowPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -381,38 +406,57 @@
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(704, 344);
             this.guna2ShadowPanel1.TabIndex = 19;
             // 
+            // scrollBarCustomer
+            // 
+            this.scrollBarCustomer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.scrollBarCustomer.FillColor = System.Drawing.Color.White;
+            this.scrollBarCustomer.InUpdate = false;
+            this.scrollBarCustomer.LargeChange = 10;
+            this.scrollBarCustomer.Location = new System.Drawing.Point(652, 103);
+            this.scrollBarCustomer.Minimum = 1;
+            this.scrollBarCustomer.MouseWheelBarPartitions = 15;
+            this.scrollBarCustomer.Name = "scrollBarCustomer";
+            this.scrollBarCustomer.ScrollbarSize = 19;
+            this.scrollBarCustomer.Size = new System.Drawing.Size(19, 190);
+            this.scrollBarCustomer.SmallChange = 2;
+            this.scrollBarCustomer.TabIndex = 6;
+            this.scrollBarCustomer.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.scrollBarCustomer.ThumbSize = 1F;
+            this.scrollBarCustomer.Value = 1;
+            this.scrollBarCustomer.Scroll += new System.Windows.Forms.ScrollEventHandler(this.scrollBarCustomer_Scroll);
+            // 
             // dtgvCustomers
             // 
             this.dtgvCustomers.AllowUserToAddRows = false;
             this.dtgvCustomers.AllowUserToDeleteRows = false;
             this.dtgvCustomers.AllowUserToResizeColumns = false;
             this.dtgvCustomers.AllowUserToResizeRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            this.dtgvCustomers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
+            this.dtgvCustomers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle14;
             this.dtgvCustomers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvCustomers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvCustomers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dtgvCustomers.ColumnHeadersHeight = 50;
             this.dtgvCustomers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Top,
             this.Name,
             this.Total});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgvCustomers.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvCustomers.DefaultCellStyle = dataGridViewCellStyle16;
             this.dtgvCustomers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgvCustomers.Location = new System.Drawing.Point(65, 54);
             this.dtgvCustomers.Name = "dtgvCustomers";
@@ -424,7 +468,7 @@
             this.dtgvCustomers.RowTemplate.ReadOnly = true;
             this.dtgvCustomers.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgvCustomers.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.dtgvCustomers.Size = new System.Drawing.Size(574, 239);
+            this.dtgvCustomers.Size = new System.Drawing.Size(570, 239);
             this.dtgvCustomers.TabIndex = 4;
             this.dtgvCustomers.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgvCustomers.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -447,16 +491,8 @@
             this.dtgvCustomers.ThemeStyle.RowsStyle.Height = 55;
             this.dtgvCustomers.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgvCustomers.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // guna2HtmlLabel2
-            // 
-            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(65, 16);
-            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(149, 32);
-            this.guna2HtmlLabel2.TabIndex = 3;
-            this.guna2HtmlLabel2.Text = "Top Customers";
+            this.dtgvCustomers.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewCustomer_CellMouseLeave);
+            this.dtgvCustomers.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridViewCustomer_CellMouseMove);
             // 
             // Top
             // 
@@ -481,6 +517,16 @@
             this.Total.MinimumWidth = 6;
             this.Total.Name = "Total";
             this.Total.ReadOnly = true;
+            // 
+            // guna2HtmlLabel2
+            // 
+            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(65, 16);
+            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(149, 32);
+            this.guna2HtmlLabel2.TabIndex = 3;
+            this.guna2HtmlLabel2.Text = "Top Customers";
             // 
             // FormReport_Statistic
             // 
@@ -540,5 +586,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Top;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private Guna.UI2.WinForms.Guna2VScrollBar scrollBarProduct;
+        private Guna.UI2.WinForms.Guna2VScrollBar scrollBarCustomer;
     }
 }

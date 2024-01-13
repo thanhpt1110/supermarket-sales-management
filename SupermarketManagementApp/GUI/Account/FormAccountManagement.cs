@@ -33,7 +33,6 @@ namespace SupermarketManagementApp.GUI.Account
             accountBUS = AccountBUS.GetInstance();
             InitializeComponent();
             CustomStyleGridView();
-            UpdateScrollBarValues();
             InitAllAccount();
             InitTimer();
         }
@@ -42,7 +41,6 @@ namespace SupermarketManagementApp.GUI.Account
             accountBUS = AccountBUS.GetInstance();
             InitializeComponent();
             CustomStyleGridView();
-            UpdateScrollBarValues();
             InitAllAccount();
             InitTimer();
         }
@@ -63,6 +61,7 @@ namespace SupermarketManagementApp.GUI.Account
             {
                 gridView.Rows.Add(new object[] { null, account.AccountID, account.Employee.EmployeeName, account.Username, account.Role });
             }
+            UpdateScrollBarValues();
         }
 
         #region Customize data grid
@@ -94,6 +93,10 @@ namespace SupermarketManagementApp.GUI.Account
 
         private void GridView_MouseWheel(object sender, MouseEventArgs e)
         {
+            if (!scrollBar.Visible)
+            {
+                return;
+            }
             int delta = e.Delta; // Số "bước" mà chuột đã cuộn, có thể là dương hoặc âm
             // Cập nhật giá trị của ScrollBar tùy chỉnh khi DataGridView được cuộn
             int newScrollBarValue = scrollBar.Value - delta / 100;
@@ -102,7 +105,10 @@ namespace SupermarketManagementApp.GUI.Account
 
         private void scrollBar_Scroll(object sender, ScrollEventArgs e)
         {
-            gridView.FirstDisplayedScrollingRowIndex = scrollBar.Value;
+            if (scrollBar.Visible)
+            {
+                gridView.FirstDisplayedScrollingRowIndex = scrollBar.Value;
+            }
         }
 
         private void gridViewMain_CellMouseLeave(object sender, DataGridViewCellEventArgs e)

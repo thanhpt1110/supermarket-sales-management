@@ -32,7 +32,6 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             employeeBUS = EmployeeBUS.GetInstance();
             InitializeComponent();
             CustomStyleGridView();
-            UpdateScrollBarValues();
             InitAllSupplierInvoice();
         }
 
@@ -42,7 +41,6 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             employeeBUS = EmployeeBUS.GetInstance();
             InitializeComponent();
             CustomStyleGridView();
-            UpdateScrollBarValues();
             InitAllSupplierInvoice();
         }
         public async void InitAllSupplierInvoice()
@@ -59,11 +57,12 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             gridView.Rows.Clear();
             foreach (var supplierInvoice in supplierInvoices)
             {
-                gridView.Rows.Add(new object[] { null, supplierInvoice.SupplierInvoiceID, supplierInvoice.Employee.EmployeeName, supplierInvoice.SupplierName, supplierInvoice.DatePayment.ToString("dd/MM/yyyy"), supplierInvoice.TotalAmount });
+                string TotalAmount = string.Format("{0:N0} VND", supplierInvoice.TotalAmount);
+                gridView.Rows.Add(new object[] { null, supplierInvoice.SupplierInvoiceID, supplierInvoice.Employee.EmployeeName, supplierInvoice.SupplierName, supplierInvoice.DatePayment.ToString("dd/MM/yyyy"), TotalAmount });
             }
+            UpdateScrollBarValues();
         }
- 
-        
+    
         #region Customize data grid
         private void CustomStyleGridView()
         {
@@ -93,6 +92,10 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
 
         private void GridView_MouseWheel(object sender, MouseEventArgs e)
         {
+            if (!scrollBar.Visible)
+            {
+                return;
+            }
             int delta = e.Delta; // Số "bước" mà chuột đã cuộn, có thể là dương hoặc âm
             // Cập nhật giá trị của ScrollBar tùy chỉnh khi DataGridView được cuộn
             int newScrollBarValue = scrollBar.Value - delta / 100;
@@ -101,7 +104,10 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
 
         private void scrollBar_Scroll(object sender, ScrollEventArgs e)
         {
-            gridView.FirstDisplayedScrollingRowIndex = scrollBar.Value;
+            if (scrollBar.Visible)
+            {
+                gridView.FirstDisplayedScrollingRowIndex = scrollBar.Value;
+            }
         }
 
         private void gridViewMain_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
