@@ -24,6 +24,9 @@ namespace SupermarketManagementApp.GUI.Product.ProductType
         public FormUpdateProductType(FormProductTypeManagement formProductTypeManagement, int id)
         {
             InitializeComponent();
+            msgBoxInfo.Parent = this;
+            msgBoxError.Parent = this;
+            msgBoxDelete.Parent = this;
             productTypeBUS = ProductTypeBUS.GetInstance();
             this.formProductTypeManagement = formProductTypeManagement;
             loadProductType(id);
@@ -42,7 +45,7 @@ namespace SupermarketManagementApp.GUI.Product.ProductType
             }
             else
             {
-                MessageBox.Show("Load ProductType failed!!");
+                msgBoxError.Show("Load ProductType failed!!");
                 this.Close();
             }
         }
@@ -62,7 +65,7 @@ namespace SupermarketManagementApp.GUI.Product.ProductType
             Result<DTO.ProductType> result = await productTypeBUS.updateProductType(productType);
             if (result.IsSuccess)
             {
-                MessageBox.Show("Update Account successfully!");
+                msgBoxInfo.Show("Update Account successfully!");
                 this.formProductTypeManagement.InitAllProductType();
                 this.Close();
             }

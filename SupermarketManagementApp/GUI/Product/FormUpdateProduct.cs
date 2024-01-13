@@ -25,6 +25,9 @@ namespace SupermarketManagementApp.GUI.Product
         public FormUpdateProduct(FormProductManagement formProductManagement, int id)
         {
             InitializeComponent();
+            msgBoxInfo.Parent = this;
+            msgBoxError.Parent = this;
+            msgBoxDelete.Parent = this;
             productBUS = ProductBUS.GetInstance();
             productTypeBUS = ProductTypeBUS.GetInstance();
             this.formProductManagement = formProductManagement;
@@ -51,7 +54,7 @@ namespace SupermarketManagementApp.GUI.Product
             }
             else
             {
-                MessageBox.Show("Load Product failed!!");
+                msgBoxError.Show("Load Product failed!!");
                 this.Close();
             }
         }
@@ -83,13 +86,13 @@ namespace SupermarketManagementApp.GUI.Product
             Result<DTO.Product> result = await productBUS.updateProduct(product);
             if (result.IsSuccess)
             {
-                MessageBox.Show("Update Product successfully!");
+                msgBoxInfo.Show("Update Product successfully!");
                 this.formProductManagement.InitAllProduct();
                 this.Close();
             }
             else
             {
-                MessageBox.Show(result.ErrorMessage);
+                msgBoxError.Show(result.ErrorMessage);
             }
         }
     }

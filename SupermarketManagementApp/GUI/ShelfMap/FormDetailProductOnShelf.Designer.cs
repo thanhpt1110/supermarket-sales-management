@@ -36,6 +36,9 @@
             this.btnUpdate = new Guna.UI2.WinForms.Guna2Button();
             this.borderLessForm = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.msgBoxError = new Guna.UI2.WinForms.Guna2MessageDialog();
+            this.msgBoxDelete = new Guna.UI2.WinForms.Guna2MessageDialog();
+            this.msgBoxInfo = new Guna.UI2.WinForms.Guna2MessageDialog();
+            this.guna2MessageDialog1 = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.SuspendLayout();
             // 
             // panelLayerContainer
@@ -136,6 +139,33 @@
             this.msgBoxError.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
             this.msgBoxError.Text = "There were some errors, please try again later!";
             // 
+            // msgBoxDelete
+            // 
+            this.msgBoxDelete.Buttons = Guna.UI2.WinForms.MessageDialogButtons.YesNo;
+            this.msgBoxDelete.Caption = "Delete File";
+            this.msgBoxDelete.Icon = Guna.UI2.WinForms.MessageDialogIcon.Warning;
+            this.msgBoxDelete.Parent = null;
+            this.msgBoxDelete.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
+            this.msgBoxDelete.Text = "Are you sure you want to delete this file?";
+            // 
+            // msgBoxInfo
+            // 
+            this.msgBoxInfo.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            this.msgBoxInfo.Caption = "Information";
+            this.msgBoxInfo.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
+            this.msgBoxInfo.Parent = null;
+            this.msgBoxInfo.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
+            this.msgBoxInfo.Text = "Create account successfully!";
+            // 
+            // guna2MessageDialog1
+            // 
+            this.guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.YesNo;
+            this.guna2MessageDialog1.Caption = "Delete File";
+            this.guna2MessageDialog1.Icon = Guna.UI2.WinForms.MessageDialogIcon.Warning;
+            this.guna2MessageDialog1.Parent = null;
+            this.guna2MessageDialog1.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
+            this.guna2MessageDialog1.Text = "Are you sure you want to delete this file?";
+            // 
             // FormDetailProductOnShelf
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -165,5 +195,8 @@
         private Guna.UI2.WinForms.Guna2Button btnUpdate;
         private Guna.UI2.WinForms.Guna2BorderlessForm borderLessForm;
         private Guna.UI2.WinForms.Guna2MessageDialog msgBoxError;
+        private Guna.UI2.WinForms.Guna2MessageDialog msgBoxDelete;
+        private Guna.UI2.WinForms.Guna2MessageDialog msgBoxInfo;
+        private Guna.UI2.WinForms.Guna2MessageDialog guna2MessageDialog1;
     }
 }

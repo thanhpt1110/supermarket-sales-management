@@ -25,11 +25,15 @@ namespace SupermarketManagementApp.GUI.Shelf
         private ProductTypeBUS productTypeBUS = null;
         public FormShelfManagement(FormMain formMain)
         {
+          
             this.formMain = formMain;
             shelfBUS = ShelfBUS.GetInstance();
             productTypeBUS = ProductTypeBUS.GetInstance();
             InitializeComponent();
             CustomStyleGridView();
+            msgBoxInfo.Parent = formMain;
+            msgBoxError.Parent = formMain;
+
             InitAllShelf();
         }
 
@@ -234,7 +238,7 @@ namespace SupermarketManagementApp.GUI.Shelf
                                 Result<bool> result = await shelfBUS.deleteShelf(int.Parse(cutString));
                                 if (result.IsSuccess)
                                 {
-                                    MessageBox.Show("Remove Sheft successfully!", "Success", MessageBoxButtons.OK);
+                                    msgBoxInfo.Show("Remove Sheft successfully!");
                                     InitAllShelf();
                                 }
                                 else

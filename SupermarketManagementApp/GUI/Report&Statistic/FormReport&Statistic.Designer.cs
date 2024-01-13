@@ -182,7 +182,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(50, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 21);
+            this.label1.Size = new System.Drawing.Size(58, 28);
             this.label1.TabIndex = 14;
             this.label1.Text = "From";
             // 
@@ -191,7 +191,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(385, 38);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(25, 21);
+            this.label2.Size = new System.Drawing.Size(32, 28);
             this.label2.TabIndex = 16;
             this.label2.Text = "To";
             // 
@@ -336,7 +336,7 @@
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(65, 16);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(192, 32);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(235, 38);
             this.guna2HtmlLabel1.TabIndex = 3;
             this.guna2HtmlLabel1.Text = " Low Stock Products";
             // 
@@ -384,7 +384,7 @@
             this.labelRevenue.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRevenue.Location = new System.Drawing.Point(65, 22);
             this.labelRevenue.Name = "labelRevenue";
-            this.labelRevenue.Size = new System.Drawing.Size(84, 32);
+            this.labelRevenue.Size = new System.Drawing.Size(104, 38);
             this.labelRevenue.TabIndex = 2;
             this.labelRevenue.Text = "Revenue";
             // 
@@ -524,7 +524,7 @@
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel2.Location = new System.Drawing.Point(65, 16);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(149, 32);
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(181, 38);
             this.guna2HtmlLabel2.TabIndex = 3;
             this.guna2HtmlLabel2.Text = "Top Customers";
             // 
@@ -546,6 +546,7 @@
             this.Controls.Add(this.btnExportPDF);
             this.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            
             this.Text = "FormReport_Statistic";
             this.guna2ShadowPanel2.ResumeLayout(false);
             this.guna2ShadowPanel2.PerformLayout();

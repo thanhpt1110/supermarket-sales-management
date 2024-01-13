@@ -23,6 +23,9 @@ namespace SupermarketManagementApp.GUI.Product
         public FormCreateProduct(FormProductManagement formProductManagement)
         {
             InitializeComponent();
+            msgBoxInfo.Parent = this;
+            msgBoxError.Parent = this;
+            msgBoxDelete.Parent = this;
             productBUS = ProductBUS.GetInstance();
             productTypeBUS = ProductTypeBUS.GetInstance();
             this.formProductManagement = formProductManagement;
@@ -59,13 +62,13 @@ namespace SupermarketManagementApp.GUI.Product
             Result<DTO.Product> result = await productBUS.createNewProduct(product);
             if (result.IsSuccess)
             {
-                MessageBox.Show("Create Product successfully!");
+                msgBoxInfo.Show("Create Product successfully!");
                 formProductManagement.InitAllProduct();
                 this.Close();
             }
             else
             {
-                MessageBox.Show(result.ErrorMessage);
+                msgBoxError.Show(result.ErrorMessage);
                 return;
             }
         }

@@ -31,6 +31,9 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
             shelfBUS = ShelfBUS.GetInstance();
             productBUS = ProductBUS.GetInstance();
             InitializeComponent();
+            msgBoxInfo.Parent = this;
+            msgBoxError.Parent = this;
+            msgBoxDelete.Parent = this;
             this.totalShelfCapacity = totalCapacity;
             this.labelName.Text = name;
             dictionaryShelf = new Dictionary<int, ShelfDetail>();
@@ -84,13 +87,13 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
             if(result.IsSuccess)
             {
                 formProductShelfManagement.initAllShelf();
-                MessageBox.Show("Update shelf success");
+                msgBoxInfo.Show("Update shelf success");
                 this.Close();
 
             }
             else
             {
-                MessageBox.Show(result.ErrorMessage, "Error",MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                msgBoxError.Show(result.ErrorMessage, "Error"); 
                 return;
             }
         }
