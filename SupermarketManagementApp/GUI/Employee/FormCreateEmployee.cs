@@ -21,6 +21,8 @@ namespace SupermarketManagementApp.GUI.Employee
             InitializeComponent();
             employeeBUS = EmployeeBUS.GetInstance();
             this.formEmployeeManagement = formEmployeeManagement;
+            msgBoxError.Parent = this;
+            msgBoxInfo.Parent = this;
         }
         public FormCreateEmployee()
         {
@@ -46,20 +48,20 @@ namespace SupermarketManagementApp.GUI.Employee
                 var employeeResult = await employeeBUS.AddEmployee(employee);
                 if(employeeResult.IsSuccess )
                 {
-                    MessageBox.Show("Added new employee Success");
+                    msgBoxInfo.Show("Added new employee Success");
                     formEmployeeManagement.InitAllEmployee();
                     this.Close();
                     return;
                 }
                 else
                 {
-                    MessageBox.Show(employeeResult.ErrorMessage);
+                    msgBoxError.Show(employeeResult.ErrorMessage);
                     return;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                msgBoxError.Show(ex.Message);
             }
         }
     }

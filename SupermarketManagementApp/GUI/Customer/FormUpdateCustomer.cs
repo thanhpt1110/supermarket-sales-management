@@ -28,6 +28,8 @@ namespace SupermarketManagementApp.GUI.Customer
             this.formCustomerManagement = formCustomerManagement;
             customerBUS = CustomerBUS.GetInstance();
             InitializeComponent();
+            msgBoxInfo.Parent = this;
+            msgBoxError.Parent = this;
             loadCustomer(id);
         }
         private async void loadCustomer(long _id)
@@ -63,13 +65,13 @@ namespace SupermarketManagementApp.GUI.Customer
             Result<DTO.Customer> result = await customerBUS.updateCustomer(customer);
             if (result.IsSuccess)
             {
-                MessageBox.Show("Update customer successfully!");
+                msgBoxInfo.Show("Update customer successfully!");
                 this.formCustomerManagement.InitAllCustomer();
                 this.Close();
             }
             else
             {
-                MessageBox.Show(result.ErrorMessage);
+                msgBoxError.Show(result.ErrorMessage);
             }
         }
     }

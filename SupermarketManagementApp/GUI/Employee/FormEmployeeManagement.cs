@@ -34,6 +34,7 @@ namespace SupermarketManagementApp.GUI.Employee
             CustomStyleGridView();
             InitAllEmployee();
             InitTimer();
+            msgBoxInfo.Parent = formMain;
         }
 
         public FormEmployeeManagement()
@@ -57,7 +58,7 @@ namespace SupermarketManagementApp.GUI.Employee
             }
             else
             {
-                MessageBox.Show(employeeResult.ErrorMessage);
+                msgBoxError.Show(employeeResult.ErrorMessage);
             }
         }
         private void LoadGridData()
@@ -254,7 +255,7 @@ namespace SupermarketManagementApp.GUI.Employee
                                 Result<bool> result =  await employeeBUS.removeEmployeeByID(int.Parse(gridView.Rows[y].Cells[1].Value.ToString()));
                                 if(result.IsSuccess)
                                 {
-                                    MessageBox.Show("Remove success","Success", MessageBoxButtons.OK);
+                                    msgBoxInfo.Show("Remove success");
                                     InitAllEmployee();
                                 }
                                 else

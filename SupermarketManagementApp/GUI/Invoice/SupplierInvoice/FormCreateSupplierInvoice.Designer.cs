@@ -51,6 +51,7 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.availableCapacity = new Guna.UI2.WinForms.Guna2ProgressBar();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.msgBoxInfo = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelCustomerInformation.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
@@ -88,7 +89,7 @@
             this.labelOrderInformation.ForeColor = System.Drawing.Color.DarkOrange;
             this.labelOrderInformation.Location = new System.Drawing.Point(78, 253);
             this.labelOrderInformation.Name = "labelOrderInformation";
-            this.labelOrderInformation.Size = new System.Drawing.Size(179, 32);
+            this.labelOrderInformation.Size = new System.Drawing.Size(222, 38);
             this.labelOrderInformation.TabIndex = 49;
             this.labelOrderInformation.Text = "Order Information";
             // 
@@ -133,7 +134,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(220, 40);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(270, 49);
             this.tableLayoutPanel1.TabIndex = 51;
             // 
             // labelTotalAmount
@@ -141,9 +142,9 @@
             this.labelTotalAmount.BackColor = System.Drawing.Color.Transparent;
             this.labelTotalAmount.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTotalAmount.ForeColor = System.Drawing.Color.Red;
-            this.labelTotalAmount.Location = new System.Drawing.Point(144, 3);
+            this.labelTotalAmount.Location = new System.Drawing.Point(175, 3);
             this.labelTotalAmount.Name = "labelTotalAmount";
-            this.labelTotalAmount.Size = new System.Drawing.Size(73, 34);
+            this.labelTotalAmount.Size = new System.Drawing.Size(92, 43);
             this.labelTotalAmount.TabIndex = 26;
             this.labelTotalAmount.Text = "0 VNĐ";
             this.labelTotalAmount.TextAlignment = System.Drawing.ContentAlignment.TopRight;
@@ -154,7 +155,7 @@
             this.label.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label.Location = new System.Drawing.Point(3, 3);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(135, 32);
+            this.label.Size = new System.Drawing.Size(166, 38);
             this.label.TabIndex = 25;
             this.label.Text = "Total Amount:";
             this.label.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
@@ -217,7 +218,7 @@
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Red;
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(289, 24);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(10, 23);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(12, 30);
             this.guna2HtmlLabel1.TabIndex = 12;
             this.guna2HtmlLabel1.Text = "*";
             // 
@@ -227,7 +228,7 @@
             this.labelCustomerName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCustomerName.Location = new System.Drawing.Point(244, 24);
             this.labelCustomerName.Name = "labelCustomerName";
-            this.labelCustomerName.Size = new System.Drawing.Size(45, 23);
+            this.labelCustomerName.Size = new System.Drawing.Size(55, 30);
             this.labelCustomerName.TabIndex = 13;
             this.labelCustomerName.Text = "Name";
             // 
@@ -263,7 +264,7 @@
             this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.Red;
             this.guna2HtmlLabel3.Location = new System.Drawing.Point(137, 24);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(10, 23);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(12, 30);
             this.guna2HtmlLabel3.TabIndex = 7;
             this.guna2HtmlLabel3.Text = "*";
             // 
@@ -273,7 +274,7 @@
             this.labelPhoneNumber.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPhoneNumber.Location = new System.Drawing.Point(30, 24);
             this.labelPhoneNumber.Name = "labelPhoneNumber";
-            this.labelPhoneNumber.Size = new System.Drawing.Size(106, 23);
+            this.labelPhoneNumber.Size = new System.Drawing.Size(131, 30);
             this.labelPhoneNumber.TabIndex = 10;
             this.labelPhoneNumber.Text = "Phone number";
             // 
@@ -313,7 +314,7 @@
             this.labelForm.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelForm.Location = new System.Drawing.Point(510, 30);
             this.labelForm.Name = "labelForm";
-            this.labelForm.Size = new System.Drawing.Size(301, 39);
+            this.labelForm.Size = new System.Drawing.Size(372, 48);
             this.labelForm.TabIndex = 33;
             this.labelForm.Text = "Create Supplier Invoice";
             // 
@@ -341,7 +342,7 @@
             this.labelCustomerInfor.ForeColor = System.Drawing.Color.DarkOrange;
             this.labelCustomerInfor.Location = new System.Drawing.Point(78, 80);
             this.labelCustomerInfor.Name = "labelCustomerInfor";
-            this.labelCustomerInfor.Size = new System.Drawing.Size(201, 32);
+            this.labelCustomerInfor.Size = new System.Drawing.Size(251, 38);
             this.labelCustomerInfor.TabIndex = 35;
             this.labelCustomerInfor.Text = "Supplier Information";
             // 
@@ -386,9 +387,18 @@
             this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.DarkOrange;
             this.guna2HtmlLabel2.Location = new System.Drawing.Point(728, 80);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(183, 32);
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(224, 38);
             this.guna2HtmlLabel2.TabIndex = 54;
             this.guna2HtmlLabel2.Text = "Inventory Capacity";
+            // 
+            // msgBoxInfo
+            // 
+            this.msgBoxInfo.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            this.msgBoxInfo.Caption = "Information";
+            this.msgBoxInfo.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
+            this.msgBoxInfo.Parent = null;
+            this.msgBoxInfo.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
+            this.msgBoxInfo.Text = "Create account successfully!";
             // 
             // FormCreateSupplierInvoice
             // 
@@ -445,5 +455,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2ProgressBar availableCapacity;
+        private Guna.UI2.WinForms.Guna2MessageDialog msgBoxInfo;
     }
 }
