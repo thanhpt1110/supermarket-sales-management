@@ -18,7 +18,11 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
     {
         private DTO.CustomerInvoice customerInvoice;
         private DTO.Customer customer;
+        private CustomerInvoiceBUS customerInvoiceBUS;
         private CustomerBUS customerBUS;
+        private Dictionary<string, CustomerInvoiceDetail> customerInvoiceDictionary;
+        private ProductBUS productBUS;
+        private List<DTO.Customer> customers;
         private Timer searchTimer;
         List<DTO.Product> products = new List<DTO.Product>
             {
@@ -52,21 +56,51 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
         public FormCreateCustomerInvoice()
         {
             InitializeComponent();
+            customerInvoiceDictionary = new Dictionary<string, CustomerInvoiceDetail>();
             customerInvoice = new DTO.CustomerInvoice();
             customerBUS = CustomerBUS.GetInstance();
+            productBUS = ProductBUS.GetInstance();
+            customerInvoiceBUS = CustomerInvoiceBUS.GetInstance();
+            LoadProduct();
+            LoadListCustomer();
             InitTimer();
         }
-        private async Task LoadCustomerByPhoneNumber()
+        private async void LoadProduct()
         {
-            Result<DTO.Customer> result = await customerBUS.getCustomerByPhoneNumber(txtBoxPhoneNumber.Text);
-            if(!result.IsSuccess)
+            Result<IEnumerable<DTO.Product>> result;
+            result = await productBUS.getAllProduct();
+            if(result.IsSuccess)
             {
-                MessageBox.Show(result.ErrorMessage);
-                return;
-            }    
-            if(result.IsSuccess && result.Data !=null)
+                this.products = result.Data.ToList();
+            }
+            else
             {
-                this.customer = result.Data;
+                MessageBox.Show("Load form failed");
+
+            }
+        }
+        private async void LoadListCustomer()
+        {
+            Result<IEnumerable<DTO.Customer>> result;
+            result = await customerBUS.GetAllCustomer();
+            if (result.IsSuccess)
+            {
+                this.customers = result.Data.ToList();
+                txtBoxCustomerName.AutoCompleteCustomSource.AddRange(customers.Select(p=>p.PhoneNumber).ToArray());
+                txtBoxCustomerName.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtBoxCustomerName.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            }
+            else
+            {
+                MessageBox.Show("Load form failed");
+            }
+        }
+        private void LoadCustomerByPhoneNumber()
+        {
+            DTO.Customer findCustomer = customers.FirstOrDefault(p=>p.PhoneNumber == txtBoxPhoneNumber.Text);
+            if(findCustomer != null)
+            {
+                this.customer = findCustomer;
             }    
         }
         #region Init timer event
@@ -79,7 +113,7 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
         private async void SearchTimer_Tick(object sender, EventArgs e)
         {
             this.searchTimer.Stop();
-            await LoadCustomerByPhoneNumber();
+            LoadCustomerByPhoneNumber();
             LoadCustomer();
         }
         #endregion
@@ -97,16 +131,47 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
             this.Close();
         }
 
-        private void btnCheckOut_Click(object sender, EventArgs e)
+        private async void btnCheckOut_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if(customer==null)
+            {
+                customer = new DTO.Customer();
+                customer.PhoneNumber = txtBoxPhoneNumber.Text;
+                customer.Gender = cbBoxGender.Text;
+                customer.CustomerName = txtBoxCustomerName.Text;
+                customer.Birthday = DateTime.Now;
+                Result<DTO.Customer> resultCustomer = await customerBUS.AddCustomer(customer);
+                if(resultCustomer.IsSuccess)
+                {
+                    customer = resultCustomer.Data;
+                }
+                else
+                {
+                    MessageBox.Show(resultCustomer.ErrorMessage);
+                    return;
+                }
+            }
+            customerInvoice.CustomerID = customer.CustomerID;
+            customerInvoice.EmployeeID = 1;
+            customerInvoice.CustomerInvoiceDetails = customerInvoiceDictionary.Values;
+            Result<DTO.CustomerInvoice> result = await customerInvoiceBUS.AddNewCustomerInvoice(customerInvoice);
+            if(result.IsSuccess)
+            {
+                MessageBox.Show("Create invoice success");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show(result.ErrorMessage);
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             FlowLayoutPanel newLine = new FlowLayoutPanel();
             newLine.Dock = DockStyle.Top;
-
+            newLine.Name =  DateTime.Now.ToString() + panelCustomerInformation.Controls.Count.ToString();
+            customerInvoiceDictionary[newLine.Name] = new CustomerInvoiceDetail();
             newLine.Controls.Add(panelProductName("Product Name", "txtProductName", newLine));
             newLine.Controls.Add(panelQuantity("Quantity", "txtQuantity", newLine));
             newLine.Controls.Add(panelUnitPrice("Unit Price", "txtUnitPrice", newLine));
@@ -180,7 +245,16 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
             textBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
             textBox.TextChanged += (sender, e) =>
             {
+                customerInvoiceDictionary[currentLine.Name].Product = products.FirstOrDefault(p => p.ProductName == textBox.Text);
+                string PriceText = "0";
+                string capacityText = "0";
 
+                if (customerInvoiceDictionary[currentLine.Name].Product != null)
+                {
+                    var product = customerInvoiceDictionary[currentLine.Name].Product;
+                    MessageBox.Show(product.ProductName);
+                    PriceText = product.UnitPrice.ToString();
+                }
                 foreach (Control control in currentLine.Controls)
                 {
                     if (control.Name == "panelUnitPrice")
@@ -189,7 +263,7 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
                         {
                             if (control2.Name == "txtUnitPrice")
                             {
-                                // control2.Text = textBox.Text;
+                                control2.Text = PriceText;
                                 return;
                             }
                         }
@@ -262,7 +336,7 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
             {
                 Control unitPrice = new Control();
                 Control totalPrice = new Control();
-
+                customerInvoiceDictionary[currentLine.Name].ProductQuantity = int.Parse(textBox.Text);
                 if (textBox.Text == String.Empty)
                 {
                     textBox.Text = "0";
@@ -469,7 +543,6 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
             buttonRemove.PressedColor = System.Drawing.Color.Transparent;
             buttonRemove.Size = new System.Drawing.Size(56, 40);
             buttonRemove.TabIndex = 4;
-
             buttonRemove.Click += (sender, e) =>
             {
                 panelOrderInformation.Controls.Remove(lineToRemove);
@@ -496,6 +569,7 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
                         }
                     }
                 }
+                customerInvoiceDictionary.Remove(lineToRemove.Name);
 
                 // Đặt văn hóa phù hợp
                 System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("vi-VN");

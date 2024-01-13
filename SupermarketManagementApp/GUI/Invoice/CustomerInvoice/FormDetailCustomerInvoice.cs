@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SupermarketManagementApp.BUS;
+using SupermarketManagementApp.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,10 +16,12 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
 {
     public partial class FormDetailCustomerInvoice : Form
     {
-        public FormDetailCustomerInvoice()
+        private CustomerInvoiceBUS customerInvoiceBUS;
+        public FormDetailCustomerInvoice(long id)
         {
             InitializeComponent();
-            loadInvoiceDetails();
+            customerInvoiceBUS = CustomerInvoiceBUS.GetInstance();
+            loadInvoiceDetails(id);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -78,70 +82,66 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
         #endregion
 
 
-        private void loadInvoiceDetails()
+        private async void loadInvoiceDetails(long id)
         {
             // Giả sử bạn có một danh sách các đối tượng InvoiceDetail
-            List<InvoiceDetail> listInvoices = new List<InvoiceDetail>
+            Result<DTO.CustomerInvoice> result = await customerInvoiceBUS.getCustomerInvoiceDetailByID(id);
+            if (result.IsSuccess)
             {
-                new InvoiceDetail("Laptop", 5, 500.0, 2500.0),
-                new InvoiceDetail("Smartphone", 8, 1200.0, 9600.0),
-                new InvoiceDetail("Headphones", 3, 800.0, 2400.0),
-                new InvoiceDetail("Camera", 12, 150.0, 1800.0),
-                new InvoiceDetail("Desk Chair", 7, 300.0, 2100.0),
-                new InvoiceDetail("Backpack", 15, 50.0, 750.0),
-                new InvoiceDetail("Desk Lamp", 2, 2000.0, 4000.0)
-            };
+                double TotalAmount = 0;
+                // Duyệt qua danh sách InvoiceDetail
+                foreach (DTO.CustomerInvoiceDetail customerInvoiceDetail in result.Data.CustomerInvoiceDetails)
+                {
+                    // Tạo một TableLayoutPanel mới
+                    TableLayoutPanel tableLayoutPanel = new TableLayoutPanel();
+                    tableLayoutPanel.Size = new Size(582, 30);
+                    tableLayoutPanel.Padding = new Padding(0, 10, 0, 0);
 
+                    tableLayoutPanel.ColumnCount = 4;
+                    tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 38.64735F));
+                    tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.17069F));
+                    tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 21.25604F));
+                    tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.92593F));
+                    tableLayoutPanel.Dock = DockStyle.Top;
 
-            double TotalAmount = 0;
+                    // Tạo và thêm các label vào TableLayoutPanel
+                    Label labelProductName = new Label();
+                    labelProductName.Text = customerInvoiceDetail.Product.ProductName;
+                    labelProductName.Margin = new Padding(9, 0, 0, 0);
+                    tableLayoutPanel.Controls.Add(labelProductName, 0, 0);
 
-            // Duyệt qua danh sách InvoiceDetail
-            foreach (InvoiceDetail invoiceDetail in listInvoices)
-            {
-                // Tạo một TableLayoutPanel mới
-                TableLayoutPanel tableLayoutPanel = new TableLayoutPanel();
-                tableLayoutPanel.Size = new Size(582, 30);
-                tableLayoutPanel.Padding = new Padding(0, 10, 0, 0);
+                    Label labelQuantity = new Label();
+                    labelQuantity.Text = customerInvoiceDetail.ProductQuantity.ToString();
+                    labelQuantity.Margin = new Padding(0, 0, 0, 0);
+                    tableLayoutPanel.Controls.Add(labelQuantity, 1, 0);
 
-                tableLayoutPanel.ColumnCount = 4;
-                tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 38.64735F));
-                tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.17069F));
-                tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 21.25604F));
-                tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.92593F));
-                tableLayoutPanel.Dock = DockStyle.Top;
+                    Label labelUnitPrice = new Label();
+                    labelUnitPrice.Text = customerInvoiceDetail.Product.UnitPrice.ToString();
+                    labelUnitPrice.Margin = new Padding(0);
+                    tableLayoutPanel.Controls.Add(labelUnitPrice, 2, 0);
 
-                // Tạo và thêm các label vào TableLayoutPanel
-                Label labelProductName = new Label();
-                labelProductName.Text = invoiceDetail.ProductName;
-                labelProductName.Margin = new Padding(9, 0, 0, 0);
-                tableLayoutPanel.Controls.Add(labelProductName, 0, 0);
+                    Label labelTotalPrice = new Label();
+                    labelTotalPrice.Text = (customerInvoiceDetail.ProductQuantity * customerInvoiceDetail.Product.UnitPrice).ToString();
+                    labelTotalPrice.Margin = new Padding(0);
+                    tableLayoutPanel.Controls.Add(labelTotalPrice, 3, 0);
 
-                Label labelQuantity = new Label();
-                labelQuantity.Text = invoiceDetail.Quantity.ToString();
-                labelQuantity.Margin = new Padding(0, 0, 0, 0);
-                tableLayoutPanel.Controls.Add(labelQuantity, 1, 0);
+                    // Thêm TableLayoutPanel vào panelInvoiceDetail
+                    panelInvoiceDetails.Controls.Add(tableLayoutPanel);
 
-                Label labelUnitPrice = new Label();
-                labelUnitPrice.Text = invoiceDetail.UnitPrice.ToString();
-                labelUnitPrice.Margin = new Padding(0);
-                tableLayoutPanel.Controls.Add(labelUnitPrice, 2, 0);
+                    TotalAmount += customerInvoiceDetail.ProductQuantity * customerInvoiceDetail.Product.UnitPrice;
+                }
+                // Đặt văn hóa phù hợp
+                System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("vi-VN");
 
-                Label labelTotalPrice = new Label();
-                labelTotalPrice.Text = invoiceDetail.TotalPrice.ToString();
-                labelTotalPrice.Margin = new Padding(0);
-                tableLayoutPanel.Controls.Add(labelTotalPrice, 3, 0);
-
-                // Thêm TableLayoutPanel vào panelInvoiceDetail
-                panelInvoiceDetails.Controls.Add(tableLayoutPanel);
-
-                TotalAmount += invoiceDetail.TotalPrice;
+                // Định dạng số thành chuỗi theo định dạng tiền tệ
+                labelTotalAmount.RightToLeft = RightToLeft.Yes;
+                labelTotalAmount.Text = TotalAmount.ToString("N0", culture) + " VND";
             }
-            // Đặt văn hóa phù hợp
-            System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("vi-VN");
+            else
+            {
+                MessageBox.Show(result.ErrorMessage);
+            }
 
-            // Định dạng số thành chuỗi theo định dạng tiền tệ
-            labelTotalAmount.RightToLeft = RightToLeft.Yes;
-            labelTotalAmount.Text = TotalAmount.ToString("N0", culture) + " VND";
         }
     }
 
