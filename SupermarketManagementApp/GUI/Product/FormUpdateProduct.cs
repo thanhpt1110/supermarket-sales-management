@@ -39,7 +39,12 @@ namespace SupermarketManagementApp.GUI.Product
             if (result.IsSuccess)
             {
                 this.product.ProductID = result.Data.ProductID;
-
+                if(result.Data.ProductType==null)
+                {
+                    Result<DTO.ProductType> result1 = await productTypeBUS.findProductTypeByID(result.Data.ProductTypeID.Value);
+                    if (result1.IsSuccess)
+                        result.Data.ProductType = result1.Data;
+                }    
                 this.cbBoxProductType.Text = result.Data.ProductType.ProductTypeName;
                 this.txtBoxProductName.Text = result.Data.ProductName;
                 this.txtUnitPrice.Text = result.Data.UnitPrice.ToString();
