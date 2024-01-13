@@ -88,6 +88,12 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
             Result<DTO.CustomerInvoice> result = await customerInvoiceBUS.getCustomerInvoiceDetailByID(id);
             if (result.IsSuccess)
             {
+                
+                this.lbaelInvoiceID.Text = "Invoice " + result.Data.CustomerInvoiceID.ToString();
+                this.labelCustomerName.Text = result.Data.Customer.CustomerName;
+                this.labelPhoneNumber.Text = result.Data.Customer.PhoneNumber.ToString();
+                this.labelEmployeeName.Text = result.Data.Employee.EmployeeName;
+                this.labelInvoiceDate.Text = result.Data.DatePayment.Value.ToString("dd/MM/yyyy HH/mm/ss");
                 double TotalAmount = 0;
                 // Duyệt qua danh sách InvoiceDetail
                 foreach (DTO.CustomerInvoiceDetail customerInvoiceDetail in result.Data.CustomerInvoiceDetails)
