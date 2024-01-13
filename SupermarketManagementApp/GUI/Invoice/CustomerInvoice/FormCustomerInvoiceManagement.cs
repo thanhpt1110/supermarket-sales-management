@@ -209,6 +209,8 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
 
         private void gridViewMain_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            int x = e.ColumnIndex, y = e.RowIndex;
+
             if (e.RowIndex >= 0)
             {
                 if (e.ColumnIndex == 6)
@@ -217,7 +219,7 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
                     FormBackground formBackground = new FormBackground(formMain);
                     try
                     {
-                        using (FormDetailCustomerInvoice formDetailCustomerInvoice = new FormDetailCustomerInvoice())
+                        using (FormDetailCustomerInvoice formDetailCustomerInvoice = new FormDetailCustomerInvoice(long.Parse(gridView.Rows[y].Cells[1].Value.ToString())))
                         {
                             formBackground.Owner = formMain;
                             formBackground.Show();

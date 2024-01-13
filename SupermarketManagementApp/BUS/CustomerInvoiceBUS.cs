@@ -54,6 +54,29 @@ namespace SupermarketManagementApp.BUS
             }
             try
             {
+                List<ShelfDetail> shelfDetails = new List<ShelfDetail>();
+                foreach(CustomerInvoiceDetail customerInvoiceDetail in customerInvoice.CustomerInvoiceDetails)
+                {
+                    customerInvoiceDetail.ProductID = customerInvoiceDetail.Product.ProductID;
+                    IEnumerable<ShelfDetail> result2 = await unitOfWork.ShelfDetailRepositoryDAO.Find(p => p.ProductID == customerInvoiceDetail.ProductID && p.ProductQuantity >= customerInvoiceDetail.ProductQuantity);
+                    if(result2.Any())
+                    {
+                        result2.First().ProductQuantity -= customerInvoiceDetail.ProductQuantity;
+                        shelfDetails.Add(result2.First());
+                    }
+                    else
+                    {
+                        result.IsSuccess = false;
+                        result.ErrorMessage = customerInvoiceDetail.Product.ProductName + " is not enough";
+                        return result;
+                    }
+                }
+                foreach(ShelfDetail shelf in shelfDetails)
+                {
+                    shelf.Product = null;
+                    shelf.Shelf = null;
+                    await unitOfWork.ShelfDetailRepositoryDAO.Update(shelf);
+                }
                 result.Data = await unitOfWork.CustomerInvoiceRepositoryDAO.Add(customerInvoice);
                 result.IsSuccess = true;
                 result.ErrorMessage = string.Empty;

@@ -60,7 +60,6 @@
             this.dtgvCustomers = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.Top = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CusID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2ShadowPanel2.SuspendLayout();
@@ -94,13 +93,13 @@
             // dtpkFrom
             // 
             this.dtpkFrom.Checked = true;
-            this.dtpkFrom.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtpkFrom.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpkFrom.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpkFrom.Location = new System.Drawing.Point(138, 30);
+            this.dtpkFrom.Location = new System.Drawing.Point(103, 30);
             this.dtpkFrom.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpkFrom.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpkFrom.Name = "dtpkFrom";
-            this.dtpkFrom.Size = new System.Drawing.Size(253, 45);
+            this.dtpkFrom.Size = new System.Drawing.Size(267, 45);
             this.dtpkFrom.TabIndex = 11;
             this.dtpkFrom.Value = new System.DateTime(2024, 1, 10, 13, 27, 12, 63);
             this.dtpkFrom.ValueChanged += new System.EventHandler(this.dtpkValueChanged);
@@ -116,11 +115,11 @@
             this.btnWeek.FillColor = System.Drawing.Color.ForestGreen;
             this.btnWeek.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWeek.ForeColor = System.Drawing.Color.White;
-            this.btnWeek.Location = new System.Drawing.Point(781, 30);
+            this.btnWeek.Location = new System.Drawing.Point(722, 30);
             this.btnWeek.Name = "btnWeek";
             this.btnWeek.Size = new System.Drawing.Size(114, 45);
             this.btnWeek.TabIndex = 12;
-            this.btnWeek.Text = "1 Tuần";
+            this.btnWeek.Text = "1 Week";
             this.btnWeek.TextOffset = new System.Drawing.Point(0, -1);
             this.btnWeek.Click += new System.EventHandler(this.btnWeek_Click);
             // 
@@ -135,11 +134,11 @@
             this.btnMonth.FillColor = System.Drawing.Color.ForestGreen;
             this.btnMonth.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMonth.ForeColor = System.Drawing.Color.White;
-            this.btnMonth.Location = new System.Drawing.Point(893, 30);
+            this.btnMonth.Location = new System.Drawing.Point(834, 30);
             this.btnMonth.Name = "btnMonth";
             this.btnMonth.Size = new System.Drawing.Size(114, 45);
             this.btnMonth.TabIndex = 12;
-            this.btnMonth.Text = "1 Tháng";
+            this.btnMonth.Text = "1 Month";
             this.btnMonth.TextOffset = new System.Drawing.Point(0, -1);
             this.btnMonth.Click += new System.EventHandler(this.btnMonth_Click);
             // 
@@ -154,24 +153,24 @@
             this.btnYear.FillColor = System.Drawing.Color.ForestGreen;
             this.btnYear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnYear.ForeColor = System.Drawing.Color.White;
-            this.btnYear.Location = new System.Drawing.Point(1005, 30);
+            this.btnYear.Location = new System.Drawing.Point(946, 30);
             this.btnYear.Name = "btnYear";
             this.btnYear.Size = new System.Drawing.Size(114, 45);
             this.btnYear.TabIndex = 12;
-            this.btnYear.Text = "1 Năm";
+            this.btnYear.Text = "1 Year";
             this.btnYear.TextOffset = new System.Drawing.Point(0, -1);
             this.btnYear.Click += new System.EventHandler(this.btnYear_Click);
             // 
             // dtpkTo
             // 
             this.dtpkTo.Checked = true;
-            this.dtpkTo.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtpkTo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpkTo.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpkTo.Location = new System.Drawing.Point(498, 30);
+            this.dtpkTo.Location = new System.Drawing.Point(416, 30);
             this.dtpkTo.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpkTo.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpkTo.Name = "dtpkTo";
-            this.dtpkTo.Size = new System.Drawing.Size(256, 45);
+            this.dtpkTo.Size = new System.Drawing.Size(273, 45);
             this.dtpkTo.TabIndex = 15;
             this.dtpkTo.Value = new System.DateTime(2024, 1, 10, 13, 27, 12, 63);
             this.dtpkTo.ValueChanged += new System.EventHandler(this.dtpkValueChanged);
@@ -181,18 +180,18 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(50, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 28);
+            this.label1.Size = new System.Drawing.Size(47, 21);
             this.label1.TabIndex = 14;
-            this.label1.Text = "Từ ngày";
+            this.label1.Text = "From";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(397, 38);
+            this.label2.Location = new System.Drawing.Point(385, 38);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 28);
+            this.label2.Size = new System.Drawing.Size(25, 21);
             this.label2.TabIndex = 16;
-            this.label2.Text = "Đến ngày";
+            this.label2.Text = "To";
             // 
             // guna2ShadowPanel2
             // 
@@ -313,7 +312,7 @@
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(65, 16);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(235, 38);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(192, 32);
             this.guna2HtmlLabel1.TabIndex = 3;
             this.guna2HtmlLabel1.Text = " Low Stock Products";
             // 
@@ -361,7 +360,7 @@
             this.labelRevenue.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRevenue.Location = new System.Drawing.Point(65, 22);
             this.labelRevenue.Name = "labelRevenue";
-            this.labelRevenue.Size = new System.Drawing.Size(104, 38);
+            this.labelRevenue.Size = new System.Drawing.Size(84, 32);
             this.labelRevenue.TabIndex = 2;
             this.labelRevenue.Text = "Revenue";
             // 
@@ -404,7 +403,6 @@
             this.dtgvCustomers.ColumnHeadersHeight = 50;
             this.dtgvCustomers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Top,
-            this.CusID,
             this.Name,
             this.Total});
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -456,26 +454,21 @@
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel2.Location = new System.Drawing.Point(65, 16);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(181, 38);
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(149, 32);
             this.guna2HtmlLabel2.TabIndex = 3;
             this.guna2HtmlLabel2.Text = "Top Customers";
             // 
             // Top
             // 
+            this.Top.FillWeight = 50F;
             this.Top.HeaderText = "Top";
             this.Top.MinimumWidth = 6;
             this.Top.Name = "Top";
             this.Top.ReadOnly = true;
             // 
-            // CusID
-            // 
-            this.CusID.HeaderText = "ID";
-            this.CusID.MinimumWidth = 6;
-            this.CusID.Name = "CusID";
-            this.CusID.ReadOnly = true;
-            // 
             // Name
             // 
+            this.Name.FillWeight = 200F;
             this.Name.HeaderText = "Customer Name";
             this.Name.MinimumWidth = 6;
             this.Name.Name = "Name";
@@ -483,6 +476,7 @@
             // 
             // Total
             // 
+            this.Total.FillWeight = 150F;
             this.Total.HeaderText = "Total Amount";
             this.Total.MinimumWidth = 6;
             this.Total.Name = "Total";
@@ -491,6 +485,7 @@
             // FormReport_Statistic
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(1607, 889);
             this.Controls.Add(this.guna2ShadowPanel1);
             this.Controls.Add(this.panelMonthRevenue);
@@ -505,7 +500,6 @@
             this.Controls.Add(this.btnExportPDF);
             this.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            //this.Name = "FormReport_Statistic";
             this.Text = "FormReport_Statistic";
             this.guna2ShadowPanel2.ResumeLayout(false);
             this.guna2ShadowPanel2.PerformLayout();
@@ -544,7 +538,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Remaining;
         private System.Windows.Forms.DataGridViewTextBoxColumn Top;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CusID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
     }

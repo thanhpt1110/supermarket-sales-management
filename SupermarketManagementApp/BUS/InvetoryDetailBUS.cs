@@ -68,7 +68,7 @@ namespace SupermarketManagementApp.BUS
                 float capacity = 0;
                 foreach( var item in listInventory)
                 {
-                    capacity += item.ProductQuantity * item.Product.ProductCapacity;
+                        capacity += item.ProductQuantity * item.Product.ProductCapacity;
                 }
                 result.Data = capacity;
                 result.IsSuccess = true;

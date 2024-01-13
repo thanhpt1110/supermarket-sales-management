@@ -27,6 +27,7 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
 using Org.BouncyCastle.Utilities;
+using System.Windows.Media.Animation;
 
 namespace SupermarketManagementApp.GUI.Report_Statistic
 {
@@ -305,14 +306,12 @@ namespace SupermarketManagementApp.GUI.Report_Statistic
             int top = 1;
             foreach (var x in sortedList)
             {
-                dtgvCustomers.Rows.Add(new object[] { top ,x.CustomerID, x.CustomerName, x.TotalAmount });
+                dtgvCustomers.Rows.Add(new object[] { top , x.CustomerName, x.TotalAmount });
                 top++;
             }
-
-            dtgvCustomers.Columns[0].Width = 50; // Cột đầu tiên
-            dtgvCustomers.Columns[1].Width = 50; // Cột thứ hai
+            /*dtgvCustomers.Columns[0].Width = 50; // Cột đầu tiên
             dtgvCustomers.Columns[2].Width = (int)(dtgvCustomers.Width * 0.6);
-            dtgvCustomers.Columns[3].Width = (int)(dtgvCustomers.Width * 0.4);
+            dtgvCustomers.Columns[3].Width = (int)(dtgvCustomers.Width * 0.4);*/
         }
         #endregion
 
@@ -352,6 +351,7 @@ namespace SupermarketManagementApp.GUI.Report_Statistic
                 document.Add(Title);
 
                 Paragraph timeline = new Paragraph(DateTime.Now.ToString(), tfont);
+                timeline.SpacingBefore = 14f;
                 timeline.Alignment = Element.ALIGN_CENTER;
                 document.Add(timeline);
 
