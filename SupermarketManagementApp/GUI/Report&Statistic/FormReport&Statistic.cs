@@ -51,8 +51,10 @@ namespace SupermarketManagementApp.GUI.Report_Statistic
             InitializeComponent();
             customerInvoiceBUS = CustomerInvoiceBUS.GetInstance();
             productBUS = ProductBUS.GetInstance();
+            customerBUS = CustomerBUS.GetInstance();
             InitAllCustomerInvoice();
             InitAllProduct();
+            InitAllCustomer();
         }
 
         public async void InitAllCustomerInvoice()
@@ -267,9 +269,10 @@ namespace SupermarketManagementApp.GUI.Report_Statistic
         public async void InitAllProduct()
         {
             Result<IEnumerable<DTO.Product>> productResult = await productBUS.getAllProduct();
+
             if (productResult.IsSuccess)
             {
-                this.products = productResult.Data.ToList();
+                this.products = productResult.Data.OrderBy(p => p.ProductCapacity).ToList();
             }
 
             dtgvProducts.Rows.Clear();
@@ -279,20 +282,38 @@ namespace SupermarketManagementApp.GUI.Report_Statistic
             }
         }
 
-        //public async void InitAllCustomer()
-        //{
-        //    Result<IEnumerable<DTO.Customer>> customerResult = await customerBUS.getall
-        //    if (productResult.IsSuccess)
-        //    {
-        //        this.products = productResult.Data.ToList();
-        //    }
+        public async void InitAllCustomer()
+        {
+            Result<IEnumerable<DTO.Customer>> customerResult = await customerBUS.GetAllCustomer();
+            if (customerResult.IsSuccess)
+            {
+                this.customers = customerResult.Data.ToList();
+            }
 
-        //    dtgvProducts.Rows.Clear();
-        //    foreach (var product in products)
-        //    {
-        //        dtgvProducts.Rows.Add(new object[] { product.ProductID, product.ProductName, product.ProductCapacity });
-        //    }
-        //}
+            var groupedList = from customer in customers
+                              join invoice in customerInvoices on customer.CustomerID equals invoice.CustomerID
+                              group invoice by new { customer.CustomerID, customer.CustomerName } into grouped
+                              select new
+                              {
+                                  CustomerID = grouped.Key.CustomerID,
+                                  CustomerName = grouped.Key.CustomerName,
+                                  TotalAmount = grouped.Sum(x => x.TotalAmount)
+                              };
+
+            var sortedList = groupedList.OrderByDescending(item => item.TotalAmount);
+
+            int top = 1;
+            foreach (var x in sortedList)
+            {
+                dtgvCustomers.Rows.Add(new object[] { top ,x.CustomerID, x.CustomerName, x.TotalAmount });
+                top++;
+            }
+
+            dtgvCustomers.Columns[0].Width = 50; // Cột đầu tiên
+            dtgvCustomers.Columns[1].Width = 50; // Cột thứ hai
+            dtgvCustomers.Columns[2].Width = (int)(dtgvCustomers.Width * 0.6);
+            dtgvCustomers.Columns[3].Width = (int)(dtgvCustomers.Width * 0.4);
+        }
         #endregion
 
         #region Export
@@ -339,18 +360,8 @@ namespace SupermarketManagementApp.GUI.Report_Statistic
                 document.Add(r1);
 
                 ////THÊM BẢNG SẢN PHẦM CÒN 
-                // Tạo số lượng hàng của DataGridView
-                int row = 0;
-                if (dtgvProducts.Columns.Count > 10)
-                {
-                    row = 10;
-                }
-                else 
-                {
-                    row = dtgvProducts.Rows.Count;
-                }
-
-                PdfPTable table = new PdfPTable(row);
+                // Tạo số lượng cột của DataGridView
+                PdfPTable table = new PdfPTable(dtgvProducts.Columns.Count);
 
                 // Đặt chiều rộng cột của bảng dựa trên kích thước của DataGridView
                 float[] columnWidths = new float[dtgvProducts.Columns.Count];
@@ -367,9 +378,18 @@ namespace SupermarketManagementApp.GUI.Report_Statistic
                 }
 
                 // Thêm dữ liệu từ DataGridView vào bảng PDF
+                int proRow = 0;
+                if (dtgvProducts.Rows.Count > 10)
+                {
+                    proRow = 10;
+                }
+                else
+                {
+                    proRow = dtgvProducts.Rows.Count;
+                }
                 for (int i = 0; i < dtgvProducts.Rows.Count; i++)
                 {
-                    for (int j = 0; j < dtgvProducts.Rows.Count; j++)
+                    for (int j = 0; j < dtgvProducts.Columns.Count; j++)
                     {
                         if (dtgvProducts[j, i].Value != null)
                         {
@@ -384,19 +404,9 @@ namespace SupermarketManagementApp.GUI.Report_Statistic
 
 
                 ////THÊM BẢNG TOP KHÁCH HÀNG
-                int cusRow = 0;
-                if (dtgvCustomers.Columns.Count > 10)
-                {
-                    cusRow = 10;
-                }
-                else
-                {
-                    cusRow = dtgvCustomers.Rows.Count;
-                }
+                PdfPTable CusTable = new PdfPTable(dtgvCustomers.Columns.Count);
 
-                PdfPTable CusTable = new PdfPTable(row);
-
-                // Đặt chiều rộng cột của bảng dựa trên kích thước của DataGridView
+                //Đặt chiều rộng cột của bảng dựa trên kích thước của DataGridView
                 float[] CusColumnWidths = new float[dtgvCustomers.Columns.Count];
                 for (int i = 0; i < dtgvCustomers.Columns.Count; i++)
                 {
@@ -411,13 +421,22 @@ namespace SupermarketManagementApp.GUI.Report_Statistic
                 }
 
                 // Thêm dữ liệu từ DataGridView vào bảng PDF
-                for (int i = 0; i < dtgvCustomers.Rows.Count; i++)
+                int cusRow = 0;
+                if (dtgvProducts.Rows.Count > 10)
                 {
-                    for (int j = 0; j < dtgvCustomers.Rows.Count; j++)
+                    cusRow = 10;
+                }
+                else
+                {
+                    cusRow = dtgvProducts.Rows.Count;
+                }
+                for (int i = 0; i < cusRow; i++)
+                {
+                    for (int j = 0; j < dtgvCustomers.Columns.Count; j++)
                     {
                         if (dtgvCustomers[j, i].Value != null)
                         {
-                            table.AddCell(new Phrase(dtgvCustomers[j, i].Value.ToString()));
+                            CusTable.AddCell(new Phrase(dtgvCustomers[j, i].Value.ToString()));
                         }
                     }
                 }
