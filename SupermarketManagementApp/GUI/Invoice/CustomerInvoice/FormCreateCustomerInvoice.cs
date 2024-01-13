@@ -150,7 +150,7 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
                 }
             }
             customerInvoice.CustomerID = customer.CustomerID;
-            customerInvoice.EmployeeID = 1;
+            customerInvoice.EmployeeID = GlobalVariable.LoggedAccount.EmployeeID;
             customerInvoice.CustomerInvoiceDetails = customerInvoiceDictionary.Values;
             Result<DTO.CustomerInvoice> result = await customerInvoiceBUS.AddNewCustomerInvoice(customerInvoice);
             if(result.IsSuccess)

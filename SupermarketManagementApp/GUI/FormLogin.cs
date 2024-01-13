@@ -1,4 +1,6 @@
-﻿using SupermarketManagementApp.Properties;
+﻿using SupermarketManagementApp.BUS;
+using SupermarketManagementApp.Properties;
+using SupermarketManagementApp.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +15,11 @@ namespace SupermarketManagementApp.GUI
 {
     public partial class FormLogin : Form
     {
+        private AccountBUS accountBUS;
         public FormLogin()
         {
             InitializeComponent();
+            accountBUS = AccountBUS.GetInstance();
             txtBoxPassword.IconRightClick += txtBoxPassword_IconRightClick;
         }
 
@@ -40,10 +44,12 @@ namespace SupermarketManagementApp.GUI
             }
         }
 
-        private void btnSignIn_Click(object sender, EventArgs e)
+        private async void btnSignIn_Click(object sender, EventArgs e)
         {
-            if (txtBoxUsername.Text.Equals("admin") && txtBoxPassword.Text.Equals("1"))
+            Result<DTO.Account> result = await accountBUS.loginAccount(txtBoxUsername.Text, txtBoxPassword.Text);
+            if (result.IsSuccess)
             {
+                GlobalVariable.LoggedAccount = result.Data;
                 FormMain formMain = new FormMain();
                 this.Hide();
                 formMain.ShowDialog();
@@ -51,7 +57,7 @@ namespace SupermarketManagementApp.GUI
             } 
             else
             {
-                msgBoxError.Show();
+                msgBoxError.Show(result.ErrorMessage);
             }
         }
     }

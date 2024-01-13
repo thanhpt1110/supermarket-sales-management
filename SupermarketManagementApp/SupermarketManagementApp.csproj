@@ -319,6 +319,7 @@
     <Compile Include="DAO\ShelfDetailRepositoryDAO.cs" />
     <Compile Include="DAO\ShelfRepositoryDAO.cs" />
     <Compile Include="DAO\SupplierInvoiceRepositoryDAO.cs" />
+    <Compile Include="Utils\GlobalVariable.cs" />
     <Compile Include="Utils\Result.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
     <Compile Include="Program.cs" />

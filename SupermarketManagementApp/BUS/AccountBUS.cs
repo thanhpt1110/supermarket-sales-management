@@ -1,4 +1,5 @@
-﻿using SupermarketManagementApp.ErrorHandle;
+﻿using SupermarketManagementApp.DTO;
+using SupermarketManagementApp.ErrorHandle;
 using SupermarketManagementApp.Infrastructure;
 using SupermarketManagementApp.Utils;
 using System;
@@ -156,6 +157,31 @@ namespace SupermarketManagementApp.BUS
                 result.ErrorMessage = e.Message;
                 result.IsSuccess = false;
                 result.Data = false;
+            }
+            return result;
+        }
+        public async Task<Result<Account>> loginAccount(string username,string password)
+        {
+            Result<Account> result = new Result<Account>();
+            try
+            {
+                IEnumerable<Account> accounts = await unitOfWork.AccountRepositoryDAO.Find(p=>p.Username == username && p.Password == password);
+                if(accounts.Any())
+                {
+                    result.Data = accounts.FirstOrDefault();
+                    result.IsSuccess = true;
+                    result.ErrorMessage = null;
+                }
+                else
+                {
+                    result.Data = null;
+                    result.IsSuccess = false;
+                    result.ErrorMessage = "Please check your username and password.";
+                }
+            }
+            catch(Exception e) {
+                result.ErrorMessage=e.Message;
+                result.IsSuccess = false;
             }
             return result;
         }
