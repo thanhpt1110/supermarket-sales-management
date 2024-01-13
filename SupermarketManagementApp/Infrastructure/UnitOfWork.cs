@@ -20,6 +20,7 @@ namespace SupermarketManagementApp.Infrastructure
         private IRepositoryDAO<Shelf> shelfRepositoryDAO;
         private IRepositoryDAO<ShelfDetail> shelfDetailRepositoryDAO;
         private IRepositoryDAO<SupplierInvoice> supplierInvoiceRepositoryDAO;
+        private IRepositoryDAO<CustomerInvoiceDetail> customerInvoiceDetailRepositoryDAO;
         private UnitOfWork(SupermarketContext context)
         {
             this.context = context;
@@ -149,6 +150,18 @@ namespace SupermarketManagementApp.Infrastructure
         public async Task SaveChanges()
         {
            await context.SaveChangesAsync();
+        }
+
+        public IRepositoryDAO<CustomerInvoiceDetail> CustomerInvoiceDetailRepositoryDAO
+        {
+            get
+            {
+                if (customerInvoiceDetailRepositoryDAO == null)
+                {
+                    customerInvoiceDetailRepositoryDAO = new CustomerInvoiceDetailRepositoryDAO(context);
+                }
+                return customerInvoiceDetailRepositoryDAO;
+            }
         }
     }
 }

@@ -22,6 +22,8 @@ namespace SupermarketManagementApp.Infrastructure
 
         IRepositoryDAO<SupplierInvoice> SupplierInvoiceRepositoryDAO { get; }
 
+        IRepositoryDAO<CustomerInvoiceDetail> CustomerInvoiceDetailRepositoryDAO { get; }
+
         Task SaveChanges();
     }
 }
