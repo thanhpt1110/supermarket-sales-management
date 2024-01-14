@@ -105,17 +105,16 @@ namespace SupermarketManagementApp.BUS
                     int newQuantity = shelfDetail.ProductQuantity - oldShelfDetail.ProductQuantity;
                     if(shelfDetail.Product!=null)
                     {
-                        IEnumerable < ShelfDetail > shelfDetails1 = await unitOfWork.ShelfDetailRepositoryDAO.Find(p => p.ProductID == shelfDetail.ProductID);
                         shelfDetail.ProductID = shelfDetail.Product.ProductID;
+                        IEnumerable < ShelfDetail > shelfDetails1 = await unitOfWork.ShelfDetailRepositoryDAO.Find(p => p.ProductID == shelfDetail.ProductID);
                         var findShelfDetail = shelfDetails1.FirstOrDefault();
                         if (findShelfDetail != null && findShelfDetail.ShelfID != shelfDetail.ShelfID)
                         {
-                            string message = "Product " + shelfDetail.Product.ProductName + " are existed in shelf " + shelfDetail.ShelfDetailID.ToString();
+                            string message = "Product " + shelfDetail.Product.ProductName + " are existed in shelf " + shelfDetail.ShelfID.ToString();
                             result.ErrorMessage = message;
                             result.IsSuccess = false;
                             return result;
                         }    
-                        
                     }
                     IEnumerable<InventoryDetail> inventory = await unitOfWork.InventoryDetailRepositoryDAO.Find(p => p.ProductID == oldShelfDetail.ProductID && p.ProductQuantity > newQuantity);
                     if (inventory.Any())
