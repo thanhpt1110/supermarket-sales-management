@@ -103,6 +103,7 @@
             this.txtBoxSearchShelf.Size = new System.Drawing.Size(285, 45);
             this.txtBoxSearchShelf.TabIndex = 15;
             this.txtBoxSearchShelf.TextOffset = new System.Drawing.Point(5, 0);
+            this.txtBoxSearchShelf.TextChanged += new System.EventHandler(this.txtBoxSearchShelf_TextChanged);
             // 
             // panelShelfContainer
             // 
@@ -145,7 +146,7 @@
             this.filterFloor.TextOffset = new System.Drawing.Point(5, 0);
             this.filterFloor.SelectedIndexChanged += new System.EventHandler(this.filterFloor_SelectedIndexChanged);
             // 
-            // FormProductShelfManagement
+            // FormShelfMap
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
@@ -155,7 +156,7 @@
             this.Controls.Add(this.txtBoxSearchShelf);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "FormProductShelfManagement";
+            this.Name = "FormShelfMap";
             this.Text = "FormProductShelfManagement";
             this.Shown += new System.EventHandler(this.FormProductShelfManagement_Shown);
             this.ResumeLayout(false);
