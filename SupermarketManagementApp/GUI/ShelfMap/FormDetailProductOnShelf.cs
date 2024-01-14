@@ -25,6 +25,7 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
         private List<DTO.Product> listProduct;
         private ProductBUS productBUS;
         private List<string> listProductName;
+
         public FormDetailProductOnShelf(FormShelfMap formProductShelfManagement,int shelfID, int totalCapacity, string name)
         {
             this.formProductShelfManagement = formProductShelfManagement;
@@ -33,13 +34,14 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
             InitializeComponent();
             msgBoxInfo.Parent = this;
             msgBoxError.Parent = this;
-            msgBoxDelete.Parent = this;
             this.totalShelfCapacity = totalCapacity;
             this.labelName.Text = name;
             dictionaryShelf = new Dictionary<int, ShelfDetail>();
-            
+            msgBoxError.Parent = this;
+            msgBoxInfo.Parent = this;
             getShelf(shelfID);
         }
+
         private async void getShelf(int id)
         {
             Result<DTO.Shelf> result = await shelfBUS.getShelfByID(id);
@@ -68,12 +70,6 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
             }
             UpdateProgressBar(shelfCapacity, usedShelfCapacity, totalShelfCapacity);
         }
-        List<string> products = new List<string>
-            {
-                "Abc",
-                "bac",
-                "cdad",
-            };
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -271,23 +267,20 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
 
             txtBoxQuantity.TextChanged += (sender, e) =>
             {
-                if (txtBoxQuantity.Text == string.Empty)
-                {
-                    txtBoxQuantity.Text = "0";
-                    shelfDetail.ProductQuantity = 0;
-                }
-                int quantityValue, capacityValue;
-                if (int.TryParse(txtBoxQuantity.Text, out quantityValue) && int.TryParse(txtBoxCapacity.Text, out capacityValue))
-                {
-                    shelfDetail.ProductQuantity = quantityValue;
-                    int _totalCapacity = quantityValue * capacityValue;
-                    layerUsedCapacity = _totalCapacity;
-                    txtBoxTotalCapacity.Text = _totalCapacity.ToString();
-                }
-                else
+                int quantityValue;
+                if (!string.IsNullOrEmpty(txtBoxQuantity.Text) && !int.TryParse(txtBoxQuantity.Text, out quantityValue))
                 {
                     msgBoxError.Parent = this;
-                    msgBoxError.Show("Please enter number only!");
+                    msgBoxError.Show("Please enter a valid number for Quantity!");
+                    return;
+                }
+                quantityValue = string.IsNullOrEmpty(txtBoxQuantity.Text) ? 0 : int.Parse(txtBoxQuantity.Text);
+                if (int.TryParse(txtBoxCapacity.Text, out int capacityValue))
+                {
+                    shelfDetail.ProductQuantity = quantityValue;
+                    int totalCapacity = quantityValue * capacityValue;
+                    layerUsedCapacity = totalCapacity;
+                    txtBoxTotalCapacity.Text = totalCapacity.ToString();
                 }
 
             };

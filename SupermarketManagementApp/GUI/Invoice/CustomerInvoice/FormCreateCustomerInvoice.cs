@@ -75,8 +75,8 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
             }
             else
             {
+                msgBoxError.Parent = this;
                 msgBoxError.Show("Load form failed");
-
             }
         }
         private async void LoadListCustomer()
@@ -92,6 +92,7 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
             }
             else
             {
+                msgBoxError.Parent = this;
                 msgBoxError.Show("Load form failed");
             }
         }
@@ -157,6 +158,7 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
             Result<DTO.CustomerInvoice> result = await customerInvoiceBUS.AddNewCustomerInvoice(customerInvoice);
             if(result.IsSuccess)
             {
+                msgBoxInfo.Parent = this;
                 msgBoxInfo.Show("Create invoice success");
                 this.Close();
             }
@@ -335,11 +337,17 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
             {
                 Control unitPrice = new Control();
                 Control totalPrice = new Control();
-                customerInvoiceDictionary[currentLine.Name].ProductQuantity = int.Parse(textBox.Text);
-                if (textBox.Text == String.Empty)
+
+                double unitPriceValue, quantityValue = 0;
+
+                if (!string.IsNullOrEmpty(textBox.Text) && !double.TryParse(textBox.Text, out quantityValue))
                 {
-                    textBox.Text = "0";
+                    msgBoxError.Parent = this;
+                    msgBoxError.Show("Please enter number only!");
+                    return;
                 }
+                customerInvoiceDictionary[currentLine.Name].ProductQuantity = (int)quantityValue;
+                
 
                 foreach (Control control in currentLine.Controls)
                 {
@@ -371,19 +379,9 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
                     }
                 }
 
-                double unitPriceValue, quantityValue;
-
-                // Kiểm tra xem các giá trị có thể chuyển đổi thành double không
-                if (double.TryParse(unitPrice.Text, out unitPriceValue) && double.TryParse(textBox.Text, out quantityValue))
+                if (double.TryParse(unitPrice.Text, out unitPriceValue))
                 {
-                    // Thực hiện phép nhân và cập nhật giá trị cho totalPrice
                     totalPrice.Text = (unitPriceValue * quantityValue).ToString();
-                }
-                else
-                {
-                    // Xử lý trường hợp không thể chuyển đổi giá trị
-                    msgBoxError.Parent = this;
-                    msgBoxError.Show("Please enter number only!");
                 }
             };
 

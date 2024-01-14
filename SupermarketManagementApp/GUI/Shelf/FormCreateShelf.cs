@@ -73,22 +73,49 @@ namespace SupermarketManagementApp.GUI.Shelf
 
         private void txtBoxLayerCapacity_TextChanged(object sender, EventArgs e)
         {
-            if(!string.IsNullOrEmpty(txtBoxLayerCapacity.Text) && !string.IsNullOrEmpty(txtBoxLayerCapacity.Text))
-                txtBoxTotalCapacity.Text = (int.Parse(txtBoxLayerCapacity.Text.Trim()) * int.Parse(txtBoxNumberOfLayer.Text.Trim())).ToString();
-            else
+            if (!string.IsNullOrEmpty(txtBoxLayerCapacity.Text) && IsNumber(txtBoxLayerCapacity.Text))
             {
-                txtBoxTotalCapacity.Text = "0";
+                if (!string.IsNullOrEmpty(txtBoxNumberOfLayer.Text) && IsNumber(txtBoxNumberOfLayer.Text))
+                {
+                    CalculateTotalCapacity();
+                }
+                else
+                    txtBoxTotalCapacity.Text = "0";
+            }
+            else if (!string.IsNullOrEmpty(txtBoxLayerCapacity.Text))
+            {
+                msgBoxError.Parent = this;
+                msgBoxError.Show("Please enter a valid number!");
             }
         }
 
         private void txtBoxNumberOfLayer_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtBoxLayerCapacity.Text) && !string.IsNullOrEmpty(txtBoxLayerCapacity.Text))
-                txtBoxTotalCapacity.Text = (int.Parse(txtBoxLayerCapacity.Text.Trim()) * int.Parse(txtBoxNumberOfLayer.Text.Trim())).ToString();
-            else
+            if (!string.IsNullOrEmpty(txtBoxNumberOfLayer.Text) && IsNumber(txtBoxNumberOfLayer.Text))
             {
-                txtBoxTotalCapacity.Text = "0";
+                if (!string.IsNullOrEmpty(txtBoxLayerCapacity.Text) && IsNumber(txtBoxLayerCapacity.Text))
+                {
+                    CalculateTotalCapacity();
+                }
+                else 
+                    txtBoxTotalCapacity.Text = "0";
+            }
+            else if (!string.IsNullOrEmpty(txtBoxNumberOfLayer.Text))
+            {
+                msgBoxError.Parent = this;
+                msgBoxError.Show("Please enter a valid number!");
             }
         }
+
+        private bool IsNumber(string text)
+        {
+            return int.TryParse(text, out _);
+        }
+
+        private void CalculateTotalCapacity()
+        {
+            txtBoxTotalCapacity.Text = (int.Parse(txtBoxLayerCapacity.Text.Trim()) * int.Parse(txtBoxNumberOfLayer.Text.Trim())).ToString();
+        }
+
     }
 }
