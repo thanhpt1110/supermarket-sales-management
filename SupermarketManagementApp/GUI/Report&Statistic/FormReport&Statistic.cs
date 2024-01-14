@@ -476,15 +476,17 @@ namespace SupermarketManagementApp.GUI.Report_Statistic
                 // Mở tài liệu
                 document.Open();
 
-                iTextSharp.text.Font hfont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 20f, iTextSharp.text.Font.BOLD);
-                iTextSharp.text.Font tfont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10f, iTextSharp.text.Font.ITALIC);
-                iTextSharp.text.Font font = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 14f);
+                iTextSharp.text.Font headerFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 13f, iTextSharp.text.Font.BOLD);
+                iTextSharp.text.Font dataFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 13f, iTextSharp.text.Font.NORMAL);
+                iTextSharp.text.Font hfont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 20f, iTextSharp.text.Font.BOLD);
+                iTextSharp.text.Font tfont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 10f, iTextSharp.text.Font.ITALIC);
+                iTextSharp.text.Font font = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 14f);
 
                 Paragraph Title = new Paragraph("Report", hfont);
                 Title.Alignment = Element.ALIGN_CENTER;
                 document.Add(Title);
 
-                Paragraph timeline = new Paragraph(DateTime.Now.ToString(), tfont);
+                Paragraph timeline = new Paragraph("At " + DateTime.Now.ToString(), tfont);
                 timeline.SpacingBefore = 14f;
                 timeline.Alignment = Element.ALIGN_CENTER;
                 document.Add(timeline);
@@ -493,10 +495,62 @@ namespace SupermarketManagementApp.GUI.Report_Statistic
                 r1.Alignment = Element.ALIGN_LEFT;
                 document.Add(r1);
 
+                Paragraph TopCustomer = new Paragraph("Top Customers", hfont);
+                TopCustomer.IndentationLeft = 52;
+                TopCustomer.SpacingBefore = 10f;
+                TopCustomer.Alignment = Element.ALIGN_LEFT;
+                document.Add(TopCustomer);
+
+                ////THÊM BẢNG TOP KHÁCH HÀNG
+                PdfPTable CusTable = new PdfPTable(dtgvCustomers.Columns.Count);
+
+                //Đặt chiều rộng cột của bảng dựa trên kích thước của DataGridView
+                float[] CusColumnWidths = new float[dtgvCustomers.Columns.Count];
+                for (int i = 0; i < dtgvCustomers.Columns.Count; i++)
+                {
+                    CusColumnWidths[i] = (float)dtgvCustomers.Columns[i].Width;
+                }
+                CusTable.SetWidths(CusColumnWidths);
+
+                // Thêm dòng tiêu đề từ DataGridView vào bảng PDF
+                for (int i = 0; i < dtgvCustomers.Columns.Count; i++)
+                {
+                    CusTable.AddCell(new Phrase(dtgvCustomers.Columns[i].HeaderText, headerFont));
+                }
+
+                // Thêm dữ liệu từ DataGridView vào bảng PDF        
+                int cusRow = 0;
+                if (dtgvProducts.Rows.Count > 10)
+                {
+                    cusRow = 10;
+                }
+                else
+                {
+                    cusRow = dtgvProducts.Rows.Count;
+                }
+                for (int i = 0; i < 5; i++)
+                {
+                    for (int j = 0; j < dtgvCustomers.Columns.Count; j++)
+                    {
+                        if (dtgvCustomers[j, i].Value != null)
+                        {
+                            CusTable.AddCell(new Phrase(dtgvCustomers[j, i].Value.ToString(), dataFont));
+                        }
+                    }
+                }
+                CusTable.SpacingBefore = 14f;
+                CusTable.SpacingAfter = 14f;
+                document.Add(CusTable);
+
+                Paragraph LowStockProduct = new Paragraph("Low Stock Products", hfont);
+                LowStockProduct.IndentationLeft = 52;
+                LowStockProduct.SpacingBefore = 8f;
+                LowStockProduct.Alignment = Element.ALIGN_LEFT;
+                document.Add(LowStockProduct);
+
                 ////THÊM BẢNG SẢN PHẦM CÒN 
                 // Tạo số lượng cột của DataGridView
                 PdfPTable table = new PdfPTable(dtgvProducts.Columns.Count);
-
                 // Đặt chiều rộng cột của bảng dựa trên kích thước của DataGridView
                 float[] columnWidths = new float[dtgvProducts.Columns.Count];
                 for (int i = 0; i < dtgvProducts.Columns.Count; i++)
@@ -508,7 +562,7 @@ namespace SupermarketManagementApp.GUI.Report_Statistic
                 // Thêm dòng tiêu đề từ DataGridView vào bảng PDF
                 for (int i = 0; i < dtgvProducts.Columns.Count; i++)
                 {
-                    table.AddCell(new Phrase(dtgvProducts.Columns[i].HeaderText));
+                    table.AddCell(new Phrase(dtgvProducts.Columns[i].HeaderText, headerFont));
                 }
 
                 // Thêm dữ liệu từ DataGridView vào bảng PDF
@@ -527,57 +581,13 @@ namespace SupermarketManagementApp.GUI.Report_Statistic
                     {
                         if (dtgvProducts[j, i].Value != null)
                         {
-                            table.AddCell(new Phrase(dtgvProducts[j, i].Value.ToString()));
+                            table.AddCell(new Phrase(dtgvProducts[j, i].Value.ToString(), dataFont));
                         }
                     }
                 }
                 table.SpacingBefore = 14f;
                 table.SpacingAfter = 14f;
-                document.Add(table);
-
-
-
-                ////THÊM BẢNG TOP KHÁCH HÀNG
-                PdfPTable CusTable = new PdfPTable(dtgvCustomers.Columns.Count);
-
-                //Đặt chiều rộng cột của bảng dựa trên kích thước của DataGridView
-                float[] CusColumnWidths = new float[dtgvCustomers.Columns.Count];
-                for (int i = 0; i < dtgvCustomers.Columns.Count; i++)
-                {
-                    CusColumnWidths[i] = (float)dtgvCustomers.Columns[i].Width;
-                }
-                CusTable.SetWidths(CusColumnWidths);
-
-                // Thêm dòng tiêu đề từ DataGridView vào bảng PDF
-                for (int i = 0; i < dtgvCustomers.Columns.Count; i++)
-                {
-                    CusTable.AddCell(new Phrase(dtgvCustomers.Columns[i].HeaderText));
-                }
-
-                // Thêm dữ liệu từ DataGridView vào bảng PDF
-                int cusRow = 0;
-                if (dtgvProducts.Rows.Count > 10)
-                {
-                    cusRow = 10;
-                }
-                else
-                {
-                    cusRow = dtgvProducts.Rows.Count;
-                }
-                for (int i = 0; i < cusRow; i++)
-                {
-                    for (int j = 0; j < dtgvCustomers.Columns.Count; j++)
-                    {
-                        if (dtgvCustomers[j, i].Value != null)
-                        {
-                            CusTable.AddCell(new Phrase(dtgvCustomers[j, i].Value.ToString()));
-                        }
-                    }
-                }
-                CusTable.SpacingBefore = 14f;
-                CusTable.SpacingAfter = 14f;
-                document.Add(CusTable);
-                
+                document.Add(table);            
 
 
                 //// THÊM BIỂU ĐỒ
@@ -621,12 +631,12 @@ namespace SupermarketManagementApp.GUI.Report_Statistic
                 ////KHAI BAO GOC PHAI
                 Paragraph txtReporter = new Paragraph("Reporter", font);
                 txtReporter.Alignment = Element.ALIGN_RIGHT;
-                txtReporter.IndentationRight = 30 ;
+                txtReporter.IndentationRight = 40;
                 txtReporter.SpacingBefore = 20f; 
                 txtReporter.SpacingAfter = 10f;
                 document.Add(txtReporter);
 
-                Paragraph txtName = new Paragraph(GlobalVariable.LoggedAccount.Employee.EmployeeName, tfont);
+                Paragraph txtName = new Paragraph(GlobalVariable.LoggedAccount.Employee.EmployeeName, headerFont);
                 txtName.Alignment = Element.ALIGN_RIGHT;
                 txtName.IndentationRight = 30;
                 txtName.SpacingBefore = 20f;

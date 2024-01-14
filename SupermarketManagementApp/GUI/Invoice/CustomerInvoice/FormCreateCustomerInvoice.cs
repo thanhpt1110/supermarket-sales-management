@@ -24,6 +24,7 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
         private ProductBUS productBUS;
         private List<DTO.Customer> customers;
         private Timer searchTimer;
+        private FormCustomerInvoiceManagement FormCustomerInvoiceManagement;
         List<DTO.Product> products = new List<DTO.Product>
             {
                 new DTO.Product
@@ -54,6 +55,22 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
         public FormCreateCustomerInvoice()
         {
             InitializeComponent();
+            msgBoxError.Parent = this;
+            msgBoxInfo.Parent = this;
+            customerInvoiceDictionary = new Dictionary<string, CustomerInvoiceDetail>();
+            customerInvoice = new DTO.CustomerInvoice();
+            customerBUS = CustomerBUS.GetInstance();
+            productBUS = ProductBUS.GetInstance();
+            customerInvoiceBUS = CustomerInvoiceBUS.GetInstance();
+            LoadProduct();
+            LoadListCustomer();
+            InitTimer();
+        }
+
+        public FormCreateCustomerInvoice(FormCustomerInvoiceManagement formCustomerInvoiceManagement)
+        {
+            InitializeComponent();
+            this.FormCustomerInvoiceManagement = formCustomerInvoiceManagement;
             msgBoxError.Parent = this;
             msgBoxInfo.Parent = this;
             customerInvoiceDictionary = new Dictionary<string, CustomerInvoiceDetail>();
@@ -160,6 +177,7 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
             {
                 msgBoxInfo.Parent = this;
                 msgBoxInfo.Show("Create invoice success");
+                FormCustomerInvoiceManagement.InitAllCustomerInvoice();
                 this.Close();
             }
             else

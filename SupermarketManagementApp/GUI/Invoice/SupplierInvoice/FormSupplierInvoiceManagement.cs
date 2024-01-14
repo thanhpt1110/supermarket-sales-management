@@ -147,7 +147,7 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             FormBackground formBackground = new FormBackground(formMain);
             try
             {
-                using (FormCreateSupplierInvoice formCreateSupplierInvoice = new FormCreateSupplierInvoice())
+                using (FormCreateSupplierInvoice formCreateSupplierInvoice = new FormCreateSupplierInvoice(this))
                 {
                     formBackground.Owner = formMain;
                     formBackground.Show();

@@ -78,13 +78,16 @@ namespace SupermarketManagementApp.DAO
                 shelfDetail.ProductID = entity.ProductID;
                 var shelf = context.Shelves.Find(shelfDetail.ShelfID);
                 int totalCapacity = 0;
-                foreach(ShelfDetail shelfDetail1 in shelf.ShelfDetails) { 
-                    if(shelfDetail.ProductID != null)
-                    {   
+                foreach (ShelfDetail shelfDetail1 in shelf.ShelfDetails)
+                {
+                    if (shelfDetail.ProductID != null)
+                    {
+                        if (shelfDetail.Product == null)
+                            shelfDetail.Product = await context.Products.FindAsync(shelfDetail.ProductID);
                         totalCapacity += shelfDetail.Product.ProductCapacity * shelfDetail.ProductQuantity;
                     }
-                }
-                if(totalCapacity == shelf.LayerCapacity * shelf.LayerQuantity)
+                }   
+                if (totalCapacity == shelf.LayerCapacity * shelf.LayerQuantity)
                 {
                     shelf.Status = "Full";
                 }

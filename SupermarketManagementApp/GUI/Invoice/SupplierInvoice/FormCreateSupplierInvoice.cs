@@ -28,11 +28,27 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
         private Dictionary<string,DTO.SupplierInvoiceDetail> productDictionary;
         private InvetoryDetailBUS invetoryDetailBUS;
         private int inventoryNumber;
+        private FormSupplierInvoiceManagement formSupplierInvoiceManagement;
         public FormCreateSupplierInvoice()
         {
             InitializeComponent();
             msgBoxInfo.Parent= this;
             msgBoxError.Parent= this;
+            productBUS = ProductBUS.GetInstance();
+            supplierInvoiceBUS = SupplierInvoiceBUS.GetInstance();
+            invetoryDetailBUS = InvetoryDetailBUS.GetInstance();
+            productDictionary = new Dictionary<string, DTO.SupplierInvoiceDetail>();
+            loadProduct();
+            LoadFirstCapacity();
+
+        }
+        
+        public FormCreateSupplierInvoice(FormSupplierInvoiceManagement formSupplierInvoiceManagement)
+        {
+            InitializeComponent();
+            this.formSupplierInvoiceManagement = formSupplierInvoiceManagement;
+            msgBoxInfo.Parent = this;
+            msgBoxError.Parent = this;
             productBUS = ProductBUS.GetInstance();
             supplierInvoiceBUS = SupplierInvoiceBUS.GetInstance();
             invetoryDetailBUS = InvetoryDetailBUS.GetInstance();
@@ -99,6 +115,7 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             {
                 msgBoxInfo.Parent = this;
                 msgBoxInfo.Show("Create invoice successfully");
+                formSupplierInvoiceManagement.InitAllSupplierInvoice();
                 this.Close();
             }
             else
