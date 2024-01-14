@@ -80,7 +80,7 @@ namespace SupermarketManagementApp.DAO
                 int totalCapacity = 0;
                 foreach(ShelfDetail shelfDetail1 in shelf.ShelfDetails) { 
                     if(shelfDetail.ProductID != null)
-                    {
+                    {   
                         totalCapacity += shelfDetail.Product.ProductCapacity * shelfDetail.ProductQuantity;
                     }
                 }

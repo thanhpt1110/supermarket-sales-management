@@ -63,7 +63,7 @@ CREATE TABLE InventoryDetail (
 	InventoryDetailID BIGINT PRIMARY KEY IDENTITY ,
     ProductID BIGINT,
     ProductQuantity INT,
-	FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
+	FOREIGN KEY (ProductID) REFERENCES Product(ProductID)	
 );
 
 CREATE TABLE Customer (
@@ -154,42 +154,20 @@ VALUES
 
 INSERT INTO Product (ProductTypeID, ProductName, UnitPrice, WholeSaleUnit, RetailUnit, UnitConversion, ProductCapacity)
 VALUES
-    (1, 'Rice', 20000, 'Kg', 'Pack', 5, 5),
-    (2, 'Smartphone', 6800000, 'Piece', 'Piece', 1, 2),
-    (3, 'T-Shirt', 150000, 'Piece', 'Piece', 1, 2),
-    (4, 'Refrigerator', 20000000, 'Piece', 'Piece', 1, 5),
-    (5, 'Book', 30000, 'Piece', 'Piece', 1, 2),
-    (6, 'Toy Car', 50000, 'Piece', 'Piece', 1, 2),
-    (7, 'Sofa', 3000000, 'Piece', 'Piece', 1, 10),
-    (8, 'Lipstick', 500000, 'Piece', 'Piece', 1, 2),
-    (9, 'Tennis Racket', 250000, 'Piece', 'Piece', 1, 2),
-    (10, 'Notebook', 20000, 'Piece', 'Piece', 1, 1);
+    (1, 'Rice', 50000, 'Bag', 'Kg', 10, 5),
+    (2, 'Smartphone', 15000000, 'Box', 'Piece', 1, 1),
+    (3, 'T-Shirt', 200000, 'Dozen', 'Piece', 12, 2),
+    (4, 'Refrigerator', 8000000, 'Set', 'Piece', 1, 1),
+    (5, 'Book', 80000, 'Box', 'Piece', 20, 5),
+    (6, 'Toy Car', 150000, 'Pack', 'Piece', 4, 4),
+    (7, 'Sofa', 5000000, 'Set', 'Piece', 1, 3),
+    (8, 'Lipstick', 300000, 'Pack', 'Piece', 3, 3),
+    (9, 'Tennis Racket', 500000, 'Pair', 'Piece', 2, 2),
+    (10, 'Notebook', 30000, 'Box', 'Piece', 5, 5);
 
-INSERT INTO Shelf (ShelfID, ShelfFloor, ProductTypeID, LayerQuantity, LayerCapacity, Status)
-VALUES
-    (101, 1, 1, 5, 20, 'Active'),
-    (201, 2, 2, 3, 15, 'Inactive'),
-    (301, 3, 3, 4, 25, 'Active'),
-    (202, 2, 4, 2, 10, 'Active'),
-    (302, 3, 5, 3, 15, 'Inactive'),
-    (102, 1, 6, 1, 5, 'Active'),
-    (303, 3, 7, 2, 10, 'Active'),
-    (203, 2, 8, 3, 15, 'Inactive'),
-    (103, 1, 9, 4, 20, 'Active'),
-    (204, 2, 10, 2, 10, 'Active');
+-- INSERT INTO Shelf (ShelfID, ShelfFloor, ProductTypeID, LayerQuantity, LayerCapacity, Status) VALUES
 
-INSERT INTO ShelfDetail (ShelfID, ProductID, ProductQuantity)
-VALUES
-    (101, 1, 20),
-    (201, 2, 10),
-    (301, 3, 30),
-    (202, 4, 3),
-    (302, 5, 20),
-    (102, 6, 2),
-    (303, 7, 1),
-    (203, 8, 5),
-    (103, 9, 10),
-    (204, 10, 20);
+-- INSERT INTO ShelfDetail (ShelfID, ProductID, ProductQuantity) VALUES
 
 INSERT INTO InventoryDetail (ProductID, ProductQuantity)
 VALUES

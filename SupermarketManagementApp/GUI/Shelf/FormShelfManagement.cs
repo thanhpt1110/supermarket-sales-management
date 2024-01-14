@@ -206,13 +206,38 @@ namespace SupermarketManagementApp.GUI.Shelf
         {
             try
             {
-                msgBoxError.Parent = formMain;
-                msgBoxError.Show();
+                if (gridView.Rows.Count > 0)
+                {
+                    Microsoft.Office.Interop.Excel.Application XcelApp = new Microsoft.Office.Interop.Excel.Application();
+                    XcelApp.Application.Workbooks.Add(Type.Missing);
+
+                    int row = gridView.Rows.Count;
+                    int col = gridView.Columns.Count;
+
+                    // Get Header text of Column
+                    for (int i = 1; i < col - 1 + 1; i++)
+                    {
+                        if (i == 1) continue;
+                        XcelApp.Cells[1, i - 1] = gridView.Columns[i - 1].HeaderText;
+                    }
+
+                    // Get data of cells
+                    for (int i = 0; i < row; i++)
+                    {
+                        for (int j = 1; j < col - 1; j++)
+                        {
+                            XcelApp.Cells[i + 2, j] = gridView.Rows[i].Cells[j].Value.ToString();
+                        }
+                    }
+
+                    XcelApp.Columns.AutoFit();
+                    XcelApp.Visible = true;
+                }
             }
             catch (Exception ex)
             {
                 msgBoxError.Parent = formMain;
-                msgBoxError.Show(ex.Message, "Error");  
+                msgBoxError.Show(ex.Message, "Error");
             }
         }
 
