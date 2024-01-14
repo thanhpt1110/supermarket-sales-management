@@ -110,7 +110,7 @@ namespace SupermarketManagementApp.BUS
                         var findShelfDetail = shelfDetails1.FirstOrDefault();
                         if (findShelfDetail != null && findShelfDetail.ShelfID != shelfDetail.ShelfID)
                         {
-                            string message = "Product " + shelfDetail.Product.ProductName + "are existed in shelf " + shelfDetail.ShelfDetailID.ToString();
+                            string message = "Product " + shelfDetail.Product.ProductName + " are existed in shelf " + shelfDetail.ShelfDetailID.ToString();
                             result.ErrorMessage = message;
                             result.IsSuccess = false;
                             return result;
