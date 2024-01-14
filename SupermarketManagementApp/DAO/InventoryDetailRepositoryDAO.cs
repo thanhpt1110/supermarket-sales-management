@@ -78,6 +78,7 @@ namespace SupermarketManagementApp.DAO
         {
             try
             {
+                SupermarketContext context = new SupermarketContext();
                 return await context.InventoryDetails.ToListAsync();
             }
             catch

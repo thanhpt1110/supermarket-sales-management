@@ -26,11 +26,13 @@ namespace SupermarketManagementApp.GUI.Product
         private ProductBUS productBUS = null;
         #endregion
         private List<DTO.Product> products = null;
+        private ProductTypeBUS productTypeBUS = null;
         public FormProductManagement(FormMain formMain)
         {
             this.formMain = formMain;
             
             productBUS = ProductBUS.GetInstance();
+            productTypeBUS = ProductTypeBUS.GetInstance();
             InitializeComponent();
             CustomStyleGridView();
             InitAllProduct();
@@ -64,11 +66,19 @@ namespace SupermarketManagementApp.GUI.Product
             }
         }
 
-        private void LoadGridData()
+        private async void LoadGridData()
         {
             gridView.Rows.Clear();
             foreach (var product in products)
             {
+                if(product.ProductType == null)
+                {
+                    Result<DTO.ProductType> result = await productTypeBUS.findProductTypeByID(product.ProductTypeID.Value);
+                    if (result.IsSuccess)
+                    {
+                        product.ProductType = result.Data;
+                    }
+                }
                 gridView.Rows.Add(new object[] { null, product.ProductID, product.ProductName, product.ProductType.ProductTypeName, string.Format("{0:N0} VND", product.UnitPrice), product.WholeSaleUnit,product.RetailUnit, product.UnitConversion });
             }
             UpdateScrollBarValues();

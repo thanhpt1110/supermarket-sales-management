@@ -27,10 +27,12 @@ namespace SupermarketManagementApp.GUI.Account
         #endregion
 
         private List<SupermarketManagementApp.DTO.Account> accounts = null;
+        private EmployeeBUS employeeBUS;
         public FormAccountManagement(FormMain formMain)
         {
             this.formMain = formMain;
             accountBUS = AccountBUS.GetInstance();
+            employeeBUS = EmployeeBUS.GetInstance();
             InitializeComponent();
             CustomStyleGridView();
             InitAllAccount();
@@ -56,11 +58,19 @@ namespace SupermarketManagementApp.GUI.Account
             }
             LoadGridData();
         }
-        private void LoadGridData()
+        private async void LoadGridData()
         {
             gridView.Rows.Clear();
             foreach (var account in accounts)
             {
+                if(account.Employee == null)
+                {
+                    Result<DTO.Employee> result = await employeeBUS.findEmployeeByID(account.EmployeeID.Value);
+                    if (result.IsSuccess)
+                    {
+                        account.Employee = result.Data;
+                    }
+                }
                 gridView.Rows.Add(new object[] { null, account.AccountID, account.Employee.EmployeeName, account.Username, account.Role });
             }
             UpdateScrollBarValues();
