@@ -95,7 +95,8 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             Result<DTO.SupplierInvoice> supplierResult = await supplierInvoiceBUS.AddNewSupplierInvoice(productDictionary, this.txtBoxCustomerName.Text);
             if(supplierResult.IsSuccess)
             {
-                MessageBox.Show("Create invoice successfully");
+                msgBoxInfo.Parent = this;
+                msgBoxInfo.Show("Create invoice successfully");
                 this.Close();
             }
             else
@@ -187,7 +188,6 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
                 if (productDictionary[currentLine.Name].Product!=null)
                 {
                     var product = productDictionary[currentLine.Name].Product;
-                    MessageBox.Show(product.ProductName);
                     PriceText = (product.UnitPrice * product.UnitConversion).ToString();
                     capacityText = (product.ProductCapacity * product.UnitConversion).ToString();
                 }    
@@ -285,11 +285,16 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
                 Control capacity = new Control();
                 Control totalCapacity = new Control();
 
-                if (textBox.Text == String.Empty)
+                double unitPriceValue, quantityValue = 0, capacityValue;
+
+                if (!string.IsNullOrEmpty(textBox.Text) && !double.TryParse(textBox.Text, out quantityValue))
                 {
-                    textBox.Text = "0";
+                    msgBoxError.Parent = this;
+                    msgBoxError.Show("Please enter number only!");
+                    return;
                 }
-                productDictionary[currentLine.Name].ProductQuantity = int.Parse(textBox.Text);
+
+                productDictionary[currentLine.Name].ProductQuantity = (int)quantityValue;
                 // Find text box for Total Price
                 foreach (Control control in currentLine.Controls)
                 {
@@ -354,23 +359,14 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
                     }
                 }
 
-                double unitPriceValue, quantityValue, capacityValue;
-                if (double.TryParse(textBox.Text, out quantityValue))
+                if (double.TryParse(unitPrice.Text, out unitPriceValue))
                 {
-                    if (double.TryParse(unitPrice.Text, out unitPriceValue))
-                    {
-                        totalPrice.Text = (unitPriceValue * quantityValue).ToString();
-                    }
-
-                    if (double.TryParse(capacity.Text, out capacityValue))
-                    {
-                        totalCapacity.Text = (capacityValue * quantityValue).ToString();
-                    }
+                    totalPrice.Text = (unitPriceValue * quantityValue).ToString();
                 }
-                else
+
+                if (double.TryParse(capacity.Text, out capacityValue))
                 {
-                    msgBoxError.Parent = this;
-                    msgBoxError.Show("Please enter number only!");
+                    totalCapacity.Text = (capacityValue * quantityValue).ToString();
                 }
             };
 

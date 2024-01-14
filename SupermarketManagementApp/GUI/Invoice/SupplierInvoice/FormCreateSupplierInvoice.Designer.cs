@@ -51,6 +51,7 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.availableCapacity = new Guna.UI2.WinForms.Guna2ProgressBar();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.msgBoxInfo = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelCustomerInformation.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
@@ -390,6 +391,15 @@
             this.guna2HtmlLabel2.TabIndex = 54;
             this.guna2HtmlLabel2.Text = "Inventory Capacity";
             // 
+            // msgBoxInfo
+            // 
+            this.msgBoxInfo.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            this.msgBoxInfo.Caption = "Information";
+            this.msgBoxInfo.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
+            this.msgBoxInfo.Parent = null;
+            this.msgBoxInfo.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
+            this.msgBoxInfo.Text = "Create account successfully!";
+            // 
             // FormCreateSupplierInvoice
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -445,5 +455,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2ProgressBar availableCapacity;
+        private Guna.UI2.WinForms.Guna2MessageDialog msgBoxInfo;
     }
 }
