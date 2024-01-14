@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Data.Entity;
 using System.Runtime.CompilerServices;
+using System.Data.Entity.Infrastructure;
 
 namespace SupermarketManagementApp.DAO
 {
@@ -22,6 +23,7 @@ namespace SupermarketManagementApp.DAO
         {
             try
             {
+                entity.ProductType = await context.ProductTypes.FindAsync(entity.ProductTypeID);
                 entity.ShelfID = await getNewShelfID(entity.ShelfFloor);
                 context.Shelves.Add(entity);
                 await context.SaveChangesAsync();
@@ -36,8 +38,23 @@ namespace SupermarketManagementApp.DAO
                 await context.SaveChangesAsync();
                 return entity;  
             }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                // Xử lý lỗi đồng thời (nếu cần)
+
+                foreach (var entry in ex.Entries)
+                {
+                    entry.Reload(); // Hoặc entry.State = EntityState.Detached; trước khi lấy lại dữ liệu
+                }
+
+                // Thực hiện lại các thao tác
+                // ...
+                await context.SaveChangesAsync();
+                throw;
+            }
             catch (Exception ex)
             {
+                context = new SupermarketContext();
                 throw;
             }
         }
@@ -52,7 +69,6 @@ namespace SupermarketManagementApp.DAO
             {
                 return floor * 100 + 1;
             }
-
             return (int) latestShelf.ShelfID + 1;
         }
 
@@ -63,8 +79,24 @@ namespace SupermarketManagementApp.DAO
                 var shelf = await context.Shelves.FindAsync(entity.ShelfID);
                 return shelf == null ? throw new NotExistedObjectException("Shelf is not existed") : await base.AddOrUpdate(entity);
             }
-            catch(Exception ex)
+            catch (DbUpdateConcurrencyException ex)
             {
+                // Xử lý lỗi đồng thời (nếu cần)
+
+                foreach (var entry in ex.Entries)
+                {
+                    entry.Reload(); // Hoặc entry.State = EntityState.Detached; trước khi lấy lại dữ liệu
+                }
+
+                // Thực hiện lại các thao tác
+                // ...
+                await context.SaveChangesAsync();
+                throw;
+
+            }
+            catch (Exception ex)
+            {
+                context = new SupermarketContext();
                 throw;
             }
         }
@@ -75,8 +107,24 @@ namespace SupermarketManagementApp.DAO
                 var shelf = await base.Find(predicate);
                 return shelf;
             }
-            catch(Exception e)
+            catch (DbUpdateConcurrencyException ex)
             {
+                // Xử lý lỗi đồng thời (nếu cần)
+
+                foreach (var entry in ex.Entries)
+                {
+                    entry.Reload(); // Hoặc entry.State = EntityState.Detached; trước khi lấy lại dữ liệu
+                }
+
+                // Thực hiện lại các thao tác
+                // ...
+                await context.SaveChangesAsync();
+                throw;
+
+            }
+            catch (Exception e)
+            {
+                context = new SupermarketContext();
                 throw;  
             }    
         }
@@ -87,7 +135,23 @@ namespace SupermarketManagementApp.DAO
                 var shelf = await context.Shelves.FindAsync(id);
                 return shelf ?? throw new NotExistedObjectException("Shelf is not existed");
             }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                // Xử lý lỗi đồng thời (nếu cần)
+
+                foreach (var entry in ex.Entries)
+                {
+                    entry.Reload(); // Hoặc entry.State = EntityState.Detached; trước khi lấy lại dữ liệu
+                }
+
+                // Thực hiện lại các thao tác
+                // ...
+                await context.SaveChangesAsync();
+                throw;
+
+            }
             catch {
+                context = new SupermarketContext();
                 throw;
             }
         }
@@ -99,8 +163,24 @@ namespace SupermarketManagementApp.DAO
                 if (shelf == null) throw new NotExistedObjectException("Shelf is not existed");
                 return await base.Update(entity);
             }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                // Xử lý lỗi đồng thời (nếu cần)
+
+                foreach (var entry in ex.Entries)
+                {
+                    entry.Reload(); // Hoặc entry.State = EntityState.Detached; trước khi lấy lại dữ liệu
+                }
+
+                // Thực hiện lại các thao tác
+                // ...
+                await context.SaveChangesAsync();
+                throw;
+
+            }
             catch (Exception e)
             {
+                context = new SupermarketContext();
                 throw;
             }
         }
@@ -114,8 +194,24 @@ namespace SupermarketManagementApp.DAO
                     throw new ObjectDependException("Product on shelf is still existed");
                 return await base.RemoveByID(id);
             }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                // Xử lý lỗi đồng thời (nếu cần)
+
+                foreach (var entry in ex.Entries)
+                {
+                    entry.Reload(); // Hoặc entry.State = EntityState.Detached; trước khi lấy lại dữ liệu
+                }
+
+                // Thực hiện lại các thao tác
+                // ...
+                await context.SaveChangesAsync();
+                throw;
+
+            }
             catch (Exception e)
             {
+                context = new SupermarketContext(); 
                 throw;
             }
         }
