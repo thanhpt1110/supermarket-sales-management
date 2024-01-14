@@ -37,6 +37,7 @@ namespace SupermarketManagementApp
             btnDashboard.CustomImages.Image = Resources.white_gauge;
             OpenChildForm(new FormDashboard());
             accountName.Text = GlobalVariable.LoggedAccount.Employee.EmployeeName;
+            accountRole.Text = GlobalVariable.LoggedAccount.Role;
             ProcessUIAuthorization(GlobalVariable.LoggedAccount.Role);
         }
 

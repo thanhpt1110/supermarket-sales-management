@@ -152,13 +152,14 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
             FormBackground formBackground = new FormBackground(formMain);
             try
             {
-                using (FormCreateCustomerInvoice formCreateCustomerInvoice = new FormCreateCustomerInvoice())
+                using (FormCreateCustomerInvoice formCreateCustomerInvoice = new FormCreateCustomerInvoice(this))
                 {
                     formBackground.Owner = formMain;
                     formBackground.Show();
                     formCreateCustomerInvoice.Owner = formBackground;
                     formCreateCustomerInvoice.ShowDialog();
                     formBackground.Dispose();
+                    LoadGridData();
                 }
             }
             catch (Exception ex)
