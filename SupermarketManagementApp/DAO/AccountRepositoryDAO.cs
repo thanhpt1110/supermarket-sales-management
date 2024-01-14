@@ -4,6 +4,7 @@ using SupermarketManagementApp.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Linq.Expressions;
@@ -31,6 +32,21 @@ namespace SupermarketManagementApp.DAO
                 }
                 return account;
             }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                // Xử lý lỗi đồng thời (nếu cần)
+
+                foreach (var entry in ex.Entries)
+                {
+                    entry.Reload(); // Hoặc entry.State = EntityState.Detached; trước khi lấy lại dữ liệu
+                }
+
+                // Thực hiện lại các thao tác
+                // ...
+                await context.SaveChangesAsync();
+                throw;
+
+            }
             catch (Exception ex) { throw; }
 
         }
@@ -39,6 +55,21 @@ namespace SupermarketManagementApp.DAO
             try
             {
                 return await base.GetAll();
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                // Xử lý lỗi đồng thời (nếu cần)
+
+                foreach (var entry in ex.Entries)
+                {
+                    entry.Reload(); // Hoặc entry.State = EntityState.Detached; trước khi lấy lại dữ liệu
+                }
+
+                // Thực hiện lại các thao tác
+                // ...
+                await context.SaveChangesAsync();
+                throw;
+
             }
             catch (Exception ex) { throw; }
         }
@@ -58,6 +89,21 @@ namespace SupermarketManagementApp.DAO
                 await context.SaveChangesAsync();
                 return account;
             }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                // Xử lý lỗi đồng thời (nếu cần)
+
+                foreach (var entry in ex.Entries)
+                {
+                    entry.Reload(); // Hoặc entry.State = EntityState.Detached; trước khi lấy lại dữ liệu
+                }
+
+                // Thực hiện lại các thao tác
+                // ...
+                await context.SaveChangesAsync();
+                throw;
+
+            }
             catch (Exception ex)
             {
                 throw;
@@ -73,6 +119,21 @@ namespace SupermarketManagementApp.DAO
                     throw (new ExistedObjectException("Account already existed"));
                 }
                 return base.Add(entity);
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                // Xử lý lỗi đồng thời (nếu cần)
+
+                foreach (var entry in ex.Entries)
+                {
+                    entry.Reload(); // Hoặc entry.State = EntityState.Detached; trước khi lấy lại dữ liệu
+                }
+
+                // Thực hiện lại các thao tác
+                // ...
+                context.SaveChanges();
+                throw;
+
             }
             catch (Exception ex)
             {
@@ -90,6 +151,21 @@ namespace SupermarketManagementApp.DAO
                 }
                 return await base.RemoveByID(AccountID);
             }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                // Xử lý lỗi đồng thời (nếu cần)
+
+                foreach (var entry in ex.Entries)
+                {
+                    entry.Reload(); // Hoặc entry.State = EntityState.Detached; trước khi lấy lại dữ liệu
+                }
+
+                // Thực hiện lại các thao tác
+                // ...
+                await context.SaveChangesAsync();
+                throw;
+
+            }
             catch {
                 throw;
             }
@@ -99,6 +175,21 @@ namespace SupermarketManagementApp.DAO
             try
             {
                 return base.Find(predicate);
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                // Xử lý lỗi đồng thời (nếu cần)
+
+                foreach (var entry in ex.Entries)
+                {
+                    entry.Reload(); // Hoặc entry.State = EntityState.Detached; trước khi lấy lại dữ liệu
+                }
+
+                // Thực hiện lại các thao tác
+                // ...
+                context.SaveChanges();
+                throw;
+
             }
             catch
             {
