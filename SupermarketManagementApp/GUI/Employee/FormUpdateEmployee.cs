@@ -27,6 +27,8 @@ namespace SupermarketManagementApp.GUI.Employee
             this.formEmployeeManagement = formEmployeeManagement;
             employeeBUS = EmployeeBUS.GetInstance();
             InitializeComponent();
+            msgBoxInfo.Parent= this;
+            msgBoxError.Parent= this;
             loadEmployee(id);
         }
         private async void loadEmployee(long _id)
@@ -44,7 +46,7 @@ namespace SupermarketManagementApp.GUI.Employee
             }
             else
             {
-                MessageBox.Show("Load employee failed!!");
+                msgBoxError.Show("Load employee failed!!");
                 this.Close();
             }
         }
@@ -63,13 +65,13 @@ namespace SupermarketManagementApp.GUI.Employee
             Result<DTO.Employee> result = await employeeBUS.updateEmployee(employee);
             if(result.IsSuccess)
             {
-                MessageBox.Show("Update employee success");
+                msgBoxInfo.Show("Update employee success");
                 this.formEmployeeManagement.InitAllEmployee();
                 this.Close();
             }
             else
             {
-                MessageBox.Show(result.ErrorMessage);
+                msgBoxError.Show(result.ErrorMessage);
             }
         }
     }

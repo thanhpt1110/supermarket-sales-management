@@ -27,9 +27,13 @@ namespace SupermarketManagementApp.GUI.Product.ProductType
         {
             this.formMain = formMain;
             productTypeBUS = ProductTypeBUS.GetInstance();
+           
             InitializeComponent();
             CustomStyleGridView();
             InitAllProductType();
+            msgBoxInfo.Parent = formMain;
+            msgBoxError.Parent = formMain;
+            msgBoxDelete.Parent = formMain;
             InitTimer();
         }
 
@@ -246,7 +250,7 @@ namespace SupermarketManagementApp.GUI.Product.ProductType
                                 Result<bool> result = await productTypeBUS.deteleProductType(int.Parse(gridView.Rows[y].Cells[1].Value.ToString()));
                                 if (result.IsSuccess)
                                 {
-                                    MessageBox.Show("Remove Product Type successfully!", "Success", MessageBoxButtons.OK);
+                                    msgBoxInfo.Show("Remove Product Type successfully!");
                                     InitAllProductType();
                                 }
                                 else

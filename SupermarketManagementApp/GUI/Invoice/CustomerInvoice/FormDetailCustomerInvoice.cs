@@ -145,7 +145,7 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
             }
             else
             {
-                MessageBox.Show(result.ErrorMessage);
+                msgBoxError.Show(result.ErrorMessage);
             }
 
         }

@@ -54,6 +54,8 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
         public FormCreateCustomerInvoice()
         {
             InitializeComponent();
+            msgBoxError.Parent = this;
+            msgBoxInfo.Parent = this;
             customerInvoiceDictionary = new Dictionary<string, CustomerInvoiceDetail>();
             customerInvoice = new DTO.CustomerInvoice();
             customerBUS = CustomerBUS.GetInstance();
@@ -146,7 +148,7 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
                 }
                 else
                 {
-                    MessageBox.Show(resultCustomer.ErrorMessage);
+                    msgBoxError.Show(resultCustomer.ErrorMessage);
                     return;
                 }
             }
@@ -162,7 +164,7 @@ namespace SupermarketManagementApp.GUI.Invoice.CustomerInvoice
             }
             else
             {
-                MessageBox.Show(result.ErrorMessage);
+                msgBoxError.Show(result.ErrorMessage);
             }
         }
 

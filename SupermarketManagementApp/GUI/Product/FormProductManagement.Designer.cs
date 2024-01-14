@@ -28,14 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.msgBoxInfo = new Guna.UI2.WinForms.Guna2MessageDialog();
-            this.msgBoxDelete = new Guna.UI2.WinForms.Guna2MessageDialog();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
             this.btnCreateProduct = new Guna.UI2.WinForms.Guna2Button();
-            this.msgBoxError = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.scrollBar = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.gridViewMain = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -54,27 +51,12 @@
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.txtBoxSearchProduct = new Guna.UI2.WinForms.Guna2TextBox();
+            this.msgBoxError = new Guna.UI2.WinForms.Guna2MessageDialog();
+            this.msgBoxDelete = new Guna.UI2.WinForms.Guna2MessageDialog();
+            this.msgBoxInfo = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.guna2ShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewMain)).BeginInit();
             this.SuspendLayout();
-            // 
-            // msgBoxInfo
-            // 
-            this.msgBoxInfo.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
-            this.msgBoxInfo.Caption = "Information";
-            this.msgBoxInfo.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
-            this.msgBoxInfo.Parent = null;
-            this.msgBoxInfo.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
-            this.msgBoxInfo.Text = "Create Product successfully!";
-            // 
-            // msgBoxDelete
-            // 
-            this.msgBoxDelete.Buttons = Guna.UI2.WinForms.MessageDialogButtons.YesNo;
-            this.msgBoxDelete.Caption = "Delete File";
-            this.msgBoxDelete.Icon = Guna.UI2.WinForms.MessageDialogIcon.Warning;
-            this.msgBoxDelete.Parent = null;
-            this.msgBoxDelete.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
-            this.msgBoxDelete.Text = "Are you sure you want to delete this file?";
             // 
             // btnExportExcel
             // 
@@ -115,15 +97,6 @@
             this.btnCreateProduct.Text = "Create Product";
             this.btnCreateProduct.TextOffset = new System.Drawing.Point(0, -1);
             this.btnCreateProduct.Click += new System.EventHandler(this.btnCreateProduct_Click);
-            // 
-            // msgBoxError
-            // 
-            this.msgBoxError.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
-            this.msgBoxError.Caption = "Error";
-            this.msgBoxError.Icon = Guna.UI2.WinForms.MessageDialogIcon.Error;
-            this.msgBoxError.Parent = null;
-            this.msgBoxError.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
-            this.msgBoxError.Text = "There were some errors, please try again later!";
             // 
             // guna2ShadowPanel1
             // 
@@ -168,19 +141,19 @@
             this.gridViewMain.AllowUserToDeleteRows = false;
             this.gridViewMain.AllowUserToResizeColumns = false;
             this.gridViewMain.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.gridViewMain.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.gridViewMain.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.gridViewMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridViewMain.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewMain.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.gridViewMain.ColumnHeadersHeight = 50;
             this.gridViewMain.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.icon,
@@ -194,14 +167,14 @@
             this.Info,
             this.Edit,
             this.Delete});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridViewMain.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridViewMain.DefaultCellStyle = dataGridViewCellStyle6;
             this.gridViewMain.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gridViewMain.Location = new System.Drawing.Point(28, 3);
             this.gridViewMain.Name = "gridViewMain";
@@ -392,6 +365,33 @@
             this.txtBoxSearchProduct.TextOffset = new System.Drawing.Point(5, 0);
             this.txtBoxSearchProduct.TextChanged += new System.EventHandler(this.txtBoxSearchProduct_TextChanged);
             // 
+            // msgBoxError
+            // 
+            this.msgBoxError.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            this.msgBoxError.Caption = "Error";
+            this.msgBoxError.Icon = Guna.UI2.WinForms.MessageDialogIcon.Error;
+            this.msgBoxError.Parent = null;
+            this.msgBoxError.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
+            this.msgBoxError.Text = "There were some errors, please try again later!";
+            // 
+            // msgBoxDelete
+            // 
+            this.msgBoxDelete.Buttons = Guna.UI2.WinForms.MessageDialogButtons.YesNo;
+            this.msgBoxDelete.Caption = "Delete File";
+            this.msgBoxDelete.Icon = Guna.UI2.WinForms.MessageDialogIcon.Warning;
+            this.msgBoxDelete.Parent = null;
+            this.msgBoxDelete.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
+            this.msgBoxDelete.Text = "Are you sure you want to delete this file?";
+            // 
+            // msgBoxInfo
+            // 
+            this.msgBoxInfo.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            this.msgBoxInfo.Caption = "Information";
+            this.msgBoxInfo.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
+            this.msgBoxInfo.Parent = null;
+            this.msgBoxInfo.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
+            this.msgBoxInfo.Text = "Create Product successfully!";
+            // 
             // FormProductManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
@@ -413,14 +413,11 @@
         }
 
         #endregion
-        private Guna.UI2.WinForms.Guna2MessageDialog msgBoxInfo;
-        private Guna.UI2.WinForms.Guna2MessageDialog msgBoxDelete;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private Guna.UI2.WinForms.Guna2Button btnExportExcel;
         private Guna.UI2.WinForms.Guna2Button btnCreateProduct;
-        private Guna.UI2.WinForms.Guna2MessageDialog msgBoxError;
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel1;
         private Guna.UI2.WinForms.Guna2VScrollBar scrollBar;
         private Guna.UI2.WinForms.Guna2DataGridView gridViewMain;
@@ -436,5 +433,8 @@
         private System.Windows.Forms.DataGridViewImageColumn Info;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
+        private Guna.UI2.WinForms.Guna2MessageDialog msgBoxError;
+        private Guna.UI2.WinForms.Guna2MessageDialog msgBoxDelete;
+        private Guna.UI2.WinForms.Guna2MessageDialog msgBoxInfo;
     }
 }

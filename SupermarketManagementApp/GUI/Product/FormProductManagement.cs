@@ -29,10 +29,14 @@ namespace SupermarketManagementApp.GUI.Product
         public FormProductManagement(FormMain formMain)
         {
             this.formMain = formMain;
+            
             productBUS = ProductBUS.GetInstance();
             InitializeComponent();
             CustomStyleGridView();
             InitAllProduct();
+            msgBoxInfo.Parent = formMain;
+            msgBoxError.Parent = formMain;
+            msgBoxDelete.Parent = formMain;
             InitTimer();
         }
 
@@ -273,7 +277,7 @@ namespace SupermarketManagementApp.GUI.Product
                                 Result<bool> result = await productBUS.deleteProduct(int.Parse(gridView.Rows[y].Cells[1].Value.ToString()));
                                 if (result.IsSuccess)
                                 {
-                                    MessageBox.Show("Remove account successfully!", "Success", MessageBoxButtons.OK);
+                                    msgBoxInfo.Show("Remove account successfully!");
                                     InitAllProduct();
                                 }
                                 else

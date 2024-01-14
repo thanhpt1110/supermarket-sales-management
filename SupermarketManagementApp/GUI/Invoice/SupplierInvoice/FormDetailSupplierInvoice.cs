@@ -20,6 +20,7 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
         public FormDetailSupplierInvoice(long id)
         {
             InitializeComponent();
+            msgBoxError.Parent = this;
             supplierInvoiceBUS = SupplierInvoiceBUS.GetInstance();
             loadInvoiceDetails(id);
         }

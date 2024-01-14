@@ -31,6 +31,8 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
         public FormCreateSupplierInvoice()
         {
             InitializeComponent();
+            msgBoxInfo.Parent= this;
+            msgBoxError.Parent= this;
             productBUS = ProductBUS.GetInstance();
             supplierInvoiceBUS = SupplierInvoiceBUS.GetInstance();
             invetoryDetailBUS = InvetoryDetailBUS.GetInstance();
@@ -50,7 +52,7 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             }
             else
             {
-                MessageBox.Show(productResult.ErrorMessage);
+                msgBoxError.Show(productResult.ErrorMessage);
                 this.Close();
             }
         }
@@ -101,7 +103,7 @@ namespace SupermarketManagementApp.GUI.Invoice.SupplierInvoice
             }
             else
             {
-                MessageBox.Show(supplierResult.ErrorMessage,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                msgBoxError.Show(supplierResult.ErrorMessage);
             }
         }
 

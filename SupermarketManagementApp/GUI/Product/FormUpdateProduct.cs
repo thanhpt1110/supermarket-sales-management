@@ -25,6 +25,9 @@ namespace SupermarketManagementApp.GUI.Product
         public FormUpdateProduct(FormProductManagement formProductManagement, int id)
         {
             InitializeComponent();
+            msgBoxInfo.Parent = this;
+            msgBoxError.Parent = this;
+            msgBoxDelete.Parent = this;
             productBUS = ProductBUS.GetInstance();
             productTypeBUS = ProductTypeBUS.GetInstance();
             this.formProductManagement = formProductManagement;
@@ -39,7 +42,12 @@ namespace SupermarketManagementApp.GUI.Product
             if (result.IsSuccess)
             {
                 this.product.ProductID = result.Data.ProductID;
-
+                if(result.Data.ProductType==null)
+                {
+                    Result<DTO.ProductType> result1 = await productTypeBUS.findProductTypeByID(result.Data.ProductTypeID.Value);
+                    if (result1.IsSuccess)
+                        result.Data.ProductType = result1.Data;
+                }    
                 this.cbBoxProductType.Text = result.Data.ProductType.ProductTypeName;
                 this.txtBoxProductName.Text = result.Data.ProductName;
                 this.txtUnitPrice.Text = result.Data.UnitPrice.ToString();
@@ -51,7 +59,7 @@ namespace SupermarketManagementApp.GUI.Product
             }
             else
             {
-                MessageBox.Show("Load Product failed!!");
+                msgBoxError.Show("Load Product failed!!");
                 this.Close();
             }
         }
@@ -83,13 +91,13 @@ namespace SupermarketManagementApp.GUI.Product
             Result<DTO.Product> result = await productBUS.updateProduct(product);
             if (result.IsSuccess)
             {
-                MessageBox.Show("Update Product successfully!");
+                msgBoxInfo.Show("Update Product successfully!");
                 this.formProductManagement.InitAllProduct();
                 this.Close();
             }
             else
             {
-                MessageBox.Show(result.ErrorMessage);
+                msgBoxError.Show(result.ErrorMessage);
             }
         }
     }

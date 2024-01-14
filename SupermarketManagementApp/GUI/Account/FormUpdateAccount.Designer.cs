@@ -46,6 +46,8 @@
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.borderLessForm = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
+            this.msgBoxError = new Guna.UI2.WinForms.Guna2MessageDialog();
+            this.msgBoxInfo = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,7 +83,7 @@
             this.guna2HtmlLabel4.ForeColor = System.Drawing.Color.Red;
             this.guna2HtmlLabel4.Location = new System.Drawing.Point(84, 109);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(10, 23);
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(12, 30);
             this.guna2HtmlLabel4.TabIndex = 10;
             this.guna2HtmlLabel4.Text = "*";
             // 
@@ -91,7 +93,7 @@
             this.labelRole.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRole.Location = new System.Drawing.Point(50, 109);
             this.labelRole.Name = "labelRole";
-            this.labelRole.Size = new System.Drawing.Size(34, 23);
+            this.labelRole.Size = new System.Drawing.Size(42, 30);
             this.labelRole.TabIndex = 9;
             this.labelRole.Text = "Role";
             // 
@@ -126,7 +128,7 @@
             this.labelRequired1.ForeColor = System.Drawing.Color.Red;
             this.labelRequired1.Location = new System.Drawing.Point(124, 199);
             this.labelRequired1.Name = "labelRequired1";
-            this.labelRequired1.Size = new System.Drawing.Size(10, 23);
+            this.labelRequired1.Size = new System.Drawing.Size(12, 30);
             this.labelRequired1.TabIndex = 1;
             this.labelRequired1.Text = "*";
             // 
@@ -136,7 +138,7 @@
             this.labelUsername.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUsername.Location = new System.Drawing.Point(50, 199);
             this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(74, 23);
+            this.labelUsername.Size = new System.Drawing.Size(90, 30);
             this.labelUsername.TabIndex = 0;
             this.labelUsername.Text = "Username";
             // 
@@ -147,7 +149,7 @@
             this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.Red;
             this.guna2HtmlLabel3.Location = new System.Drawing.Point(140, 21);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(10, 23);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(12, 30);
             this.guna2HtmlLabel3.TabIndex = 7;
             this.guna2HtmlLabel3.Text = "*";
             // 
@@ -157,7 +159,7 @@
             this.labelEmployeeID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEmployeeID.Location = new System.Drawing.Point(50, 21);
             this.labelEmployeeID.Name = "labelEmployeeID";
-            this.labelEmployeeID.Size = new System.Drawing.Size(90, 23);
+            this.labelEmployeeID.Size = new System.Drawing.Size(113, 30);
             this.labelEmployeeID.TabIndex = 10;
             this.labelEmployeeID.Text = "Employee ID";
             // 
@@ -168,7 +170,7 @@
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Red;
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(122, 297);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(10, 23);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(12, 30);
             this.guna2HtmlLabel1.TabIndex = 4;
             this.guna2HtmlLabel1.Text = "*";
             // 
@@ -178,7 +180,7 @@
             this.labelPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPassword.Location = new System.Drawing.Point(50, 297);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(70, 23);
+            this.labelPassword.Size = new System.Drawing.Size(85, 30);
             this.labelPassword.TabIndex = 3;
             this.labelPassword.Text = "Password";
             // 
@@ -214,7 +216,7 @@
             this.labelForm.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelForm.Location = new System.Drawing.Point(200, 30);
             this.labelForm.Name = "labelForm";
-            this.labelForm.Size = new System.Drawing.Size(210, 39);
+            this.labelForm.Size = new System.Drawing.Size(260, 48);
             this.labelForm.TabIndex = 8;
             this.labelForm.Text = "Update Account";
             // 
@@ -318,6 +320,24 @@
             this.borderLessForm.ResizeForm = false;
             this.borderLessForm.TransparentWhileDrag = true;
             // 
+            // msgBoxError
+            // 
+            this.msgBoxError.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            this.msgBoxError.Caption = "Error";
+            this.msgBoxError.Icon = Guna.UI2.WinForms.MessageDialogIcon.Error;
+            this.msgBoxError.Parent = null;
+            this.msgBoxError.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
+            this.msgBoxError.Text = "There were some errors, please try again later!";
+            // 
+            // msgBoxInfo
+            // 
+            this.msgBoxInfo.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            this.msgBoxInfo.Caption = "Information";
+            this.msgBoxInfo.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
+            this.msgBoxInfo.Parent = null;
+            this.msgBoxInfo.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
+            this.msgBoxInfo.Text = "Create account successfully!";
+            // 
             // FormUpdateAccount
             // 
             this.AcceptButton = this.btnSave;
@@ -359,5 +379,7 @@
         private Guna.UI2.WinForms.Guna2Button btnSave;
         private Guna.UI2.WinForms.Guna2Button btnCancel;
         private Guna.UI2.WinForms.Guna2BorderlessForm borderLessForm;
+        private Guna.UI2.WinForms.Guna2MessageDialog msgBoxError;
+        private Guna.UI2.WinForms.Guna2MessageDialog msgBoxInfo;
     }
 }

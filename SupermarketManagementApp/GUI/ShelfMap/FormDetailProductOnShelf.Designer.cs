@@ -176,5 +176,6 @@
         private Guna.UI2.WinForms.Guna2BorderlessForm borderLessForm;
         private Guna.UI2.WinForms.Guna2MessageDialog msgBoxError;
         private Guna.UI2.WinForms.Guna2MessageDialog msgBoxInfo;
+        private Guna.UI2.WinForms.Guna2MessageDialog msgBoxDelete;
     }
 }

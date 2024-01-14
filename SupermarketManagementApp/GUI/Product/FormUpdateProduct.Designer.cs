@@ -58,6 +58,9 @@
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.labelForm = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.msgBoxError = new Guna.UI2.WinForms.Guna2MessageDialog();
+            this.msgBoxDelete = new Guna.UI2.WinForms.Guna2MessageDialog();
+            this.msgBoxInfo = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -504,6 +507,33 @@
             this.guna2Panel1.Size = new System.Drawing.Size(500, 588);
             this.guna2Panel1.TabIndex = 19;
             // 
+            // msgBoxError
+            // 
+            this.msgBoxError.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            this.msgBoxError.Caption = "Error";
+            this.msgBoxError.Icon = Guna.UI2.WinForms.MessageDialogIcon.Error;
+            this.msgBoxError.Parent = null;
+            this.msgBoxError.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
+            this.msgBoxError.Text = "There were some errors, please try again later!";
+            // 
+            // msgBoxDelete
+            // 
+            this.msgBoxDelete.Buttons = Guna.UI2.WinForms.MessageDialogButtons.YesNo;
+            this.msgBoxDelete.Caption = "Delete File";
+            this.msgBoxDelete.Icon = Guna.UI2.WinForms.MessageDialogIcon.Warning;
+            this.msgBoxDelete.Parent = null;
+            this.msgBoxDelete.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
+            this.msgBoxDelete.Text = "Are you sure you want to delete this file?";
+            // 
+            // msgBoxInfo
+            // 
+            this.msgBoxInfo.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            this.msgBoxInfo.Caption = "Information";
+            this.msgBoxInfo.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
+            this.msgBoxInfo.Parent = null;
+            this.msgBoxInfo.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
+            this.msgBoxInfo.Text = "Create Product successfully!";
+            // 
             // FormUpdateProduct
             // 
             this.AcceptButton = this.btnSave;
@@ -557,5 +587,8 @@
         private Guna.UI2.WinForms.Guna2Button btnSave;
         private Guna.UI2.WinForms.Guna2HtmlLabel labelForm;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2MessageDialog msgBoxError;
+        private Guna.UI2.WinForms.Guna2MessageDialog msgBoxDelete;
+        private Guna.UI2.WinForms.Guna2MessageDialog msgBoxInfo;
     }
 }

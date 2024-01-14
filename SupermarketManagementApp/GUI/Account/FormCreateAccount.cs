@@ -23,6 +23,8 @@ namespace SupermarketManagementApp.GUI.Account
         public FormCreateAccount(FormAccountManagement formAccountManagement)
         {
             InitializeComponent();
+            msgBoxInfo.Parent = this;
+            msgBoxError.Parent = this;
             txtBoxPassword.IconRightClick += txtBoxPassword_IconRightClick;
             accountBUS = AccountBUS.GetInstance();
             employeeBUS = EmployeeBUS.GetInstance();
@@ -54,12 +56,12 @@ namespace SupermarketManagementApp.GUI.Account
             Result<DTO.Account> result = await accountBUS.createNewAccount(account);
             if (result.IsSuccess)
             {
-                MessageBox.Show("Create account success!");
+                msgBoxInfo.Show("Create account success!");
                 formAccountManagement.InitAllAccount();
             }
             else
             {
-                MessageBox.Show(result.ErrorMessage);
+                msgBoxError.Show(result.ErrorMessage);
                 return;
             }
             this.Close();

@@ -26,6 +26,8 @@ namespace SupermarketManagementApp.GUI.Account
         public FormUpdateAccount(FormAccountManagement formAccountManagement, int id)
         {
             InitializeComponent();
+            msgBoxError.Parent = this;
+            this.msgBoxInfo.Parent = this;
             accountBUS = AccountBUS.GetInstance();
             employeeBUS = EmployeeBUS.GetInstance();
             this.formAccountManagement = formAccountManagement;
@@ -45,11 +47,11 @@ namespace SupermarketManagementApp.GUI.Account
                 this.cbBoxRole.Text = result.Data.Role;
                 this.txtBoxUsername.Text = result.Data.Username;
                 this.txtBoxPassword.Text = result.Data.Password;
-               
+                this.Close();
             }
             else
             {
-                MessageBox.Show("Load employee failed!!");
+                msgBoxError.Show("Load employee failed!!");
                 this.Close();
             }
         }
@@ -78,13 +80,13 @@ namespace SupermarketManagementApp.GUI.Account
             Result<DTO.Account> result = await accountBUS.updateAccount(account);
             if (result.IsSuccess)
             {
-                MessageBox.Show("Update Account successfully!");
+                msgBoxInfo.Show("Update Account successfully!");
                 this.formAccountManagement.InitAllAccount();
                 this.Close();
             }
             else
             {
-                MessageBox.Show(result.ErrorMessage);
+                msgBoxError.Show(result.ErrorMessage);
             }
         }
 
