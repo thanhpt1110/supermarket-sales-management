@@ -132,7 +132,7 @@ namespace SupermarketManagementApp.DAO
         {
             try
             {
-                var shelf = await context.Shelves.FindAsync(id);
+                var shelf = await context.Shelves.AsNoTracking().FirstOrDefaultAsync(p=>p.ShelfID ==id);
                 return shelf ?? throw new NotExistedObjectException("Shelf is not existed");
             }
             catch (DbUpdateConcurrencyException ex)

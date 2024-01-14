@@ -53,7 +53,7 @@ namespace SupermarketManagementApp.DAO
         {
             try
             {
-                return await context.Set<T>().ToListAsync();
+                return await context.Set<T>().AsNoTracking().ToListAsync();
             }
             catch(Exception ex)
             {
