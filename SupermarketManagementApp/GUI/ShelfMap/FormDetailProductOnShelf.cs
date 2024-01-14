@@ -231,9 +231,13 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
                 var productSearch = listProduct.FirstOrDefault(p => p.ProductName == txtBoxProductName.Text);
                 dictionaryShelf[shelfDetail.ShelfDetailID].Product = productSearch;
                 if (productSearch != null)
+                {
                     txtBoxCapacity.Text = productSearch.ProductCapacity.ToString();
+                    dictionaryShelf[shelfDetail.ShelfDetailID].ProductID = productSearch.ProductID;
+                }
                 else
                 {
+                    txtBoxQuantity.Text = "0";
                     txtBoxCapacity.Text = "0";
                     dictionaryShelf[shelfDetail.ShelfDetailID].ProductID = null;
                 }
