@@ -23,6 +23,7 @@ namespace SupermarketManagementApp.GUI.Shelf
         private ShelfBUS shelfBUS = null;
         private List<DTO.Shelf> shelves = null;
         private ProductTypeBUS productTypeBUS = null;
+        private Timer timer = null;
         public FormShelfManagement(FormMain formMain)
         {
           
@@ -33,8 +34,27 @@ namespace SupermarketManagementApp.GUI.Shelf
             CustomStyleGridView();
             msgBoxInfo.Parent = formMain;
             msgBoxError.Parent = formMain;
-
+            timer = new Timer();
+            timer.Interval = 300;
+            timer.Tick += Timer_Tick;
             InitAllShelf();
+        }
+
+        private async void Timer_Tick(object sender, EventArgs e)
+        {
+            Result<IEnumerable<DTO.Shelf>> shelfResult = await shelfBUS.getAllShelf();
+            if (shelfResult.IsSuccess)
+            {
+                this.shelves = shelfResult.Data
+                .Where(p => p.ProductType.ProductTypeName.IndexOf(txtBoxSearchShelf.Text, StringComparison.OrdinalIgnoreCase) != -1)
+                .ToList();
+                await LoadGridData();
+            }
+            else
+            {
+                msgBoxError.Show(shelfResult.ErrorMessage);
+            }
+            timer.Stop();
         }
 
         public FormShelfManagement()
@@ -50,7 +70,7 @@ namespace SupermarketManagementApp.GUI.Shelf
             if (shelfResult.IsSuccess)
             {
                 this.shelves = shelfResult.Data.ToList();
-                LoadGridData();
+                await LoadGridData();
 
             }
             else
@@ -261,5 +281,11 @@ namespace SupermarketManagementApp.GUI.Shelf
             }
         }
         #endregion
+
+        private  void txtBoxSearchShelf_TextChanged(object sender, EventArgs e)
+        {
+            timer.Stop();
+            timer.Start();
+        }
     }
 }

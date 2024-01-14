@@ -74,7 +74,7 @@
             this.txtBoxSearchShelf.IconRightOffset = new System.Drawing.Point(15, -1);
             this.txtBoxSearchShelf.IconRightSize = new System.Drawing.Size(25, 25);
             this.txtBoxSearchShelf.Location = new System.Drawing.Point(45, 35);
-            this.txtBoxSearchShelf.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBoxSearchShelf.Margin = new System.Windows.Forms.Padding(4);
             this.txtBoxSearchShelf.Name = "txtBoxSearchShelf";
             this.txtBoxSearchShelf.PasswordChar = '\0';
             this.txtBoxSearchShelf.PlaceholderForeColor = System.Drawing.Color.Silver;
@@ -83,6 +83,7 @@
             this.txtBoxSearchShelf.Size = new System.Drawing.Size(285, 45);
             this.txtBoxSearchShelf.TabIndex = 10;
             this.txtBoxSearchShelf.TextOffset = new System.Drawing.Point(5, 0);
+            this.txtBoxSearchShelf.TextChanged += new System.EventHandler(this.txtBoxSearchShelf_TextChanged);
             // 
             // scrollBar
             // 

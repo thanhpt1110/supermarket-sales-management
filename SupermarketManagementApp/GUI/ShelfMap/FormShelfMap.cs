@@ -24,6 +24,7 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
         private List<DTO.Shelf> shelves;
         private int selectedFloor = 1;
         private bool load = false;
+        private Timer timer = null;
         // Tạo list để load thông tin shelves
         private (string ShelfID, string ShelfType, int UsedCapacity, int TotalCapacity)[] shelvesData;
 
@@ -37,7 +38,21 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
             InitializeComponent();
             this.formMain = formMain;
             shelfBUS = ShelfBUS.GetInstance();
+            timer = new Timer();
+            timer.Tick += Timer_Tick;
+            timer.Interval = 300;
+        }
 
+        private async void Timer_Tick(object sender, EventArgs e)
+        {
+            Result<IEnumerable<DTO.Shelf>> shelfResult = await shelfBUS.getAllShelf();
+            if (shelfResult.IsSuccess)
+            {
+                this.shelves = shelfResult.Data.Where(p => p.ProductType.ProductTypeName.IndexOf(txtBoxSearchShelf.Text, StringComparison.OrdinalIgnoreCase) != -1)
+                .ToList(); 
+                loadFloorData();
+            }
+            timer.Stop();   
         }
 
         // Phải load data trong sự kiện này thì UI mới cập nhật đúng
@@ -214,6 +229,12 @@ namespace SupermarketManagementApp.GUI.Product.ProductOnShelf
             string floor = parts[1];
             selectedFloor = int.Parse(floor);
             LoadShelfData();
+        }
+
+        private void txtBoxSearchShelf_TextChanged(object sender, EventArgs e)
+        {
+            timer.Stop();
+            timer.Start();
         }
     }
 }
