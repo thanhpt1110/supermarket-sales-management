@@ -105,8 +105,8 @@ namespace SupermarketManagementApp.BUS
                     int newQuantity = shelfDetail.ProductQuantity - oldShelfDetail.ProductQuantity;
                     if(shelfDetail.Product!=null)
                     {
-                        shelfDetail.ProductID = shelfDetail.Product.ProductID;
                         IEnumerable < ShelfDetail > shelfDetails1 = await unitOfWork.ShelfDetailRepositoryDAO.Find(p => p.ProductID == shelfDetail.ProductID);
+                        shelfDetail.ProductID = shelfDetail.Product.ProductID;
                         var findShelfDetail = shelfDetails1.FirstOrDefault();
                         if (findShelfDetail != null && findShelfDetail.ShelfID != shelfDetail.ShelfID)
                         {
