@@ -63,7 +63,7 @@ namespace SupermarketManagementApp.GUI.Report_Statistic
             Result<IEnumerable<DTO.CustomerInvoice>> cusInvoiceResult = await customerInvoiceBUS.getAllCustomerInvoice();
             if (cusInvoiceResult.IsSuccess)
             {
-                this.customerInvoices = cusInvoiceResult.Data.ToList();
+                this.customerInvoices = cusInvoiceResult.Data.ToList().OrderBy(p=>p.DatePayment).ToList();
             }
 
             DisplayChartData();
@@ -81,12 +81,42 @@ namespace SupermarketManagementApp.GUI.Report_Statistic
             Series series = new Series("TotalAmountSeries");
             series.ChartType = SeriesChartType.RangeColumn;
 
+            //foreach (var invoice in customerInvoices)
+            //{
+            //    if (invoice.DatePayment.HasValue && invoice.DatePayment.Value.Year == DateTime.Now.Year && invoice.DatePayment.Value.Month == DateTime.Now.Month)
+            //    {
+            //        series.Points.AddXY(invoice.DatePayment.Value, invoice.TotalAmount);
+            //    }
+            //}
+
+            Dictionary<string, double> weeklyTotalAmounts = new Dictionary<string, double>();
+            // Tạo một loạt dữ liệu mới
+
             foreach (var invoice in customerInvoices)
             {
                 if (invoice.DatePayment.HasValue && invoice.DatePayment.Value.Year == DateTime.Now.Year && invoice.DatePayment.Value.Month == DateTime.Now.Month)
                 {
-                    series.Points.AddXY(invoice.DatePayment.Value, invoice.TotalAmount);
+                    string dayteKey = $"({invoice.DatePayment.Value.Year}-{invoice.DatePayment.Value.Month}-{invoice.DatePayment.Value.Day})";
+                    
+                    // Kiểm tra xem khóa có trong Dictionary chưa
+                    if (weeklyTotalAmounts.ContainsKey(dayteKey))
+                    {
+                        // Nếu có, cộng thêm vào tổng
+                        weeklyTotalAmounts[dayteKey] += (double)invoice.TotalAmount;
+                    }
+                    else
+                    {
+                        // Nếu chưa, thêm vào Dictionary với giá trị là TotalAmount
+                        weeklyTotalAmounts.Add(dayteKey, (double)invoice.TotalAmount);
+                    }
                 }
+            }
+
+            // Thêm loạt dữ liệu vào Chart
+            // Thêm dữ liệu từ Dictionary vào loạt dữ liệu
+            foreach (var entry in weeklyTotalAmounts)
+            {
+                series.Points.AddXY(entry.Key, entry.Value);
             }
 
             // Thêm loạt dữ liệu vào Chart
@@ -97,7 +127,6 @@ namespace SupermarketManagementApp.GUI.Report_Statistic
             RevenueChart.ChartAreas[0].AxisY.MajorGrid.Enabled = true;
 
             // Đặt tên cho các trục và đồ thị
-            RevenueChart.ChartAreas[0].AxisX.LabelStyle.Format = "dd/MM/yyyy";
             RevenueChart.ChartAreas[0].AxisX.Title = "DatePayment";
             RevenueChart.ChartAreas[0].AxisY.Title = "TotalAmount";
         }
@@ -123,17 +152,37 @@ namespace SupermarketManagementApp.GUI.Report_Statistic
             // Xóa các dữ liệu hiện tại trên Chart (nếu có)
             RevenueChart.Series.Clear();
 
+            Dictionary<string, double> weeklyTotalAmounts = new Dictionary<string, double>();
             // Tạo một loạt dữ liệu mới
-            Series series = new Series("TotalAmountSeries");
-            series.ChartType = SeriesChartType.Column;
 
             foreach (var invoice in customerInvoices)
             {
                 if (invoice.DatePayment.HasValue && invoice.DatePayment.Value > firstDayOfWeek.AddDays(-1) && invoice.DatePayment.Value <= currentDate)
                 {
-                    // Thêm dữ liệu với trục X là tên thứ trong tuần
-                    series.Points.AddXY(invoice.DatePayment.Value.ToString("dddd"), invoice.TotalAmount);
+                    string dayteKey = $"{invoice.DatePayment.Value.Year}-{invoice.DatePayment.Value.Month}-{invoice.DatePayment.Value.Date}";
+
+                    // Kiểm tra xem khóa có trong Dictionary chưa
+                    if (weeklyTotalAmounts.ContainsKey(dayteKey))
+                    {
+                        // Nếu có, cộng thêm vào tổng
+                        weeklyTotalAmounts[dayteKey] += (double)invoice.TotalAmount;
+                    }
+                    else
+                    {
+                        // Nếu chưa, thêm vào Dictionary với giá trị là TotalAmount
+                        weeklyTotalAmounts.Add(dayteKey, (double)invoice.TotalAmount);
+                    }
                 }
+            }
+
+            // Thêm loạt dữ liệu vào Chart
+            Series series = new Series("TotalAmountSeries");
+            series.ChartType = SeriesChartType.Column;
+
+            // Thêm dữ liệu từ Dictionary vào loạt dữ liệu
+            foreach (var entry in weeklyTotalAmounts)
+            {
+                series.Points.AddXY(entry.Key, entry.Value);
             }
 
             // Thêm loạt dữ liệu vào Chart
@@ -142,6 +191,7 @@ namespace SupermarketManagementApp.GUI.Report_Statistic
             // Cài đặt các thuộc tính hiển thị trên Chart
             RevenueChart.ChartAreas[0].AxisX.MajorGrid.Enabled = true;
             RevenueChart.ChartAreas[0].AxisY.MajorGrid.Enabled = true;
+            RevenueChart.ChartAreas[0].AxisX.LabelStyle.Format = "dddd";
 
             // Đặt tên cho các trục và đồ thị
             RevenueChart.ChartAreas[0].AxisY.Title = "TotalAmount";
@@ -241,12 +291,22 @@ namespace SupermarketManagementApp.GUI.Report_Statistic
             Series series = new Series("TotalAmountSeries");
             series.ChartType = SeriesChartType.Column;
 
-            foreach (var invoice in customerInvoices)
+            //foreach (var invoice in customerInvoices)
+            //{
+            //    if (invoice.DatePayment.HasValue && invoice.DatePayment.Value >= dtpkFrom.Value && invoice.DatePayment.Value <= dtpkTo.Value)
+            //    {
+            //        series.Points.AddXY(invoice.DatePayment.Value, invoice.TotalAmount);
+            //    }
+            //}
+            Dictionary<string, double> weeklyTotalAmounts = new Dictionary<string, double>();
+            // Tạo một loạt dữ liệu mới
+
+
+            // Thêm loạt dữ liệu vào Chart
+            // Thêm dữ liệu từ Dictionary vào loạt dữ liệu
+            foreach (var entry in weeklyTotalAmounts)
             {
-                if (invoice.DatePayment.HasValue && invoice.DatePayment.Value >= dtpkFrom.Value && invoice.DatePayment.Value <= dtpkTo.Value)
-                {
-                    series.Points.AddXY(invoice.DatePayment.Value, invoice.TotalAmount);
-                }
+                series.Points.AddXY(entry.Key, entry.Value);
             }
 
 

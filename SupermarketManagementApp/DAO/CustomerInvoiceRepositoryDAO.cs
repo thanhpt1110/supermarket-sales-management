@@ -66,11 +66,11 @@ namespace SupermarketManagementApp.DAO
                 throw;
             }
         }
-        public override Task<IEnumerable<CustomerInvoice>> GetAll()
+        public override async Task<IEnumerable<CustomerInvoice>> GetAll()
         {
             try
             {
-                return base.GetAll();
+                return await base.GetAll();
             }
             catch
             {
