@@ -21,7 +21,7 @@ A simple Supermarket Sales Management application, designed on the WinForms plat
 
 Language: English.
 
-## Requirements
+## Technology Stack
 
 - Runtime environment:
 
@@ -34,6 +34,12 @@ Language: English.
 
    - Microsoft Visual Studio 2022+.
    - Microsoft SQL Server 2021+.
+
+## User Interface
+![Report & Statistic](/Demo%20UI/Reprt%20&%20Statistic.png)
+![Create Supplier Invoice](/Demo%20UI/Create%20Supplier%20Invoice.png)
+![Shelf Map](/Demo%20UI/ShelfMapManagement.png)
+![Product Management](/Demo%20UI/Product%20Management.png)
 
 ## Authors
 
